@@ -1,0 +1,30 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Werken met IF en ELSE",
+      "en": "Theory - IF and ELSE functions"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "If-functie",
+    "Else-functie",
+    "Theorie",
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "UgeYQUYnQtMptUpCX5RxQ6mwWe4HhAVK_QfhxN9Q4s26pVhQS6ip6x4jW-HHBftr",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

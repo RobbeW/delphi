@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Onbekenden A en B"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "if en else-functies",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "5ZuMFfUFJPBk_6pZXeUS-sv4TWw5AzaYwcFWVhWsJQ5-FPjBGiBEEu2Y7bHgbtdi",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Positief, negatief of nul"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "if en else-functies",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "e5-QCHJUrzBFGB9N75dE5bfi_NX4v2atMWPAJAFAgGDB-A_VcB9X2XVKqRTT9A2M",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
