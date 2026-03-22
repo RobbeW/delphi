@@ -1,0 +1,25 @@
+{
+  "description": {
+    "names": {
+      "nl": "Ramen en glasplaten"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Sequentie",
+    "Evaluatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "jaD_hnZ_paKHYDr_z5wiTetcgdwbzNYRRu9Xrx8sRaGQuUPHuVgAf_ghPE7VPzvM",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

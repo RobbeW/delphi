@@ -1,0 +1,25 @@
+{
+  "description": {
+    "names": {
+      "nl": "Codes in de bibliotheek"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Sequentie",
+    "Evaluatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "_65Fkkg7pj6t-3_-xj5cgzyRtXgJiPpWwXHYdtRsHkTUTw2-jdh2t3QfaU5x-6TD",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
