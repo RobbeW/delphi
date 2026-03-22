@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Legende van het schaakspel"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Evaluatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "gi2m8pFqwCFzTP6JHd8dzXe6pSpcRICv-BX86KJAqh77TxdUuVNyAC7f45AdfcaN",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

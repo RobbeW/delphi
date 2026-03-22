@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Schaapjes 🐑 tellen "
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Evaluatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "Z8RdFGasUqMVEvPNWn-6M7xNcXDpJ-R3jUn3Fm43E6vb9CvFTaRt9G3V63qn528t",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
