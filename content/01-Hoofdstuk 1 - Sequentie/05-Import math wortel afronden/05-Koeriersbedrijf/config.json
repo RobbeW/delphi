@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Koeriersbedrijf"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "import",
+    "Math",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "xqA_w5R5shFR2rbCKSYqAtmnCdqGH-KUgeaXvG2z_6vhHp9DYua573MaQcVTPft5",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

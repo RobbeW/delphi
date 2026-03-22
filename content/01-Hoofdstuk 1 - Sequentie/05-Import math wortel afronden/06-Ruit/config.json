@@ -1,0 +1,30 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Ruit"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "import",
+    "Math",
+    "Wortels",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "8q7bErFK47w546I_q6tSrnFYvS_YuHw88vn9-Xh5j4ye99J_xIR89GCgiE_kuXrZ",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

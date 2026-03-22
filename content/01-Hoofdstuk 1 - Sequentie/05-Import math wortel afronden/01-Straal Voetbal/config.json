@@ -1,0 +1,31 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Straal voetbal",
+      "en": "Radius Soccer Ball"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "import",
+    "Math",
+    "Pi",
+    "Wortels",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "dFmTyVKnpW2BgHkMVpVey7T_NqN4R6NFrsVSEv5I3HGR5xdTyrFEM-xjNAsuNEQG",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

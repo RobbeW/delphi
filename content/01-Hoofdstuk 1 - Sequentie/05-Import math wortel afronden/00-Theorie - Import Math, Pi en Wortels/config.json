@@ -1,0 +1,28 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Import Math, Pi en Wortels",
+      "en": "Theory - Import Math, Pi and Square Roots"
+    }
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "import",
+    "Math",
+    "Pi",
+    "Wortels",
+    "Video", 
+    "Theorie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "gfnxUEZGsAJeCSECz9hpV-6Zui9Eq3QRBvETnMJasV6WQX2A4Sidgsvv5e92CtKV",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
