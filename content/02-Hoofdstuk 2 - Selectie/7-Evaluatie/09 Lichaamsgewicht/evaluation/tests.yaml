@@ -1,0 +1,77 @@
+- tab: Feedback
+  contexts:
+  - testcases:
+    - stdin: '1'
+      stdout: "De ideale lichaamsmassa is 4.5 kg.\n"
+  - testcases:
+    - stdin: '5'
+      stdout: "De ideale lichaamsmassa is 6.5 kg.\n"
+  - testcases:
+    - stdin: '7'
+      stdout: "De ideale lichaamsmassa is 7.5 kg.\n"
+  - testcases:
+    - stdin: '11'
+      stdout: "De ideale lichaamsmassa is 9.5 kg.\n"
+  - testcases:
+    - stdin: '12'
+      stdout: "De ideale lichaamsmassa is 12.0 kg.\n"
+  - testcases:
+    - stdin: '20'
+      stdout: "De ideale lichaamsmassa is 13.3 kg.\n"
+  - testcases:
+    - stdin: '26'
+      stdout: "De ideale lichaamsmassa is 14.3 kg.\n"
+  - testcases:
+    - stdin: '30'
+      stdout: "De ideale lichaamsmassa is 15.0 kg.\n"
+  - testcases:
+    - stdin: '32'
+      stdout: "De ideale lichaamsmassa is 15.3 kg.\n"
+  - testcases:
+    - stdin: '39'
+      stdout: "De ideale lichaamsmassa is 16.5 kg.\n"
+  - testcases:
+    - stdin: '57'
+      stdout: "De ideale lichaamsmassa is 19.5 kg.\n"
+  - testcases:
+    - stdin: '58'
+      stdout: "De ideale lichaamsmassa is 19.7 kg.\n"
+  - testcases:
+    - stdin: '59'
+      stdout: "De ideale lichaamsmassa is 19.8 kg.\n"
+  - testcases:
+    - stdin: '65'
+      stdout: "De ideale lichaamsmassa is 20.8 kg.\n"
+  - testcases:
+    - stdin: '86'
+      stdout: "De ideale lichaamsmassa is 24.3 kg.\n"
+  - testcases:
+    - stdin: '90'
+      stdout: "De ideale lichaamsmassa is 25.0 kg.\n"
+  - testcases:
+    - stdin: '95'
+      stdout: "De ideale lichaamsmassa is 25.8 kg.\n"
+  - testcases:
+    - stdin: '100'
+      stdout: "De ideale lichaamsmassa is 26.7 kg.\n"
+  - testcases:
+    - stdin: '118'
+      stdout: "De ideale lichaamsmassa is 29.7 kg.\n"
+  - testcases:
+    - stdin: '120'
+      stdout: "De ideale lichaamsmassa is 30.0 kg.\n"
+  - testcases:
+    - stdin: '124'
+      stdout: "Dit kind is te oud om de formule van Leffler te gebruiken.\n"
+  - testcases:
+    - stdin: '127'
+      stdout: "Dit kind is te oud om de formule van Leffler te gebruiken.\n"
+  - testcases:
+    - stdin: '131'
+      stdout: "Dit kind is te oud om de formule van Leffler te gebruiken.\n"
+  - testcases:
+    - stdin: '132'
+      stdout: "Dit kind is te oud om de formule van Leffler te gebruiken.\n"
+  - testcases:
+    - stdin: '139'
+      stdout: "Dit kind is te oud om de formule van Leffler te gebruiken.\n"

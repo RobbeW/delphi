@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Pixels"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "Evaluatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "anRGHC7XS2pwAZ9BjEVRA4sfEtjFwAU8rBCYwres2q9YNnVk4wtHaF995SuDiaKW",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
