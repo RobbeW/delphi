@@ -1,0 +1,26 @@
+{
+  "description": {
+    "names": {
+      "nl": "Draakkromme"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Fractaal",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "wzYKfDVZJidHvGwEKxmARhs7IYfg4n6c3-RJUnA3SyY2FcBzQmsKBqz_KaH39grv",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

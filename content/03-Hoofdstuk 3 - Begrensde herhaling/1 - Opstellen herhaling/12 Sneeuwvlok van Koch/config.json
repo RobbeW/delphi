@@ -1,0 +1,26 @@
+{
+  "description": {
+    "names": {
+      "nl": "Sneeuwvlok van Koch"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Fractaal",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "3bfqY56SJH6D99e_YgRDbw_vYbU94Y8MKPQNubdeX4s25UNJsptH2skGBy9BqyP6",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
