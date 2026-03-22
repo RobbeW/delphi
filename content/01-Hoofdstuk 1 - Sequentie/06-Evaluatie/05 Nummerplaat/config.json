@@ -1,0 +1,26 @@
+{
+  "description": {
+    "names": {
+      "nl": "Kenteken"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Evaluatie",
+    "Concatentatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "JYiMTNbv62erqX-er4dPyIVDC6GFbixgCVWB-WmpEit57X-4xKEMq9-6iM5tPqkT",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "description": {
+    "names": {
+      "nl": "Papiersoorten"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Evaluatie",
+    "Concatenatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "IiuhxTG29dF8AZtKMMSpczY_3H5ePVtWIiJveD-665GfNJ4Ufv3iBI853JNdHTxB",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
