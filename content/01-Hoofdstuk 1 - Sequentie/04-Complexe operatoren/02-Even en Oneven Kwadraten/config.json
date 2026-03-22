@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Even en oneven kwadraten",
+      "en": "Even and Odd Squared"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Modulo",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "ve-WSQJAK5fVmdDJypuiSSI-BIjBgbEGudzTVsNharIwiVk3yW6cdm9RwUQuMp5j",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

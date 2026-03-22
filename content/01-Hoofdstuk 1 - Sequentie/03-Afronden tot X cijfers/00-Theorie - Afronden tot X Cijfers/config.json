@@ -1,0 +1,28 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Afronden tot X Cijfers",
+      "en": "Theory - Rounding Numbers"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Afronden",
+    "Theorie", 
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "zrpRGPCwtCU3qHHIwJHbiFmhIuAWZMI36umrfanBZvg_E-RbRWAyA6Kh23r8Y55f",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

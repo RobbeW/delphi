@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "description": {
+    "names": {
+      "nl": "Brandstofverbruik"
+    }
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Afronden",
+    "round()",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "VsIi_S9BnCrhGPeI8nUu_DZJtXYBgu4tdTIC7hTDSQaTKKV3C5evgHHf-BZTQVPm",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

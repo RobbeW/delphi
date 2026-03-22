@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Middencirkel"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Afronden",
+    "round()",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "qcZSVDHRyEG3CKAQQE2sx8hq7ZYTCpsHe99s_vZeeZjcKbVXzz_yz5DR9IE6C4nY",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
