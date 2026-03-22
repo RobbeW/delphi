@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Oppervlakte en omtrek rechthoek"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Concateneren",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "7yVVtIsDQwWRun5EbzSwrrgWXKAy3-gy5__-Ys4gWVIAQ-Qqs6RK9XBXdUvT5p-f",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

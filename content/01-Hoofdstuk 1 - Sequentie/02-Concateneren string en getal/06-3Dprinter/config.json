@@ -1,0 +1,25 @@
+{
+  "description": {
+    "names": {
+      "nl": "3D-printer"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Concateneren",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "JP9GNsJJJne-_drBWBzhHEr3sRShC467BP2WtDJqarXwgmhSCN8MeQrPb77xxpHb",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

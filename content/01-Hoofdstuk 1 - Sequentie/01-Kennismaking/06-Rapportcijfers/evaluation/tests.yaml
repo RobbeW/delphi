@@ -1,0 +1,14 @@
+- tab: Feedback
+  contexts:
+    - testcases:
+        - stdin: "11\n16.5\n10"
+          stdout: "Geef je resultaat voor toets 1: \nGeef je resultaat voor toets 2: \nGeef je resultaat voor toets 3: \nTotaal: 37.5\nGemiddelde: 12.5\nPercentage: 62.5\n"
+    - testcases:
+        - stdin: "9\n7\n11"
+          stdout: "Geef je resultaat voor toets 1: \nGeef je resultaat voor toets 2: \nGeef je resultaat voor toets 3: \nTotaal: 27.0\nGemiddelde: 9.0\nPercentage: 45.0\n"
+    - testcases:
+        - stdin: "0\n0.5\n1"
+          stdout: "Geef je resultaat voor toets 1: \nGeef je resultaat voor toets 2: \nGeef je resultaat voor toets 3: \nTotaal: 1.5\nGemiddelde: 0.5\nPercentage: 2.5\n"
+    - testcases:
+        - stdin: "10\n9.9\n10.1"
+          stdout: "Geef je resultaat voor toets 1: \nGeef je resultaat voor toets 2: \nGeef je resultaat voor toets 3: \nTotaal: 30.0\nGemiddelde: 10.0\nPercentage: 50.0\n"

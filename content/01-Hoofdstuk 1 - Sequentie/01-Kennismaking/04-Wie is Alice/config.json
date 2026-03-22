@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Wie is Alice?",
+      "en": "Who is Alice?"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Input-functie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "cFC6XTt6XNj9KVqcUmdtX5VjEm5jncRCqZnUzu9ws6S9Kr8r87XXiXFxgtpW9Ii-",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

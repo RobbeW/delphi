@@ -1,0 +1,28 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Concateneren String en Getal",
+      "en": "Theory - Combining Strings and Numbers"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Concateneren",
+    "Theorie",
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "DS3ha7j2gs7eS9fiYMr5wdvPDg6WIydUU535Wp3buT6ZIxetum42aZI4z9Gt_VYk",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

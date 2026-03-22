@@ -1,0 +1,17 @@
+- tab: Feedback
+  contexts:
+    - testcases:
+        - stdin: "500"
+          stdout: "4500\n9.0"
+    - testcases:
+        - stdin: "1200"
+          stdout: "8000\n6.666666666666667"
+    - testcases:
+        - stdin: "150"
+          stdout: "2750\n18.333333333333332"
+    - testcases:
+        - stdin: "10"
+          stdout: "2050\n205.0"
+    - testcases:
+        - stdin: "1"
+          stdout: "2005\n2005.0"

@@ -1,0 +1,20 @@
+- tab: Feedback
+  contexts:
+  - testcases:
+    - stdin: "Alice"
+      stdout: "Hallo, mijn naam is Alice"
+  - testcases:
+    - stdin: "Jan
+      stdout: "Hallo, mijn naam is Jan"
+  - testcases:
+    - stdin: "Harry\nPotter\nLigusterlaan"
+      stdout: "De bestelling wordt verzonden naar: Harry Potter in de Ligusterlaan.\n"
+  - testcases:
+    - stdin: "Piet"
+      stdout: "Hallo, mijn naam is Piet"
+  - testcases:
+    - stdin: "Joris"
+      stdout: "Hallo, mijn naam is Joris"
+  - testcases:
+    - stdin: "Korneel"
+      stdout: "Hallo, mijn naam is Korneel"

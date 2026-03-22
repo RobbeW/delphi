@@ -1,0 +1,25 @@
+{
+  "description": {
+    "names": {
+      "nl": "Online bestelling Deel 2"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Concateneren",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "access": "public",
+  "internals": {
+    "token": "Gz2hu-x_v6wynqaKsmb-RbhV76JD6jB4XkSxhs6aA-sk2G3QiW7sq-qZC_nBhjQr",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

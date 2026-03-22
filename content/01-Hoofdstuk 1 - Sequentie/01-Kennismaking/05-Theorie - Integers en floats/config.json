@@ -1,0 +1,29 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Integers en Floats",
+      "en": "Theory - Integers and floats"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Integers",
+    "Floats",
+    "Theorie", 
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "iPICMbaHDvFBxJw_bj862zgWm83-GNJHm_maI3p6taU_RPtRQ5W2xvHwewi2aAbM",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

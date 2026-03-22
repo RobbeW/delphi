@@ -1,0 +1,28 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Datatypes",
+      "en": "Theory - Datatypes"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Strings",
+    "Theorie", 
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Robbe Wulgaert",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "VT7DZRv_E_WWtuD2CH4xGBKRCe637CMxdIFR3R-TDq2AG_r38j9XWCKEjAwnMwAR",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

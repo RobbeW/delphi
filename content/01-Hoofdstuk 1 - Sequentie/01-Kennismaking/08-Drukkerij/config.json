@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Drukkerij"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Sequentie",
+    "Operatoren",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "4-TVf2SbXdbkaEwVtUEimYJNGaUm8wNNPqsAWaBww-WY4Q8yamvvCJapirJAPi3B",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
