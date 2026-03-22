@@ -4,11 +4,11 @@
     - stdin: "Alice"
       stdout: "Hallo, mijn naam is Alice"
   - testcases:
-    - stdin: "Jan
+    - stdin: "Jan"
       stdout: "Hallo, mijn naam is Jan"
   - testcases:
-    - stdin: "Harry\nPotter\nLigusterlaan"
-      stdout: "De bestelling wordt verzonden naar: Harry Potter in de Ligusterlaan.\n"
+    - stdin: "Harry"
+      stdout: "Hallo, mijn naam is Harry"
   - testcases:
     - stdin: "Piet"
       stdout: "Hallo, mijn naam is Piet"
