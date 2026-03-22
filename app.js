@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260322-37";
+const APP_VERSION = "20260322-38";
 
 const state = {
   editor: null,
@@ -173,6 +173,10 @@ function cacheUiRefs() {
   ui.pdfClassName = byId("pdf-class-name");
   ui.pdfCancel = byId("pdf-cancel");
   ui.pdfConfirm = byId("pdf-confirm");
+  ui.resetModal = byId("reset-modal");
+  ui.resetCurrent = byId("reset-current");
+  ui.resetAll = byId("reset-all");
+  ui.resetCancel = byId("reset-cancel");
   ui.mainLayout = byId("main-layout");
   ui.editorPane = byId("editor-pane");
   ui.splitter = byId("splitter");
@@ -1600,6 +1604,27 @@ function openPdfModal() {
 
   if (ui.pdfFirstName) {
     ui.pdfFirstName.focus();
+  }
+}
+
+function closeResetModal() {
+  if (!ui.resetModal) {
+    return;
+  }
+  moveFocusOutsideModal(ui.resetModal);
+  ui.resetModal.classList.remove("open");
+  ui.resetModal.setAttribute("aria-hidden", "true");
+}
+
+function openResetModal() {
+  if (!ui.resetModal) {
+    showToast("Resetvenster kon niet geopend worden.", false);
+    return;
+  }
+  ui.resetModal.classList.add("open");
+  ui.resetModal.setAttribute("aria-hidden", "false");
+  if (ui.resetCurrent) {
+    ui.resetCurrent.focus();
   }
 }
 
@@ -3382,20 +3407,82 @@ async function runCode() {
   }
 }
 
-async function resetEditorCode() {
-  const shouldReset = window.confirm("Wil je alle vooruitgang wissen en terug naar de startcode gaan?");
-  if (!shouldReset) {
+function clearSnapshotsForExercise(exerciseId) {
+  if (!exerciseId) {
     return;
   }
+  const encodedExerciseId = encodeURIComponent(String(exerciseId));
+  const needle = `:${encodedExerciseId}:`;
+  const keys = getSnapshotIndexKeys();
+  const kept = [];
+
+  keys.forEach((key) => {
+    if (key.includes(needle)) {
+      localStorage.removeItem(key);
+    } else {
+      kept.push(key);
+    }
+  });
+
+  writeSnapshotIndexKeys(kept);
+}
+
+function clearAllProgressData() {
+  const keys = Object.keys(localStorage);
+  keys.forEach((key) => {
+    const isScopedExerciseData =
+      key.startsWith(`${STORAGE.code}:`) ||
+      key.startsWith(`${STORAGE.attempts}:`) ||
+      key.startsWith(`${STORAGE.workMs}:`) ||
+      key.startsWith(`${STORAGE.evalStatus}:`);
+
+    const isGlobalProgressData =
+      key === STORAGE.selection ||
+      key === STORAGE.snapshotsIndex ||
+      key.startsWith(`${STORAGE.snapshotsPrefix}:`);
+
+    if (isScopedExerciseData || isGlobalProgressData) {
+      localStorage.removeItem(key);
+    }
+  });
+}
+
+async function resetCurrentExerciseProgress() {
+  const exercise = getCurrentExercise();
+  const exerciseId = getCurrentExerciseId();
+  const starter = await resolveStarterCode(exercise);
+  state.editor.setValue(starter);
+  localStorage.setItem(toScopedStorageKey(STORAGE.code, exerciseId), starter);
+  localStorage.removeItem(toScopedStorageKey(STORAGE.attempts, exerciseId));
+  localStorage.removeItem(toScopedStorageKey(STORAGE.workMs, exerciseId));
+  if (exercise && exercise.id) {
+    setExerciseEvalStatus(exercise.id, null);
+    clearSnapshotsForExercise(exercise.id);
+  }
+  clearOutputPanels();
+  resetWorkTimer();
+  updateMetrics();
+  renderProgress();
+  renderChapterMenu();
+  refreshRuntimeInputStatus();
+  showToast("Alleen de huidige oefening werd gewist.", true);
+}
+
+async function resetAllCourseProgress() {
+  clearAllProgressData();
 
   const starter = await resolveStarterCode(getCurrentExercise());
   state.editor.setValue(starter);
   localStorage.setItem(toScopedStorageKey(STORAGE.code), starter);
+  persistSelection();
+
   clearOutputPanels();
-  setAttempts(0);
   resetWorkTimer();
   updateMetrics();
-  showToast("Startcode hersteld.", true);
+  renderProgress();
+  renderChapterMenu();
+  refreshRuntimeInputStatus();
+  showToast("De volledige cursusvoortgang werd gewist.", true);
 }
 
 function breakLongTokensForPdf(text, chunk = 80) {
@@ -3768,7 +3855,7 @@ function setupSplitter() {
 function setupEventHandlers() {
   ui.toggleTheme.addEventListener("click", toggleTheme);
   ui.runButton.addEventListener("click", runCode);
-  ui.resetProgress.addEventListener("click", resetEditorCode);
+  ui.resetProgress.addEventListener("click", openResetModal);
   ui.exportPdf.addEventListener("click", openPdfModal);
 
   if (ui.runtimeInputSend) {
@@ -3827,6 +3914,29 @@ function setupEventHandlers() {
     });
   }
 
+  if (ui.resetModal) {
+    if (ui.resetCurrent) {
+      ui.resetCurrent.addEventListener("click", async () => {
+        closeResetModal();
+        await resetCurrentExerciseProgress();
+      });
+    }
+    if (ui.resetAll) {
+      ui.resetAll.addEventListener("click", async () => {
+        closeResetModal();
+        await resetAllCourseProgress();
+      });
+    }
+    if (ui.resetCancel) {
+      ui.resetCancel.addEventListener("click", closeResetModal);
+    }
+    ui.resetModal.addEventListener("click", (event) => {
+      if (event.target === ui.resetModal) {
+        closeResetModal();
+      }
+    });
+  }
+
   ui.menuTab.addEventListener("click", (event) => {
     event.stopPropagation();
     openMenu();
@@ -3855,6 +3965,7 @@ function setupEventHandlers() {
       closeMenu();
       closeEvaluationModal();
       closePdfModal();
+      closeResetModal();
     }
     if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
       event.preventDefault();

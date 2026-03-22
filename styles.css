@@ -1001,6 +1001,20 @@ body {
   flex-wrap: wrap;
 }
 
+.reset-modal-box {
+  max-width: min(94vw, 560px);
+}
+
+.reset-modal-box h3 {
+  margin: 0 0 0.4rem;
+  color: var(--brand-purple);
+}
+
+.reset-modal-actions {
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
 .eval-modal-box {
   max-width: min(96vw, 980px);
   max-height: 88vh;
@@ -1344,6 +1358,10 @@ body.dark .modal-input {
 }
 
 body.dark .pdf-modal-box h3 {
+  color: #fff;
+}
+
+body.dark .reset-modal-box h3 {
   color: #fff;
 }
 
