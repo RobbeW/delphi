@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Ontbinden in priemfactoren"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "5EdmxW5zf46fdkDxUM9CZNqEzC7vVARzYDhzYXdSFKIp4Qs4vXUwiKWNt-iX5umX",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

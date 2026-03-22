@@ -1,0 +1,5 @@
+- tab: Feedback
+  contexts:
+  - testcases:
+    - stdin: none
+      stdout: "1 : 2\n2 : 6\n3 : 14\n"

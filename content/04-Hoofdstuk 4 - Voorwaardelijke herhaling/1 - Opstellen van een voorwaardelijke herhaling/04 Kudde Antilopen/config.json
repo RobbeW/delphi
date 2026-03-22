@@ -1,0 +1,30 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Kudde antilopen"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Import",
+    "Math",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "fER8pmrEVzsyKGDiC6EbXiqbSdpQwHFgGQRRwTBsY_iTzXqXn6SVhRFVBTgKrQNW",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Papier vouwen"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "R2A4chzKK6k4GnmbQ_WThQxiPjz5fWJVtc_vdZkyyUsYtS5Pz8w5PXdwdKTgFDMV",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

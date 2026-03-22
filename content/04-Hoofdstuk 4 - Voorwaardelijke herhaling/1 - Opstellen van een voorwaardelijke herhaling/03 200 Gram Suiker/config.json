@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "200 gram suiker schatten"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.json"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Random-functie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "AVqd9eTptRRZDBfyirg5qmV2gJGbEx6uYHUWta7j4hAPbEHNiCawHfIVRNPf7aTg",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
