@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Kratten water"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Sequentie",
+    "Evaluatie",
+    "Modulo",
+    "Complexe operatoren",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "kK4ZFnbPAd6ZtYzV-ZJZaEVDdsG4YAcZE3Hsj9DiPYVv82QPVEx8idQcgJZAVbtj",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

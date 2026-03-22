@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Controlegetal Bij De Bank"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Selectie",
+    "if, else en elif-functies",
+    "Gelijk en ongelijk",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "TRtQKkvHJJDWDu29JQ7qWGJ9XqwSxmjutwf3G3tKEvZT8xnVz2DAwKKwUhVkehES",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
