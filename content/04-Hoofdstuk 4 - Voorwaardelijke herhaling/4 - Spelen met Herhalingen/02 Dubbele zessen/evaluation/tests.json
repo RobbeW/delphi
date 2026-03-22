@@ -1,0 +1,429 @@
+{
+  "tabs": [
+    {
+      "name": "Feedback",
+      "contexts": [
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(7247)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 7247 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 13\nAantal worpen speler 2: 34\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(8884)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 8884 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 1\nAantal worpen speler 2: 14\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(9864)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 9864 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 11\nAantal worpen speler 2: 42\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6508)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 6508 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 41\nAantal worpen speler 2: 36\nSpeler 2 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(4979)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 4979 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 54\nAantal worpen speler 2: 31\nSpeler 2 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(7647)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 7647 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 19\nAantal worpen speler 2: 26\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6507)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 6507 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 11\nAantal worpen speler 2: 5\nSpeler 2 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(8765)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 8765 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 8\nAantal worpen speler 2: 29\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(5752)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 5752 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 111\nAantal worpen speler 2: 20\nSpeler 2 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6548)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 6548 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 58\nAantal worpen speler 2: 26\nSpeler 2 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(7225)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 7225 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 23\nAantal worpen speler 2: 23\nGelijkstand.\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(8939)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 8939 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 21\nAantal worpen speler 2: 34\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(3404)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 3404 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 67\nAantal worpen speler 2: 106\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(9833)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 9833 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 62\nAantal worpen speler 2: 48\nSpeler 2 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(388)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 388 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 8\nAantal worpen speler 2: 47\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(4446)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 4446 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 51\nAantal worpen speler 2: 130\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(3027)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 3027 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 12\nAantal worpen speler 2: 43\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(430)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 430 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 20\nAantal worpen speler 2: 39\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(2342)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 2342 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 11\nAantal worpen speler 2: 8\nSpeler 2 wint!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(5147)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 5147 leidt tot het onderstaande",
+              "input": {
+                "stdin": "none"
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Aantal worpen speler 1: 5\nAantal worpen speler 2: 6\nSpeler 1 wint!\n"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Jobstudent bij de spaarbank",
+      "en": "Student bank savings"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.json"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Evaluatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "6W5WCGIM9eTSTNgPbIFeWB_sbBYX48zwgM-CaT8F2bWH-bcVctyXKJr-zhyEnME9",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

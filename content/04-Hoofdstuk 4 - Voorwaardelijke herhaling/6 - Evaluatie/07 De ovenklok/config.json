@@ -1,0 +1,30 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "De ovenklok",
+      "en": "The oven clock"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Evaluatie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "5zfi9gR6CBUtwyDtCTIZEBZ2A9bCWJ9hmq5U39zHGzXazT7VfP9NYyhsVFcAJAP9",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Blackjack"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.json"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Random-functie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "sXTnMW_tkuhWNmmXu-HyczKBwXUPPYv8F5MWiND9yzTNKT4XP9Z2733EGeUx2Ipr",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
