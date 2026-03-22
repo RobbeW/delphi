@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Lijsten en Herhalingen - Verkoopsaantallen",
+      "en": "Lists and Iterations - Sales Numbers"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Lijsten",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "zTqNyFVEDI6223u_NwtVVVVki9rNMVMCT6A6qH_EaTMCeMP5wwJMwHwEAP9-S_zt",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Simulatie dobbelsteenworpen",
+      "en": "Simulating rolling dice"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.json",
+    "time_limit": 120
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Random-functie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "gMhGeGUtq4sQcd7ZM7AaxJHm2g9jnk_Fftus3km5JjZSR3gEb7YCKC4GrMw54iE9",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Import random",
+      "en": "Theory - Import random"
+    }
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Random-functie",
+    "Theorie",
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "V5vvAwIHK_GgBAPssMNNRrUCHUsV-KHdrg85TXKKZYPG-Pi8hsWvaICVy7bkN3G8",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
