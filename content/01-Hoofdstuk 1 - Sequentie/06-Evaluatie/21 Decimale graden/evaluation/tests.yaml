@@ -1,0 +1,62 @@
+- tab: Feedback
+  contexts:
+  - testcases:
+    - stdin: "3\n630"
+      stdout: "Dit komt overeen met 3 graden 37 minuten en 48 seconden.\n"
+  - testcases:
+    - stdin: "5\n980"
+      stdout: "Dit komt overeen met 5 graden 58 minuten en 48 seconden.\n"
+  - testcases:
+    - stdin: "12\n50"
+      stdout: "Dit komt overeen met 12 graden 3 minuten en 0 seconden.\n"
+  - testcases:
+    - stdin: "12\n810"
+      stdout: "Dit komt overeen met 12 graden 48 minuten en 36 seconden.\n"
+  - testcases:
+    - stdin: "19\n445"
+      stdout: "Dit komt overeen met 19 graden 26 minuten en 42 seconden.\n"
+  - testcases:
+    - stdin: "25\n750"
+      stdout: "Dit komt overeen met 25 graden 45 minuten en 0 seconden.\n"
+  - testcases:
+    - stdin: "25\n755"
+      stdout: "Dit komt overeen met 25 graden 45 minuten en 18 seconden.\n"
+  - testcases:
+    - stdin: "28\n615"
+      stdout: "Dit komt overeen met 28 graden 36 minuten en 54 seconden.\n"
+  - testcases:
+    - stdin: "32\n990"
+      stdout: "Dit komt overeen met 32 graden 59 minuten en 24 seconden.\n"
+  - testcases:
+    - stdin: "42\n155"
+      stdout: "Dit komt overeen met 42 graden 9 minuten en 18 seconden.\n"
+  - testcases:
+    - stdin: "45\n475"
+      stdout: "Dit komt overeen met 45 graden 28 minuten en 30 seconden.\n"
+  - testcases:
+    - stdin: "47\n920"
+      stdout: "Dit komt overeen met 47 graden 55 minuten en 12 seconden.\n"
+  - testcases:
+    - stdin: "58\n280"
+      stdout: "Dit komt overeen met 58 graden 16 minuten en 48 seconden.\n"
+  - testcases:
+    - stdin: "61\n500"
+      stdout: "Dit komt overeen met 61 graden 30 minuten en 0 seconden.\n"
+  - testcases:
+    - stdin: "65\n95"
+      stdout: "Dit komt overeen met 65 graden 5 minuten en 42 seconden.\n"
+  - testcases:
+    - stdin: "69\n55"
+      stdout: "Dit komt overeen met 69 graden 3 minuten en 18 seconden.\n"
+  - testcases:
+    - stdin: "70\n160"
+      stdout: "Dit komt overeen met 70 graden 9 minuten en 36 seconden.\n"
+  - testcases:
+    - stdin: "75\n290"
+      stdout: "Dit komt overeen met 75 graden 17 minuten en 24 seconden.\n"
+  - testcases:
+    - stdin: "75\n935"
+      stdout: "Dit komt overeen met 75 graden 56 minuten en 6 seconden.\n"
+  - testcases:
+    - stdin: "77\n655"
+      stdout: "Dit komt overeen met 77 graden 39 minuten en 18 seconden.\n"
