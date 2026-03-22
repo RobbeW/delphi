@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Dubbele klinkers"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Lijsten",
+    "String",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "P87NxEA284gMAtTtWkU3TjSvQZYtevec6Z99JUqiGdBDcRd4NE9YSxctXUF5NR4H",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

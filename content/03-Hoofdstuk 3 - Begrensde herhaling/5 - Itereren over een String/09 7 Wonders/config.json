@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "7 Wonders"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Lijsten",
+    "String",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "NgrrrmUdCbaCVwuWFJYjmQvEJB5JdNDUsgnvc3MtEQxJTx497JPxmd2qgNe3P72A",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Rij van Fibonacci",
+      "en": "Theory - Fibonacci's Row"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Lijsten",
+    "Append-functie",
+    "Fibonacci",
+    "Theorie",
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "A2MW5MPu7pMMMUUMk97rAI-6xNykM9X8wCQyUdI6c5jABs2m3wrcyjDjTpMtGNDB",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

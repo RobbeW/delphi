@@ -1,0 +1,30 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Woord omdraaien"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Lijsten",
+    "String",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "8b7qRVbvYIbd59yK9KImhxcs5AgN_smyMipBVPir7XaN9ckT_aFJb8yg4ywTGctz",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

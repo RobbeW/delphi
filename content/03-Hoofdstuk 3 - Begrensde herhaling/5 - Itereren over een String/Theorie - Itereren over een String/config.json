@@ -1,0 +1,30 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Itereren over een String",
+      "en": "Theory - Iterate using a String"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Lijsten",
+    "String",
+    "Theorie",
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "25x4aQwctygUhDSUnfXjN_nQNHFVyuBSs3uNv-DxSCtiMSFGsFfszQyJaZrIb83E",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

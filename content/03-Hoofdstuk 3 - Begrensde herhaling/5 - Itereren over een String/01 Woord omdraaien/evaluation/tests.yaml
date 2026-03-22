@@ -1,0 +1,50 @@
+- tab: Feedback
+  contexts:
+  - testcases:
+    - stdin: limonade
+      stdout: "edanomil\n"
+  - testcases:
+    - stdin: amerika
+      stdout: "akirema\n"
+  - testcases:
+    - stdin: bushalte
+      stdout: "etlahsub\n"
+  - testcases:
+    - stdin: slingeraap
+      stdout: "paaregnils\n"
+  - testcases:
+    - stdin: basketbal
+      stdout: "labteksab\n"
+  - testcases:
+    - stdin: fruitboom
+      stdout: "moobtiurf\n"
+  - testcases:
+    - stdin: ridderzaal
+      stdout: "laazreddir\n"
+  - testcases:
+    - stdin: bakpapier
+      stdout: "reipapkab\n"
+  - testcases:
+    - stdin: donderdag
+      stdout: "gadrednod\n"
+  - testcases:
+    - stdin: trommelaar
+      stdout: "raalemmort\n"
+  - testcases:
+    - stdin: betoveren
+      stdout: "nerevoteb\n"
+  - testcases:
+    - stdin: fotoalbum
+      stdout: "mublaotof\n"
+  - testcases:
+    - stdin: slaapfeest
+      stdout: "tseefpaals\n"
+  - testcases:
+    - stdin: metrokaart
+      stdout: "traakortem\n"
+  - testcases:
+    - stdin: tafelpoot
+      stdout: "tooplefat\n"
+  - testcases:
+    - stdin: simkaart
+      stdout: "traakmis\n"

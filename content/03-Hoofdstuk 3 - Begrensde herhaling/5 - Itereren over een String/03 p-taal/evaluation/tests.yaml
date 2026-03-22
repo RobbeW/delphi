@@ -1,0 +1,80 @@
+- tab: Feedback
+  contexts:
+  - testcases:
+    - stdin: hallo
+      stdout: "hapallopo\n"
+  - testcases:
+    - stdin: bakker
+      stdout: "bapakkeper\n"
+  - testcases:
+    - stdin: molen
+      stdout: "mopolepen\n"
+  - testcases:
+    - stdin: wacht
+      stdout: "wapacht\n"
+  - testcases:
+    - stdin: grond
+      stdout: "gropond\n"
+  - testcases:
+    - stdin: vis
+      stdout: "vipis\n"
+  - testcases:
+    - stdin: lamp
+      stdout: "lapamp\n"
+  - testcases:
+    - stdin: zon
+      stdout: "zopon\n"
+  - testcases:
+    - stdin: tafel
+      stdout: "tapafepel\n"
+  - testcases:
+    - stdin: koffer
+      stdout: "kopoffeper\n"
+  - testcases:
+    - stdin: mama
+      stdout: "mapamapa\n"
+  - testcases:
+    - stdin: blik
+      stdout: "blipik\n"
+  - testcases:
+    - stdin: peper
+      stdout: "pepepeper\n"
+  - testcases:
+    - stdin: ster
+      stdout: "steper\n"
+  - testcases:
+    - stdin: kerk
+      stdout: "keperk\n"
+  - testcases:
+    - stdin: kam
+      stdout: "kapam\n"
+  - testcases:
+    - stdin: glas
+      stdout: "glapas\n"
+  - testcases:
+    - stdin: markt
+      stdout: "maparkt\n"
+  - testcases:
+    - stdin: appel
+      stdout: "apappepel\n"
+  - testcases:
+    - stdin: klok
+      stdout: "klopok\n"
+  - testcases:
+    - stdin: pint
+      stdout: "pipint\n"
+  - testcases:
+    - stdin: hemd
+      stdout: "hepemd\n"
+  - testcases:
+    - stdin: haring
+      stdout: "hapariping\n"
+  - testcases:
+    - stdin: pot
+      stdout: "popot\n"
+  - testcases:
+    - stdin: bad
+      stdout: "bapad\n"
+  - testcases:
+    - stdin: wind
+      stdout: "wipind\n"
