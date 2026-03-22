@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Onderscheiding"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "if, else en elif-functies",
+    "AND en OR",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "e6jZg2F5fNmuGky3Edk6RRd6G2Y4RvWDFwIQJMAeGD_tKDstBkJ5ZEPrkRVNem6S",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

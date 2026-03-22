@@ -1,0 +1,29 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - Gecompliceerde Voorwaarden - Gelijk-Ongelijk",
+      "en": "Theory - Complicated Conditions - Equal-Unequal"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "if, else en elif-functies",
+    "Gelijk en ongelijk",
+    "Theorie",
+    "Video",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "dCN8Y2ecRf9IbvY5_cESSrbSPkCtx3TEUKbKx83sgERIPyGCzWprDRjEbt4fgjmq",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}

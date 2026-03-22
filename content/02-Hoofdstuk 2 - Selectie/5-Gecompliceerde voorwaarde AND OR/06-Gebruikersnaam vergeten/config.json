@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Gebruikersnaam vergeten"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "if, else en elif-functies",
+    "AND en OR",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "5iiUzisakiwcD3RVUqpa3iXZ5K3jbACDqRh6I7_8bEbYfxsZYtEFVezn9J-Dw8eB",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
