@@ -16,7 +16,7 @@ Geef daarna **ook de classificatie** weer op het scherm.
 #### Formule 
 
 $$
-\mathsf{\text{BMI} = \dfrac{m}{{\ell}^2}}
+\mathsf{\text{BMI} = \dfrac{m}{\ell^2}}
 $$
 
 #### Voorbeeld
