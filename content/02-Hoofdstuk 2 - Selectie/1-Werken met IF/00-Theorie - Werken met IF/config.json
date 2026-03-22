@@ -1,0 +1,28 @@
+{
+  "description": {
+    "names": {
+      "nl": "Theorie - IF-Functie",
+      "en": "Theory - IF function"
+    }
+  },
+  "evaluation": {
+    "pythia_judge": "output"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Selectie",
+    "Theorie",
+    "Video",
+    "If-functie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "type": "content",
+  "access": "public",
+  "internals": {
+    "token": "3w7CVynWib5gbAJc2zCUxWpk5Bn7R8I3-ADsk28JS8jBzW5HswAjmi64RIvs_j49",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
