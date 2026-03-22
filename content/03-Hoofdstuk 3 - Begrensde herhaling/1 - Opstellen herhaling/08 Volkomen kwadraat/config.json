@@ -1,0 +1,27 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Volkomen kwadraat"
+    }
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python", 
+    "Python in de Klas", 
+    "Begrensde Herhaling",
+    "For-lus",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "internals": {
+    "token": "VsnZQUuezDi98beAPGNA7dpByymgeeKit-cyGXvmPbr7pQ5sQK8rt3R5IZZVvzv5",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
+}
