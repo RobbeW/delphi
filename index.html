@@ -1,0 +1,325 @@
+<!-- Copyright 2026 - Gebruik vrij voor educatie mits expliciete naamsvermelding -->
+<!--Auteur: Robbe Wulgaert / aiindeklas.be-->
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Delphi - Python in de Klas</title>
+  <meta name="description" content="Lichtgewicht Python leeromgeving voor in de klas">
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="exercise-progress" id="exercise-progress" aria-label="Voortgang"></div>
+
+    <div class="opdracht" id="opdracht">
+      <strong id="opdracht-titel">Python Sandbox</strong>
+      <span id="opdracht-tekst">Vrij oefenen met Python in de browser.</span>
+    </div>
+
+    <div class="toolbar">
+      <button class="brand-btn" id="toggle-theme" title="Donkere of lichte modus">Donker/Licht</button>
+      <button class="brand-btn" id="export-pdf">Reeks exporteren naar PDF</button>
+      <button class="brand-btn" id="reset-progress">Vooruitgang wissen</button>
+    </div>
+  </header>
+
+  <aside class="course-menu" id="course-menu" aria-label="Cursusmenu">
+    <div class="menu-header">
+      <span class="menu-title">Menu</span>
+      <button class="close-menu" id="close-menu" aria-label="Sluit menu">x</button>
+    </div>
+    <nav class="menu-content">
+      <h3>Inhoud</h3>
+      <ul class="chapter-list" id="menu-chapters"></ul>
+      <div class="menu-project-panel">
+        <details class="menu-project-details">
+          <summary>Over Project Delphi</summary>
+          <div class="menu-project-body">
+            <p>
+              <strong>Project Delphi</strong> is de webgebaseerde tegenhanger van Dodona.
+              De naam verwijst naar Delphi in Griekenland en de slang in de lore van Delphi.
+            </p>
+            <p>
+              <a href="https://dodona.be/" target="_blank" rel="noopener noreferrer">Dodona</a> is een intelligent
+              oefenplatform dat programmeeroefeningen omzet in een leerrijke feedbackcyclus.
+              Geautomatiseerde tests, zinvolle hints en leeranalyses helpen studenten beter leren
+              en lesgevers slimmer lesgeven.
+            </p>
+            <p>
+              Contact:
+              <a href="https://robbewulgaert.be/contact" target="_blank" rel="noopener noreferrer">
+                robbewulgaert.be/contact
+              </a>
+            </p>
+            <p>
+              Deze webomgeving is bedoeld voor snel testen en oefenen,
+              en uitsluitend voor educatieve settings.
+            </p>
+            <p>
+              Licenties:
+              <a href="LICENSE" target="_blank" rel="noopener noreferrer">Project Delphi License</a>
+              (educatief gebruik met expliciete naamsvermelding) en
+              <a href="THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener noreferrer">third-party notices</a>
+              voor gebruikte componenten zoals Papyros (MIT).
+            </p>
+          </div>
+        </details>
+      </div>
+    </nav>
+  </aside>
+
+  <button id="menu-tab" class="menu-tab" title="Toon menu">Menu</button>
+
+  <main class="main-layout" id="main-layout">
+    <section class="editor-pane" id="editor-pane">
+      <div class="pane-label">Code-editor</div>
+      <div id="code-editor"></div>
+      <br>
+      <button class="brand-btn run-btn" id="run-code">Uitvoeren</button>
+      <br><br>
+      <div class="runtime-input-wrap">
+        <div class="runtime-input-label">Invoer voor <code>input()</code></div>
+        <div class="runtime-input-row">
+          <input
+            id="runtime-input"
+            class="runtime-input-field"
+            type="text"
+            autocomplete="off"
+            placeholder="Typ een antwoord en druk Enter"
+          >
+          <button class="brand-btn runtime-input-send" id="runtime-input-send" type="button">Verzend</button>
+        </div>
+        <div id="runtime-input-status" class="runtime-input-status idle">Geen open input-vraag.</div>
+      </div>
+      <div class="console-label">Uitvoer</div>
+      <pre id="console-output" class="console-output" aria-live="polite"></pre>
+      <div class="metrics-row">
+        <span id="metrics">Pogingen: 0 | Tijd: 0s</span>
+      </div>
+    </section>
+
+    <div class="splitter" id="splitter" role="separator" aria-label="Panelen herschalen"></div>
+
+    <section class="assignment-pane" id="assignment-pane">
+      <div class="assignment-header">
+        <span class="pane-label">Oefening</span>
+        <span class="status-pill idle" id="runtime-status">Runtime initialiseren...</span>
+      </div>
+      <article class="assignment-card">
+        <h2 id="assignment-title">Sandbox</h2>
+        <section class="assignment-block">
+          <h3>Beschrijving</h3>
+          <div id="assignment-markdown" class="assignment-markdown"></div>
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <button class="help-btn" id="help-btn" title="Toon Python cheatsheet">?</button>
+
+  <div class="modal" id="help-modal" aria-hidden="true">
+    <div class="modal-box help-box">
+      <button class="modal-close" id="close-help" aria-label="Sluit help">x</button>
+      <h2>Python Formularium</h2>
+      <div class="help-table-wrap">
+        <table class="help-table">
+          <thead>
+            <tr>
+              <th>Functie of statement</th>
+              <th>Beschrijving</th>
+              <th>Syntax</th>
+              <th>Uitzonderingen / opletten voor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>String-concatenatie</code></td>
+              <td>Tekststukken samenplakken.</td>
+              <td><code>"lijn " + lijnnummer</code></td>
+              <td>Alleen strings samenplakken. Getallen eerst naar <code>str()</code> omzetten.</td>
+            </tr>
+            <tr>
+              <td><code>round()</code> (afronden)</td>
+              <td>Afronden van een waarde X tot Y decimalen.</td>
+              <td><code>round(X, Y)</code></td>
+              <td><code>round(X)</code> rondt af tot nul decimalen en geeft <code>int</code>. <code>round(X, 0)</code> rondt af tot nul decimalen en geeft <code>float</code>.</td>
+            </tr>
+            <tr>
+              <td><code>input()</code></td>
+              <td>Leest tekst in van de gebruiker.</td>
+              <td><code>input("Vraag: ")</code></td>
+              <td>Geeft altijd een string.</td>
+            </tr>
+            <tr>
+              <td><code>import</code></td>
+              <td>Importeren van externe bibliotheken.</td>
+              <td><code>import math</code></td>
+              <td>Altijd als eerste coderegel indien nodig.</td>
+            </tr>
+            <tr>
+              <td><code>math.sqrt()</code></td>
+              <td>Vierkantswortel uit bibliotheek <code>math</code>.</td>
+              <td><code>math.sqrt(getal_n)</code></td>
+              <td>Let op voor de haakjes.</td>
+            </tr>
+            <tr>
+              <td><code>math.pi</code></td>
+              <td>Wetenschappelijke pi uit bibliotheek <code>math</code>.</td>
+              <td><code>math.pi</code></td>
+              <td>Enige juiste pi in pythonoefeningen.</td>
+            </tr>
+            <tr>
+              <td><code>math.ceil()</code> / <code>math.floor()</code></td>
+              <td>Speciale manieren van afronden uit bibliotheek <code>math</code>.</td>
+              <td><code>math.ceil(x)</code> / <code>math.floor(x)</code></td>
+              <td>Vergeet de bibliotheek <code>math</code> niet.</td>
+            </tr>
+            <tr>
+              <td><code>if / elif / else</code></td>
+              <td>Keuze maken op basis van voorwaarden.</td>
+              <td><code>if voorwaarde:</code><br><code>elif voorwaarde:</code><br><code>else:</code></td>
+              <td>Let op inspringing. Slechts een <code>else</code>, meerdere <code>elif</code> mogelijk.</td>
+            </tr>
+            <tr>
+              <td><code>and / or / not</code></td>
+              <td>Logische operatoren om voorwaarden te combineren.</td>
+              <td><code>if a &gt; 0 and b &gt; 0:</code></td>
+              <td><code>and</code>: beide waar. <code>or</code>: minstens een waar. <code>not</code>: keert een voorwaarde om.</td>
+            </tr>
+            <tr>
+              <td><code>**</code> (machten)</td>
+              <td>Macht van een getal berekenen.</td>
+              <td><code>getal_1 ** getal_2</code></td>
+              <td>Controleer volgorde en datatype van beide waarden.</td>
+            </tr>
+            <tr>
+              <td><code>//</code></td>
+              <td>Delen zonder rest (geheel quotiënt).</td>
+              <td><code>a // b</code></td>
+              <td>Samen met <code>%</code> gebruiken bij deelbaarheid.</td>
+            </tr>
+            <tr>
+              <td><code>%</code></td>
+              <td>Rest bij een deling (zonder quotiënt).</td>
+              <td><code>a % b</code></td>
+              <td>Handig voor even/oneven en deelbaarheid.</td>
+            </tr>
+            <tr>
+              <td><code>float(x)</code></td>
+              <td>Zet <code>x</code> om naar een kommagetal.</td>
+              <td><code>float("3.29")</code></td>
+              <td>Handig na <code>input()</code> om met kommagetallen te rekenen.</td>
+            </tr>
+            <tr>
+              <td><code>int(x)</code></td>
+              <td>Zet <code>x</code> om naar een geheel getal.</td>
+              <td><code>int("7")</code>, <code>int(7.9)</code></td>
+              <td>Bij floats wordt afgekapt, niet afgerond.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="ask-modal" aria-hidden="true">
+    <div class="modal-box">
+      <h3>Invoer gevraagd</h3>
+      <p class="modal-message" id="ask-modal-msg"></p>
+      <input id="ask-modal-input" class="modal-input" type="text" autocomplete="off">
+      <div class="modal-actions">
+        <button class="brand-btn" id="ask-modal-ok">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="eval-modal" aria-hidden="true">
+    <div class="modal-box eval-modal-box">
+      <button class="modal-close" id="close-eval-modal" aria-label="Sluit evaluatie">x</button>
+      <div class="eval-modal-header">
+        <h3 id="eval-modal-title">Evaluatieresultaat</h3>
+        <span class="eval-pill ok" id="eval-modal-pill">Geslaagd</span>
+      </div>
+      <p class="eval-summary" id="eval-modal-summary"></p>
+      <div class="eval-cases" id="eval-modal-cases"></div>
+      <div class="modal-actions">
+        <button class="brand-btn" id="eval-modal-ok">Sluiten</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="pdf-modal" aria-hidden="true">
+    <div class="modal-box pdf-modal-box">
+      <button class="modal-close" id="close-pdf-modal" aria-label="Sluit exportvenster">x</button>
+      <h3>Reeks exporteren naar PDF</h3>
+      <p class="pdf-modal-intro">Vul onderstaande gegevens in voor de bundel-export.</p>
+      <div class="pdf-form-grid">
+        <label class="pdf-form-label" for="pdf-first-name">Voornaam</label>
+        <input
+          id="pdf-first-name"
+          class="modal-input"
+          type="text"
+          autocomplete="given-name"
+          required
+        >
+
+        <label class="pdf-form-label" for="pdf-last-name">Familienaam</label>
+        <input
+          id="pdf-last-name"
+          class="modal-input"
+          type="text"
+          autocomplete="family-name"
+          required
+        >
+
+        <label class="pdf-form-label" for="pdf-class-name">Klas</label>
+        <input
+          id="pdf-class-name"
+          class="modal-input"
+          type="text"
+          autocomplete="organization"
+          required
+        >
+      </div>
+      <div class="modal-actions pdf-modal-actions">
+        <button class="brand-btn secondary-btn" id="pdf-cancel" type="button">Annuleren</button>
+        <button class="brand-btn" id="pdf-confirm" type="button">Exporteren</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/python/python.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "https://unpkg.com/comlink@4.4.2?module": "https://esm.sh/comlink@4.4.2/es2022/comlink.bundle.mjs",
+        "https://unpkg.com/comlink@^4.4.2?module": "https://esm.sh/comlink@4.4.2/es2022/comlink.bundle.mjs",
+        "/node/process.mjs": "./browser-process.mjs",
+        "https://unpkg.com/sync-message@0.0.12?module": "https://esm.sh/sync-message@0.0.12/es2022/sync-message.bundle.mjs",
+        "https://unpkg.com/sync-message@^0.0.12?module": "https://esm.sh/sync-message@0.0.12/es2022/sync-message.bundle.mjs",
+        "https://unpkg.com/comsync@0.0.9?module": "https://esm.sh/comsync@0.0.9/es2022/comsync.bundle.mjs",
+        "https://unpkg.com/comsync@^0.0.9?module": "https://esm.sh/comsync@0.0.9/es2022/comsync.bundle.mjs",
+        "https://unpkg.com/node-polyglot@2.6.0?module": "https://esm.sh/node-polyglot@2.6.0/es2022/node-polyglot.bundle.mjs",
+        "https://unpkg.com/node-polyglot@^2.6.0?module": "https://esm.sh/node-polyglot@2.6.0/es2022/node-polyglot.bundle.mjs",
+        "https://unpkg.com/pyodide-worker-runner@1.4.0?module": "https://esm.sh/pyodide-worker-runner@1.4.0/es2022/pyodide-worker-runner.bundle.mjs",
+        "https://unpkg.com/pyodide-worker-runner@^1.4.0?module": "https://esm.sh/pyodide-worker-runner@1.4.0/es2022/pyodide-worker-runner.bundle.mjs"
+      }
+    }
+  </script>
+  <script src="app.js?v=20260322-37"></script>
+</body>
+</html>
