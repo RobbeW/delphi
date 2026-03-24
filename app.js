@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-39";
+const APP_VERSION = "20260324-40";
 
 const state = {
   editor: null,
@@ -2693,11 +2693,30 @@ function getPapyrosOutputEntries() {
   if (!state.papyros) {
     return [];
   }
-  if (state.papyros.runner && state.papyros.runner.io && Array.isArray(state.papyros.runner.io.output)) {
-    return state.papyros.runner.io.output;
+  const runnerOutput =
+    state.papyros.runner &&
+    state.papyros.runner.io &&
+    Array.isArray(state.papyros.runner.io.output)
+      ? state.papyros.runner.io.output
+      : null;
+  const ioOutput =
+    state.papyros.io && Array.isArray(state.papyros.io.output)
+      ? state.papyros.io.output
+      : null;
+
+  // Prefer whichever channel currently has data. Some runtimes write to io.output
+  // while runner.io.output exists but remains temporarily empty.
+  if (runnerOutput && runnerOutput.length > 0) {
+    return runnerOutput;
   }
-  if (state.papyros.io && Array.isArray(state.papyros.io.output)) {
-    return state.papyros.io.output;
+  if (ioOutput && ioOutput.length > 0) {
+    return ioOutput;
+  }
+  if (runnerOutput) {
+    return runnerOutput;
+  }
+  if (ioOutput) {
+    return ioOutput;
   }
   return [];
 }
@@ -3340,6 +3359,7 @@ async function runCode() {
     }
 
     await state.papyros.runner.start();
+    await waitForOutputStability({ maxWaitMs: 900, stableWindowMs: 100 });
     renderOutputFromPapyros();
 
     let toastMessage = "Code uitgevoerd.";
