@@ -23,7 +23,7 @@ body {
   padding: 0;
   min-height: 100%;
   color: var(--ink);
-  font-family: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+  font-family: "Roboto", "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
   background:
     radial-gradient(circle at 18% 16%, #ece2ff 0, #ece2ff 20%, #f7f4ff 40%, #f9f8ff 60%, #fafbff 100%),
     linear-gradient(160deg, #fbfaff 0%, #f4f1ff 100%);
