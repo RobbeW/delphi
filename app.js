@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260322-38";
+const APP_VERSION = "20260324-39";
 
 const state = {
   editor: null,
@@ -2906,6 +2906,34 @@ function stdinToQueue(stdin) {
   return parts;
 }
 
+function wait(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
+}
+
+async function waitForOutputStability(options = {}) {
+  const maxWaitMs = Number.isFinite(options.maxWaitMs) ? options.maxWaitMs : 700;
+  const stableWindowMs = Number.isFinite(options.stableWindowMs) ? options.stableWindowMs : 90;
+
+  const startedAt = Date.now();
+  let lastText = extractTextOutputFromEntries(getPapyrosOutputEntries());
+  let lastChangeAt = Date.now();
+
+  while (Date.now() - startedAt < maxWaitMs) {
+    await wait(25);
+    const nextText = extractTextOutputFromEntries(getPapyrosOutputEntries());
+    if (nextText !== lastText) {
+      lastText = nextText;
+      lastChangeAt = Date.now();
+      continue;
+    }
+    if (Date.now() - lastChangeAt >= stableWindowMs) {
+      break;
+    }
+  }
+}
+
 function parseTestsSpec(rawText, formatHint, testsPath) {
   const extensionHint =
     String(formatHint || "")
@@ -3007,22 +3035,38 @@ async function loadExerciseTestcases(exercise) {
 }
 
 async function runSingleEvaluationCase(code, stdin) {
-  clearPapyrosBuffers();
-  state.pendingInputs = stdinToQueue(stdin);
-  state.awaitingInput = false;
-  state.currentInputPrompt = "";
-  refreshRuntimeInputStatus();
+  const maxAttempts = 2;
+  let lastActual = "";
 
-  if (!setRunnerCode(code)) {
-    throw new Error("Kon de code niet doorgeven aan Papyros runner.");
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    clearPapyrosBuffers();
+    state.pendingInputs = stdinToQueue(stdin);
+    state.awaitingInput = false;
+    state.currentInputPrompt = "";
+    refreshRuntimeInputStatus();
+
+    if (!setRunnerCode(code)) {
+      throw new Error("Kon de code niet doorgeven aan Papyros runner.");
+    }
+
+    if (!state.papyros.runner || typeof state.papyros.runner.start !== "function") {
+      throw new Error("Papyros runner.start() is niet beschikbaar.");
+    }
+
+    await state.papyros.runner.start();
+    await waitForOutputStability();
+
+    const actual = extractTextOutputFromEntries(getPapyrosOutputEntries());
+    lastActual = actual;
+    const normalizedActual = normalizeOutputForComparison(actual);
+    if (normalizedActual.length > 0 || attempt === maxAttempts) {
+      return actual;
+    }
+
+    await wait(40);
   }
 
-  if (!state.papyros.runner || typeof state.papyros.runner.start !== "function") {
-    throw new Error("Papyros runner.start() is niet beschikbaar.");
-  }
-
-  await state.papyros.runner.start();
-  return extractTextOutputFromEntries(getPapyrosOutputEntries());
+  return lastActual;
 }
 
 async function evaluateCurrentExercise(code) {
