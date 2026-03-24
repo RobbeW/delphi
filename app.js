@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-40";
+const APP_VERSION = "20260324-41";
 
 const state = {
   editor: null,
@@ -2731,19 +2731,17 @@ function renderOutputFromPapyros() {
     return;
   }
 
-  const lines = [];
+  const textParts = [];
   const images = [];
 
   entries.forEach((entry) => {
     if (typeof entry === "string") {
-      if (entry.trim().length > 0) {
-        lines.push(entry);
-      }
+      textParts.push(entry);
       return;
     }
 
     if (!entry || typeof entry !== "object") {
-      lines.push(String(entry));
+      textParts.push(String(entry));
       return;
     }
 
@@ -2756,23 +2754,24 @@ function renderOutputFromPapyros() {
     }
 
     if (typeof content === "string") {
-      lines.push(content);
+      textParts.push(content);
       return;
     }
 
     if (content !== undefined && content !== null) {
-      lines.push(String(content));
+      textParts.push(String(content));
       return;
     }
 
-    lines.push(JSON.stringify(entry));
+    textParts.push(JSON.stringify(entry));
   });
 
   if (images.length > 0 && !ui.richOutput) {
-    lines.push(`(Er werden ${images.length} afbeelding(en) gegenereerd.)`);
+    textParts.push(`\n(Er werden ${images.length} afbeelding(en) gegenereerd.)`);
   }
 
-  ui.consoleOutput.textContent = lines.join("\n").trim() || "(geen tekstuitvoer)";
+  const textOutput = textParts.join("");
+  ui.consoleOutput.textContent = textOutput.trim().length > 0 ? textOutput.trimEnd() : "(geen tekstuitvoer)";
 
   if (!ui.richOutput) {
     return;
@@ -2795,18 +2794,16 @@ function renderOutputFromPapyros() {
 }
 
 function extractTextOutputFromEntries(entries) {
-  const lines = [];
+  const textParts = [];
 
   (entries || []).forEach((entry) => {
     if (typeof entry === "string") {
-      if (entry.trim().length > 0) {
-        lines.push(entry);
-      }
+      textParts.push(entry);
       return;
     }
 
     if (!entry || typeof entry !== "object") {
-      lines.push(String(entry));
+      textParts.push(String(entry));
       return;
     }
 
@@ -2818,16 +2815,16 @@ function extractTextOutputFromEntries(entries) {
     }
 
     if (typeof content === "string") {
-      lines.push(content);
+      textParts.push(content);
       return;
     }
 
     if (content !== undefined && content !== null) {
-      lines.push(String(content));
+      textParts.push(String(content));
     }
   });
 
-  return lines.join("\n");
+  return textParts.join("");
 }
 
 function normalizeOutputForComparison(text) {
