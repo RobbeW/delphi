@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-41";
+const APP_VERSION = "20260324-42";
 
 const state = {
   editor: null,
@@ -2922,6 +2922,54 @@ function stdinToQueue(stdin) {
   return parts;
 }
 
+const COMMON_PYTHON_SYNTAX_ISSUES = [
+  {
+    id: "missing_colon",
+    title: "Dubbele punt ontbreekt",
+    tip: "Zet ':' achter if/elif/else/for/while/def/class/try/except.",
+  },
+  {
+    id: "unclosed_brackets",
+    title: "Haakje of bracket niet gesloten",
+    tip: "Controleer of elk '(', '[' en '{' ook een sluitend teken heeft.",
+  },
+  {
+    id: "unclosed_string",
+    title: "String niet correct afgesloten",
+    tip: "Controleer aanhalingstekens: open en sluit met hetzelfde quote-teken.",
+  },
+  {
+    id: "indentation",
+    title: "Inspringing is fout",
+    tip: "Gebruik consequent 4 spaties per blok en meng geen tabs met spaties.",
+  },
+  {
+    id: "invalid_decimal",
+    title: "Getalnotatie is ongeldig",
+    tip: "Gebruik in Python een punt als decimaalteken: schrijf 4.5, niet 4,5.",
+  },
+  {
+    id: "print_parentheses",
+    title: "Print-oproep is niet correct",
+    tip: "Gebruik in Python 3 altijd haakjes: print(...).",
+  },
+  {
+    id: "assignment_in_condition",
+    title: "Toekenning in voorwaarde",
+    tip: "Gebruik '=' voor toekennen, maar '==' om te vergelijken in een if/while.",
+  },
+  {
+    id: "missing_comma",
+    title: "Komma ontbreekt",
+    tip: "Controleer argumenten in print(), lijsten en tuples: scheid waarden met komma's.",
+  },
+  {
+    id: "generic",
+    title: "Algemene syntaxfout",
+    tip: "Lees de regel rustig opnieuw en controleer haakjes, quotes, ':' en komma's.",
+  },
+];
+
 function wait(ms) {
   return new Promise((resolve) => {
     setTimeout(resolve, ms);
@@ -2947,6 +2995,171 @@ async function waitForOutputStability(options = {}) {
     if (Date.now() - lastChangeAt >= stableWindowMs) {
       break;
     }
+  }
+}
+
+function getCodeLineByNumber(code, lineNumber) {
+  if (!Number.isFinite(lineNumber) || lineNumber < 1) {
+    return "";
+  }
+  const lines = String(code || "").replace(/\r\n/g, "\n").split("\n");
+  return String(lines[lineNumber - 1] || "");
+}
+
+function classifyPythonSyntaxIssue(details, code) {
+  const msg = String((details && details.msg) || "").toLowerCase();
+  const lineText = String((details && details.text) || getCodeLineByNumber(code, details && details.lineno)).toLowerCase();
+  const combined = `${msg} ${lineText}`;
+
+  if (combined.includes("expected ':'")) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "missing_colon");
+  }
+  if (
+    combined.includes("was never closed") ||
+    combined.includes("unmatched") ||
+    combined.includes("unexpected eof while parsing")
+  ) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "unclosed_brackets");
+  }
+  if (combined.includes("unterminated string literal") || combined.includes("eol while scanning string literal")) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "unclosed_string");
+  }
+  if (
+    combined.includes("unexpected indent") ||
+    combined.includes("unindent does not match any outer indentation level") ||
+    combined.includes("inconsistent use of tabs and spaces")
+  ) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "indentation");
+  }
+  if (combined.includes("invalid decimal literal")) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "invalid_decimal");
+  }
+  if (combined.includes("missing parentheses in call to 'print'")) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "print_parentheses");
+  }
+  if (combined.includes("cannot assign to")) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "assignment_in_condition");
+  }
+  if (
+    combined.includes("invalid syntax") &&
+    ((lineText.includes("print(") && !lineText.includes(",") && lineText.split(/["']/).length <= 2) || lineText.includes("[") || lineText.includes("("))
+  ) {
+    return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "missing_comma");
+  }
+  return COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "generic");
+}
+
+function buildSyntaxDebuggerMessage(details, code) {
+  const issue = classifyPythonSyntaxIssue(details, code);
+  const lineNo = Number.isFinite(Number(details && details.lineno))
+    ? Number(details.lineno)
+    : null;
+  const offset = Number.isFinite(Number(details && details.offset))
+    ? Number(details.offset)
+    : null;
+  const rawLine = getCodeLineByNumber(code, lineNo);
+  const safeLine = rawLine.trim();
+  const pythonMessage = String((details && details.msg) || "SyntaxError").trim();
+
+  const lines = [
+    "Debugger (syntax-check):",
+    "Ik vond eerst een syntaxfout. Daarom starten de testcases nog niet.",
+  ];
+
+  if (lineNo) {
+    lines.push(`Locatie: regel ${lineNo}${offset ? `, positie ${offset}` : ""}.`);
+  }
+  lines.push(`Waarschijnlijk probleem: ${issue.title}.`);
+  lines.push(`Tip: ${issue.tip}`);
+  lines.push(`Melding van Python: ${pythonMessage}.`);
+  if (safeLine.length > 0) {
+    lines.push(`Controleer deze regel: ${safeLine}`);
+  }
+
+  return lines.join("\n");
+}
+
+function buildSyntaxPrecheckScript(code) {
+  const sourceLiteral = JSON.stringify(String(code || ""));
+  return [
+    "import ast, json",
+    `source = ${sourceLiteral}`,
+    "try:",
+    "    ast.parse(source)",
+    "    print('__PIK_SYNTAX_OK__')",
+    "except SyntaxError as e:",
+    "    payload = {",
+    "        'msg': getattr(e, 'msg', str(e)),",
+    "        'lineno': getattr(e, 'lineno', None),",
+    "        'offset': getattr(e, 'offset', None),",
+    "        'text': ((getattr(e, 'text', '') or '').rstrip('\\n'))",
+    "    }",
+    "    print('__PIK_SYNTAX_ERROR__' + json.dumps(payload, ensure_ascii=False))",
+  ].join("\n");
+}
+
+function parseSyntaxPrecheckOutput(rawOutput) {
+  const text = String(rawOutput || "");
+  const okMarker = "__PIK_SYNTAX_OK__";
+  const errMarker = "__PIK_SYNTAX_ERROR__";
+
+  if (text.includes(okMarker)) {
+    return { ok: true, details: null };
+  }
+
+  const idx = text.lastIndexOf(errMarker);
+  if (idx < 0) {
+    return { ok: true, details: null };
+  }
+
+  let payloadText = text.slice(idx + errMarker.length).trim();
+  const jsonStart = payloadText.indexOf("{");
+  const jsonEnd = payloadText.lastIndexOf("}");
+  if (jsonStart >= 0 && jsonEnd >= jsonStart) {
+    payloadText = payloadText.slice(jsonStart, jsonEnd + 1);
+  }
+
+  try {
+    const parsed = JSON.parse(payloadText);
+    return { ok: false, details: parsed };
+  } catch {
+    return { ok: false, details: { msg: "SyntaxError", lineno: null, offset: null, text: "" } };
+  }
+}
+
+async function runPythonSyntaxPrecheck(code) {
+  const originalPending = [...state.pendingInputs];
+  const originalAwaiting = state.awaitingInput;
+  const originalInputPrompt = state.currentInputPrompt;
+
+  try {
+    clearPapyrosBuffers();
+    state.pendingInputs = [];
+    state.awaitingInput = false;
+    state.currentInputPrompt = "";
+    refreshRuntimeInputStatus();
+
+    const script = buildSyntaxPrecheckScript(code);
+    if (!setRunnerCode(script)) {
+      return { ok: true, details: null };
+    }
+    if (!state.papyros.runner || typeof state.papyros.runner.start !== "function") {
+      return { ok: true, details: null };
+    }
+
+    await state.papyros.runner.start();
+    await waitForOutputStability({ maxWaitMs: 800, stableWindowMs: 100 });
+
+    const rawOutput = extractTextOutputFromEntries(getPapyrosOutputEntries());
+    return parseSyntaxPrecheckOutput(rawOutput);
+  } catch {
+    // If precheck itself fails for platform reasons, do not block execution.
+    return { ok: true, details: null };
+  } finally {
+    state.pendingInputs = originalPending;
+    state.awaitingInput = originalAwaiting;
+    state.currentInputPrompt = originalInputPrompt;
+    refreshRuntimeInputStatus();
   }
 }
 
@@ -3345,6 +3558,38 @@ async function runCode() {
     const code = state.editor.getValue();
     const exercise = getCurrentExercise();
     localStorage.setItem(toScopedStorageKey(STORAGE.code), code);
+
+    const syntaxPrecheck = await runPythonSyntaxPrecheck(code);
+    if (!syntaxPrecheck.ok) {
+      const syntaxMessage = buildSyntaxDebuggerMessage(syntaxPrecheck.details || {}, code);
+      ui.consoleOutput.textContent = syntaxMessage;
+      setRuntimeStatus("Syntaxfout gevonden", "error");
+
+      if (exercise && exercise.evaluable) {
+        setExerciseEvalStatus(exercise.id, "fail");
+        renderProgress();
+        const evalResult = {
+          applicable: true,
+          success: false,
+          total: 0,
+          passedCount: 0,
+          failedCount: 0,
+          caseResults: [],
+          errorMessage: syntaxMessage,
+        };
+        const saveResult = saveLatestExerciseSnapshot("fail", {
+          evalResult,
+          evalSummary: "Syntaxfout - testcases niet gestart",
+        });
+        if (!saveResult.ok && saveResult.reason === "quota") {
+          showToast("Opslaan van resultaten mislukt: lokale opslag is vol.", false);
+        }
+      }
+
+      showToast("Syntaxfout gevonden. Verbeter je code en probeer opnieuw.", false);
+      return;
+    }
+
     clearPapyrosBuffers();
 
     if (!setRunnerCode(code)) {
