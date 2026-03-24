@@ -11,6 +11,7 @@ const ui = {
   contact: document.getElementById("contact"),
   copyright: document.getElementById("copyright"),
   testSuite: document.getElementById("test-suite"),
+  configPreview: document.getElementById("config-preview"),
   descriptionBody: document.getElementById("description-body"),
   testsBody: document.getElementById("tests-body"),
   tcStdin: document.getElementById("tc-stdin"),
@@ -75,14 +76,6 @@ if (!ui.testsBody.value.trim()) {
   seededDefaultTestcases = true;
 }
 
-if (!ui.solutionBody.value.trim()) {
-  ui.solutionBody.value = [
-    "# Voorbeeldoplossing",
-    "getal = int(input())",
-    "print(getal)",
-  ].join("\n");
-}
-
 if (!ui.readmeBody.value.trim()) {
   ui.readmeBody.value = [
     "Deze oefening werd opgesteld voor educatief gebruik.",
@@ -91,13 +84,16 @@ if (!ui.readmeBody.value.trim()) {
   ].join("\n");
 }
 
+if (!ui.solutionBody.value.trim()) {
+  ui.solutionBody.value = [
+    "# Voorbeeldoplossing",
+    "waarde = int(input())",
+    "print(waarde)",
+  ].join("\n");
+}
+
 if (seededDefaultTestcases) {
-  state.testcases = [
-    {
-      stdin: "2",
-      stdout: "Voorbeelduitvoer\n",
-    },
-  ];
+  state.testcases = [{ stdin: "2", stdout: "Voorbeelduitvoer\n" }];
 }
 
 function sanitizeFolderName(value, fallback) {
@@ -153,10 +149,6 @@ function buildTestsYamlFromCases(cases) {
 }
 
 function renderTestcasesList() {
-  if (!ui.testcasesList) {
-    return;
-  }
-
   ui.testcasesList.innerHTML = "";
 
   if (!state.testcases.length) {
@@ -273,7 +265,7 @@ function buildBundle() {
     },
   ];
 
-  return { meta, files };
+  return { meta, files, configObject };
 }
 
 function insertPath(tree, path) {
@@ -337,8 +329,9 @@ function getStepFileForPreview(bundle, stepIndex) {
       return bundle.files.find((file) => file.path === "solution/solution.nl.py");
     case 4:
       return bundle.files.find((file) => file.path === "readme.nl.md");
+    case 5:
     default:
-      return bundle.files[0];
+      return bundle.files.find((file) => file.path === "config.json");
   }
 }
 
@@ -350,9 +343,6 @@ function setStatus(message, tone = "ok") {
 function render() {
   const bundle = buildBundle();
   const stepFile = getStepFileForPreview(bundle, state.activeStep);
-  ui.previewPath.textContent = stepFile.path;
-  ui.previewContent.textContent = stepFile.content;
-  ui.generatedTree.textContent = buildTreeText(bundle);
 
   ui.stepButtons.forEach((button, index) => {
     button.classList.toggle("active", index === state.activeStep);
@@ -364,6 +354,11 @@ function render() {
 
   ui.prevStep.disabled = state.activeStep === 0;
   ui.nextStep.disabled = state.activeStep === ui.stepPanes.length - 1;
+
+  ui.configPreview.textContent = JSON.stringify(bundle.configObject, null, 2);
+  ui.previewPath.textContent = stepFile.path;
+  ui.previewContent.textContent = stepFile.content;
+  ui.generatedTree.textContent = buildTreeText(bundle);
 }
 
 function switchStep(nextStep) {
@@ -572,10 +567,7 @@ function setupEvents() {
 
     try {
       await writeBundleToDirectory(bundle);
-      setStatus(
-        `Bestanden geschreven naar de gekozen map in ${bundle.meta.folder}/.`,
-        "ok",
-      );
+      setStatus(`Bestanden geschreven naar de gekozen map in ${bundle.meta.folder}/.`, "ok");
     } catch (error) {
       setStatus(`Schrijven mislukt: ${error.message}`, "err");
     }

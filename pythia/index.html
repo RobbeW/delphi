@@ -20,100 +20,86 @@
     <h1>Pythia</h1>
     <p>
       Deze tool maakt alle kernbestanden voor een nieuwe oefening.<br>
-      Elke stap legt uit waarom het bestand nodig is in Dodona.
+      Bij elke stap leggen we ook uit waarom een bepaald bestand nodig is in Dodona.
     </p>
   </header>
 
   <main class="app-shell">
-    <section class="panel setup-panel">
-      <h2>Instellingen</h2>
-      <div class="field-grid">
-        <label class="field">
-          <span>Oefening mapnaam</span>
-          <input id="exercise-folder" type="text" value="nieuwe_oefening">
-        </label>
-        <label class="field">
-          <span>Titel (NL)</span>
-          <input id="exercise-title-nl" type="text" value="Nieuwe oefening">
-        </label>
-        <label class="field">
-          <span>Titel (EN)</span>
-          <input id="exercise-title-en" type="text" value="New exercise">
-        </label>
-        <label class="field">
-          <span>Programmeertaal</span>
-          <select id="language">
-            <option value="python">Python</option>
-            <option value="javascript">JavaScript</option>
-            <option value="java">Java</option>
-            <option value="c">C</option>
-            <option value="cpp">C++</option>
-          </select>
-        </label>
-        <label class="field">
-          <span>Toegang</span>
-          <select id="access">
-            <option value="public">public</option>
-            <option value="private">private</option>
-          </select>
-        </label>
-        <label class="field field-wide">
-          <span>Labels (komma-gescheiden)</span>
-          <input id="labels" type="text" value="Python in de Klas, Dodona, Educatie">
-        </label>
-        <label class="field field-wide">
-          <span>Contact (optioneel)</span>
-          <input id="contact" type="text" placeholder="Naam <email@example.com>">
-        </label>
-        <label class="field field-wide">
-          <span>Copyright label (komt in alle bestanden)</span>
-          <input id="copyright" type="text">
-        </label>
-      </div>
-
+    <section class="panel workflow-panel">
       <div class="stepper-wrap">
-        <h3>Workflow</h3>
+        <h2>Workflow</h2>
         <ol id="stepper" class="stepper">
-          <li><button class="step-btn active" data-step="0">1. config.json</button></li>
-          <li><button class="step-btn" data-step="1">2. description/description.nl.md</button></li>
-          <li><button class="step-btn" data-step="2">3. evaluation/tests.yaml</button></li>
-          <li><button class="step-btn" data-step="3">4. solution/solution.nl.py</button></li>
-          <li><button class="step-btn" data-step="4">5. readme.nl.md</button></li>
+          <li><button class="step-btn active" data-step="0">1. Instellingen</button></li>
+          <li><button class="step-btn" data-step="1">2. description</button></li>
+          <li><button class="step-btn" data-step="2">3. tests.yaml</button></li>
+          <li><button class="step-btn" data-step="3">4. solution</button></li>
+          <li><button class="step-btn" data-step="4">5. readme</button></li>
+          <li><button class="step-btn" data-step="5">6. Opslaan & bronnen</button></li>
         </ol>
       </div>
 
-      <div class="ref-tree">
-        <h3>Werkboom (zonder `preparation/generator.py`)</h3>
-        <pre>/example_exercise
-|-- config.json
-|-- readme.nl.md
-|-- description/
-|   \\-- description.nl.md
-|-- evaluation/
-|   \\-- tests.yaml
-\\-- solution/
-    \\-- solution.nl.py</pre>
-      </div>
-    </section>
-
-    <section class="panel work-panel">
       <div class="step-pane active" data-step="0">
-        <h2>Stap 1: `config.json`</h2>
+        <h2>Stap 1: Instellingen + `config.json`</h2>
         <p class="why">
-          <strong>Waarom nodig:</strong> `config.json` maakt van de map een Dodona-leeractiviteit en bevat taal,
-          toegang, titel en evaluatie-instellingen.
+          <strong>Waarom nodig:</strong> deze metadata bepaalt hoe je oefening op Dodona verschijnt en vormt direct de inhoud van `config.json`.
         </p>
-        <label class="field">
-          <span>TESTed suite-bestandsnaam</span>
-          <input id="test-suite" type="text" value="tests.yaml">
-        </label>
+        <div class="field-grid">
+          <label class="field">
+            <span>Oefening mapnaam</span>
+            <input id="exercise-folder" type="text" value="nieuwe_oefening">
+          </label>
+          <label class="field">
+            <span>Titel (NL)</span>
+            <input id="exercise-title-nl" type="text" value="Nieuwe oefening">
+          </label>
+          <label class="field">
+            <span>Titel (EN)</span>
+            <input id="exercise-title-en" type="text" value="New exercise">
+          </label>
+          <label class="field">
+            <span>Programmeertaal</span>
+            <select id="language">
+              <option value="python">Python</option>
+              <option value="javascript">JavaScript</option>
+              <option value="java">Java</option>
+              <option value="c">C</option>
+              <option value="cpp">C++</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Toegang</span>
+            <select id="access">
+              <option value="public">public</option>
+              <option value="private">private</option>
+            </select>
+          </label>
+          <label class="field field-wide">
+            <span>Labels (komma-gescheiden)</span>
+            <input id="labels" type="text" value="Python in de Klas, Dodona, Educatie">
+          </label>
+          <label class="field field-wide">
+            <span>Contact (optioneel)</span>
+            <input id="contact" type="text" placeholder="Naam <email@example.com>">
+          </label>
+          <label class="field field-wide">
+            <span>Copyright label (komt in alle bestanden)</span>
+            <input id="copyright" type="text">
+          </label>
+          <label class="field field-wide">
+            <span>Naam van de test-suite in `evaluation/`</span>
+            <input id="test-suite" type="text" value="tests.yaml">
+          </label>
+          <label class="field field-wide">
+            <span>Automatische preview van `config.json`</span>
+            <pre id="config-preview" class="preview-content compact-preview"></pre>
+          </label>
+        </div>
       </div>
 
       <div class="step-pane" data-step="1">
         <h2>Stap 2: `description/description.nl.md`</h2>
         <p class="why">
-          <strong>Waarom nodig:</strong> dit is de opdrachttekst die leerlingen zien op Dodona.
-          Markdown wordt ondersteund.
+          <strong>Waarom nodig:</strong> dit is de opdrachttekst die leerlingen lezen op Dodona.
         </p>
         <label class="field">
           <span>Inhoud</span>
@@ -124,18 +110,18 @@
       <div class="step-pane" data-step="2">
         <h2>Stap 3: `evaluation/tests.yaml`</h2>
         <p class="why">
-          <strong>Waarom nodig:</strong> hierin definieer je testcases (`stdin`, `stdout`, `expression`, `return`) voor TESTed.
+          <strong>Waarom nodig:</strong> hierin bepaal je hoe Dodona de leerlingoplossing test met TESTed.
         </p>
         <section class="tests-helper">
           <h3>Testcase-assistent</h3>
           <div class="test-notes">
             <article class="note-card">
               <h4>`stdin`</h4>
-              <p>De input die naar `input()` gaat. Meerdere regels input? Zet ze op aparte regels.</p>
+              <p>Input die naar `input()` gaat. Meerdere regels? Zet ze onder elkaar.</p>
             </article>
             <article class="note-card">
               <h4>`stdout`</h4>
-              <p>Exacte uitvoer van de leerlingcode, inclusief hoofdletters, spaties en regelovergangen.</p>
+              <p>Verwachte uitvoer. Dit moet exact overeenkomen met wat de code print.</p>
             </article>
             <article class="note-card">
               <h4>`\\n`</h4>
@@ -148,14 +134,14 @@
               <textarea id="tc-stdin" rows="3" placeholder="Bijv. 12"></textarea>
             </label>
             <label class="field">
-              <span>verwachte stdout (zonder of met laatste enter)</span>
+              <span>verwachte stdout</span>
               <textarea id="tc-stdout" rows="4" placeholder="Bijv. De som is 16."></textarea>
             </label>
             <label class="field checkbox">
               <input id="tc-stdout-trailing" type="checkbox" checked>
               <span>Voeg automatisch laatste `\\n` toe aan stdout</span>
             </label>
-            <div class="step-controls">
+            <div class="step-controls inline-controls">
               <button id="add-testcase" class="ghost-btn" type="button">Voeg testcase toe</button>
               <button id="clear-testcases" class="ghost-btn" type="button">Wis testcases</button>
               <button id="build-tests-yaml" class="brand-btn" type="button">Genereer tests.yaml</button>
@@ -172,18 +158,18 @@
       <div class="step-pane" data-step="3">
         <h2>Stap 4: `solution/solution.nl.py`</h2>
         <p class="why">
-          <strong>Waarom nodig:</strong> voorbeeldoplossingen in `solution/` worden getoond op de oefening-infopagina.
+          <strong>Waarom nodig:</strong> voorbeeldoplossingen in `solution/` helpen lesgevers en verschijnen op de oefening-infopagina.
         </p>
         <label class="field">
-          <span>Voorbeeldoplossing</span>
-          <textarea id="solution-body" rows="14"></textarea>
+          <span>Inhoud</span>
+          <textarea id="solution-body" rows="12"></textarea>
         </label>
       </div>
 
       <div class="step-pane" data-step="4">
         <h2>Stap 5: `readme.nl.md`</h2>
         <p class="why">
-          <strong>Waarom nodig:</strong> deze readme is extra context voor lesgevers op de info-pagina van de oefening.
+          <strong>Waarom nodig:</strong> extra context of credits voor lesgevers op de infopagina van de oefening.
         </p>
         <label class="field">
           <span>Inhoud</span>
@@ -191,42 +177,49 @@
         </label>
       </div>
 
+      <div class="step-pane" data-step="5">
+        <h2>Stap 6: Mapstructuur, lokaal opslaan en bronnen</h2>
+        <p class="why">
+          <strong>Waarom nodig:</strong> in deze laatste stap exporteer je alles naar je lokale map of als `.tar` voor upload naar je repo.
+        </p>
+
+        <div class="preview-grid">
+          <article class="preview-card">
+            <h3>Bestandspreview</h3>
+            <p id="preview-path" class="preview-path">config.json</p>
+            <pre id="preview-content" class="preview-content"></pre>
+          </article>
+
+          <article class="preview-card">
+            <h3>Gegenereerde mapstructuur</h3>
+            <pre id="generated-tree" class="preview-content"></pre>
+          </article>
+        </div>
+
+        <div class="export-bar">
+          <button id="choose-folder" class="ghost-btn" type="button">Kies lokale map</button>
+          <button id="write-folder" class="brand-btn" type="button">Schrijf naar lokale map</button>
+          <button id="download-tar" class="brand-btn" type="button">Download .tar</button>
+        </div>
+
+        <p id="fs-hint" class="hint"></p>
+        <p id="status" class="status" aria-live="polite"></p>
+
+        <section class="docs-note">
+          <h3>Bronnen: Dodona-documentatie</h3>
+          <ul>
+            <li><a href="https://docs.dodona.be/en/references/exercise-directory-structure/" target="_blank" rel="noopener noreferrer">Exercise directory structure</a></li>
+            <li><a href="https://docs.dodona.be/en/references/exercise-config/" target="_blank" rel="noopener noreferrer">Exercise configuration</a></li>
+            <li><a href="https://docs.dodona.be/en/references/tested/exercise-config/" target="_blank" rel="noopener noreferrer">TESTed exercise options</a></li>
+            <li><a href="https://docs.dodona.be/en/references/tested/dsl/" target="_blank" rel="noopener noreferrer">TESTed DSL for tests.yaml</a></li>
+          </ul>
+        </section>
+      </div>
+
       <div class="step-controls">
         <button id="prev-step" class="ghost-btn" type="button">Vorige stap</button>
         <button id="next-step" class="brand-btn" type="button">Volgende stap</button>
       </div>
-
-      <div class="preview-grid">
-        <article class="preview-card">
-          <h3>Bestandspreview (actieve stap)</h3>
-          <p id="preview-path" class="preview-path">config.json</p>
-          <pre id="preview-content" class="preview-content"></pre>
-        </article>
-
-        <article class="preview-card">
-          <h3>Gegenereerde mapstructuur</h3>
-          <pre id="generated-tree" class="preview-content"></pre>
-        </article>
-      </div>
-
-      <div class="export-bar">
-        <button id="choose-folder" class="ghost-btn" type="button">Kies lokale map</button>
-        <button id="write-folder" class="brand-btn" type="button">Schrijf naar lokale map</button>
-        <button id="download-tar" class="brand-btn" type="button">Download .tar</button>
-      </div>
-
-      <p id="fs-hint" class="hint"></p>
-      <p id="status" class="status" aria-live="polite"></p>
-
-      <section class="docs-note">
-        <h3>Dodona-documentatie</h3>
-        <ul>
-          <li><a href="https://docs.dodona.be/en/references/exercise-directory-structure/" target="_blank" rel="noopener noreferrer">Exercise directory structure</a></li>
-          <li><a href="https://docs.dodona.be/en/references/exercise-config/" target="_blank" rel="noopener noreferrer">Exercise configuration</a></li>
-          <li><a href="https://docs.dodona.be/en/references/tested/exercise-config/" target="_blank" rel="noopener noreferrer">TESTed exercise options</a></li>
-          <li><a href="https://docs.dodona.be/en/references/tested/dsl/" target="_blank" rel="noopener noreferrer">TESTed DSL for tests.yaml</a></li>
-        </ul>
-      </section>
     </section>
   </main>
 

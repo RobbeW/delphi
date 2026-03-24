@@ -98,9 +98,7 @@ body {
 .app-shell {
   width: min(1200px, 96vw);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 0.95fr 1.25fr;
-  gap: 1rem;
+  display: block;
 }
 
 .panel {
@@ -112,13 +110,7 @@ body {
   animation: reveal 480ms ease-out both;
 }
 
-.setup-panel {
-  display: grid;
-  gap: 1rem;
-  align-content: start;
-}
-
-.work-panel {
+.workflow-panel {
   display: grid;
   gap: 1rem;
   align-content: start;
@@ -193,12 +185,13 @@ button:focus-visible {
   padding: 0;
   list-style: none;
   display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 0.5rem;
 }
 
 .step-btn {
   width: 100%;
-  text-align: left;
+  text-align: center;
   border: 1px solid #d5c7ff;
   background: #fff;
   border-radius: 11px;
@@ -209,7 +202,7 @@ button:focus-visible {
 }
 
 .step-btn:hover {
-  transform: translateX(2px);
+  transform: translateY(-1px);
   border-color: var(--brand);
 }
 
@@ -412,6 +405,15 @@ button:focus-visible {
   font-size: 0.88rem;
 }
 
+.compact-preview {
+  margin-top: 0.15rem;
+  min-height: 170px;
+}
+
+.inline-controls {
+  margin-top: 0.1rem;
+}
+
 .hint,
 .status {
   margin: 0;
@@ -486,13 +488,13 @@ button:focus-visible {
 }
 
 @media (max-width: 1080px) {
-  .app-shell {
-    grid-template-columns: 1fr;
-  }
-
   .field-grid,
   .preview-grid {
     grid-template-columns: 1fr;
+  }
+
+  .stepper {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .test-notes {
@@ -509,5 +511,9 @@ button:focus-visible {
   .panel {
     border-radius: 14px;
     padding: 0.85rem;
+  }
+
+  .stepper {
+    grid-template-columns: 1fr;
   }
 }
