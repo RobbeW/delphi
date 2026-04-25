@@ -57,6 +57,34 @@ const STORAGE = {
 
 const APP_VERSION = "20260324-42";
 
+function readBooleanQueryParam(name, fallback = false) {
+  const raw = new URLSearchParams(window.location.search).get(name);
+  if (raw === null) {
+    return fallback;
+  }
+  const normalized = String(raw).trim().toLowerCase();
+  if (["1", "true", "ja", "yes", "on"].includes(normalized)) {
+    return true;
+  }
+  if (["0", "false", "nee", "no", "off"].includes(normalized)) {
+    return false;
+  }
+  return fallback;
+}
+
+function readContentCacheMode() {
+  if (readBooleanQueryParam("freshContent", false)) {
+    return "no-store";
+  }
+  const raw = new URLSearchParams(window.location.search).get("contentCache");
+  const normalized = String(raw || "default").trim().toLowerCase();
+  return ["default", "no-store", "reload", "no-cache", "force-cache"].includes(normalized)
+    ? normalized
+    : "default";
+}
+
+const CONTENT_FETCH_CACHE = readContentCacheMode();
+
 const state = {
   editor: null,
   papyros: null,
@@ -79,6 +107,7 @@ const state = {
   expandedChapters: new Set(),
   expandedSubchapters: new Set(),
   currentInputPrompt: "",
+  loadStats: null,
 };
 
 const PAPYROS_VERSION = "4.0.7";
@@ -180,6 +209,44 @@ function cacheUiRefs() {
   ui.mainLayout = byId("main-layout");
   ui.editorPane = byId("editor-pane");
   ui.splitter = byId("splitter");
+  ui.courseLoading = byId("course-loading");
+  ui.courseLoadingMessage = byId("course-loading-message");
+  ui.courseLoadingDetail = byId("course-loading-detail");
+  ui.courseLoadingBar = byId("course-loading-bar");
+}
+
+function setLoadingStatus(message, detail = "", progress = null) {
+  if (!ui.courseLoading) {
+    return;
+  }
+  if (ui.courseLoadingMessage && message) {
+    ui.courseLoadingMessage.textContent = message;
+  }
+  if (ui.courseLoadingDetail) {
+    ui.courseLoadingDetail.textContent = detail;
+  }
+  if (ui.courseLoadingBar && Number.isFinite(progress)) {
+    const clamped = Math.max(6, Math.min(100, progress));
+    ui.courseLoadingBar.style.width = `${clamped}%`;
+  }
+}
+
+function hideLoadingOverlay() {
+  if (!ui.courseLoading) {
+    return;
+  }
+  ui.courseLoading.classList.add("is-hidden");
+  ui.courseLoading.setAttribute("aria-busy", "false");
+}
+
+function showLoadingError(message, detail = "") {
+  if (!ui.courseLoading) {
+    return;
+  }
+  ui.courseLoading.classList.add("has-error");
+  ui.courseLoading.classList.remove("is-hidden");
+  ui.courseLoading.setAttribute("aria-busy", "false");
+  setLoadingStatus(message, detail, 100);
 }
 
 function getCatalog() {
@@ -936,7 +1003,7 @@ async function fetchTextFile(relativePath) {
   }
   const url = new URL(relativePath, window.location.href);
   url.searchParams.set("v", APP_VERSION);
-  const response = await fetch(url.href, { cache: "no-store" });
+  const response = await fetch(url.href, { cache: CONTENT_FETCH_CACHE });
   if (!response.ok) {
     return null;
   }
@@ -1412,16 +1479,39 @@ function normalizeCatalog(rawCatalog) {
 
 async function loadCatalog() {
   try {
+    const startedAt = performance.now();
+    setLoadingStatus("Catalogus laden.", CATALOG_URL, 12);
     const url = new URL(CATALOG_URL, window.location.href);
     url.searchParams.set("v", APP_VERSION);
-    const response = await fetch(url.href, { cache: "no-store" });
+    const response = await fetch(url.href, { cache: CONTENT_FETCH_CACHE });
     if (!response.ok) {
       throw new Error(`Catalog kon niet geladen worden (${response.status}).`);
     }
     const rawCatalog = await response.json();
     state.catalog = normalizeCatalog(rawCatalog);
+    const totals = state.catalog && state.catalog.totals ? state.catalog.totals : {};
+    state.loadStats = {
+      cache: CONTENT_FETCH_CACHE,
+      chapterCount: Array.isArray(state.catalog.chapters) ? state.catalog.chapters.length : 0,
+      exerciseCount: Number(totals.exercises) || 0,
+      evaluableExerciseCount: Number(totals.evaluableExercises) || 0,
+      durationMs: Math.round(performance.now() - startedAt),
+    };
+    setLoadingStatus(
+      "Catalogus geladen.",
+      `${state.loadStats.exerciseCount || "?"} oefeningen gevonden`,
+      32
+    );
   } catch (error) {
     state.catalog = FALLBACK_CATALOG;
+    state.loadStats = {
+      cache: CONTENT_FETCH_CACHE,
+      chapterCount: 1,
+      exerciseCount: 1,
+      evaluableExerciseCount: 0,
+      durationMs: 0,
+      fallback: true,
+    };
     showToast("Catalog niet gevonden, fallback sandbox gebruikt.", false);
   }
 }
@@ -1470,8 +1560,11 @@ async function activateSelection({ chapterIdx, subchapterIdx, exerciseIdx }) {
   renderProgress();
   persistSelection();
 
-  await renderAssignmentInfo();
-  await loadCurrentExerciseIntoEditor();
+  setLoadingStatus("Oefening klaarzetten.", "Beschrijving en startercode laden", 52);
+  await Promise.all([
+    renderAssignmentInfo(),
+    loadCurrentExerciseIntoEditor(),
+  ]);
   refreshRuntimeInputStatus();
 
   startWorkTimer();
@@ -1646,6 +1739,118 @@ function createEvaluationKv(label, value) {
   return wrap;
 }
 
+function createSyntaxEvaluationNode(syntaxDetails) {
+  const card = document.createElement("article");
+  card.className = "eval-case syntax";
+
+  const head = document.createElement("div");
+  head.className = "eval-case-head";
+
+  const title = document.createElement("div");
+  title.className = "eval-case-title";
+  title.textContent = "Syntaxcheck: eerst herstellen";
+
+  const badge = document.createElement("span");
+  badge.className = "eval-case-badge syntax";
+  badge.textContent = "Vooraf";
+
+  head.appendChild(title);
+  head.appendChild(badge);
+  card.appendChild(head);
+
+  const grid = document.createElement("div");
+  grid.className = "eval-case-grid";
+  grid.appendChild(createEvaluationKv(
+    "Probleem",
+    syntaxDetails && syntaxDetails.issueTitle ? syntaxDetails.issueTitle : "Onbekende syntaxfout"
+  ));
+
+  if (Number.isFinite(syntaxDetails && syntaxDetails.lineNumber)) {
+    grid.appendChild(createEvaluationKv(
+      "Regel",
+      `${syntaxDetails.lineNumber}${syntaxDetails.offset ? `, positie ${syntaxDetails.offset}` : ""}`
+    ));
+  }
+
+  if (syntaxDetails && syntaxDetails.tip) {
+    grid.appendChild(createEvaluationKv("Tip", syntaxDetails.tip));
+  }
+
+  if (syntaxDetails && syntaxDetails.pythonMessage) {
+    grid.appendChild(createEvaluationKv("Python meldt", syntaxDetails.pythonMessage));
+  }
+
+  if (syntaxDetails && syntaxDetails.codeLine) {
+    grid.appendChild(createEvaluationKv("Controleer deze regel", syntaxDetails.codeLine));
+  }
+
+  card.appendChild(grid);
+  return card;
+}
+
+function createStyleWarningEvaluationNode(styleWarnings) {
+  const warnings = Array.isArray(styleWarnings) ? styleWarnings.filter(Boolean) : [];
+  const languageIssues = warnings.flatMap((warning) =>
+    Array.isArray(warning.languageIssues) ? warning.languageIssues : []
+  );
+  const styleIssues = warnings.flatMap((warning) =>
+    Array.isArray(warning.styleIssues) ? warning.styleIssues : []
+  );
+
+  const card = document.createElement("article");
+  card.className = "eval-case style-warning";
+
+  const head = document.createElement("div");
+  head.className = "eval-case-head";
+
+  const title = document.createElement("div");
+  title.className = "eval-case-title";
+  title.textContent = warnings.length > 1 ? "Stijl- en taalcheck" : (warnings[0] && warnings[0].title) || "Stijlcheck";
+
+  const badge = document.createElement("span");
+  badge.className = "eval-case-badge style-warning";
+  badge.textContent = "Nudge";
+
+  head.appendChild(title);
+  head.appendChild(badge);
+  card.appendChild(head);
+
+  const grid = document.createElement("div");
+  grid.className = "eval-case-grid";
+  grid.appendChild(createEvaluationKv(
+    "Status",
+    warnings
+      .map((warning) => String(warning.message || "").trim())
+      .filter(Boolean)
+      .join("\n\n") || "Je oplossing is correct. Kijk nog even naar je stijl."
+  ));
+
+  if (languageIssues.length > 0) {
+    grid.appendChild(createEvaluationKv(
+      "Leestekens om te controleren",
+      languageIssues.slice(0, 6).map((issue) => {
+        const expectedEnding = issue.expectedEnding ? `"${issue.expectedEnding}"` : "een afsluitend leesteken";
+        const actualEnding = issue.actualEnding ? `"${issue.actualEnding}"` : "geen afsluitend leesteken";
+        return `Verwacht ${expectedEnding}, kreeg ${actualEnding}.\nJouw tekst: ${issue.actualLine || "(leeg)"}`;
+      }).join("\n\n") +
+        (languageIssues.length > 6 ? `\n\n... en ${languageIssues.length - 6} extra regel(s).` : "")
+    ));
+  }
+
+  if (styleIssues.length > 0) {
+    grid.appendChild(createEvaluationKv(
+      "Regels om te controleren",
+      styleIssues.slice(0, 8).map((issue) =>
+        `Regel ${issue.lineNumber}: ${issue.message}\n${issue.codeLine}`
+      ).join("\n\n") +
+        (styleIssues.length > 8 ? `\n\n... en ${styleIssues.length - 8} extra regel(s).` : "")
+    ));
+  }
+
+  card.appendChild(grid);
+  return card;
+}
+
 function createEvaluationCaseNode(caseResult) {
   const card = document.createElement("article");
   card.className = `eval-case ${caseResult.passed ? "pass" : "fail"}`;
@@ -1744,6 +1949,10 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
       ? evalResult.caseResults.find((item) => !item.passed) || null
       : null);
   const caseResults = Array.isArray(evalResult.caseResults) ? evalResult.caseResults : [];
+  const syntaxDetails = evalResult.syntaxDetails && typeof evalResult.syntaxDetails === "object"
+    ? evalResult.syntaxDetails
+    : null;
+  const isSyntaxMode = evalResult.mode === "syntax";
 
   const headerTitle = exerciseTitle
     ? `Evaluatie: ${exerciseTitle}`
@@ -1754,6 +1963,9 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
   if (evalResult.success) {
     ui.evalModalPill.classList.add("ok");
     ui.evalModalPill.textContent = "Geslaagd";
+  } else if (isSyntaxMode) {
+    ui.evalModalPill.classList.add("error");
+    ui.evalModalPill.textContent = "Syntaxfout";
   } else if (evalResult.errorMessage && total === 0) {
     ui.evalModalPill.classList.add("error");
     ui.evalModalPill.textContent = "Onvolledig";
@@ -1766,6 +1978,9 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
     ui.evalModalSummary.textContent =
       `De computer testte je code met ${total} verborgen testcases: ${passedCount} geslaagd, ${failedCount} mislukt.` +
       (evalResult.errorMessage ? ` Opmerking: ${evalResult.errorMessage}` : "");
+  } else if (isSyntaxMode) {
+    ui.evalModalSummary.textContent =
+      evalResult.errorMessage || "Los de syntaxfout hieronder op; daarna starten de testcases automatisch.";
   } else {
     ui.evalModalSummary.textContent =
       evalResult.errorMessage ||
@@ -1774,7 +1989,9 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
 
   ui.evalModalCases.innerHTML = "";
 
-  if (evalResult.success && total > 0) {
+  if (isSyntaxMode) {
+    ui.evalModalCases.appendChild(createSyntaxEvaluationNode(syntaxDetails || null));
+  } else if (evalResult.success && total > 0) {
     const note = document.createElement("div");
     note.className = "eval-case-note";
     note.textContent = "Top. Alle verborgen testcases zijn geslaagd.";
@@ -2851,6 +3068,46 @@ function normalizeOutputForComparison(text) {
   return value;
 }
 
+function terminalSentencePunctuation(text) {
+  const match = String(text || "").trim().match(/[.!?]+$/);
+  return match ? match[0] : "";
+}
+
+function withoutTerminalSentencePunctuation(text) {
+  return String(text || "").trim().replace(/[.!?]+$/g, "").trim();
+}
+
+function compareTerminalPunctuation(expectedNorm, actualNorm, expectedRaw, actualRaw) {
+  if (expectedNorm === actualNorm) {
+    return null;
+  }
+  const expectedBase = withoutTerminalSentencePunctuation(expectedNorm);
+  const actualBase = withoutTerminalSentencePunctuation(actualNorm);
+  if (!expectedBase || expectedBase !== actualBase) {
+    return null;
+  }
+  const expectedEnding = terminalSentencePunctuation(expectedNorm);
+  const actualEnding = terminalSentencePunctuation(actualNorm);
+  if (expectedEnding === actualEnding) {
+    return null;
+  }
+  return {
+    expectedEnding,
+    actualEnding,
+    expectedLine: String(expectedRaw ?? expectedNorm),
+    actualLine: String(actualRaw ?? actualNorm),
+  };
+}
+
+function createLanguagePunctuationWarning(issues) {
+  return {
+    id: "sentence-punctuation",
+    title: "Controleer je leestekens",
+    message: "Je oplossing is correct. Kijk nog even of elke zin eindigt met het juiste leesteken.",
+    languageIssues: Array.isArray(issues) ? issues : [],
+  };
+}
+
 function decodeBasicStringEscapes(text) {
   return String(text || "")
     .replace(/\\r/g, "\r")
@@ -2887,10 +3144,22 @@ function stripPromptStringsFromOutput(output, prompts) {
 }
 
 function outputsMatchExpected(expected, actual, sourceCode = "") {
+  return compareOutputExpected(expected, actual, sourceCode).passed;
+}
+
+function compareOutputExpected(expected, actual, sourceCode = "") {
   const expectedNorm = normalizeOutputForComparison(expected);
   const actualNorm = normalizeOutputForComparison(actual);
   if (actualNorm === expectedNorm) {
-    return true;
+    return { passed: true, styleWarnings: [] };
+  }
+
+  const punctuationIssue = compareTerminalPunctuation(expectedNorm, actualNorm, expected, actual);
+  if (punctuationIssue) {
+    return {
+      passed: true,
+      styleWarnings: [createLanguagePunctuationWarning([punctuationIssue])],
+    };
   }
 
   // Tolerance for input("vraag"): prompt texts may be echoed by the runtime.
@@ -2899,18 +3168,118 @@ function outputsMatchExpected(expected, actual, sourceCode = "") {
     const strippedActual = stripPromptStringsFromOutput(actual, prompts);
     const strippedNorm = normalizeOutputForComparison(strippedActual);
     if (strippedNorm === expectedNorm) {
-      return true;
+      return { passed: true, styleWarnings: [] };
+    }
+    const strippedPunctuationIssue = compareTerminalPunctuation(expectedNorm, strippedNorm, expected, strippedActual);
+    if (strippedPunctuationIssue) {
+      return {
+        passed: true,
+        styleWarnings: [createLanguagePunctuationWarning([strippedPunctuationIssue])],
+      };
     }
     if (expectedNorm.length > 0 && strippedNorm.endsWith(expectedNorm)) {
-      return true;
+      return { passed: true, styleWarnings: [] };
     }
   }
 
   if (expectedNorm.length > 0 && actualNorm.endsWith(expectedNorm)) {
-    return true;
+    return { passed: true, styleWarnings: [] };
   }
 
-  return false;
+  return { passed: false, styleWarnings: [] };
+}
+
+function stripPythonComments(line) {
+  let output = "";
+  let quote = "";
+  let escaped = false;
+
+  for (let index = 0; index < line.length; index += 1) {
+    const char = line[index];
+
+    if (quote) {
+      output += char;
+      if (escaped) {
+        escaped = false;
+      } else if (char === "\\") {
+        escaped = true;
+      } else if (char === quote) {
+        quote = "";
+      }
+      continue;
+    }
+
+    if (char === "\"" || char === "'") {
+      quote = char;
+      output += char;
+      continue;
+    }
+
+    if (char === "#") {
+      break;
+    }
+
+    output += char;
+  }
+
+  return output;
+}
+
+function analyzePythonStyle(code) {
+  const issues = [];
+  const lines = String(code || "").replace(/\r\n/g, "\n").split("\n");
+  const assignmentNamePattern = /^\s*([A-Za-z_][A-Za-z0-9_]*)\s*=/;
+
+  lines.forEach((rawLine, index) => {
+    const codePart = stripPythonComments(rawLine);
+    const trimmed = codePart.trim();
+    if (!trimmed) {
+      return;
+    }
+
+    if (/[;]\s*$/.test(trimmed)) {
+      issues.push({
+        lineNumber: index + 1,
+        codeLine: trimmed,
+        message: "Python heeft meestal geen puntkomma op het einde van een regel nodig.",
+      });
+    }
+
+    const assignmentMatch = codePart.match(assignmentNamePattern);
+    if (assignmentMatch && /[A-Z]/.test(assignmentMatch[1])) {
+      issues.push({
+        lineNumber: index + 1,
+        codeLine: trimmed,
+        message: "Gebruik bij variabelen liefst snake_case, bijvoorbeeld aantal_leerlingen.",
+      });
+    }
+
+    if (
+      /[^\s<>=!+\-*/%](==|!=|<=|>=|=|[+\-*/%])[^\s=]/.test(codePart) ||
+      /[^\s](==|!=|<=|>=|=|[+\-*/%])\s/.test(codePart) ||
+      /\s(==|!=|<=|>=|=|[+\-*/%])[^\s=]/.test(codePart)
+    ) {
+      issues.push({
+        lineNumber: index + 1,
+        codeLine: trimmed,
+        message: "Zet spaties rond operatoren zoals =, +, -, *, /, ==.",
+      });
+    }
+  });
+
+  return {
+    ok: issues.length === 0,
+    issues,
+  };
+}
+
+function createPythonStyleWarning(issues) {
+  return {
+    id: "python-style",
+    title: "Controleer je Python-stijl",
+    message: "Je oplossing is correct. Kijk nog even naar enkele Python-stijlpunten.",
+    styleIssues: Array.isArray(issues) ? issues : [],
+  };
 }
 
 function stdinToQueue(stdin) {
@@ -3061,22 +3430,67 @@ function buildSyntaxDebuggerMessage(details, code) {
   const safeLine = rawLine.trim();
   const pythonMessage = String((details && details.msg) || "SyntaxError").trim();
 
+  return buildSyntaxDebuggerDataFromParts({
+    issue,
+    lineNo,
+    offset,
+    safeLine,
+    pythonMessage,
+  }).consoleMessage;
+}
+
+function buildSyntaxDebuggerData(details, code) {
+  const issue = classifyPythonSyntaxIssue(details, code);
+  const lineNo = Number.isFinite(Number(details && details.lineno))
+    ? Number(details.lineno)
+    : null;
+  const offset = Number.isFinite(Number(details && details.offset))
+    ? Number(details.offset)
+    : null;
+  const rawLine = getCodeLineByNumber(code, lineNo);
+  const safeLine = rawLine.trim();
+  const pythonMessage = String((details && details.msg) || "SyntaxError").trim();
+
+  return buildSyntaxDebuggerDataFromParts({
+    issue,
+    lineNo,
+    offset,
+    safeLine,
+    pythonMessage,
+  });
+}
+
+function buildSyntaxDebuggerDataFromParts(parts) {
+  const issue = parts.issue || COMMON_PYTHON_SYNTAX_ISSUES.find((item) => item.id === "generic");
+  const lineNo = Number.isFinite(parts.lineNo) ? parts.lineNo : null;
+  const offset = Number.isFinite(parts.offset) ? parts.offset : null;
+  const safeLine = String(parts.safeLine || "");
+  const pythonMessage = String(parts.pythonMessage || "SyntaxError").trim();
+
   const lines = [
-    "Debugger (syntax-check):",
-    "Ik vond eerst een syntaxfout. Daarom starten de testcases nog niet.",
+    `Syntaxfout: ${issue.title}.`,
   ];
 
   if (lineNo) {
-    lines.push(`Locatie: regel ${lineNo}${offset ? `, positie ${offset}` : ""}.`);
+    lines.push(`Regel: ${lineNo}${offset ? `, positie ${offset}` : ""}.`);
   }
-  lines.push(`Waarschijnlijk probleem: ${issue.title}.`);
   lines.push(`Tip: ${issue.tip}`);
-  lines.push(`Melding van Python: ${pythonMessage}.`);
+  lines.push(`Python meldt: ${pythonMessage}.`);
   if (safeLine.length > 0) {
     lines.push(`Controleer deze regel: ${safeLine}`);
   }
 
-  return lines.join("\n");
+  return {
+    issueId: String(issue.id || "generic"),
+    issueTitle: String(issue.title || "Algemene syntaxfout"),
+    tip: String(issue.tip || ""),
+    summary: "Los de syntaxfout hieronder op; daarna starten de testcases automatisch.",
+    pythonMessage,
+    lineNumber: lineNo,
+    offset,
+    codeLine: safeLine,
+    consoleMessage: lines.join("\n"),
+  };
 }
 
 function buildSyntaxPrecheckScript(code) {
@@ -3325,7 +3739,8 @@ async function evaluateCurrentExercise(code) {
       try {
         // eslint-disable-next-line no-await-in-loop
         const actual = await runSingleEvaluationCase(code, tc.stdin);
-        const passed = outputsMatchExpected(tc.stdout, actual, code);
+        const comparison = compareOutputExpected(tc.stdout, actual, code);
+        const passed = comparison.passed;
         const result = {
           index,
           passed,
@@ -3333,6 +3748,7 @@ async function evaluateCurrentExercise(code) {
           expected: tc.stdout,
           actual,
           runtimeError: "",
+          styleWarnings: Array.isArray(comparison.styleWarnings) ? comparison.styleWarnings : [],
         };
         caseResults.push(result);
 
@@ -3348,12 +3764,26 @@ async function evaluateCurrentExercise(code) {
           expected: tc.stdout,
           actual: "",
           runtimeError: translateRuntimeError(rawMessage),
+          styleWarnings: [],
         });
       }
     }
 
     const failedCount = Math.max(0, testcases.length - passedCount);
     const firstFailCase = caseResults.find((item) => !item.passed) || null;
+
+    const styleWarnings = [];
+    if (failedCount === 0) {
+      caseResults.forEach((caseResult) => {
+        (caseResult.styleWarnings || []).forEach((warning) => {
+          styleWarnings.push(warning);
+        });
+      });
+      const pythonStyle = analyzePythonStyle(code);
+      if (!pythonStyle.ok) {
+        styleWarnings.push(createPythonStyleWarning(pythonStyle.issues));
+      }
+    }
 
     return {
       applicable: true,
@@ -3366,6 +3796,7 @@ async function evaluateCurrentExercise(code) {
       actual: firstFailCase ? firstFailCase.actual : "",
       firstFailCase,
       caseResults,
+      styleWarnings,
     };
   } finally {
     state.pendingInputs = originalPending;
@@ -3561,21 +3992,25 @@ async function runCode() {
 
     const syntaxPrecheck = await runPythonSyntaxPrecheck(code);
     if (!syntaxPrecheck.ok) {
-      const syntaxMessage = buildSyntaxDebuggerMessage(syntaxPrecheck.details || {}, code);
+      const syntaxDetails = buildSyntaxDebuggerData(syntaxPrecheck.details || {}, code);
+      const syntaxMessage = syntaxDetails.consoleMessage;
       ui.consoleOutput.textContent = syntaxMessage;
       setRuntimeStatus("Syntaxfout gevonden", "error");
+      let evalResult = null;
 
       if (exercise && exercise.evaluable) {
         setExerciseEvalStatus(exercise.id, "fail");
         renderProgress();
-        const evalResult = {
+        evalResult = {
           applicable: true,
           success: false,
+          mode: "syntax",
           total: 0,
           passedCount: 0,
           failedCount: 0,
           caseResults: [],
-          errorMessage: syntaxMessage,
+          errorMessage: syntaxDetails.summary,
+          syntaxDetails,
         };
         const saveResult = saveLatestExerciseSnapshot("fail", {
           evalResult,
@@ -3586,6 +4021,9 @@ async function runCode() {
         }
       }
 
+      if (evalResult) {
+        showEvaluationModal(evalResult, exercise.title || decodeTitleFromId(exercise.id));
+      }
       showToast("Syntaxfout gevonden. Verbeter je code en probeer opnieuw.", false);
       return;
     }
@@ -4302,20 +4740,31 @@ function setupEventHandlers() {
 async function bootstrap() {
   cacheUiRefs();
   restoreTheme();
-  await loadCatalog();
-  restoreSelectionFromStorage();
-  initializeMenuAccordionState();
-  initializeEditor();
-  await activateSelection({
-    chapterIdx: state.currentChapterIdx,
-    subchapterIdx: state.currentSubchapterIdx,
-    exerciseIdx: state.currentExerciseIdx,
-  });
-  setupSplitter();
-  setupEventHandlers();
+  setLoadingStatus("Delphi wordt voorbereid.", "Thema en basisinterface laden", 8);
+  try {
+    await loadCatalog();
+    restoreSelectionFromStorage();
+    initializeMenuAccordionState();
+    initializeEditor();
+    await activateSelection({
+      chapterIdx: state.currentChapterIdx,
+      subchapterIdx: state.currentSubchapterIdx,
+      exerciseIdx: state.currentExerciseIdx,
+    });
+    setupSplitter();
+    setupEventHandlers();
+  } catch (error) {
+    const friendly = translateRuntimeError(error && error.message ? error.message : String(error));
+    showLoadingError("Delphi kon niet volledig laden.", friendly);
+    showToast("Delphi kon niet volledig laden.", false);
+    throw error;
+  }
 
   try {
+    setLoadingStatus("Pythonruntime starten.", "Papyros en input-ondersteuning initialiseren", 78);
     await initializePapyros();
+    setLoadingStatus("Klaar.", "Veel succes met Python.", 100);
+    hideLoadingOverlay();
   } catch (error) {
     const friendly = translateRuntimeError(error && error.message ? error.message : String(error));
     const rawDetail = formatErrorDetails(error);
@@ -4330,6 +4779,7 @@ async function bootstrap() {
       (includeRawDetail ? `\nDetails: ${rawDetail}` : "") +
       "\n\n" +
       "Controleer of je via localhost draait, of input-sw.js in dezelfde map staat, en herlaad daarna hard (Ctrl/Cmd+Shift+R).";
+    showLoadingError("Pythonruntime kon niet starten.", friendly);
     showToast("Papyros kon niet starten.", false);
   }
 }

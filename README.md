@@ -33,7 +33,8 @@ Deze omgeving is bedoeld voor educatief gebruik.
 
 ## Technisch
 
-- Front-end: `index.html`, `styles.css`, `app.js`
+- Landing page: `index.html`
+- Leeromgeving: `platform.html`, `styles.css`, `app.js`
 - Runtime: Papyros (Python/JavaScript in browser)
 - Contentindex: zie `tools/build-catalog.mjs`
 
@@ -75,6 +76,12 @@ python3 -m http.server 8000
 
 ```text
 http://localhost:8000
+```
+
+De rootpagina is de projectlanding. Klik daar door naar de leeromgeving, of open rechtstreeks:
+
+```text
+http://localhost:8000/platform.html
 ```
 
 Gebruik de toepassing niet via `file://`, omdat service workers dan niet correct werken.

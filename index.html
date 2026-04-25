@@ -1,338 +1,920 @@
-<!-- Copyright 2026 - Gebruik vrij voor educatie mits expliciete naamsvermelding -->
-<!--Auteur: Robbe Wulgaert / aiindeklas.be-->
-<!DOCTYPE html>
-<html lang="nl">
+<!--
+  Project Delphi - landing page
+  Copyright (c) 2026 Robbe Wulgaert
+  Citeer/vermeld als: Robbe Wulgaert, AI in de Klas, robbewulgaert.be
+-->
+<!doctype html>
+<html lang="nl-BE">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project Delphi - Python in de Klas</title>
-  <meta name="description" content="Lichtgewicht Python leeromgeving voor in de klas">
+  <meta name="description" content="Project Delphi is een browseromgeving voor Python, computationeel denken en automatische feedback in de klas.">
+  <meta name="author" content="Robbe Wulgaert, AI in de Klas, robbewulgaert.be">
+  <meta name="copyright" content="Copyright (c) 2026 Robbe Wulgaert">
+
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --delphi-blue: #5200ff;
+      --delphi-blue-dark: #3a00b8;
+      --delphi-gold: #03ddef;
+      --delphi-ink: #181421;
+      --delphi-muted: #625b70;
+      --delphi-bg: #f8f7f3;
+      --delphi-panel: #ffffff;
+      --delphi-line: #e2ddea;
+      --delphi-soft: #f7f3ff;
+      --delphi-good: #16834a;
+      --delphi-neutral: #6d6677;
+      --shadow: 0 18px 55px rgba(32, 20, 54, 0.10);
+      --card-shadow: 0 10px 30px rgba(32, 20, 54, 0.08);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Roboto", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--delphi-ink);
+      line-height: 1.55;
+      background:
+        radial-gradient(circle at top left, rgba(82, 0, 255, 0.09), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, var(--delphi-bg) 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.95em;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: -999px;
+      z-index: 100;
+      border-radius: 10px;
+      background: var(--delphi-blue);
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 900;
+    }
+
+    .skip-link:focus { left: 12px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 221, 234, 0.78);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      background: linear-gradient(135deg, var(--delphi-blue), var(--delphi-blue-dark));
+      box-shadow: 0 12px 24px rgba(82, 0, 255, 0.24);
+      flex: 0 0 auto;
+    }
+
+    .brand-title {
+      display: block;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .brand-subtitle {
+      display: block;
+      color: var(--delphi-muted);
+      font-size: 0.88rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--delphi-muted);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--delphi-blue);
+      background: var(--delphi-soft);
+      outline: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      border-radius: 999px;
+      padding: 13px 18px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--delphi-blue);
+      box-shadow: 0 16px 30px rgba(82, 0, 255, 0.23);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--delphi-blue-dark);
+      outline: none;
+    }
+
+    .btn-secondary {
+      color: var(--delphi-blue);
+      background: #fff;
+      border-color: rgba(82, 0, 255, 0.22);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--delphi-soft);
+      border-color: rgba(82, 0, 255, 0.40);
+      outline: none;
+    }
+
+    main { overflow: hidden; }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 70px 22px 78px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.94fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 14px;
+      color: var(--delphi-blue);
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.88rem;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--delphi-gold);
+      box-shadow: 0 0 0 6px rgba(3, 221, 239, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--delphi-blue-dark);
+      font-size: clamp(2.6rem, 7vw, 5.6rem);
+      line-height: 0.94;
+      letter-spacing: -0.075em;
+    }
+
+    .hero-copy {
+      margin: 26px 0 0;
+      max-width: 720px;
+      color: var(--delphi-muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-card {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 16% 10%, rgba(3, 221, 239, 0.28), transparent 13rem),
+        linear-gradient(145deg, #23143d 0%, #10091d 100%);
+      color: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(3, 221, 239, 0.16);
+    }
+
+    .hero-card h2 {
+      position: relative;
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      z-index: 1;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 0.86rem;
+    }
+
+    .hero-note {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.82);
+      margin: 0;
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 22px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section h2 {
+      margin: 0;
+      color: var(--delphi-blue-dark);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.03;
+      letter-spacing: -0.055em;
+    }
+
+    .section-lede {
+      max-width: 780px;
+      margin: 0;
+      color: var(--delphi-muted);
+      font-size: 1.08rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--delphi-line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.90);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--delphi-blue);
+      font-size: 1.18rem;
+      letter-spacing: -0.025em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--delphi-muted);
+    }
+
+    .platform-table-wrap {
+      margin-top: 34px;
+      overflow-x: auto;
+      border: 1px solid var(--delphi-line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--card-shadow);
+    }
+
+    .platform-table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+    }
+
+    .platform-table th,
+    .platform-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--delphi-line);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .platform-table th:first-child,
+    .platform-table td:first-child {
+      text-align: left;
+    }
+
+    .platform-table thead th {
+      background: var(--delphi-soft);
+      color: var(--delphi-blue-dark);
+      font-weight: 900;
+    }
+
+    .platform-table thead th:nth-child(2) {
+      background: rgba(82, 0, 255, 0.13);
+      color: var(--delphi-blue-dark);
+    }
+
+    .platform-table tbody th {
+      font-weight: 800;
+      color: var(--delphi-ink);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .platform-table tbody td:nth-child(2) {
+      background: rgba(82, 0, 255, 0.055);
+    }
+
+    .platform-table tbody tr:last-child th,
+    .platform-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .mark {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      margin-inline: auto;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .mark.yes {
+      background: rgba(22, 131, 74, 0.12);
+      color: var(--delphi-good);
+    }
+
+    .mark.no {
+      background: rgba(120, 113, 128, 0.13);
+      color: var(--delphi-neutral);
+    }
+
+    .mark.partial {
+      background: rgba(82, 0, 255, 0.12);
+      color: var(--delphi-blue);
+    }
+
+    .cell-note {
+      display: block;
+      margin-top: 5px;
+      color: var(--delphi-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .comparison.platform-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .compare-card.featured {
+      background:
+        radial-gradient(circle at 92% 10%, rgba(3, 221, 239, 0.22), transparent 14rem),
+        linear-gradient(145deg, #ffffff, var(--delphi-soft));
+    }
+
+    .compare-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--delphi-line);
+      background: #fff;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: var(--delphi-blue);
+      color: #fff !important;
+      font-weight: 900;
+    }
+
+    .steps strong {
+      display: block;
+      color: var(--delphi-blue-dark);
+      margin-bottom: 2px;
+    }
+
+    .steps span {
+      color: var(--delphi-muted);
+    }
+
+    .callout {
+      border-radius: 28px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 92% 10%, rgba(3, 221, 239, 0.20), transparent 14rem),
+        linear-gradient(145deg, #ffffff, var(--delphi-soft));
+      border: 1px solid rgba(82, 0, 255, 0.13);
+      box-shadow: var(--card-shadow);
+    }
+
+    .callout h3 {
+      margin: 0 0 10px;
+      color: var(--delphi-blue-dark);
+      font-size: 1.35rem;
+    }
+
+    .callout p {
+      margin: 0 0 14px;
+      color: var(--delphi-muted);
+    }
+
+    .site-footer {
+      margin-top: 50px;
+      color: #efe8ff;
+      background: #110b1c;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: 800;
+      color: var(--delphi-blue);
+    }
+
+    .site-footer strong {
+      color: #fff;
+    }
+
+    .site-footer a {
+      color: rgba(239, 232, 255, 0.82);
+    }
+
+    .site-footer a:hover,
+    .site-footer a:focus-visible {
+      color: #fff;
+      outline: none;
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+      }
+
+      .hero,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .comparison.platform-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-actions,
+      .footer-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="exercise-progress" id="exercise-progress" aria-label="Voortgang"></div>
+  <a class="skip-link" href="#main">Spring naar inhoud</a>
 
-    <div class="opdracht" id="opdracht">
-      <strong id="opdracht-titel">Python Sandbox</strong>
-      <span id="opdracht-tekst">Vrij oefenen met Python in de browser.</span>
-    </div>
-
-    <div class="toolbar">
-      <button class="brand-btn" id="toggle-theme" title="Donkere of lichte modus">Donker/Licht</button>
-      <button class="brand-btn" id="export-pdf">Reeks exporteren naar PDF</button>
-      <button class="brand-btn" id="reset-progress">Vooruitgang wissen</button>
-    </div>
-  </header>
-
-  <aside class="course-menu" id="course-menu" aria-label="Cursusmenu">
-    <div class="menu-header">
-      <span class="menu-title">Menu</span>
-      <button class="close-menu" id="close-menu" aria-label="Sluit menu">x</button>
-    </div>
-    <nav class="menu-content">
-      <h3>Inhoud</h3>
-      <ul class="chapter-list" id="menu-chapters"></ul>
-      <div class="menu-project-panel">
-        <details class="menu-project-details">
-          <summary>Over Project Delphi</summary>
-          <div class="menu-project-body">
-            <p>
-              <strong>Project Delphi</strong> is de webgebaseerde tegenhanger van Dodona.
-              De naam verwijst naar Delphi in Griekenland en de slang in de lore van Delphi.
-            </p>
-            <p>
-              <a href="https://dodona.be/" target="_blank" rel="noopener noreferrer">Dodona</a> is een intelligent
-              oefenplatform dat programmeeroefeningen omzet in een leerrijke feedbackcyclus.
-              Geautomatiseerde tests, zinvolle hints en leeranalyses helpen studenten beter leren
-              en lesgevers slimmer lesgeven.
-            </p>
-            <p>
-              Contact:
-              <a href="https://robbewulgaert.be/contact" target="_blank" rel="noopener noreferrer">
-                robbewulgaert.be/contact
-              </a>
-            </p>
-            <p>
-              Deze webomgeving is bedoeld voor snel testen en oefenen,
-              en uitsluitend voor educatieve settings.
-            </p>
-            <p>
-              Licenties:
-              <a href="LICENSE" target="_blank" rel="noopener noreferrer">Project Delphi License</a>
-              (educatief gebruik met expliciete naamsvermelding) en
-              <a href="THIRD_PARTY_NOTICES.md" target="_blank" rel="noopener noreferrer">third-party notices</a>
-              voor gebruikte componenten zoals Papyros (MIT).
-            </p>
-          </div>
-        </details>
+  <header class="site-header">
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a class="brand" href="index.html" aria-label="Project Delphi startpagina">
+        <span class="brand-mark">Py</span>
+        <span>
+          <span class="brand-title">Project Delphi</span>
+          <span class="brand-subtitle">Python in de Klas, volledig in de browser</span>
+        </span>
+      </a>
+      <div class="nav-links" aria-label="Paginaonderdelen">
+        <a href="#platform">Platform</a>
+        <a href="#vergelijking">Vergelijking</a>
+        <a href="#pythia">Pythia</a>
+        <a href="#gebruik">Gebruik</a>
+        <a href="README.md">README</a>
       </div>
     </nav>
-  </aside>
+  </header>
 
-  <button id="menu-tab" class="menu-tab" title="Toon menu">Menu</button>
-
-  <main class="main-layout" id="main-layout">
-    <section class="editor-pane" id="editor-pane">
-      <div class="pane-label">Code-editor</div>
-      <div id="code-editor"></div>
-      <br>
-      <button class="brand-btn run-btn" id="run-code">Uitvoeren</button>
-      <br><br>
-      <div class="runtime-input-wrap">
-        <div class="runtime-input-label">Invoer voor <code>input()</code></div>
-        <div class="runtime-input-row">
-          <input
-            id="runtime-input"
-            class="runtime-input-field"
-            type="text"
-            autocomplete="off"
-            placeholder="Typ een antwoord en druk Enter"
-          >
-          <button class="brand-btn runtime-input-send" id="runtime-input-send" type="button">Verzend</button>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Python oefenen zonder gedoe</p>
+        <h1 id="hero-title">Project Delphi</h1>
+        <p class="hero-copy">
+          Delphi is de Python-tegenhanger van JS in de Klas: een eenvoudige browseromgeving
+          waarin leerlingen code schrijven, uitvoeren, testen en bijsturen. Geen account nodig,
+          geen installatie op leerlingentoestellen, wel genoeg structuur om er in de klas echt mee te werken.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="platform.html">Start de Python-leeromgeving</a>
+          <a class="btn btn-secondary" href="pythia/index.html">Open Pythia oefeningmaker</a>
         </div>
-        <div id="runtime-input-status" class="runtime-input-status idle">Geen open input-vraag.</div>
       </div>
-      <div class="console-label">Uitvoer</div>
-      <pre id="console-output" class="console-output" aria-live="polite"></pre>
-      <div class="metrics-row">
-        <span id="metrics">Pogingen: 0 | Tijd: 0s</span>
+
+      <aside class="hero-card" aria-label="Projectstatus">
+        <h2>Python stap voor stap</h2>
+        <div class="stats">
+          <div class="stat">
+            <strong>4</strong>
+            <span>hoofdstukken: sequentie, selectie en herhalingen</span>
+          </div>
+          <div class="stat">
+            <strong>209</strong>
+            <span>opdrachten en theoriebouwstenen</span>
+          </div>
+          <div class="stat">
+            <strong>183</strong>
+            <span>oefeningen met automatische feedback</span>
+          </div>
+        </div>
+        <p class="hero-note">
+          Leerlingen oefenen met datatypes, variabelen, voorwaarden, lussen en invoer. De opdrachten
+          koppelen Python aan computationeel denken, wiskundige redeneringen en kleine herkenbare situaties.
+        </p>
+      </aside>
+    </section>
+
+    <section id="platform" class="section" aria-labelledby="platform-title">
+      <div class="section-head">
+        <div>
+          <h2 id="platform-title">Wat zit er in Delphi?</h2>
+          <p class="section-lede">
+            De basis is herkenbaar: leerlingen krijgen links hun code, rechts de opdracht,
+            onderaan directe feedback. Via het menu ga je stap voor stap doorheen de cursus. 
+          </p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Pythonruntime in de browser</h3>
+          <p>Gebaseerd op Papyros, met gewone uitvoer en interactieve <code>input()</code>-vragen.</p>
+        </article>
+        <article class="card">
+          <h3>Catalogus met hoofdstukken</h3>
+          <p>De oefeningen komen uit <code>content/catalog.json</code>, opgebouwd vanuit een Dodona-achtige mappenstructuur.</p>
+        </article>
+        <article class="card">
+          <h3>Testcases en feedback</h3>
+          <p>YAML- en JSON-testbestanden sturen de testcases aan, met samenvatting en details per testcase.</p>
+        </article>
+        <article class="card">
+          <h3>Voortgang lokaal bewaren</h3>
+          <p>Code, pogingen, werktijd en evaluatiestatus worden lokaal bewaard zonder account of cloud.</p>
+        </article>
+        <article class="card">
+          <h3>PDF-export</h3>
+          <p>Leerlingen kunnen een reeks exporteren als rapport met code, feedback en rubriek voor de leerkracht.</p>
+        </article>
+        <article class="card">
+          <h3>Formularium</h3>
+          <p>Een ingebouwd Python-formularium helpt leerlingen zonder dat ze de opdracht moeten verlaten.</p>
+        </article>
       </div>
     </section>
 
-    <div class="splitter" id="splitter" role="separator" aria-label="Panelen herschalen"></div>
-
-    <section class="assignment-pane" id="assignment-pane">
-      <div class="assignment-header">
-        <span class="pane-label">Oefening</span>
-        <span class="status-pill idle" id="runtime-status">Runtime initialiseren...</span>
+    <section id="vergelijking" class="section" aria-labelledby="vergelijking-title">
+      <div class="section-head">
+        <div>
+          <h2 id="vergelijking-title">Waar past Delphi tussen?</h2>
+          <p class="section-lede">
+            Delphi is geen poging om Dodona te vervangen. Het zit tussen mijn eigen JS in de Klas
+            en Dodona in: laagdrempelig genoeg voor snel klasgebruik, maar met testcases en structuur
+            zodat leerlingen meer krijgen dan alleen "het programma draait".
+          </p>
+        </div>
       </div>
-      <article class="assignment-card">
-        <h2 id="assignment-title">Sandbox</h2>
-        <section class="assignment-block">
-          <h3>Beschrijving</h3>
-          <div id="assignment-markdown" class="assignment-markdown"></div>
-        </section>
-      </article>
-    </section>
-  </main>
-
-  <button class="help-btn" id="help-btn" title="Toon Python cheatsheet">?</button>
-
-  <div class="modal" id="help-modal" aria-hidden="true">
-    <div class="modal-box help-box">
-      <button class="modal-close" id="close-help" aria-label="Sluit help">x</button>
-      <h2>Python Formularium</h2>
-      <div class="help-table-wrap">
-        <table class="help-table">
+      <div class="platform-table-wrap" aria-label="Vergelijking van programmeerplatformen">
+        <table class="platform-table">
           <thead>
             <tr>
-              <th>Functie of statement</th>
-              <th>Beschrijving</th>
-              <th>Syntax</th>
-              <th>Uitzonderingen / opletten voor</th>
+              <th scope="col">Mogelijkheid</th>
+              <th scope="col">Dodona</th>
+              <th scope="col">Project Delphi</th>
+              <th scope="col">JS in de Klas</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>String-concatenatie</code></td>
-              <td>Tekststukken samenplakken.</td>
-              <td><code>"lijn " + lijnnummer</code></td>
-              <td>Alleen strings samenplakken. Getallen eerst naar <code>str()</code> omzetten.</td>
+              <th scope="row">Browsergebaseerd werken</th>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark yes">&check;</span></td>
             </tr>
             <tr>
-              <td><code>round()</code> (afronden)</td>
-              <td>Afronden van een waarde X tot Y decimalen.</td>
-              <td><code>round(X, Y)</code></td>
-              <td><code>round(X)</code> rondt af tot nul decimalen en geeft <code>int</code>. <code>round(X, 0)</code> rondt af tot nul decimalen en geeft <code>float</code>.</td>
+              <th scope="row">Python-oefeningen</th>
+              <td><span class="mark yes">&check;</span><span class="cell-note">Volwaardig</span></td>
+              <td><span class="mark yes">&check;</span><span class="cell-note">Lichtgewicht</span></td>
+              <td><span class="mark no">&times;</span><span class="cell-note">JavaScript</span></td>
             </tr>
             <tr>
-              <td><code>input()</code></td>
-              <td>Leest tekst in van de gebruiker.</td>
-              <td><code>input("Vraag: ")</code></td>
-              <td>Geeft altijd een string.</td>
+              <th scope="row">Automatische feedback</th>
+              <td><span class="mark yes">&check;</span><span class="cell-note">Uitgebreid</span></td>
+              <td><span class="mark partial">&bull;</span><span class="cell-note">Via testcases</span></td>
+              <td><span class="mark partial">&bull;</span><span class="cell-note">Via testcases</span></td>
             </tr>
             <tr>
-              <td><code>import</code></td>
-              <td>Importeren van externe bibliotheken.</td>
-              <td><code>import math</code></td>
-              <td>Altijd als eerste coderegel indien nodig.</td>
+              <th scope="row">Syntax- en stijlhulp voor beginners</th>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark partial">&bull;</span><span class="cell-note">Beperkt</span></td>
+              <td><span class="mark partial">&bull;</span><span class="cell-note">Beperkt</span></td>
             </tr>
             <tr>
-              <td><code>math.sqrt()</code></td>
-              <td>Vierkantswortel uit bibliotheek <code>math</code>.</td>
-              <td><code>math.sqrt(getal_n)</code></td>
-              <td>Let op voor de haakjes.</td>
+              <th scope="row">Performantiecontrole en linting</th>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark no">&times;</span></td>
+              <td><span class="mark no">&times;</span></td>
             </tr>
             <tr>
-              <td><code>math.pi</code></td>
-              <td>Wetenschappelijke pi uit bibliotheek <code>math</code>.</td>
-              <td><code>math.pi</code></td>
-              <td>Enige juiste pi in pythonoefeningen.</td>
+              <th scope="row">Dashboards en leeranalyses</th>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark no">&times;</span></td>
+              <td><span class="mark no">&times;</span></td>
             </tr>
             <tr>
-              <td><code>math.ceil()</code> / <code>math.floor()</code></td>
-              <td>Speciale manieren van afronden uit bibliotheek <code>math</code>.</td>
-              <td><code>math.ceil(x)</code> / <code>math.floor(x)</code></td>
-              <td>Vergeet de bibliotheek <code>math</code> niet.</td>
+              <th scope="row">Klassenbeheer en accounts</th>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark no">&times;</span><span class="cell-note">Bewust lokaal</span></td>
+              <td><span class="mark no">&times;</span><span class="cell-note">Bewust lokaal</span></td>
             </tr>
             <tr>
-              <td><code>if / elif / else</code></td>
-              <td>Keuze maken op basis van voorwaarden.</td>
-              <td><code>if voorwaarde:</code><br><code>elif voorwaarde:</code><br><code>else:</code></td>
-              <td>Let op inspringing. Slechts een <code>else</code>, meerdere <code>elif</code> mogelijk.</td>
+              <th scope="row">Oefenreeksen, deadlines en evaluaties</th>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark no">&times;</span></td>
+              <td><span class="mark no">&times;</span></td>
             </tr>
             <tr>
-              <td><code>and / or / not</code></td>
-              <td>Logische operatoren om voorwaarden te combineren.</td>
-              <td><code>if a &gt; 0 and b &gt; 0:</code></td>
-              <td><code>and</code>: beide waar. <code>or</code>: minstens een waar. <code>not</code>: keert een voorwaarde om.</td>
+              <th scope="row">Grote oefenbibliotheek</th>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark no">&times;</span><span class="cell-note">Eigen content</span></td>
+              <td><span class="mark no">&times;</span><span class="cell-note">Eigen content</span></td>
             </tr>
             <tr>
-              <td><code>**</code> (machten)</td>
-              <td>Macht van een getal berekenen.</td>
-              <td><code>getal_1 ** getal_2</code></td>
-              <td>Controleer volgorde en datatype van beide waarden.</td>
-            </tr>
-            <tr>
-              <td><code>//</code></td>
-              <td>Delen zonder rest (geheel quotiënt).</td>
-              <td><code>a // b</code></td>
-              <td>Samen met <code>%</code> gebruiken bij deelbaarheid.</td>
-            </tr>
-            <tr>
-              <td><code>%</code></td>
-              <td>Rest bij een deling (zonder quotiënt).</td>
-              <td><code>a % b</code></td>
-              <td>Handig voor even/oneven en deelbaarheid.</td>
-            </tr>
-            <tr>
-              <td><code>float(x)</code></td>
-              <td>Zet <code>x</code> om naar een kommagetal.</td>
-              <td><code>float("3.29")</code></td>
-              <td>Handig na <code>input()</code> om met kommagetallen te rekenen.</td>
-            </tr>
-            <tr>
-              <td><code>int(x)</code></td>
-              <td>Zet <code>x</code> om naar een geheel getal.</td>
-              <td><code>int("7")</code>, <code>int(7.9)</code></td>
-              <td>Bij floats wordt afgekapt, niet afgerond.</td>
+              <th scope="row">PDF-export voor indienen of feedback</th>
+              <td><span class="mark partial">&bull;</span><span class="cell-note">Platformfeedback</span></td>
+              <td><span class="mark yes">&check;</span></td>
+              <td><span class="mark yes">&check;</span></td>
             </tr>
           </tbody>
         </table>
       </div>
-    </div>
-  </div>
 
-  <div class="modal" id="ask-modal" aria-hidden="true">
-    <div class="modal-box">
-      <h3>Invoer gevraagd</h3>
-      <p class="modal-message" id="ask-modal-msg"></p>
-      <input id="ask-modal-input" class="modal-input" type="text" autocomplete="off">
-      <div class="modal-actions">
-        <button class="brand-btn" id="ask-modal-ok">OK</button>
+      <div class="comparison platform-cards">
+        <article class="card compare-card featured">
+          <h3>Dodona</h3>
+          <p>
+            De beste keuze voor volledige leerlijnen, klasopvolging, deadlines, automatische evaluatie,
+            leeranalyses en grotere oefencollecties.
+          </p>
+          <div class="compare-actions">
+            <a class="btn btn-primary" href="https://dodona.be/nl/courses/2641/">Python in de Klas op Dodona</a>
+          </div>
+        </article>
+        <article class="card compare-card">
+          <h3>Project Delphi</h3>
+          <p>
+            Een lichte browseromgeving voor Python-oefeningen, testcasefeedback, lokale opslag en PDF-export.
+            Handig wanneer je snel wil oefenen zonder accounts of platformbeheer.
+          </p>
+          <div class="compare-actions">
+            <a class="btn btn-primary" href="platform.html">Open Delphi</a>
+          </div>
+        </article>
+        <article class="card compare-card">
+          <h3>JS in de Klas</h3>
+          <p>
+            De visuele JavaScript-tegenhanger: turtle graphics, canvas, consolefeedback en oefenreeksen
+            voor computationeel denken in de eerste graad.
+          </p>
+          <div class="compare-actions">
+            <a class="btn btn-primary" href="https://robbew.github.io/jsindeklas/">Open JS in de Klas</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="pythia" class="section" aria-labelledby="pythia-title">
+      <div class="split">
+        <div>
+          <h2 id="pythia-title">Pythia voor lesgevers</h2>
+          <p class="section-lede">
+            Pythia is het hulpstuk voor wie zelf oefeningen wil maken. Je vult de oefening, startcode,
+            oplossing en testcases in; Pythia zet dat om naar een map die in deze structuur past.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="pythia/index.html">Maak een oefening met Pythia</a>
+            <a class="btn btn-secondary" href="tools/build-catalog.mjs">Bekijk catalogusbuilder</a>
+          </div>
+        </div>
+        <aside class="callout">
+          <h3>Voor GitHub Pages</h3>
+          <p>
+            Host je de repository via GitHub Pages, dan open je Delphi rechtstreeks in de browser.
+            Pas je oefeningen aan, bouw dan de catalogus opnieuw zodat de leeromgeving weet wat er bestaat.
+          </p>
+          <a class="btn btn-secondary" href="README.md">Lees de technische uitleg</a>
+        </aside>
+      </div>
+    </section>
+
+    <section id="gebruik" class="section" aria-labelledby="gebruik-title">
+      <div class="section-head">
+        <div>
+          <h2 id="gebruik-title">Aan de slag</h2>
+          <p class="section-lede">
+            Deze pagina is de voordeur. De eigenlijke leeromgeving staat apart, zodat leerlingen snel
+            kunnen starten en jij tegelijk een duidelijke projectpagina hebt voor GitHub Pages.
+          </p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-number">1</span>
+          <span><strong>Open de leeromgeving.</strong> Klik op <code>Start de Python-leeromgeving</code> en kies een hoofdstuk of oefening via het menu.</span>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <span><strong>Schrijf en test Python-code.</strong> Voer code uit, gebruik <code>input()</code> waar nodig en bekijk de testcasefeedback.</span>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <span><strong>Bewaar bewijs van leren.</strong> Gebruik de PDF-export om code, feedback en rubriek te verzamelen.</span>
+        </li>
+        <li>
+          <span class="step-number">4</span>
+          <span><strong>Breid de inhoud uit.</strong> Maak nieuwe oefeningen met Pythia of voeg bestaande Dodona-achtige content toe en bouw daarna de catalogus opnieuw.</span>
+        </li>
+      </ol>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Project Delphi</strong><br>
+        Robbe Wulgaert, AI in de Klas, robbewulgaert.be
+      </div>
+      <div class="footer-links">
+        <a href="LICENSE">Licentie</a>
+        <a href="THIRD_PARTY_NOTICES.md">Third-party notices</a>
+        <a href="https://robbewulgaert.be/contact">Contact</a>
       </div>
     </div>
-  </div>
-
-  <div class="modal" id="eval-modal" aria-hidden="true">
-    <div class="modal-box eval-modal-box">
-      <button class="modal-close" id="close-eval-modal" aria-label="Sluit evaluatie">x</button>
-      <div class="eval-modal-header">
-        <h3 id="eval-modal-title">Evaluatieresultaat</h3>
-        <span class="eval-pill ok" id="eval-modal-pill">Geslaagd</span>
-      </div>
-      <p class="eval-summary" id="eval-modal-summary"></p>
-      <div class="eval-cases" id="eval-modal-cases"></div>
-      <div class="modal-actions">
-        <button class="brand-btn" id="eval-modal-ok">Sluiten</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="pdf-modal" aria-hidden="true">
-    <div class="modal-box pdf-modal-box">
-      <button class="modal-close" id="close-pdf-modal" aria-label="Sluit exportvenster">x</button>
-      <h3>Reeks exporteren naar PDF</h3>
-      <p class="pdf-modal-intro">Vul onderstaande gegevens in voor de bundel-export.</p>
-      <div class="pdf-form-grid">
-        <label class="pdf-form-label" for="pdf-first-name">Voornaam</label>
-        <input
-          id="pdf-first-name"
-          class="modal-input"
-          type="text"
-          autocomplete="given-name"
-          required
-        >
-
-        <label class="pdf-form-label" for="pdf-last-name">Familienaam</label>
-        <input
-          id="pdf-last-name"
-          class="modal-input"
-          type="text"
-          autocomplete="family-name"
-          required
-        >
-
-        <label class="pdf-form-label" for="pdf-class-name">Klas</label>
-        <input
-          id="pdf-class-name"
-          class="modal-input"
-          type="text"
-          autocomplete="organization"
-          required
-        >
-      </div>
-      <div class="modal-actions pdf-modal-actions">
-        <button class="brand-btn secondary-btn" id="pdf-cancel" type="button">Annuleren</button>
-        <button class="brand-btn" id="pdf-confirm" type="button">Exporteren</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal" id="reset-modal" aria-hidden="true">
-    <div class="modal-box reset-modal-box">
-      <h3>Vooruitgang wissen</h3>
-      <p class="modal-message">Kies wat je wil wissen.</p>
-      <div class="modal-actions reset-modal-actions">
-        <button class="brand-btn" id="reset-current" type="button">Alleen huidige oefening</button>
-        <button class="brand-btn secondary-btn" id="reset-all" type="button">Volledige cursus</button>
-        <button class="brand-btn secondary-btn" id="reset-cancel" type="button">Annuleren</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="toast" id="toast"></div>
-
-  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/mode/python/python.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
-  <script type="importmap">
-    {
-      "imports": {
-        "https://unpkg.com/comlink@4.4.2?module": "https://esm.sh/comlink@4.4.2/es2022/comlink.bundle.mjs",
-        "https://unpkg.com/comlink@^4.4.2?module": "https://esm.sh/comlink@4.4.2/es2022/comlink.bundle.mjs",
-        "/node/process.mjs": "./browser-process.mjs",
-        "https://unpkg.com/sync-message@0.0.12?module": "https://esm.sh/sync-message@0.0.12/es2022/sync-message.bundle.mjs",
-        "https://unpkg.com/sync-message@^0.0.12?module": "https://esm.sh/sync-message@0.0.12/es2022/sync-message.bundle.mjs",
-        "https://unpkg.com/comsync@0.0.9?module": "https://esm.sh/comsync@0.0.9/es2022/comsync.bundle.mjs",
-        "https://unpkg.com/comsync@^0.0.9?module": "https://esm.sh/comsync@0.0.9/es2022/comsync.bundle.mjs",
-        "https://unpkg.com/node-polyglot@2.6.0?module": "https://esm.sh/node-polyglot@2.6.0/es2022/node-polyglot.bundle.mjs",
-        "https://unpkg.com/node-polyglot@^2.6.0?module": "https://esm.sh/node-polyglot@2.6.0/es2022/node-polyglot.bundle.mjs",
-        "https://unpkg.com/pyodide-worker-runner@1.4.0?module": "https://esm.sh/pyodide-worker-runner@1.4.0/es2022/pyodide-worker-runner.bundle.mjs",
-        "https://unpkg.com/pyodide-worker-runner@^1.4.0?module": "https://esm.sh/pyodide-worker-runner@1.4.0/es2022/pyodide-worker-runner.bundle.mjs"
-      }
-    }
-  </script>
-  <script src="app.js?v=20260324-42"></script>
+  </footer>
 </body>
 </html>
