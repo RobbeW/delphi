@@ -1020,30 +1020,6 @@ body {
   margin-top: 0;
 }
 
-.help-intro {
-  margin: -0.2rem 0 0.9rem;
-  max-width: 900px;
-  color: #4f5766;
-  line-height: 1.55;
-}
-
-.help-pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin: 0 0 1rem;
-}
-
-.help-pill-row span {
-  border: 1px solid #d8d9e4;
-  border-radius: 999px;
-  background: #f6f4ff;
-  color: var(--brand-purple);
-  padding: 0.32rem 0.68rem;
-  font-size: 0.84rem;
-  font-weight: 900;
-}
-
 .help-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1599,16 +1575,6 @@ body.dark .pdf-form-label {
 
 body.dark .help-box h2 {
   color: #fff;
-}
-
-body.dark .help-intro {
-  color: #d5def2;
-}
-
-body.dark .help-pill-row span {
-  background: #333a4e;
-  border-color: #4b5470;
-  color: #c6fff1;
 }
 
 body.dark .help-section {
