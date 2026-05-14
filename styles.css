@@ -1742,3 +1742,142 @@ body.dark .eval-all-cases-content {
     grid-column: auto;
   }
 }
+
+/* Platform visual consistency shared with the current landing pages. */
+:root {
+  --brand-purple: #5200ff;
+  --brand-purple-dark: #3700b3;
+  --brand-aqua: #3dffd0;
+  --bg: #f8f7f3;
+  --panel: #ffffff;
+  --ink: #181421;
+  --muted: #625b70;
+  --border: #e2ddea;
+  --shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+  --card-shadow: 0 10px 30px rgba(32, 20, 54, 0.08);
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(82, 0, 255, 0.08), transparent 34rem),
+    linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  color: var(--ink);
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  overflow: visible;
+  border-bottom: 0;
+  background: #160033;
+  color: #ffffff;
+  padding: 1rem max(1rem, calc((100% - 1480px) / 2));
+}
+
+#opdracht-tekst {
+  color: #d7c7ff;
+}
+
+.brand-btn {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 13px 18px;
+  background: var(--brand-purple);
+  color: #ffffff;
+  border-color: var(--brand-purple);
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 16px 30px rgba(82, 0, 255, 0.23);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
+  white-space: nowrap;
+}
+
+.brand-btn:hover,
+.brand-btn:focus-visible {
+  background: var(--brand-purple-dark);
+  border-color: var(--brand-purple-dark);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.secondary-btn {
+  border: 1px solid rgba(82, 0, 255, 0.18);
+  background: #ffffff;
+  color: var(--brand-purple-dark);
+  box-shadow: none;
+}
+
+.main-layout {
+  background: var(--bg);
+}
+
+.editor-pane,
+.assignment-pane,
+.assignment-card,
+.modal-box,
+.help-section,
+.eval-case {
+  border-color: var(--border);
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.editor-pane,
+.assignment-pane {
+  border-radius: 8px;
+}
+
+.exercise-btn.current {
+  border-color: var(--brand-purple);
+  color: var(--brand-purple);
+  box-shadow: 0 0 0 3px rgba(82, 0, 255, 0.12);
+}
+
+.runtime-input-field:focus,
+.modal-input:focus,
+textarea:focus,
+input:focus {
+  border-color: var(--brand-purple);
+  box-shadow: 0 0 0 3px rgba(82, 0, 255, 0.12);
+  outline: none;
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    gap: 0.7rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .opdracht {
+    flex: 0 1 auto;
+  }
+
+  .exercise-progress {
+    max-height: 44px;
+  }
+
+  .toolbar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .brand-btn {
+    align-self: start;
+    white-space: nowrap;
+  }
+
+  #reset-progress {
+    order: 2;
+  }
+
+  #export-pdf {
+    order: 3;
+    grid-column: 1 / -1;
+  }
+}
