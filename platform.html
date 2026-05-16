@@ -14,6 +14,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
   <link rel="stylesheet" href="styles.css">
+  <style id="platform-language-toggle-styles">
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(82, 0, 255, 0.22);
+  border-radius: 999px;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 10px 24px rgba(82, 0, 255, 0.08);
+}
+.language-toggle button {
+  min-width: 44px;
+  min-height: 34px;
+  border: 0;
+  border-radius: 999px;
+  padding: 7px 10px;
+  background: transparent;
+  color: var(--muted, #625b70);
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.language-toggle button.is-active {
+  background: var(--brand, var(--brand-purple, var(--primary, #5200FF)));
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(82, 0, 255, 0.20);
+}
+.language-toggle button:focus-visible {
+  outline: 3px solid rgba(61, 255, 208, 0.75);
+  outline-offset: 2px;
+}
+.header-actions .language-toggle,
+.toolbar .language-toggle,
+.app-actions .language-toggle {
+  flex: 0 0 auto;
+}
+@media (max-width: 760px) {
+  .language-toggle { order: 2; }
+}
+</style>
 </head>
 <body>
   <div id="course-loading" class="course-loading" role="status" aria-live="polite" aria-busy="true">
@@ -37,7 +79,12 @@
     </div>
 
     <div class="toolbar">
-      <button class="brand-btn" id="toggle-theme" title="Donkere of lichte modus">Donker/Licht</button>
+      
+      <div class="language-toggle" role="group" aria-label="Taalkeuze">
+        <button type="button" class="is-active" data-language-choice="nl" aria-pressed="true">NL</button>
+        <button type="button" data-language-choice="en" aria-pressed="false">ENG</button>
+      </div>
+<button class="brand-btn" id="toggle-theme" title="Donkere of lichte modus">Donker/Licht</button>
       <button class="brand-btn" id="export-pdf">Reeks exporteren naar PDF</button>
       <button class="brand-btn" id="reset-progress">Vooruitgang wissen</button>
     </div>
@@ -507,5 +554,384 @@ print("Aantal jaren:", jaar)</code></pre>
     }
   </script>
   <script src="app.js?v=20260324-42"></script>
+<script id="platform-language-toggle-script">
+(() => {
+  const LANGUAGE_KEY = "aiindeklas:index-language";
+  const TRANSLATIONS = {
+  "Taalkeuze": "Language selection",
+  "Startpagina": "Start page",
+  "Start platform": "Start platform",
+  "Start leerplatform": "Start learning platform",
+  "Niet verbonden": "Not connected",
+  "Verbind": "Connect",
+  "Verbinden": "Connecting",
+  "Bouw": "Build",
+  "Bouwen": "Building",
+  "Voorspel": "Predict",
+  "Voorspellen": "Predicting",
+  "Meet": "Measure",
+  "Meten": "Measuring",
+  "Vergelijk": "Compare",
+  "Vergelijken": "Comparing",
+  "Besluit": "Conclusion",
+  "Besluiten": "Concluding",
+  "Kalibreer": "Calibrate",
+  "Kalibreren": "Calibrating",
+  "Observeer": "Observe",
+  "Observeren": "Observing",
+  "Speel": "Play",
+  "Model": "Model",
+  "Kies model": "Choose model",
+  "Test": "Test",
+  "Testen": "Testing",
+  "Sorteer": "Sort",
+  "Sorteren": "Sorting",
+  "Menu": "Menu",
+  "Inhoud": "Contents",
+  "Sluiten": "Close",
+  "Sluiten X": "Close X",
+  "x": "x",
+  "X": "X",
+  "Oefening": "Exercise",
+  "OEFENING": "EXERCISE",
+  "Code-editor": "Code editor",
+  "Editor": "Editor",
+  "Uitvoeren": "Run",
+  "Uitvoer": "Output",
+  "Console-uitvoer": "Console output",
+  "Feedback": "Feedback",
+  "Status": "Status",
+  "Data": "Data",
+  "Diagnose": "Diagnostics",
+  "Nog geen data ontvangen.": "No data received yet.",
+  "Laatste regel: --": "Last line: --",
+  "Laatste code: --": "Last code: --",
+  "Rapport": "Report",
+  "Rapportinstellingen": "Report settings",
+  "Wie maakt dit rapport?": "Who is making this report?",
+  "Naam": "Name",
+  "Naam:": "Name:",
+  "Naam of namen": "Name or names",
+  "Klas": "Class",
+  "Klas:": "Class:",
+  "Annuleren": "Cancel",
+  "Annuleer": "Cancel",
+  "OK": "OK",
+  "Doorgaan": "Continue",
+  "Reset": "Reset",
+  "Genereer PDF": "Generate PDF",
+  "Maak PDF": "Create PDF",
+  "Exporteren": "Export",
+  "Exporteren naar PDF": "Export to PDF",
+  "Reeks exporteren naar PDF": "Export series to PDF",
+  "Vooruitgang wissen": "Clear progress",
+  "Voortgang wissen": "Clear progress",
+  "Alleen huidige oefening": "Current exercise only",
+  "Alle voortgang": "All progress",
+  "Volledige reeks": "Full series",
+  "Volledige cursus": "Full course",
+  "Kies wat je wil wissen.": "Choose what you want to clear.",
+  "Donker/Licht": "Dark/Light",
+  "Thema": "Theme",
+  "Donkere/lichte modus": "Dark/light mode",
+  "Donkere of lichte modus": "Dark or light mode",
+  "Formularium": "Reference sheet",
+  "HTML Formularium": "HTML reference sheet",
+  "Python Formularium": "Python reference sheet",
+  "Blockly Formularium": "Blockly reference sheet",
+  "Hulp": "Help",
+  "Help": "Help",
+  "Schema": "Diagram",
+  "Checklist": "Checklist",
+  "Onderzoeksvraag": "Research question",
+  "Hypothese": "Hypothesis",
+  "Besluit en reflectie": "Conclusion and reflection",
+  "Reflectie": "Reflection",
+  "Korte reflectie": "Short reflection",
+  "Waarde": "Value",
+  "Variabele": "Variable",
+  "Proef": "Trial",
+  "Duur": "Duration",
+  "Plek": "Location",
+  "Tijd": "Time",
+  "Bron": "Source",
+  "Klasse": "Class",
+  "Zekerheid": "Confidence",
+  "Verwacht": "Expected",
+  "Voorspeld": "Predicted",
+  "Verstuurd": "Sent",
+  "Projectstappen": "Project steps",
+  "Onderzoeksstappen": "Research steps",
+  "Auteur: Robbe Wulgaert · AI in de Klas · robbewulgaert.be · © 2026 Robbe Wulgaert. Alle rechten voorbehouden.": "Author: Robbe Wulgaert · AI in de Klas · robbewulgaert.be · © 2026 Robbe Wulgaert. All rights reserved.",
+  "Delphi wordt geladen": "Loading Delphi",
+  "We zetten de Python-leeromgeving klaar.": "Preparing the Python learning environment.",
+  "Catalogus openen...": "Opening catalogue...",
+  "Python Sandbox": "Python Sandbox",
+  "Vrij oefenen met Python in de browser.": "Practise Python freely in the browser.",
+  "Invoer voor": "Input for",
+  "Verzend": "Send",
+  "Geen open input-vraag.": "No open input question.",
+  "Runtime initialiseren...": "Initialising runtime...",
+  "Beschrijving": "Description",
+  "Over Project Delphi": "About Project Delphi",
+  "is mijn Python-versie van het idee achter JS in de Klas:": "is my Python version of the idea behind JS in de Klas:",
+  "leerlingen laten oefenen in de browser, met duidelijke feedback en zo weinig mogelijk technische ballast.": "letting students practise in the browser, with clear feedback and as little technical baggage as possible.",
+  "De inhoud kan uit Dodona-achtige oefenmappen komen, maar Delphi zelf is bewust kleiner:": "The content can come from Dodona-like exercise folders, but Delphi itself is deliberately smaller:",
+  "handig voor klassikaal oefenen, snel testen en een helder PDF-bewijs achteraf.": "useful for classroom practice, quick testing and clear PDF evidence afterwards.",
+  "Contact:": "Contact:",
+  "Deze webomgeving is bedoeld voor gebruik in de klas en voor collega-leerkrachten": "This web environment is intended for classroom use and for fellow teachers",
+  "die de cursus willen inkijken, aanpassen of fork-en.": "who want to inspect, adapt or fork the course.",
+  "Licenties:": "Licences:",
+  "Project Delphi License": "Project Delphi License",
+  "(educatief gebruik met expliciete naamsvermelding) en": "(educational use with explicit attribution) and",
+  "voor gebruikte componenten zoals Papyros (MIT).": "for components used, such as Papyros (MIT).",
+  "Uitvoer, invoer en variabelen": "Output, input and variables",
+  "schrijft tekst naar de uitvoer.": "writes text to the output.",
+  "bewaart een waarde in een variabele.": "stores a value in a variable.",
+  "vraagt invoer. Het antwoord is altijd tekst.": "asks for input. The answer is always text.",
+  "maakt een geheel getal van tekst.": "turns text into an integer.",
+  "maakt een kommagetal van tekst.": "turns text into a decimal number.",
+  "maakt tekst van een getal.": "turns a number into text.",
+  "Tekst netjes combineren": "Combining text neatly",
+  "is meestal het veiligst in deze cursus.": "is usually safest in this course.",
+  "kan ook, maar getallen moeten eerst naar tekst.": "also works, but numbers must first be converted to text.",
+  "is handig wanneer je al wat vlotter bent.": "is useful once you are a little more fluent.",
+  "Let op punten, hoofdletters en spaties: de testcases vergelijken de uitvoer.": "Watch punctuation, capital letters and spaces: the test cases compare the output.",
+  "Rekenen en afronden": "Calculating and rounding",
+  "zijn de gewone rekenoperatoren.": "are the regular arithmetic operators.",
+  "berekent machten:": "calculates powers:",
+  "deelt zonder rest:": "divides without remainder:",
+  "geeft": "gives",
+  "geeft de rest:": "gives the remainder:",
+  "rondt af op twee cijfers na de komma.": "rounds to two decimal places.",
+  "Math en random": "Math and random",
+  "zet wiskundige functies klaar.": "prepares mathematical functions.",
+  "berekent een vierkantswortel.": "calculates a square root.",
+  "gebruikt de juiste waarde van pi.": "uses the correct value of pi.",
+  "rondt naar boven af,": "rounds up,",
+  "naar beneden.": "down.",
+  "zet toeval klaar.": "prepares randomness.",
+  "geeft een geheel getal van 1 tot en met 6.": "gives an integer from 1 through 6.",
+  "Selectie: if, elif, else": "Selection: if, elif, else",
+  "voert code uit als de voorwaarde waar is.": "runs code if the condition is true.",
+  "test een volgende mogelijkheid.": "tests a next possibility.",
+  "vangt de rest op.": "catches the rest.",
+  "komt een dubbelepunt.": "comes a colon.",
+  "De regels onder de keuze moeten inspringen.": "The lines under the choice must be indented.",
+  "Voorwaarden combineren": "Combining conditions",
+  "vergelijkt of twee waarden gelijk zijn.": "checks whether two values are equal.",
+  "betekent niet gelijk aan.": "means not equal to.",
+  "vergelijken getallen.": "compare numbers.",
+  "betekent dat beide voorwaarden waar moeten zijn.": "means both conditions must be true.",
+  "betekent dat minstens een voorwaarde waar moet zijn.": "means at least one condition must be true.",
+  "keert een voorwaarde om.": "negates a condition.",
+  "Begrensde herhaling: for en range": "Counted loops: for and range",
+  "herhaalt 5 keer:": "repeats 5 times:",
+  "gaat van": "goes from",
+  "tot en met": "through",
+  "in stappen van": "in steps of",
+  "Gebruik een teller of somvariabele als je iets wil bijhouden.": "Use a counter or sum variable if you want to keep track of something.",
+  "Lijsten en strings": "Lists and strings",
+  "maakt een lege lijst.": "creates an empty list.",
+  "voegt iets toe achteraan.": "adds something at the end.",
+  "telt het aantal elementen.": "counts the number of elements.",
+  "neemt het eerste element.": "takes the first element.",
+  "overloopt elk element.": "iterates over each element.",
+  "overloopt elke letter van een string.": "iterates over each letter of a string.",
+  "Voorwaardelijke herhaling: while": "Conditional loops: while",
+  "blijft herhalen zolang de voorwaarde waar is.": "keeps repeating while the condition is true.",
+  "Zorg dat er in de lus iets verandert, anders stopt de lus nooit.": "Make sure something changes in the loop, otherwise the loop never stops.",
+  "voor groeiproblemen zoals sparen.": "for growth problems such as saving money.",
+  "wanneer de gebruiker mag blijven invoeren.": "when the user may keep entering input.",
+  "Beknopte tabel met losse commando's": "Short table with separate commands",
+  "Functie of statement": "Function or statement",
+  "Syntax": "Syntax",
+  "Uitzonderingen / opletten voor": "Exceptions / watch out for"
+};
+  const PATTERNS = [
+  {
+    "pattern": "^Voortgang: (.+)$",
+    "replacement": "Progress: $1"
+  },
+  {
+    "pattern": "^Snelheid: (.+) ms/stap$",
+    "replacement": "Speed: $1 ms/step"
+  },
+  {
+    "pattern": "^Snelheid: (.+)$",
+    "replacement": "Speed: $1"
+  },
+  {
+    "pattern": "^Pogingen: (.+) \\| Tijd: (.+)$",
+    "replacement": "Attempts: $1 | Time: $2"
+  },
+  {
+    "pattern": "^Level (.+)$",
+    "replacement": "Level $1"
+  },
+  {
+    "pattern": "^Turtle Level$",
+    "replacement": "Turtle level"
+  },
+  {
+    "pattern": "^Open: (.+)$",
+    "replacement": "Open: $1"
+  },
+  {
+    "pattern": "^Gesloten: (.+)$",
+    "replacement": "Closed: $1"
+  },
+  {
+    "pattern": "^Status: (.+)$",
+    "replacement": "Status: $1"
+  },
+  {
+    "pattern": "^Ronde (.+)$",
+    "replacement": "Round $1"
+  },
+  {
+    "pattern": "^dt = (.+) s\\. (.+)$",
+    "replacement": "dt = $1 s. $2"
+  }
+];
+  const META = {
+  "title": "Project Delphi - Python in the Classroom",
+  "description": "Lightweight Python learning environment for class."
+};
+  const SKIP_SELECTOR = "script, style, noscript, textarea, input, canvas, svg, code, pre, kbd, samp, .CodeMirror, .cm-editor, .blocklySvg, .blocklyWidgetDiv, .blocklyTooltipDiv";
+  const textRecords = new WeakMap();
+  const attrRecords = [];
+  let currentLanguage = "nl";
+  let applying = false;
+  let originalTitle = document.title;
+  let originalDescription = null;
+  const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
+  function preserveOuterWhitespace(original, translated) {
+    const start = String(original).match(/^\s*/)?.[0] || "";
+    const end = String(original).match(/\s*$/)?.[0] || "";
+    return start + translated + end;
+  }
+  function translateKey(key) {
+    if (TRANSLATIONS[key]) return TRANSLATIONS[key];
+    for (const item of PATTERNS) {
+      const regex = new RegExp(item.pattern);
+      if (regex.test(key)) return key.replace(regex, item.replacement);
+    }
+    return null;
+  }
+  function shouldSkipNode(node) {
+    const element = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
+    return !element || element.closest(SKIP_SELECTOR);
+  }
+  function translateTextNode(node) {
+    if (shouldSkipNode(node)) return;
+    const raw = node.nodeValue;
+    const key = normalize(raw);
+    if (!key) return;
+    let record = textRecords.get(node);
+    if (!record) {
+      record = { original: raw, translatedByUs: false };
+      textRecords.set(node, record);
+    }
+    if (currentLanguage === "en") {
+      if (!record.translatedByUs) record.original = raw;
+      const translated = translateKey(key);
+      if (translated) {
+        node.nodeValue = preserveOuterWhitespace(raw, translated);
+        record.translatedByUs = true;
+      }
+    } else if (record.translatedByUs) {
+      node.nodeValue = record.original;
+      record.translatedByUs = false;
+    }
+  }
+  function collectAttributeRecords() {
+    if (attrRecords.length) return;
+    document.querySelectorAll("[aria-label], [alt], [title], [placeholder]").forEach((element) => {
+      if (element.closest(SKIP_SELECTOR)) return;
+      ["aria-label", "alt", "title", "placeholder"].forEach((attr) => {
+        if (element.hasAttribute(attr)) {
+          attrRecords.push({ element, attr, original: element.getAttribute(attr), translatedByUs: false });
+        }
+      });
+    });
+  }
+  function translateAttributes() {
+    collectAttributeRecords();
+    attrRecords.forEach((entry) => {
+      const current = entry.element.getAttribute(entry.attr) || "";
+      if (currentLanguage === "en") {
+        if (!entry.translatedByUs) entry.original = current;
+        const translated = translateKey(normalize(current));
+        if (translated) {
+          entry.element.setAttribute(entry.attr, translated);
+          entry.translatedByUs = true;
+        }
+      } else if (entry.translatedByUs) {
+        entry.element.setAttribute(entry.attr, entry.original);
+        entry.translatedByUs = false;
+      }
+    });
+  }
+  function translateTree(root = document.body) {
+    if (!root || shouldSkipNode(root)) return;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        return shouldSkipNode(node) || !normalize(node.nodeValue) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(translateTextNode);
+  }
+  function setLanguage(language) {
+    currentLanguage = language === "en" ? "en" : "nl";
+    applying = true;
+    translateTree(document.body);
+    translateAttributes();
+    document.documentElement.lang = currentLanguage === "en" ? "en" : "nl-BE";
+    document.title = currentLanguage === "en" && META.title ? META.title : originalTitle;
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      if (originalDescription === null) originalDescription = description.getAttribute("content") || "";
+      description.setAttribute("content", currentLanguage === "en" && META.description ? META.description : originalDescription);
+    }
+    document.querySelectorAll("[data-language-choice]").forEach((button) => {
+      const isActive = button.dataset.languageChoice === currentLanguage;
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+    try { localStorage.setItem(LANGUAGE_KEY, currentLanguage); } catch (error) {}
+    applying = false;
+  }
+  function initLanguageToggle() {
+    document.querySelectorAll("[data-language-choice]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.languageChoice));
+    });
+    let saved = "nl";
+    try {
+      const requested = new URLSearchParams(window.location.search).get("lang");
+      saved = requested || localStorage.getItem(LANGUAGE_KEY) || "nl";
+    } catch (error) {}
+    setLanguage(saved === "en" ? "en" : "nl");
+    const observer = new MutationObserver((mutations) => {
+      if (applying || currentLanguage !== "en") return;
+      applying = true;
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.TEXT_NODE) translateTextNode(node);
+          else if (node.nodeType === Node.ELEMENT_NODE) translateTree(node);
+        });
+        if (mutation.type === "characterData") translateTextNode(mutation.target);
+      });
+      applying = false;
+    });
+    observer.observe(document.body, { childList: true, subtree: true, characterData: true });
+    window.setPlatformLanguage = setLanguage;
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLanguageToggle);
+  else initLanguageToggle();
+})();
+</script>
 </body>
 </html>

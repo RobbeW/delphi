@@ -749,6 +749,43 @@
       }
     }
   </style>
+  <style id="language-toggle-styles">
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(82, 0, 255, 0.22);
+  border-radius: 999px;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 10px 24px rgba(82, 0, 255, 0.08);
+}
+.language-toggle button {
+  min-width: 44px;
+  min-height: 36px;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--muted, var(--delphi-muted, #625b70));
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.language-toggle button.is-active {
+  background: var(--brand, var(--brand-purple, var(--delphi-blue, #5200FF)));
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(82, 0, 255, 0.20);
+}
+.language-toggle button:focus-visible {
+  outline: 3px solid rgba(61, 255, 208, 0.75);
+  outline-offset: 2px;
+}
+@media (max-width: 760px) {
+  .language-toggle { order: 2; }
+}
+</style>
 </head>
 <body>
   <a class="skip-link" href="#main">Spring naar inhoud</a>
@@ -769,6 +806,10 @@
         <a href="#gebruik">Gebruik</a>
         <a href="README.md">README</a>
       </div>
+      <div class="language-toggle" role="group" aria-label="Taalkeuze">
+          <button type="button" class="is-active" data-language-choice="nl" aria-pressed="true">NL</button>
+          <button type="button" data-language-choice="en" aria-pressed="false">ENG</button>
+        </div>
       <a class="btn btn-primary" href="platform.html">Start leerplatform</a>
     </nav>
   </header>
@@ -990,5 +1031,200 @@
       </div>
     </div>
   </footer>
+<script id="language-toggle-script">
+(() => {
+  const LANGUAGE_KEY = "aiindeklas:index-language";
+  const TRANSLATIONS = {
+  "Spring naar inhoud": "Skip to content",
+  "Spring naar hoofdinhoud": "Skip to main content",
+  "Hoofdnavigatie": "Main navigation",
+  "Paginaonderdelen": "Page sections",
+  "Taalkeuze": "Language selection",
+  "Werking": "How it works",
+  "Wat leer je?": "What will you learn?",
+  "Onderdelen": "Components",
+  "Familie": "Family",
+  "Voor leerkrachten": "For teachers",
+  "Leerlijn": "Learning path",
+  "Benodigdheden": "Materials",
+  "Privacy": "Privacy",
+  "Opstelling": "Setup",
+  "Gebruik": "Use",
+  "README": "README",
+  "Platform": "Platform",
+  "Pythia": "Pythia",
+  "Start leerplatform": "Start learning platform",
+  "Start platform": "Start platform",
+  "Menu": "Menu",
+  "Bekijk de opdracht": "View the assignment",
+  "Lees README": "Read README",
+  "Leerplatform": "Learning platform",
+  "Onderzoeksplatform": "Research platform",
+  "Oefeningmaker": "Exercise builder",
+  "Open oefeningmaker": "Open exercise builder",
+  "Plaats in de leerlijn": "Place in the learning path",
+  "Van platformen naar projecten.": "From platforms to projects.",
+  "De platformen bouwen het computationeel denken op. De projecten gebruiken dat denken in een vakoverschrijdende opdracht waarin leerlingen bouwen, meten, testen en besluiten.": "The platforms build computational thinking. The projects use that thinking in a cross-curricular assignment in which students build, measure, test and conclude.",
+  "Leren computationeel denken": "Learning computational thinking",
+  "van blokken naar code, van code naar onderzoek": "from blocks to code, from code to research",
+  "Platformen": "Platforms",
+  "STEaM-projecten": "STEaM projects",
+  "Blockly": "Blockly",
+  "JavaScript": "JavaScript",
+  "HTML": "HTML",
+  "Dodona": "Dodona",
+  "Delphi": "Delphi",
+  "Robothand": "Robotic hand",
+  "Wind": "Wind",
+  "Slimme vuilnisbak": "Smart bin",
+  "Slimme Vuilnisbak": "Smart Bin",
+  "Fijnstof": "Particulate matter",
+  "visueel denken in stappen.": "visual step-by-step thinking.",
+  "logica in echte code.": "logic in real code.",
+  "webpagina's structureren.": "structuring webpages.",
+  "Python in de Klas met opvolging.": "Python in the Classroom with tracking.",
+  "licht oefenen in de browser.": "lightweight practice in the browser.",
+  "Arduino, sensoren, servo's en beweging.": "Arduino, sensors, servos and movement.",
+  "Micro:bit, energie, spanning en stroom.": "Micro:bit, energy, voltage and current.",
+  "AI, beeldherkenning, data en microcontrollers.": "AI, image recognition, data and microcontrollers.",
+  "Arduino, luchtkwaliteit, data en postersessie.": "Arduino, air quality, data and poster session.",
+  "De platformen trainen computationeel denken. De projecten laten leerlingen dat denken inzetten in een vakoverschrijdende opdracht.": "The platforms train computational thinking. The projects let students apply that thinking in a cross-curricular assignment.",
+  "Geen accounts, geen serveropslag.": "No accounts, no server storage.",
+  "Privacyvriendelijk": "Privacy-friendly",
+  "Geen installatie of leerlingenaccount.": "No installation or student account.",
+  "Lokale bibliotheken voor grafieken en PDF-export.": "Local libraries for charts and PDF export.",
+  "Geschikt voor GitHub Pages.": "Suitable for GitHub Pages.",
+  "robbewulgaert.be": "robbewulgaert.be",
+  "AI in de Klas": "AI in de Klas",
+  "Auteur: Robbe Wulgaert · AI in de Klas · robbewulgaert.be": "Author: Robbe Wulgaert · AI in de Klas · robbewulgaert.be",
+  "© 2026 Robbe Wulgaert. Alle rechten voorbehouden.": "© 2026 Robbe Wulgaert. All rights reserved.",
+  "Auteur: Robbe Wulgaert · AI in de Klas · robbewulgaert.be · © 2026 Robbe Wulgaert.": "Author: Robbe Wulgaert · AI in de Klas · robbewulgaert.be · © 2026 Robbe Wulgaert.",
+  "Robbe Wulgaert, AI in de Klas, robbewulgaert.be": "Robbe Wulgaert, AI in de Klas, robbewulgaert.be",
+  "Licentie": "License",
+  "Third-party notices": "Third-party notices",
+  "Contact": "Contact",
+  "Python in de Klas, volledig in de browser": "Python in the Classroom, fully in the browser",
+  "Delphi is de Python-tegenhanger van JS in de Klas: een eenvoudige browseromgeving waarin leerlingen code schrijven, uitvoeren, testen en bijsturen. Geen account nodig, geen installatie op leerlingentoestellen, wel genoeg structuur om er in de klas echt mee te werken.": "Delphi is the Python counterpart to JS in de Klas: a simple browser environment where students write, run, test and improve code. No account required, no installation on student devices, but enough structure to use it seriously in class.",
+  "Open Pythia oefeningmaker": "Open Pythia exercise builder",
+  "Python stap voor stap": "Python step by step",
+  "hoofdstukken: sequentie, selectie en herhalingen": "chapters: sequence, selection and loops",
+  "opdrachten en theoriebouwstenen": "assignments and theory building blocks",
+  "oefeningen met automatische feedback": "exercises with automatic feedback",
+  "Leerlingen oefenen met datatypes, variabelen, voorwaarden, lussen en invoer. De opdrachten koppelen Python aan computationeel denken, wiskundige redeneringen en kleine herkenbare situaties.": "Students practise data types, variables, conditions, loops and input. The assignments connect Python to computational thinking, mathematical reasoning and small recognisable situations.",
+  "Wat zit er in Delphi?": "What is included in Delphi?",
+  "De basis is herkenbaar: leerlingen krijgen links hun code, rechts de opdracht, onderaan directe feedback. Via het menu ga je stap voor stap doorheen de cursus.": "The setup is familiar: students see their code on the left, the assignment on the right and direct feedback at the bottom. The menu guides them step by step through the course.",
+  "Pythonruntime in de browser": "Python runtime in the browser",
+  "Gebaseerd op Papyros, met gewone uitvoer en interactieve": "Based on Papyros, with regular output and interactive",
+  "-vragen.": "questions.",
+  "Catalogus met hoofdstukken": "Catalogue with chapters",
+  "De oefeningen komen uit": "The exercises come from",
+  ", opgebouwd vanuit een Dodona-achtige mappenstructuur.": ", built from a Dodona-like folder structure.",
+  "Testcases en feedback": "Test cases and feedback",
+  "YAML- en JSON-testbestanden sturen de testcases aan, met samenvatting en details per testcase.": "YAML and JSON test files drive the test cases, with a summary and details for each test case.",
+  "Voortgang lokaal bewaren": "Store progress locally",
+  "Code, pogingen, werktijd en evaluatiestatus worden lokaal bewaard zonder account of cloud.": "Code, attempts, working time and evaluation status are stored locally without an account or cloud.",
+  "Leerlingen kunnen een reeks exporteren als rapport met code, feedback en rubriek voor de leerkracht.": "Students can export a series as a report with code, feedback and a rubric for the teacher.",
+  "Een ingebouwd Python-formularium helpt leerlingen zonder dat ze de opdracht moeten verlaten.": "A built-in Python reference sheet helps students without leaving the assignment.",
+  "Pythia voor lesgevers": "Pythia for teachers",
+  "Pythia is het hulpstuk voor wie zelf oefeningen wil maken. Je vult de oefening, startcode, oplossing en testcases in; Pythia zet dat om naar een map die in deze structuur past.": "Pythia is the helper tool for creating your own exercises. You enter the assignment, starter code, solution and test cases; Pythia turns them into a folder that fits this structure.",
+  "Maak een oefening met Pythia": "Create an exercise with Pythia",
+  "Bekijk catalogusbuilder": "View catalogue builder",
+  "Voor GitHub Pages": "For GitHub Pages",
+  "Host je de repository via GitHub Pages, dan open je Delphi rechtstreeks in de browser. Pas je oefeningen aan, bouw dan de catalogus opnieuw zodat de leeromgeving weet wat er bestaat.": "Host the repository with GitHub Pages and Delphi opens directly in the browser. When you adapt exercises, rebuild the catalogue so the learning environment knows what exists.",
+  "Lees de technische uitleg": "Read the technical notes",
+  "Aan de slag": "Getting started",
+  "Deze pagina is de voordeur. De eigenlijke leeromgeving staat apart, zodat leerlingen snel kunnen starten en jij tegelijk een duidelijke projectpagina hebt voor GitHub Pages.": "This page is the front door. The actual learning environment is separate, so students can start quickly while you still have a clear project page for GitHub Pages.",
+  "Open de leeromgeving.": "Open the learning environment.",
+  "Klik op": "Click",
+  "en kies een hoofdstuk of oefening via het menu.": "and choose a chapter or exercise from the menu.",
+  "Schrijf en test Python-code.": "Write and test Python code.",
+  "Voer code uit, gebruik": "Run code, use",
+  "waar nodig en bekijk de testcasefeedback.": "where needed and inspect the test case feedback.",
+  "Bewaar bewijs van leren.": "Save evidence of learning.",
+  "Gebruik de PDF-export om code, feedback en rubriek te verzamelen.": "Use the PDF export to collect code, feedback and the rubric.",
+  "Breid de inhoud uit.": "Extend the content.",
+  "Maak nieuwe oefeningen met Pythia of voeg bestaande Dodona-achtige content toe en bouw daarna de catalogus opnieuw.": "Create new exercises with Pythia or add existing Dodona-like content, then rebuild the catalogue."
+};
+  const META = {
+  "title": "Project Delphi - Python in the Classroom",
+  "description": "Project Delphi is a browser environment for Python, computational thinking and automatic feedback in class."
+};
+  const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION"]);
+  const TEXT_NODES = [];
+  const ATTR_NODES = [];
+  let originalTitle = document.title;
+  let originalDescription = null;
+  const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
+  function preserveOuterWhitespace(original, translated) {
+    const start = original.match(/^\s*/)?.[0] || "";
+    const end = original.match(/\s*$/)?.[0] || "";
+    return start + translated + end;
+  }
+  function collectTextNodes() {
+    if (TEXT_NODES.length) return;
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || SKIP_TAGS.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        return normalize(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      TEXT_NODES.push({ node, original: node.nodeValue, key: normalize(node.nodeValue) });
+    }
+  }
+  function collectAttributes() {
+    if (ATTR_NODES.length) return;
+    document.querySelectorAll("[aria-label], [alt], [title], [placeholder]").forEach((element) => {
+      ["aria-label", "alt", "title", "placeholder"].forEach((attr) => {
+        if (element.hasAttribute(attr)) {
+          const original = element.getAttribute(attr);
+          ATTR_NODES.push({ element, attr, original, key: normalize(original) });
+        }
+      });
+    });
+  }
+  function setLanguage(language) {
+    const useEnglish = language === "en";
+    collectTextNodes();
+    collectAttributes();
+    TEXT_NODES.forEach((entry) => {
+      const translated = TRANSLATIONS[entry.key];
+      entry.node.nodeValue = useEnglish && translated ? preserveOuterWhitespace(entry.original, translated) : entry.original;
+    });
+    ATTR_NODES.forEach((entry) => {
+      const translated = TRANSLATIONS[entry.key];
+      entry.element.setAttribute(entry.attr, useEnglish && translated ? translated : entry.original);
+    });
+    document.documentElement.lang = useEnglish ? "en" : "nl-BE";
+    document.title = useEnglish && META.title ? META.title : originalTitle;
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      if (originalDescription === null) originalDescription = description.getAttribute("content") || "";
+      description.setAttribute("content", useEnglish && META.description ? META.description : originalDescription);
+    }
+    document.querySelectorAll("[data-language-choice]").forEach((button) => {
+      const isActive = button.dataset.languageChoice === (useEnglish ? "en" : "nl");
+      button.classList.toggle("is-active", isActive);
+      button.setAttribute("aria-pressed", String(isActive));
+    });
+    try { localStorage.setItem(LANGUAGE_KEY, useEnglish ? "en" : "nl"); } catch (error) {}
+  }
+  function initLanguageToggle() {
+    document.querySelectorAll("[data-language-choice]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.languageChoice));
+    });
+    let saved = "nl";
+    try {
+      const requested = new URLSearchParams(window.location.search).get("lang");
+      saved = requested || localStorage.getItem(LANGUAGE_KEY) || "nl";
+    } catch (error) {}
+    setLanguage(saved === "en" ? "en" : "nl");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLanguageToggle);
+  else initLanguageToggle();
+})();
+</script>
 </body>
 </html>
