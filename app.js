@@ -4062,9 +4062,27 @@ async function runCode() {
       return;
     }
 
-    clearPapyrosBuffers();
+    let previewTestcase = null;
+    if (exercise && exercise.evaluable && exercise.testsPath) {
+      try {
+        const testcases = await loadExerciseTestcases(exercise);
+        previewTestcase = Array.isArray(testcases) && testcases.length > 0 ? testcases[0] : null;
+      } catch {
+        previewTestcase = null;
+      }
+    }
 
-    if (!setRunnerCode(code)) {
+    clearPapyrosBuffers();
+    state.pendingInputs = stdinToQueue(previewTestcase?.stdin || "");
+    state.awaitingInput = false;
+    state.currentInputPrompt = "";
+    refreshRuntimeInputStatus();
+
+    const previewCode = previewTestcase?.setupCode
+      ? `${previewTestcase.setupCode}\n${code}`
+      : code;
+
+    if (!setRunnerCode(previewCode)) {
       throw new Error("Kon de code niet doorgeven aan Papyros runner.");
     }
 

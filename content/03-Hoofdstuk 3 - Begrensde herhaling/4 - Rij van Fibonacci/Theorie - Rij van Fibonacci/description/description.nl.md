@@ -2,10 +2,10 @@
 
 In deze video leer je: 
 * de schoonheid van de 'rij van Fibonacci' uitleggen; 
-* een integer vragen via de `input-functie`;
+* een integer vragen via de `input()`-functie;
 * een `begrensde herhaling` opstellen van 1 tot een gevraagd getal; 
 * een `lijst` aanmaken; 
-* een `lijst' aanvullen met gegevens via de `append-functie'. 
+* een `lijst` aanvullen met gegevens via de `append()`-functie.
 
 
 <div class ="dodona-centered-group">
