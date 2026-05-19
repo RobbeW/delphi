@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-42";
+const APP_VERSION = "20260324-43";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -99,6 +99,7 @@ const state = {
   inputSwAvailable: false,
   inputSwIssue: "",
   inputChannelBroken: false,
+  liveOutputTimer: null,
   toastTimer: null,
   timerRunning: false,
   timerLastStart: 0,
@@ -745,6 +746,7 @@ async function submitRuntimeInputValue() {
       state.currentInputPrompt = "";
       setRuntimeInputPlaceholder("");
       setRuntimeInputStatus("Invoer verzonden naar programma.", "sent");
+      renderLiveOutputFromPapyros();
     } catch (error) {
       ui.runtimeInput.value = value;
       markInputChannelBroken(error);
@@ -754,6 +756,7 @@ async function submitRuntimeInputValue() {
 
   state.pendingInputs.push(value);
   setRuntimeInputStatus(`Invoer in wachtrij: ${state.pendingInputs.length}`, "queued");
+  renderLiveOutputFromPapyros();
 }
 
 function decodeTitleFromId(id) {
@@ -3010,6 +3013,33 @@ function renderOutputFromPapyros() {
   });
 }
 
+function renderLiveOutputFromPapyros() {
+  if (state.liveOutputTimer === null) {
+    return;
+  }
+  if (getPapyrosOutputEntries().length > 0) {
+    renderOutputFromPapyros();
+  }
+}
+
+function stopLiveOutputRendering() {
+  if (state.liveOutputTimer !== null) {
+    window.clearInterval(state.liveOutputTimer);
+    state.liveOutputTimer = null;
+  }
+}
+
+function startLiveOutputRendering() {
+  stopLiveOutputRendering();
+  state.liveOutputTimer = window.setInterval(() => {
+    if (!state.running) {
+      stopLiveOutputRendering();
+      return;
+    }
+    renderLiveOutputFromPapyros();
+  }, 120);
+}
+
 function extractTextOutputFromEntries(entries) {
   const textParts = [];
 
@@ -3856,6 +3886,8 @@ function setupInputBridge() {
   refreshRuntimeInputStatus();
 
   io.subscribe(() => {
+    renderLiveOutputFromPapyros();
+
     if (!io.awaitingInput) {
       state.awaitingInput = false;
       state.currentInputPrompt = "";
@@ -3865,6 +3897,7 @@ function setupInputBridge() {
 
     state.awaitingInput = true;
     state.currentInputPrompt = extractInputPromptText(io);
+    renderLiveOutputFromPapyros();
 
     if (state.pendingInputs.length > 0 && typeof io.provideInput === "function") {
       const nextValue = state.pendingInputs.shift();
@@ -3873,6 +3906,7 @@ function setupInputBridge() {
           state.awaitingInput = false;
           state.currentInputPrompt = "";
           refreshRuntimeInputStatus();
+          renderLiveOutputFromPapyros();
         })
         .catch((error) => {
           state.pendingInputs.unshift(nextValue);
@@ -4062,27 +4096,13 @@ async function runCode() {
       return;
     }
 
-    let previewTestcase = null;
-    if (exercise && exercise.evaluable && exercise.testsPath) {
-      try {
-        const testcases = await loadExerciseTestcases(exercise);
-        previewTestcase = Array.isArray(testcases) && testcases.length > 0 ? testcases[0] : null;
-      } catch {
-        previewTestcase = null;
-      }
-    }
-
     clearPapyrosBuffers();
-    state.pendingInputs = stdinToQueue(previewTestcase?.stdin || "");
+    state.pendingInputs = [];
     state.awaitingInput = false;
     state.currentInputPrompt = "";
     refreshRuntimeInputStatus();
 
-    const previewCode = previewTestcase?.setupCode
-      ? `${previewTestcase.setupCode}\n${code}`
-      : code;
-
-    if (!setRunnerCode(previewCode)) {
+    if (!setRunnerCode(code)) {
       throw new Error("Kon de code niet doorgeven aan Papyros runner.");
     }
 
@@ -4090,7 +4110,9 @@ async function runCode() {
       throw new Error("Papyros runner.start() is niet beschikbaar.");
     }
 
+    startLiveOutputRendering();
     await state.papyros.runner.start();
+    stopLiveOutputRendering();
     await waitForOutputStability({ maxWaitMs: 900, stableWindowMs: 100 });
     renderOutputFromPapyros();
 
@@ -4192,6 +4214,7 @@ async function runCode() {
     setRuntimeStatus("Uitvoering met fout", "error");
     showToast("Uitvoering mislukte. Bekijk de foutmelding.", false);
   } finally {
+    stopLiveOutputRendering();
     state.awaitingInput = false;
     state.currentInputPrompt = "";
     state.running = false;
