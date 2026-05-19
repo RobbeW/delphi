@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-43";
+const APP_VERSION = "20260324-44";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -2990,7 +2990,7 @@ function renderOutputFromPapyros() {
     textParts.push(`\n(Er werden ${images.length} afbeelding(en) gegenereerd.)`);
   }
 
-  const textOutput = textParts.join("");
+  const textOutput = joinConsoleTextPartsForDisplay(textParts);
   ui.consoleOutput.textContent = textOutput.trim().length > 0 ? textOutput.trimEnd() : "(geen tekstuitvoer)";
 
   if (!ui.richOutput) {
@@ -3011,6 +3011,19 @@ function renderOutputFromPapyros() {
     img.alt = "Uitvoerafbeelding";
     ui.richOutput.appendChild(img);
   });
+}
+
+function joinConsoleTextPartsForDisplay(parts) {
+  return (parts || []).reduce((output, part) => {
+    const text = String(part ?? "");
+    if (!text) {
+      return output;
+    }
+    if (!output || output.endsWith("\n") || text.startsWith("\n")) {
+      return `${output}${text}`;
+    }
+    return `${output}\n${text}`;
+  }, "");
 }
 
 function renderLiveOutputFromPapyros() {
