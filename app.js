@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-46";
+const APP_VERSION = "20260324-47";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -382,6 +382,9 @@ function makeSnapshotStorageKey(exerciseId, status, dateKey = dateKeyLocal()) {
 function summarizeEvaluationResult(evalResult) {
   if (!evalResult || typeof evalResult !== "object") {
     return "";
+  }
+  if (evalResult.errorMessage && (!Number.isFinite(evalResult.total) || evalResult.total === 0)) {
+    return String(evalResult.errorMessage);
   }
   if (Number.isFinite(evalResult.total) && Number.isFinite(evalResult.passedCount)) {
     const total = evalResult.total;
@@ -1854,6 +1857,40 @@ function createStyleWarningEvaluationNode(styleWarnings) {
   return card;
 }
 
+function createConceptEvaluationNode(conceptDetails) {
+  const details = conceptDetails && typeof conceptDetails === "object" ? conceptDetails : {};
+  const card = document.createElement("article");
+  card.className = "eval-case fail";
+
+  const head = document.createElement("div");
+  head.className = "eval-case-head";
+
+  const title = document.createElement("div");
+  title.className = "eval-case-title";
+  title.textContent = details.title || "Check je aanpak";
+
+  const badge = document.createElement("span");
+  badge.className = "eval-case-badge fail";
+  badge.textContent = "Aanpassen";
+
+  head.appendChild(title);
+  head.appendChild(badge);
+  card.appendChild(head);
+
+  const grid = document.createElement("div");
+  grid.className = "eval-case-grid";
+  grid.appendChild(createEvaluationKv("Wat gebeurt er?", details.message || "Controleer of je de juiste variant van de oefening maakt."));
+  if (details.tip) {
+    grid.appendChild(createEvaluationKv("Tip", details.tip));
+  }
+  if (details.codeLine) {
+    grid.appendChild(createEvaluationKv("Controleer deze regel", details.codeLine));
+  }
+
+  card.appendChild(grid);
+  return card;
+}
+
 function createEvaluationCaseNode(caseResult) {
   const card = document.createElement("article");
   card.className = `eval-case ${caseResult.passed ? "pass" : "fail"}`;
@@ -1955,7 +1992,11 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
   const syntaxDetails = evalResult.syntaxDetails && typeof evalResult.syntaxDetails === "object"
     ? evalResult.syntaxDetails
     : null;
+  const conceptDetails = evalResult.conceptDetails && typeof evalResult.conceptDetails === "object"
+    ? evalResult.conceptDetails
+    : null;
   const isSyntaxMode = evalResult.mode === "syntax";
+  const isConceptMode = evalResult.mode === "concept";
 
   const headerTitle = exerciseTitle
     ? `Evaluatie: ${exerciseTitle}`
@@ -1969,6 +2010,9 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
   } else if (isSyntaxMode) {
     ui.evalModalPill.classList.add("error");
     ui.evalModalPill.textContent = "Syntaxfout";
+  } else if (isConceptMode) {
+    ui.evalModalPill.classList.add("error");
+    ui.evalModalPill.textContent = "Check je variant";
   } else if (evalResult.errorMessage && total === 0) {
     ui.evalModalPill.classList.add("error");
     ui.evalModalPill.textContent = "Onvolledig";
@@ -1984,6 +2028,9 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
   } else if (isSyntaxMode) {
     ui.evalModalSummary.textContent =
       evalResult.errorMessage || "Los de syntaxfout hieronder op; daarna starten de testcases automatisch.";
+  } else if (isConceptMode) {
+    ui.evalModalSummary.textContent =
+      evalResult.errorMessage || "Controleer eerst of je de juiste variant van de oefening maakt.";
   } else {
     ui.evalModalSummary.textContent =
       evalResult.errorMessage ||
@@ -1994,6 +2041,8 @@ function showEvaluationModal(evalResult, exerciseTitle = "") {
 
   if (isSyntaxMode) {
     ui.evalModalCases.appendChild(createSyntaxEvaluationNode(syntaxDetails || null));
+  } else if (isConceptMode) {
+    ui.evalModalCases.appendChild(createConceptEvaluationNode(conceptDetails || null));
   } else if (evalResult.success && total > 0) {
     const note = document.createElement("div");
     note.className = "eval-case-note";
@@ -3334,6 +3383,46 @@ function createPythonStyleWarning(issues) {
   };
 }
 
+function isPlainHigherLowerExercise(exercise) {
+  const id = String(exercise && exercise.id ? exercise.id : "").toLowerCase();
+  return id.endsWith("/01 hoger-lager") && !id.includes("liegen");
+}
+
+function findLyingHigherLowerLine(code) {
+  const lines = String(code || "").replace(/\r\n/g, "\n").split("\n");
+  const pattern = /random\s*\.\s*randint\s*\(\s*1\s*,\s*4\s*\)/;
+  const index = lines.findIndex((line) => pattern.test(line));
+  if (index < 0) {
+    return null;
+  }
+  return {
+    lineNumber: index + 1,
+    codeLine: lines[index].trim(),
+  };
+}
+
+function getExerciseSpecificEvaluationBlocker(exercise, code) {
+  if (!isPlainHigherLowerExercise(exercise)) {
+    return null;
+  }
+
+  const lyingLine = findLyingHigherLowerLine(code);
+  if (!lyingLine) {
+    return null;
+  }
+
+  return {
+    title: "Je gebruikt de variant met liegen",
+    message:
+      "Deze Hoger-Lager-oefening is de gewone versie. De computer mag hier niet af en toe liegen.",
+    summary:
+      "Deze code gebruikt de variant met liegen in de gewone Hoger-Lager-oefening. Verwijder de extra toevalstrekking met random.randint(1, 4).",
+    tip:
+      "Gebruik maar één willekeurig getal: het getal dat geraden moet worden. De extra 25%-kans hoort pas bij 'Hoger-Lager maar met liegen'.",
+    codeLine: `Regel ${lyingLine.lineNumber}: ${lyingLine.codeLine}`,
+  };
+}
+
 function stdinToQueue(stdin) {
   const source = String(stdin || "").replace(/\r\n/g, "\n");
   const parts = source.split("\n");
@@ -3802,6 +3891,21 @@ async function evaluateCurrentExercise(code) {
   const exercise = getCurrentExercise();
   if (!exercise || !exercise.evaluable || !exercise.testsPath) {
     return { applicable: false };
+  }
+
+  const conceptBlocker = getExerciseSpecificEvaluationBlocker(exercise, code);
+  if (conceptBlocker) {
+    return {
+      applicable: true,
+      success: false,
+      mode: "concept",
+      total: 0,
+      passedCount: 0,
+      failedCount: 0,
+      caseResults: [],
+      errorMessage: conceptBlocker.summary,
+      conceptDetails: conceptBlocker,
+    };
   }
 
   const testcases = await loadExerciseTestcases(exercise);
