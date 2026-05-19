@@ -3609,13 +3609,41 @@ function parseTestsSpec(rawText, formatHint, testsPath) {
 function extractTestcasesFromSpec(spec) {
   const out = [];
 
-  const collectCase = (tc) => {
+  const extractTextPayload = (value) => {
+    if (value == null) {
+      return "";
+    }
+    if (typeof value === "string") {
+      return value;
+    }
+    if (typeof value === "object" && "data" in value) {
+      return String(value.data ?? "");
+    }
+    return String(value ?? "");
+  };
+
+  const extractPythonSetup = (before) => {
+    if (!before || typeof before !== "object") {
+      return "";
+    }
+    const pythonSetup = before.python;
+    if (typeof pythonSetup === "string") {
+      return pythonSetup;
+    }
+    if (pythonSetup && typeof pythonSetup === "object" && "data" in pythonSetup) {
+      return String(pythonSetup.data ?? "");
+    }
+    return "";
+  };
+
+  const collectCase = (tc, setupCode = "") => {
     if (!tc || typeof tc !== "object") {
       return;
     }
     out.push({
-      stdin: String(tc.stdin ?? ""),
-      stdout: String(tc.stdout ?? ""),
+      stdin: extractTextPayload(tc.stdin ?? tc.input?.stdin),
+      stdout: extractTextPayload(tc.stdout ?? tc.output?.stdout),
+      setupCode: String(setupCode || ""),
     });
   };
 
@@ -3623,8 +3651,9 @@ function extractTestcasesFromSpec(spec) {
     if (!ctx || typeof ctx !== "object") {
       return;
     }
+    const setupCode = extractPythonSetup(ctx.before);
     if (Array.isArray(ctx.testcases)) {
-      ctx.testcases.forEach(collectCase);
+      ctx.testcases.forEach((tc) => collectCase(tc, setupCode));
     }
   };
 
@@ -3636,11 +3665,15 @@ function extractTestcasesFromSpec(spec) {
       node.forEach(visit);
       return;
     }
+    if (Array.isArray(node.tabs)) {
+      node.tabs.forEach(visit);
+    }
     if (Array.isArray(node.contexts)) {
       node.contexts.forEach(collectContext);
     }
     if (Array.isArray(node.testcases)) {
-      node.testcases.forEach(collectCase);
+      const setupCode = extractPythonSetup(node.before);
+      node.testcases.forEach((tc) => collectCase(tc, setupCode));
     }
   };
 
@@ -3677,9 +3710,10 @@ async function loadExerciseTestcases(exercise) {
   return testcases;
 }
 
-async function runSingleEvaluationCase(code, stdin) {
+async function runSingleEvaluationCase(code, stdin, setupCode = "") {
   const maxAttempts = 2;
   let lastActual = "";
+  const codeToRun = setupCode ? `${setupCode}\n${code}` : code;
 
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
     clearPapyrosBuffers();
@@ -3688,7 +3722,7 @@ async function runSingleEvaluationCase(code, stdin) {
     state.currentInputPrompt = "";
     refreshRuntimeInputStatus();
 
-    if (!setRunnerCode(code)) {
+    if (!setRunnerCode(codeToRun)) {
       throw new Error("Kon de code niet doorgeven aan Papyros runner.");
     }
 
@@ -3738,7 +3772,7 @@ async function evaluateCurrentExercise(code) {
       const tc = testcases[index];
       try {
         // eslint-disable-next-line no-await-in-loop
-        const actual = await runSingleEvaluationCase(code, tc.stdin);
+        const actual = await runSingleEvaluationCase(code, tc.stdin, tc.setupCode);
         const comparison = compareOutputExpected(tc.stdout, actual, code);
         const passed = comparison.passed;
         const result = {

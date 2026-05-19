@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-03-22T08:55:22.370Z",
+  "generatedAt": "2026-05-19T07:20:34.123Z",
   "sourceRoot": "content",
   "totals": {
     "chapters": 4,
     "subchapters": 22,
-    "exercises": 209,
-    "evaluableExercises": 183,
+    "exercises": 211,
+    "evaluableExercises": 185,
     "theoryItems": 26
   },
   "chapters": [
@@ -2558,38 +2558,62 @@
           "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen",
           "exercises": [
             {
-              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack",
-              "title": "Blackjack",
+              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager",
+              "title": "Hoger Lager",
               "order": 1,
               "type": "exercise",
               "evaluable": true,
-              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack",
-              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack/description/description.nl.md",
-              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack/evaluation/tests.json",
+              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager",
+              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager/description/description.nl.md",
+              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager/evaluation/tests.json",
               "testsFormat": "json",
               "starterPath": null
             },
             {
-              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen",
-              "title": "Dubbele zessen",
+              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Hoger-Lager maar met liegen",
+              "title": "Hoger Lager maar met liegen",
               "order": 2,
               "type": "exercise",
               "evaluable": true,
-              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen",
-              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen/description/description.nl.md",
-              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen/evaluation/tests.json",
+              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Hoger-Lager maar met liegen",
+              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Hoger-Lager maar met liegen/description/description.nl.md",
+              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Hoger-Lager maar met liegen/evaluation/tests.json",
               "testsFormat": "json",
               "starterPath": null
             },
             {
-              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors",
-              "title": "Rock Paper Scissors",
+              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Blackjack",
+              "title": "Blackjack",
               "order": 3,
               "type": "exercise",
               "evaluable": true,
-              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors",
-              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors/description/description.nl.md",
-              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors/evaluation/tests.json",
+              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Blackjack",
+              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Blackjack/description/description.nl.md",
+              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Blackjack/evaluation/tests.json",
+              "testsFormat": "json",
+              "starterPath": null
+            },
+            {
+              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/04 Dubbele zessen",
+              "title": "Dubbele zessen",
+              "order": 4,
+              "type": "exercise",
+              "evaluable": true,
+              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/04 Dubbele zessen",
+              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/04 Dubbele zessen/description/description.nl.md",
+              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/04 Dubbele zessen/evaluation/tests.json",
+              "testsFormat": "json",
+              "starterPath": null
+            },
+            {
+              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/05 Rock Paper Scissors",
+              "title": "Rock Paper Scissors",
+              "order": 5,
+              "type": "exercise",
+              "evaluable": true,
+              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/05 Rock Paper Scissors",
+              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/05 Rock Paper Scissors/description/description.nl.md",
+              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/05 Rock Paper Scissors/evaluation/tests.json",
               "testsFormat": "json",
               "starterPath": null
             }

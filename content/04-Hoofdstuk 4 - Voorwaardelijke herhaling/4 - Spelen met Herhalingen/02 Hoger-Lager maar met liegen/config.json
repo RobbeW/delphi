@@ -1,0 +1,29 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Hoger-Lager, de computer liegt!"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.json"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Voorwaardelijke Herhaling",
+    "While-lus",
+    "Random-functie",
+    "Sint-Lievenscollege Gent",
+    "Dieter Vanderfaeillie"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "source": {
+    "repository": "RobbeW/IW-Python-J4",
+    "path": "01 Herhaling Python J3/07k Hoger-Lager maar met liegen"
+  }
+}

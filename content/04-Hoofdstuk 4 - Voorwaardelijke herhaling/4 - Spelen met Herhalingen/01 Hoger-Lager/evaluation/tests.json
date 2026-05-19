@@ -1,0 +1,489 @@
+{
+  "tabs": [
+    {
+      "name": "Feedback",
+      "contexts": [
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(7247)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 7247 en gokken 500, 750, 625, 562, 593, 609, 617, 613, 615, 614 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n625\n562\n593\n609\n617\n613\n615\n614\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is lager dan 750\nHet getal is lager dan 625\nHet getal is hoger dan 562\nHet getal is hoger dan 593\nHet getal is hoger dan 609\nHet getal is lager dan 617\nHet getal is hoger dan 613\nHet getal is lager dan 615\nJe hebt 614 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(8884)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 8884 en gokken 500, 750, 875, 812, 843, 827, 835, 831, 829, 830 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n875\n812\n843\n827\n835\n831\n829\n830\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is hoger dan 750\nHet getal is lager dan 875\nHet getal is hoger dan 812\nHet getal is lager dan 843\nHet getal is hoger dan 827\nHet getal is lager dan 835\nHet getal is lager dan 831\nHet getal is hoger dan 829\nJe hebt 830 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(9864)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 9864 en gok 388 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "388\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Je hebt 388 meteen geraden!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6508)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 6508 en gokken 500, 250, 125, 187, 156, 140, 132, 136, 138, 139 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n250\n125\n187\n156\n140\n132\n136\n138\n139\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is lager dan 500\nHet getal is lager dan 250\nHet getal is hoger dan 125\nHet getal is lager dan 187\nHet getal is lager dan 156\nHet getal is lager dan 140\nHet getal is hoger dan 132\nHet getal is hoger dan 136\nHet getal is hoger dan 138\nJe hebt 139 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(4979)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 4979 en gokken 500, 750, 875, 812, 843, 859, 867, 871 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n875\n812\n843\n859\n867\n871\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is hoger dan 750\nHet getal is lager dan 875\nHet getal is hoger dan 812\nHet getal is hoger dan 843\nHet getal is hoger dan 859\nHet getal is hoger dan 867\nJe hebt 871 geraden in 8 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(7647)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 7647 en gokken 500, 250, 125, 63, 94, 109, 101, 105, 107 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n250\n125\n63\n94\n109\n101\n105\n107\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is lager dan 500\nHet getal is lager dan 250\nHet getal is lager dan 125\nHet getal is hoger dan 63\nHet getal is hoger dan 94\nHet getal is lager dan 109\nHet getal is hoger dan 101\nHet getal is hoger dan 105\nJe hebt 107 geraden in 9 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6507)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 6507 en gokken 500, 750, 625, 687, 656, 671, 679, 683, 685, 686 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n625\n687\n656\n671\n679\n683\n685\n686\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is lager dan 750\nHet getal is hoger dan 625\nHet getal is lager dan 687\nHet getal is hoger dan 656\nHet getal is hoger dan 671\nHet getal is hoger dan 679\nHet getal is hoger dan 683\nHet getal is hoger dan 685\nJe hebt 686 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(8765)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 8765 en gokken 500, 750, 625, 687, 656, 640, 648, 644, 642 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n625\n687\n656\n640\n648\n644\n642\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is lager dan 750\nHet getal is hoger dan 625\nHet getal is lager dan 687\nHet getal is lager dan 656\nHet getal is hoger dan 640\nHet getal is lager dan 648\nHet getal is lager dan 644\nJe hebt 642 geraden in 9 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(5752)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 5752 en gokken 500, 750, 625, 562, 531, 546, 554, 558, 556 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n625\n562\n531\n546\n554\n558\n556\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is lager dan 750\nHet getal is lager dan 625\nHet getal is lager dan 562\nHet getal is hoger dan 531\nHet getal is hoger dan 546\nHet getal is hoger dan 554\nHet getal is lager dan 558\nJe hebt 556 geraden in 9 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6548)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 6548 en gok 978 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "978\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Je hebt 978 meteen geraden!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(7225)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 7225 en gokken 500, 750, 625, 687, 718, 702, 694 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n625\n687\n718\n702\n694\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is lager dan 750\nHet getal is hoger dan 625\nHet getal is hoger dan 687\nHet getal is lager dan 718\nHet getal is lager dan 702\nJe hebt 694 geraden in 7 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(8939)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 8939 en gokken 500, 250, 125, 187, 156, 140, 132 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n250\n125\n187\n156\n140\n132\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is lager dan 500\nHet getal is lager dan 250\nHet getal is hoger dan 125\nHet getal is lager dan 187\nHet getal is lager dan 156\nHet getal is lager dan 140\nJe hebt 132 geraden in 7 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(3404)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 3404 en gok 407 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "407\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Je hebt 407 meteen geraden!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(9833)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 9833 en gokken 500, 750, 625, 562, 593, 609, 601, 605, 603, 602 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n625\n562\n593\n609\n601\n605\n603\n602\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is lager dan 750\nHet getal is lager dan 625\nHet getal is hoger dan 562\nHet getal is hoger dan 593\nHet getal is lager dan 609\nHet getal is hoger dan 601\nHet getal is lager dan 605\nHet getal is lager dan 603\nJe hebt 602 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(388)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 388 en gokken 500, 750, 875, 812, 843, 827, 819, 823 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n875\n812\n843\n827\n819\n823\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is hoger dan 750\nHet getal is lager dan 875\nHet getal is hoger dan 812\nHet getal is lager dan 843\nHet getal is lager dan 827\nHet getal is hoger dan 819\nJe hebt 823 geraden in 8 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(4446)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 4446 en gokken 500, 750, 875, 812, 781, 765, 757, 753, 755, 754 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n875\n812\n781\n765\n757\n753\n755\n754\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is hoger dan 750\nHet getal is lager dan 875\nHet getal is lager dan 812\nHet getal is lager dan 781\nHet getal is lager dan 765\nHet getal is lager dan 757\nHet getal is hoger dan 753\nHet getal is lager dan 755\nJe hebt 754 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(3027)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 3027 en gokken 500, 250, 125, 187, 218, 202, 194, 190 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n250\n125\n187\n218\n202\n194\n190\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is lager dan 500\nHet getal is lager dan 250\nHet getal is hoger dan 125\nHet getal is hoger dan 187\nHet getal is lager dan 218\nHet getal is lager dan 202\nHet getal is lager dan 194\nJe hebt 190 geraden in 8 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(430)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 430 en gokken 500, 250, 375, 312, 281, 265, 273, 277, 279 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n250\n375\n312\n281\n265\n273\n277\n279\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is lager dan 500\nHet getal is hoger dan 250\nHet getal is lager dan 375\nHet getal is lager dan 312\nHet getal is lager dan 281\nHet getal is hoger dan 265\nHet getal is hoger dan 273\nHet getal is hoger dan 277\nJe hebt 279 geraden in 9 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(2342)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 2342 en gokken 500, 750, 625, 562, 593, 577, 569, 573, 571, 572 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n625\n562\n593\n577\n569\n573\n571\n572\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is lager dan 750\nHet getal is lager dan 625\nHet getal is hoger dan 562\nHet getal is lager dan 593\nHet getal is lager dan 577\nHet getal is hoger dan 569\nHet getal is lager dan 573\nHet getal is hoger dan 571\nJe hebt 572 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(5147)"
+            }
+          },
+          "testcases": [
+            {
+              "description": "Uitvoeren met seed 5147 en gokken 500, 750, 875, 812, 843, 859, 867, 871, 869, 870 leidt tot:",
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "500\n750\n875\n812\n843\n859\n867\n871\n869\n870\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Het getal is hoger dan 500\nHet getal is hoger dan 750\nHet getal is lager dan 875\nHet getal is hoger dan 812\nHet getal is hoger dan 843\nHet getal is hoger dan 859\nHet getal is hoger dan 867\nHet getal is lager dan 871\nHet getal is hoger dan 869\nJe hebt 870 geraden in 10 pogingen!\n"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
