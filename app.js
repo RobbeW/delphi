@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-45";
+const APP_VERSION = "20260324-46";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -3014,16 +3014,25 @@ function renderOutputFromPapyros() {
 }
 
 function joinConsoleTextPartsForDisplay(parts) {
-  return (parts || []).reduce((output, part) => {
-    const text = String(part ?? "");
-    if (!text) {
-      return output;
-    }
-    if (!output || output.endsWith("\n") || text.startsWith("\n")) {
-      return `${output}${text}`;
-    }
-    return `${output}\n${text}`;
-  }, "");
+  const text = (parts || []).map((part) => String(part ?? "")).join("");
+  return formatConsoleTextForDisplay(text);
+}
+
+function escapeRegExp(text) {
+  return String(text).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function formatConsoleTextForDisplay(text) {
+  let value = String(text ?? "").replace(/\r\n/g, "\n");
+  [
+    "Het getal is hoger dan ",
+    "Het getal is lager dan ",
+    "Je hebt ",
+  ].forEach((marker) => {
+    const pattern = new RegExp(`([^\\n])(${escapeRegExp(marker)})`, "g");
+    value = value.replace(pattern, "$1\n$2");
+  });
+  return value;
 }
 
 function renderLiveOutputFromPapyros() {
