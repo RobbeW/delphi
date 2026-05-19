@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-44";
+const APP_VERSION = "20260324-45";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -3084,7 +3084,7 @@ function extractTextOutputFromEntries(entries) {
     }
   });
 
-  return textParts.join("");
+  return joinConsoleTextPartsForDisplay(textParts);
 }
 
 function normalizeOutputForComparison(text) {
