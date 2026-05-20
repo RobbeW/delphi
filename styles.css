@@ -1980,3 +1980,64 @@ input:focus {
     grid-column: 1 / -1;
   }
 }
+
+/* Keep dark theme overrides after the platform consistency block. */
+html.dark,
+html[data-theme="dark"],
+html:has(> body.dark) {
+  background: #161820;
+}
+
+body.dark {
+  background: #161820;
+  color: #f5f7fb;
+}
+
+body.dark .main-layout {
+  background: #23272e;
+}
+
+body.dark .editor-pane,
+body.dark .assignment-pane {
+  background: #23272e;
+  border-color: #343a4c;
+  box-shadow: none;
+}
+
+body.dark .assignment-card,
+body.dark .modal-box,
+body.dark .help-section,
+body.dark .eval-case {
+  background: #202431;
+  border-color: #454d63;
+  box-shadow: none;
+}
+
+body.dark #opdracht-titel,
+body.dark .pane-label,
+body.dark #assignment-title,
+body.dark .assignment-block h3,
+body.dark .assignment-block ul {
+  color: #ffffff;
+}
+
+body.dark #opdracht-tekst,
+body.dark .assignment-markdown,
+body.dark .pdf-modal-intro,
+body.dark .pdf-form-label {
+  color: #dbe4fb;
+}
+
+body.dark .assignment-markdown {
+  background: #171a24;
+  border-color: #373c4d;
+}
+
+body.dark .assignment-markdown code,
+body.dark .runtime-input-label code {
+  background: #3a4052;
+}
+
+body.dark .assignment-markdown pre {
+  background: #0e1017;
+}

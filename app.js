@@ -1095,6 +1095,8 @@ function clearOutputPanels() {
 
 function setTheme(theme) {
   const isDark = theme === "dark";
+  document.documentElement.classList.toggle("dark", isDark);
+  document.documentElement.dataset.theme = isDark ? "dark" : "light";
   document.body.classList.toggle("dark", isDark);
   localStorage.setItem(STORAGE.theme, isDark ? "dark" : "light");
 }
