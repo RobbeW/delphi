@@ -677,7 +677,7 @@ print("Aantal jaren:", jaar)</code></pre>
         </section>
 
         <section class="help-section help-section-wide">
-          <h3>Snelle foutcheck voor je op Uitvoeren klikt</h3>
+          <h3>Tips bij veelgemaakte fouten</h3>
           <ul>
             <li>Staat er een dubbelepunt na <code>if</code>, <code>elif</code>, <code>else</code>, <code>for</code> of <code>while</code>?</li>
             <li>Springt de code binnen een keuze of lus overal even ver in?</li>
@@ -689,101 +689,275 @@ print("Aantal jaren:", jaar)</code></pre>
       </div>
 
       <details class="help-legacy-table">
-        <summary>Beknopte tabel met losse commando's</summary>
+        <summary>Volledig formularium in tabel</summary>
       <div class="help-table-wrap">
         <table class="help-table">
           <thead>
             <tr>
               <th>Functie of statement</th>
-              <th>Beschrijving</th>
+              <th>Beschrijving NL (kort)</th>
               <th>Syntax</th>
               <th>Uitzonderingen / opletten voor</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><code>String-concatenatie</code></td>
-              <td>Tekststukken samenplakken.</td>
-              <td><code>"lijn " + lijnnummer</code></td>
-              <td>Alleen strings samenplakken. Getallen eerst naar <code>str()</code> omzetten.</td>
+              <td><code>print()</code></td>
+              <td>Schrijft tekst of waarden naar de uitvoer.</td>
+              <td><code>print("Hallo")</code></td>
+              <td>De uitvoer moet vaak exact overeenkomen met de testcases. Let op hoofdletters, spaties en leestekens.</td>
             </tr>
             <tr>
-              <td><code>round()</code> (afronden)</td>
-              <td>Afronden van een waarde X tot Y decimalen.</td>
-              <td><code>round(X, Y)</code></td>
-              <td><code>round(X)</code> rondt af tot nul decimalen en geeft <code>int</code>. <code>round(X, 0)</code> rondt af tot nul decimalen en geeft <code>float</code>.</td>
+              <td>Variabele</td>
+              <td>Bewaart een waarde onder een naam.</td>
+              <td><code>naam = "Ada"</code></td>
+              <td>Gebruik <code>=</code> om een waarde toe te kennen. Gebruik <code>==</code> alleen om te vergelijken.</td>
             </tr>
             <tr>
               <td><code>input()</code></td>
-              <td>Leest tekst in van de gebruiker.</td>
+              <td>Vraagt invoer aan de gebruiker.</td>
               <td><code>input("Vraag: ")</code></td>
-              <td>Geeft altijd een string.</td>
+              <td>Het antwoord is altijd tekst, dus een <code>str</code>.</td>
             </tr>
             <tr>
-              <td><code>import</code></td>
-              <td>Importeren van externe bibliotheken.</td>
-              <td><code>import math</code></td>
-              <td>Altijd als eerste coderegel indien nodig.</td>
+              <td><code>int()</code></td>
+              <td>Zet tekst of een getal om naar een geheel getal.</td>
+              <td><code>int("7")</code></td>
+              <td>Bij <code>int(7.9)</code> wordt afgekapt, niet afgerond.</td>
             </tr>
             <tr>
-              <td><code>math.sqrt()</code></td>
-              <td>Vierkantswortel uit bibliotheek <code>math</code>.</td>
-              <td><code>math.sqrt(getal_n)</code></td>
-              <td>Let op voor de haakjes.</td>
+              <td><code>float()</code></td>
+              <td>Zet tekst om naar een kommagetal.</td>
+              <td><code>float("3.29")</code></td>
+              <td>Nodig wanneer je met kommagetallen uit <code>input()</code> wil rekenen.</td>
             </tr>
             <tr>
-              <td><code>math.pi</code></td>
-              <td>Wetenschappelijke pi uit bibliotheek <code>math</code>.</td>
-              <td><code>math.pi</code></td>
-              <td>Enige juiste pi in pythonoefeningen.</td>
+              <td><code>str()</code></td>
+              <td>Zet een getal om naar tekst.</td>
+              <td><code>str(getal)</code></td>
+              <td>Nodig wanneer je getallen met tekst wil samenplakken.</td>
             </tr>
             <tr>
-              <td><code>math.ceil()</code> / <code>math.floor()</code></td>
-              <td>Speciale manieren van afronden uit bibliotheek <code>math</code>.</td>
-              <td><code>math.ceil(x)</code> / <code>math.floor(x)</code></td>
-              <td>Vergeet de bibliotheek <code>math</code> niet.</td>
+              <td>Tekst combineren met komma's</td>
+              <td>Combineert tekst en waarden in <code>print()</code>.</td>
+              <td><code>print("Score:", score)</code></td>
+              <td>Meestal het veiligst. Python voegt automatisch spaties toe.</td>
             </tr>
             <tr>
-              <td><code>if / elif / else</code></td>
-              <td>Keuze maken op basis van voorwaarden.</td>
-              <td><code>if voorwaarde:</code><br><code>elif voorwaarde:</code><br><code>else:</code></td>
-              <td>Let op inspringing. Slechts een <code>else</code>, meerdere <code>elif</code> mogelijk.</td>
+              <td>String-concatenatie</td>
+              <td>Plakt tekststukken samen.</td>
+              <td><code>"Score: " + str(score)</code></td>
+              <td>Kan alleen met strings. Getallen eerst omzetten met <code>str()</code>.</td>
             </tr>
             <tr>
-              <td><code>and / or / not</code></td>
-              <td>Logische operatoren om voorwaarden te combineren.</td>
-              <td><code>if a &gt; 0 and b &gt; 0:</code></td>
-              <td><code>and</code>: beide waar. <code>or</code>: minstens een waar. <code>not</code>: keert een voorwaarde om.</td>
+              <td>f-string</td>
+              <td>Zet waarden netjes in een tekstzin.</td>
+              <td><code>f"Score: {score}"</code></td>
+              <td>Handig, maar iets moeilijker voor beginners.</td>
             </tr>
             <tr>
-              <td><code>**</code> (machten)</td>
-              <td>Macht van een getal berekenen.</td>
-              <td><code>getal_1 ** getal_2</code></td>
-              <td>Controleer volgorde en datatype van beide waarden.</td>
+              <td>Rekenoperatoren</td>
+              <td>Voert gewone berekeningen uit.</td>
+              <td><code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></td>
+              <td><code>/</code> geeft een kommagetal als resultaat.</td>
             </tr>
             <tr>
-              <td><code>//</code></td>
-              <td>Delen zonder rest (geheel quotiÃ«nt).</td>
-              <td><code>a // b</code></td>
-              <td>Samen met <code>%</code> gebruiken bij deelbaarheid.</td>
+              <td>Machten</td>
+              <td>Berekent een macht.</td>
+              <td><code>zijde ** 2</code></td>
+              <td>Controleer de volgorde van de waarden.</td>
             </tr>
             <tr>
-              <td><code>%</code></td>
-              <td>Rest bij een deling (zonder quotiÃ«nt).</td>
-              <td><code>a % b</code></td>
+              <td>Delen zonder rest</td>
+              <td>Geeft het gehele quotient van een deling.</td>
+              <td><code>17 // 5</code></td>
+              <td>Handig samen met <code>%</code> bij deelbaarheid.</td>
+            </tr>
+            <tr>
+              <td>Restdeling</td>
+              <td>Geeft de rest van een deling.</td>
+              <td><code>17 % 5</code></td>
               <td>Handig voor even/oneven en deelbaarheid.</td>
             </tr>
             <tr>
-              <td><code>float(x)</code></td>
-              <td>Zet <code>x</code> om naar een kommagetal.</td>
-              <td><code>float("3.29")</code></td>
-              <td>Handig na <code>input()</code> om met kommagetallen te rekenen.</td>
+              <td><code>round()</code></td>
+              <td>Rondt een waarde af.</td>
+              <td><code>round(x, 2)</code></td>
+              <td><code>round(x)</code> geeft een <code>int</code>. <code>round(x, 0)</code> geeft een <code>float</code>.</td>
             </tr>
             <tr>
-              <td><code>int(x)</code></td>
-              <td>Zet <code>x</code> om naar een geheel getal.</td>
-              <td><code>int("7")</code>, <code>int(7.9)</code></td>
-              <td>Bij floats wordt afgekapt, niet afgerond.</td>
+              <td><code>import</code></td>
+              <td>Laadt een bibliotheek.</td>
+              <td><code>import math</code></td>
+              <td>Zet imports bij voorkeur bovenaan het programma.</td>
+            </tr>
+            <tr>
+              <td><code>math.sqrt()</code></td>
+              <td>Berekent een vierkantswortel.</td>
+              <td><code>math.sqrt(x)</code></td>
+              <td>Vereist <code>import math</code>. Let op de haakjes.</td>
+            </tr>
+            <tr>
+              <td><code>math.pi</code></td>
+              <td>Geeft de wiskundige waarde van pi.</td>
+              <td><code>math.pi</code></td>
+              <td>Gebruik dit liever dan zelf <code>3.14</code> te typen.</td>
+            </tr>
+            <tr>
+              <td><code>math.ceil()</code></td>
+              <td>Rondt naar boven af.</td>
+              <td><code>math.ceil(x)</code></td>
+              <td>Vereist <code>import math</code>.</td>
+            </tr>
+            <tr>
+              <td><code>math.floor()</code></td>
+              <td>Rondt naar beneden af.</td>
+              <td><code>math.floor(x)</code></td>
+              <td>Vereist <code>import math</code>.</td>
+            </tr>
+            <tr>
+              <td><code>random.randint()</code></td>
+              <td>Geeft een willekeurig geheel getal.</td>
+              <td><code>random.randint(1, 6)</code></td>
+              <td>Vereist <code>import random</code>. Beide grenzen tellen mee.</td>
+            </tr>
+            <tr>
+              <td><code>if</code></td>
+              <td>Voert code uit als een voorwaarde waar is.</td>
+              <td><code>if voorwaarde:</code></td>
+              <td>Dubbelepunt verplicht. De code eronder moet inspringen.</td>
+            </tr>
+            <tr>
+              <td><code>elif</code></td>
+              <td>Test een volgende mogelijkheid.</td>
+              <td><code>elif voorwaarde:</code></td>
+              <td>Je mag meerdere <code>elif</code>-blokken gebruiken.</td>
+            </tr>
+            <tr>
+              <td><code>else</code></td>
+              <td>Vangt alle overige gevallen op.</td>
+              <td><code>else:</code></td>
+              <td>Er mag maar een <code>else</code> zijn. Na <code>else</code> komt geen voorwaarde.</td>
+            </tr>
+            <tr>
+              <td>Vergelijkingsoperatoren</td>
+              <td>Vergelijken waarden.</td>
+              <td><code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code></td>
+              <td><code>==</code> vergelijkt. <code>=</code> kent een waarde toe.</td>
+            </tr>
+            <tr>
+              <td><code>and</code></td>
+              <td>Combineert voorwaarden. Beide moeten waar zijn.</td>
+              <td><code>if a &gt; 0 and b &gt; 0:</code></td>
+              <td>Alleen waar als beide voorwaarden waar zijn.</td>
+            </tr>
+            <tr>
+              <td><code>or</code></td>
+              <td>Combineert voorwaarden. Minstens een moet waar zijn.</td>
+              <td><code>if a &gt; 0 or b &gt; 0:</code></td>
+              <td>Waar zodra een van de voorwaarden waar is.</td>
+            </tr>
+            <tr>
+              <td><code>not</code></td>
+              <td>Keert een voorwaarde om.</td>
+              <td><code>if not klaar:</code></td>
+              <td>Maakt <code>True</code> tot <code>False</code> en omgekeerd.</td>
+            </tr>
+            <tr>
+              <td><code>for</code></td>
+              <td>Herhaalt code een vast aantal keer.</td>
+              <td><code>for i in range(5):</code></td>
+              <td><code>range(5)</code> loopt van <code>0</code> tot en met <code>4</code>.</td>
+            </tr>
+            <tr>
+              <td><code>range()</code></td>
+              <td>Bepaalt start, stop en stapgrootte van een herhaling.</td>
+              <td><code>range(1, 6)</code></td>
+              <td>De stopwaarde telt niet mee.</td>
+            </tr>
+            <tr>
+              <td><code>range()</code> met stap</td>
+              <td>Herhaalt met een vaste stapgrootte.</td>
+              <td><code>range(2, 11, 2)</code></td>
+              <td>Deze reeks geeft <code>2, 4, 6, 8, 10</code>.</td>
+            </tr>
+            <tr>
+              <td>Teller of somvariabele</td>
+              <td>Houdt een veranderende waarde bij in een lus.</td>
+              <td><code>som = som + getal</code></td>
+              <td>Eerst initialiseren voor de lus.</td>
+            </tr>
+            <tr>
+              <td>Lijst maken</td>
+              <td>Maakt een lege lijst.</td>
+              <td><code>lijst = []</code></td>
+              <td>Gebruik dit om meerdere waarden te bewaren.</td>
+            </tr>
+            <tr>
+              <td><code>append()</code></td>
+              <td>Voegt een waarde toe aan een lijst.</td>
+              <td><code>lijst.append(waarde)</code></td>
+              <td>Verandert de lijst, maar print niets vanzelf.</td>
+            </tr>
+            <tr>
+              <td><code>len()</code></td>
+              <td>Telt het aantal elementen of tekens.</td>
+              <td><code>len(lijst)</code></td>
+              <td>Indexen beginnen nog altijd bij <code>0</code>.</td>
+            </tr>
+            <tr>
+              <td>Indexering</td>
+              <td>Neemt een element uit een lijst.</td>
+              <td><code>lijst[0]</code></td>
+              <td>Het eerste element heeft index <code>0</code>, niet <code>1</code>.</td>
+            </tr>
+            <tr>
+              <td>Lijst overlopen</td>
+              <td>Overloopt elk element van een lijst.</td>
+              <td><code>for item in lijst:</code></td>
+              <td>De lusvariabele is tijdelijk en krijgt telkens een nieuwe waarde.</td>
+            </tr>
+            <tr>
+              <td>String overlopen</td>
+              <td>Overloopt elke letter van een string.</td>
+              <td><code>for letter in woord:</code></td>
+              <td>Een string kan je behandelen als een reeks letters.</td>
+            </tr>
+            <tr>
+              <td><code>while</code></td>
+              <td>Herhaalt zolang een voorwaarde waar is.</td>
+              <td><code>while voorwaarde:</code></td>
+              <td>Zorg dat er in de lus iets verandert, anders stopt de lus nooit.</td>
+            </tr>
+            <tr>
+              <td>Invoer blijven vragen</td>
+              <td>Laat de gebruiker herhaald invoer geven.</td>
+              <td><code>while antwoord != "stop":</code></td>
+              <td>Vergeet niet om <code>antwoord</code> in de lus opnieuw te vragen.</td>
+            </tr>
+            <tr>
+              <td>Groeiproblemen</td>
+              <td>Herhaalt tot een doel bereikt is.</td>
+              <td><code>while saldo &lt; doel:</code></td>
+              <td>Pas de waarde in de lus aan, bijvoorbeeld met rente of groei.</td>
+            </tr>
+            <tr>
+              <td>Dubbelepunt</td>
+              <td>Sluit een blok-statement af.</td>
+              <td><code>if ...:</code>, <code>for ...:</code>, <code>while ...:</code></td>
+              <td>Ontbrekend dubbelepunt geeft een syntaxfout.</td>
+            </tr>
+            <tr>
+              <td>Inspringing</td>
+              <td>Toont welke code bij een keuze of lus hoort.</td>
+              <td>Vier spaties inspringen</td>
+              <td>Ongelijke inspringing veroorzaakt fouten.</td>
+            </tr>
+            <tr>
+              <td>Exacte uitvoer</td>
+              <td>Zorgt dat de output klopt met de opdracht.</td>
+              <td><code>print(...)</code></td>
+              <td>Let op punten, komma's, hoofdletters, spaties en exacte formulering.</td>
             </tr>
           </tbody>
         </table>
@@ -1088,8 +1262,10 @@ print("Aantal jaren:", jaar)</code></pre>
   "Zorg dat er in de lus iets verandert, anders stopt de lus nooit.": "Make sure something changes in the loop, otherwise the loop never stops.",
   "voor groeiproblemen zoals sparen.": "for growth problems such as saving money.",
   "wanneer de gebruiker mag blijven invoeren.": "when the user may keep entering input.",
-  "Beknopte tabel met losse commando's": "Short table with separate commands",
+  "Tips bij veelgemaakte fouten": "Tips for common mistakes",
+  "Volledig formularium in tabel": "Full reference sheet in table",
   "Functie of statement": "Function or statement",
+  "Beschrijving NL (kort)": "Description EN (short)",
   "Syntax": "Syntax",
   "Uitzonderingen / opletten voor": "Exceptions / watch out for"
 };
