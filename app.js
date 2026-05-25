@@ -2764,6 +2764,46 @@ function patchPapyrosBackends(BackendManager) {
   );
 }
 
+function normalizePapyrosContentType(contentType) {
+  if (typeof contentType === "string" && contentType.trim()) {
+    return contentType;
+  }
+  if (!contentType || typeof contentType !== "object") {
+    return "text/plain";
+  }
+
+  const candidates = [
+    contentType.contentType,
+    contentType.mimeType,
+    contentType.mediaType,
+    contentType.type,
+    contentType.value,
+  ];
+  const match = candidates.find((value) => typeof value === "string" && value.includes("/"));
+  return match || "text/plain";
+}
+
+function normalizePapyrosEventForPublish(event) {
+  if (!event || typeof event !== "object") {
+    return event;
+  }
+
+  const normalized = {
+    ...event,
+    contentType: normalizePapyrosContentType(event.contentType),
+  };
+
+  if (normalized.data && typeof normalized.data === "object") {
+    try {
+      normalized.data = JSON.stringify(normalized.data);
+    } catch {
+      normalized.data = String(normalized.data);
+    }
+  }
+
+  return normalized;
+}
+
 function patchRunnerLaunch(papyros, BackendManager, comlinkProxy) {
   const runner = papyros && papyros.runner;
   if (!runner || typeof runner !== "object") {
@@ -2790,7 +2830,9 @@ function patchRunnerLaunch(papyros, BackendManager, comlinkProxy) {
     this.backend = new Promise(async (resolve, reject) => {
       try {
         const workerProxy = backend.workerProxy;
-        await workerProxy.launch(comlinkProxy((event) => BackendManager.publish(event)));
+        await workerProxy.launch(comlinkProxy((event) =>
+          BackendManager.publish(normalizePapyrosEventForPublish(event))
+        ));
         if (typeof self.updateRunModes === "function") {
           self.updateRunModes();
         }
@@ -3216,7 +3258,7 @@ function extractRuntimeErrorFromEntries(entries) {
     }
     const payload = getPapyrosEntryPayload(entry);
     if (payload !== undefined && payload !== null && String(payload).trim().length > 0) {
-      return String(payload);
+      return formatPapyrosRuntimeErrorPayload(payload);
     }
     try {
       return JSON.stringify(entry);
@@ -3227,6 +3269,25 @@ function extractRuntimeErrorFromEntries(entries) {
 
   const combinedText = extractTextOutputFromEntries(outputEntries);
   return looksLikePythonRuntimeError(combinedText) ? combinedText : "";
+}
+
+function formatPapyrosRuntimeErrorPayload(payload) {
+  if (payload && typeof payload === "object") {
+    return payload.what || payload.traceback || payload.message || payload.name || JSON.stringify(payload);
+  }
+
+  const text = String(payload || "");
+  const trimmed = text.trim();
+  if (!trimmed.startsWith("{")) {
+    return text;
+  }
+
+  try {
+    const parsed = JSON.parse(trimmed);
+    return parsed.what || parsed.traceback || parsed.message || parsed.name || text;
+  } catch {
+    return text;
+  }
 }
 
 function normalizeOutputForComparison(text) {
