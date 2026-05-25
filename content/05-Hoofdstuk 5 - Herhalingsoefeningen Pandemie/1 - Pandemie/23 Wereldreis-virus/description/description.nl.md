@@ -14,7 +14,7 @@ Je volgt een virus door meerdere steden. In elke stad bereken je lokale besmetti
 
 #### Rekenregel
 
-In elke stad bereken je `lokale_besmettingen = math.floor(reizigers * r0)`. Het totaal in die stad is `reizigers + lokale_besmettingen`. Daarna reist `math.floor(totaal * reispercentage / 100)` verder naar de volgende stad.
+In elke stad bereken je `lokale_besmettingen = math.floor(reizigers * r0)`. Het totaal in die stad is `reizigers + lokale_besmettingen`. Daarna reist `math.floor(totaal * reispercentage / 100)` verder naar de volgende stad. Als er besmettingen zijn maar die berekening 0 reizigers geeft, reist er toch 1 besmette persoon verder.
 
 #### Voorbeeld
 

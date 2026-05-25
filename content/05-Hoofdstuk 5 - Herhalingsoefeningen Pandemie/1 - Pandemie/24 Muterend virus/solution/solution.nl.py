@@ -8,13 +8,13 @@ cycli = int(input())
 totaal = besmettingen
 
 for cyclus in range(1, cycli + 1):
-    mutatie = random.randint(1, 5)
+    mutatie = random.randint(1, 3)
     variant = "stabiel"
 
     if mutatie == 1:
         r0 = max(0.0, r0 - 0.25)
         variant = "zwakker"
-    elif mutatie == 5:
+    elif mutatie == 3:
         r0 += 0.4
         variant = "besmettelijker"
 

@@ -7,11 +7,9 @@ totaal = 0
 
 for persoon in range(personen):
     worp = random.randint(1, 10)
-    if worp == 10:
+    if worp >= 9:
         superverspreiders += 1
-        totaal += 15
-    elif worp >= 7:
-        totaal += 5
+        totaal += 25
     else:
         totaal += gewone_besmettingen
 

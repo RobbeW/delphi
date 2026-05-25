@@ -23,7 +23,7 @@
     -
       testcases:
         - stdin: "50\n2\n50\n"
-          stdout: "Na 1 weken zijn er 100 besmettingen.\n"
+          stdout: "Na 0 weken zijn er 50 besmettingen.\n"
     -
       testcases:
         - stdin: "60\n1.1\n100\n"
@@ -39,11 +39,11 @@
     -
       testcases:
         - stdin: "1000\n1.01\n1100\n"
-          stdout: "Na 11 weken zijn er 1111 besmettingen.\n"
+          stdout: "Na 10 weken zijn er 1100 besmettingen.\n"
     -
       testcases:
         - stdin: "25\n1.2\n30\n"
-          stdout: "Na 2 weken zijn er 36 besmettingen.\n"
+          stdout: "Na 1 weken zijn er 30 besmettingen.\n"
     -
       testcases:
         - stdin: "3\n10\n10000\n"
@@ -55,7 +55,7 @@
     -
       testcases:
         - stdin: "2\n1.2\n2\n"
-          stdout: "De grens wordt niet bereikt. Na 0 weken zijn er 2 besmettingen.\n"
+          stdout: "Na 0 weken zijn er 2 besmettingen.\n"
     -
       testcases:
         - stdin: "30\n2.5\n200\n"

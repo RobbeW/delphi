@@ -14,7 +14,7 @@ Elke ster stelt een vast aantal besmettingen voor. Zo oefen je tegelijk met groe
 
 #### Rekenregel
 
-Het aantal sterretjes is `besmettingen // schaal`. Bij 40 besmettingen en schaal 10 print je dus 4 sterretjes. Voor de volgende week wordt `besmettingen = math.floor(besmettingen * factor)`.
+Het aantal sterretjes is `besmettingen // schaal`. Bij 40 besmettingen en schaal 10 print je dus 4 sterretjes. Als er wel besmettingen zijn maar de deling 0 sterretjes geeft, print je toch 1 sterretje. Voor de volgende week wordt `besmettingen = math.floor(besmettingen * factor)`.
 
 #### Voorbeeld
 

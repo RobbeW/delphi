@@ -17,6 +17,6 @@ while dag < dagen and totaal < limiet and huidig > 0:
     print("Dag " + str(dag) + ": " + str(huidig) + " nieuwe deelnemers, " + str(totaal) + " totaal")
 
 if totaal >= limiet:
-    print("De challenge bereikt de volledige groep na dag " + str(dag) + ".")
+    print("De challenge gaat viraal na dag " + str(dag) + ".")
 else:
     print("Na", dag, "dagen zijn er", totaal, "deelnemers bereikt.")

@@ -6,7 +6,7 @@ grens = int(input())
 
 weken = 0
 
-while besmettingen <= grens:
+while besmettingen < grens:
     volgende = math.floor(besmettingen * factor)
     if volgende <= besmettingen:
         print("De grens wordt niet bereikt. Na", weken, "weken zijn er", besmettingen, "besmettingen.")
