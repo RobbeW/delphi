@@ -1,9 +1,9 @@
 import math
 import random
 
-r0 = float(input())
-besmettingen = int(input())
-cycli = int(input())
+r0 = float(input("Startwaarde R0? "))
+besmettingen = int(input("Startaantal besmettingen? "))
+cycli = int(input("Aantal cycli? "))
 
 totaal = besmettingen
 

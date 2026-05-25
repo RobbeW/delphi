@@ -1,9 +1,9 @@
 import math
 
-steden = int(input())
-reizigers = int(input())
-r0 = float(input())
-reispercentage = float(input())
+steden = int(input("Aantal steden? "))
+reizigers = int(input("Besmette reizigers in eerste stad? "))
+r0 = float(input("R0? "))
+reispercentage = float(input("Reispercentage? "))
 
 for stad in range(1, steden + 1):
     lokale_besmettingen = math.floor(reizigers * r0)

@@ -1,9 +1,9 @@
 import math
 
-besmettingen = int(input())
-factor = float(input())
-weken = int(input())
-grens = int(input())
+besmettingen = int(input("Startaantal besmettingen? "))
+factor = float(input("Groeifactor? "))
+weken = int(input("Aantal weken? "))
+grens = int(input("Alarmgrens? "))
 
 if besmettingen >= grens:
     print("De grens is al bereikt.")

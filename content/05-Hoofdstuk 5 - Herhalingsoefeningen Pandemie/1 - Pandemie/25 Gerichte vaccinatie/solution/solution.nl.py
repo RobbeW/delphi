@@ -1,9 +1,9 @@
-aantal_personen = int(input())
-vaccins = int(input())
+aantal_personen = int(input("Aantal personen? "))
+vaccins = int(input("Aantal vaccins? "))
 contacten = []
 
 for persoon in range(aantal_personen):
-    contacten.append(int(input()))
+    contacten.append(int(input("Aantal contacten? ")))
 
 beschermde_contacten = 0
 gezet = 0

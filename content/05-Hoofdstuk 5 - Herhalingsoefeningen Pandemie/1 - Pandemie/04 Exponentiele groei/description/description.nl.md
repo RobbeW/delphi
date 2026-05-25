@@ -11,10 +11,11 @@ In deze oefening werk je week per week en hou je zelf het huidige aantal besmett
 * Vermenigvuldig het aantal besmettingen elke week met de factor.
 * Print per week het nieuwe totaal.
 * Stop vroeger als de alarmgrens bereikt of overschreden wordt.
+* Als de alarmgrens al bij de start bereikt is, print je meteen `De grens is al bereikt.`
 
 #### Rekenregel
 
-In elke week wordt het nieuwe aantal `math.floor(besmettingen * factor)`. Met startwaarde 2 en factor 2 krijg je dus 4, daarna 8, daarna 16.
+In elke week wordt het nieuwe aantal `math.floor(besmettingen * factor)`. Met startwaarde 2 en factor 2 krijg je dus 4, daarna 8, daarna 16. Als het nieuwe aantal boven de grens gaat, zet je het gelijk aan de grens en meld je in welke week de grens bereikt wordt.
 
 #### Voorbeeld
 

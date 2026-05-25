@@ -1,8 +1,8 @@
 import random
 
-ziek = int(input())
-kans = int(input())
-max_dagen = int(input())
+ziek = int(input("Startaantal zieken? "))
+kans = int(input("Herstelkans? "))
+max_dagen = int(input("Aantal dagen? "))
 totaal_genezen = 0
 dag = 0
 

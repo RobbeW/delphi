@@ -1,9 +1,9 @@
 import math
 
-huidig = int(input())
-factor = float(input())
-dagen = int(input())
-limiet = int(input())
+huidig = int(input("Startaantal deelnemers? "))
+factor = float(input("Verspreidingsfactor? "))
+dagen = int(input("Aantal dagen? "))
+limiet = int(input("Virale grens? "))
 
 totaal = huidig
 dag = 0

@@ -1,8 +1,8 @@
-personen = int(input())
-rondes = int(input())
-gelijke_contacten = int(input())
-hub_contacten = int(input())
-kleine_contacten = int(input())
+personen = int(input("Aantal personen? "))
+rondes = int(input("Aantal rondes? "))
+gelijke_contacten = int(input("Contacten gelijk netwerk? "))
+hub_contacten = int(input("Contacten hub? "))
+kleine_contacten = int(input("Contacten gewone personen? "))
 
 gelijk_besmet = 1
 ongelijk_besmet = 1

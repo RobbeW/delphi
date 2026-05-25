@@ -1,8 +1,8 @@
 import math
 
-populatie = int(input())
-per_week = int(input())
-doelpercentage = float(input())
+populatie = int(input("Populatie? "))
+per_week = int(input("Vaccinaties per week? "))
+doelpercentage = float(input("Doelpercentage? "))
 
 doel = math.ceil(populatie * doelpercentage / 100)
 gevaccineerd = 0

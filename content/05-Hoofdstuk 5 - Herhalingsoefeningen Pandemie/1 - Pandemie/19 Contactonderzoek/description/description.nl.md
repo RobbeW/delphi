@@ -12,6 +12,7 @@ De invoer stopt pas wanneer de naam `stop` wordt ingevoerd.
 * Tel alle contacten in `aantal_contacten`.
 * Tel contacten vanaf 15 minuten als `risicocontacten`.
 * Onthoud ook het langste contact met `langste_naam` en `langste_duur`.
+* Als er meteen `stop` wordt ingevoerd, print je dat er geen risicocontact gevonden werd.
 
 #### Rekenregel
 

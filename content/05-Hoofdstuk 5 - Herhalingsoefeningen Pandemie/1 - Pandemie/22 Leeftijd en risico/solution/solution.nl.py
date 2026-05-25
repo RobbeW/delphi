@@ -1,10 +1,10 @@
-aantal_personen = int(input())
+aantal_personen = int(input("Aantal personen? "))
 hoog_risico = 0
 
 for persoon in range(1, aantal_personen + 1):
-    leeftijd = int(input())
-    gevaccineerd = input() == "ja"
-    chronisch = input() == "ja"
+    leeftijd = int(input("Leeftijd? "))
+    gevaccineerd = input("Gevaccineerd? ") == "ja"
+    chronisch = input("Chronische aandoening? ") == "ja"
 
     score = 0
     if leeftijd >= 65:

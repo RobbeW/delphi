@@ -1,9 +1,9 @@
 import math
 
-bevolking = int(input())
-dosissen_per_persoon = int(input())
-dosissen_per_flacon = int(input())
-flacons_per_doos = int(input())
+bevolking = int(input("Aantal personen? "))
+dosissen_per_persoon = int(input("Dosissen per persoon? "))
+dosissen_per_flacon = int(input("Dosissen per flacon? "))
+flacons_per_doos = int(input("Flacons per doos? "))
 
 nodige_dosissen = bevolking * dosissen_per_persoon
 nodige_flacons = math.ceil(nodige_dosissen / dosissen_per_flacon)

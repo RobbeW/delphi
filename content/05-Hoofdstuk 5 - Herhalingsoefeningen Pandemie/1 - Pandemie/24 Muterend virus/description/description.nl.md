@@ -11,11 +11,11 @@ Je simuleert meerdere cycli. In elke cyclus bepaalt een willekeurig getal hoe de
 * Pas `r0` aan en rond de waarde af op twee decimalen.
 * Bereken daarna het aantal `nieuwe_besmettingen` en het nieuwe `totaal`.
 * Print per cyclus het type variant, de `R0`, de nieuwe besmettingen en het totaal.
-* Print op het einde of de variant blijft groeien.
+* Print op het einde of de uitbraak uitdooft, de variant blijft groeien of de variant verzwakt.
 
 #### Rekenregel
 
-Een mutatie met waarde 1 maakt `r0` 0.25 lager, maar nooit lager dan 0. Een mutatie met waarde 2 laat `r0` gelijk. Een mutatie met waarde 3 maakt `r0` 0.4 hoger. Rond `r0` daarna af op twee decimalen en bereken `nieuwe_besmettingen = math.floor(besmettingen * r0)`.
+Een mutatie met waarde 1 maakt `r0` 0.25 lager, maar nooit lager dan 0. Een mutatie met waarde 2 laat `r0` gelijk. Een mutatie met waarde 3 maakt `r0` 0.4 hoger. Rond `r0` daarna af op twee decimalen en bereken `nieuwe_besmettingen = math.floor(besmettingen * r0)`. Als de laatste actieve besmettingen 0 zijn, dooft de uitbraak uit. Anders blijft de variant groeien bij `r0 > 1`; in de andere gevallen verzwakt ze.
 
 #### Voorbeeld
 

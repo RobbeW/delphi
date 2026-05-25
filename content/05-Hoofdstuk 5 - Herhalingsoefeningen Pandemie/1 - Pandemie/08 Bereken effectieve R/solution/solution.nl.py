@@ -1,10 +1,10 @@
 import math
 
-r0 = float(input())
-vaccinatie = float(input())
-maskers = float(input())
-besmettingen = int(input())
-max_cycli = int(input())
+r0 = float(input("R0? "))
+vaccinatie = float(input("Vaccinatiepercentage? "))
+maskers = float(input("Maskerpercentage? "))
+besmettingen = int(input("Startaantal besmettingen? "))
+max_cycli = int(input("Aantal cycli? "))
 
 effectieve_r = r0 * (1 - vaccinatie / 100) * (1 - maskers / 100)
 effectieve_r = round(effectieve_r, 2)

@@ -1,7 +1,7 @@
 import random
 
-personen = int(input())
-gewone_besmettingen = int(input())
+personen = int(input("Aantal besmette personen? "))
+gewone_besmettingen = int(input("Gewone besmettingen per persoon? "))
 superverspreiders = 0
 totaal = 0
 

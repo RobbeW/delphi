@@ -1,7 +1,7 @@
-klassen = int(input())
-lessen = int(input())
-leerlingen = int(input())
-start_besmet = int(input())
+klassen = int(input("Aantal klassen? "))
+lessen = int(input("Aantal lessen? "))
+leerlingen = int(input("Klasgrootte? "))
+start_besmet = int(input("Startbesmettingen per klas? "))
 
 totaal = 0
 for klas in range(1, klassen + 1):
