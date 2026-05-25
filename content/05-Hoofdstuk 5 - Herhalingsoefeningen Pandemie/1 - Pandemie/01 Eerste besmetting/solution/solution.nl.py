@@ -1,6 +1,6 @@
 aantal_wijken = int(input("Hoeveel wijken? "))
 totaal = 0
-max_besmettingen = -1
+max_besmettingen = 0
 max_wijk = 0
 
 for wijk in range(1, aantal_wijken + 1):
