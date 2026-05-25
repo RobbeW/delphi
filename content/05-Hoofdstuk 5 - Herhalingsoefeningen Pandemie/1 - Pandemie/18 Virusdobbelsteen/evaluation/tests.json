@@ -22,8 +22,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [4, 3, 2, 1, 6, 5, 4, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -46,8 +45,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [5, 4, 3, 2, 1, 6, 5, 4, 3, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5, 4, 3, 2]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -70,8 +68,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [6, 5, 4, 3, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([6, 5, 4, 3, 2]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -94,8 +91,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [1, 6, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([1, 6, 5]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -118,8 +114,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -142,8 +137,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [3, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([3, 2]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -166,8 +160,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -190,8 +183,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [5, 4, 3, 2, 1, 6, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -214,8 +206,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -238,8 +229,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [1, 6, 5, 4, 3, 2, 1, 6, 5, 4]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -262,8 +252,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [2, 1, 6, 5, 4]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -286,8 +275,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -310,8 +298,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [4, 3, 2, 1, 6, 5, 4, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -334,8 +321,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [5, 4, 3, 2, 1, 6, 5, 4, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -358,8 +344,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [6, 5, 4, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -382,8 +367,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -406,8 +390,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [2, 1, 6, 5, 4, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -430,8 +413,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -454,8 +436,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [4, 3, 2, 1, 6, 5, 4, 3, 2, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3, 2, 1]); random.randint = lambda a, b: next(waarden)"
             }
           }
         },
@@ -478,8 +459,7 @@
           ],
           "before": {
             "python": {
-              "type": "text",
-              "data": "import random\nwaarden = [5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1]); random.randint = lambda a, b: next(waarden)"
             }
           }
         }
