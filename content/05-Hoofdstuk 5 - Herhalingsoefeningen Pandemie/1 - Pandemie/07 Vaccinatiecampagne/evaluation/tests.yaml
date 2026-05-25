@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "1200\n100\n70\n"
+          stdout: "Week 1: 100 mensen gevaccineerd\nWeek 2: 200 mensen gevaccineerd\nWeek 3: 300 mensen gevaccineerd\nWeek 4: 400 mensen gevaccineerd\nWeek 5: 500 mensen gevaccineerd\nWeek 6: 600 mensen gevaccineerd\nWeek 7: 700 mensen gevaccineerd\nWeek 8: 800 mensen gevaccineerd\nWeek 9: 900 mensen gevaccineerd\nNog vatbaar: 300\n"
+    -
+      testcases:
+        - stdin: "1000\n125\n80\n"
+          stdout: "Week 1: 125 mensen gevaccineerd\nWeek 2: 250 mensen gevaccineerd\nWeek 3: 375 mensen gevaccineerd\nWeek 4: 500 mensen gevaccineerd\nWeek 5: 625 mensen gevaccineerd\nWeek 6: 750 mensen gevaccineerd\nWeek 7: 875 mensen gevaccineerd\nNog vatbaar: 125\n"
+    -
+      testcases:
+        - stdin: "850\n60\n62.5\n"
+          stdout: "Week 1: 60 mensen gevaccineerd\nWeek 2: 120 mensen gevaccineerd\nWeek 3: 180 mensen gevaccineerd\nWeek 4: 240 mensen gevaccineerd\nWeek 5: 300 mensen gevaccineerd\nWeek 6: 360 mensen gevaccineerd\nWeek 7: 420 mensen gevaccineerd\nWeek 8: 480 mensen gevaccineerd\nWeek 9: 540 mensen gevaccineerd\nNog vatbaar: 310\n"
+    -
+      testcases:
+        - stdin: "300\n500\n50\n"
+          stdout: "Week 1: 300 mensen gevaccineerd\nNog vatbaar: 0\n"
+    -
+      testcases:
+        - stdin: "2000\n150\n100\n"
+          stdout: "Week 1: 150 mensen gevaccineerd\nWeek 2: 300 mensen gevaccineerd\nWeek 3: 450 mensen gevaccineerd\nWeek 4: 600 mensen gevaccineerd\nWeek 5: 750 mensen gevaccineerd\nWeek 6: 900 mensen gevaccineerd\nWeek 7: 1050 mensen gevaccineerd\nWeek 8: 1200 mensen gevaccineerd\nWeek 9: 1350 mensen gevaccineerd\nWeek 10: 1500 mensen gevaccineerd\nWeek 11: 1650 mensen gevaccineerd\nWeek 12: 1800 mensen gevaccineerd\nWeek 13: 1950 mensen gevaccineerd\nWeek 14: 2000 mensen gevaccineerd\nNog vatbaar: 0\n"
+    -
+      testcases:
+        - stdin: "50\n7\n50\n"
+          stdout: "Week 1: 7 mensen gevaccineerd\nWeek 2: 14 mensen gevaccineerd\nWeek 3: 21 mensen gevaccineerd\nWeek 4: 28 mensen gevaccineerd\nNog vatbaar: 22\n"
+    -
+      testcases:
+        - stdin: "100\n20\n0\n"
+          stdout: "Nog vatbaar: 100\n"
+    -
+      testcases:
+        - stdin: "999\n111\n33\n"
+          stdout: "Week 1: 111 mensen gevaccineerd\nWeek 2: 222 mensen gevaccineerd\nWeek 3: 333 mensen gevaccineerd\nNog vatbaar: 666\n"
+    -
+      testcases:
+        - stdin: "640\n64\n75\n"
+          stdout: "Week 1: 64 mensen gevaccineerd\nWeek 2: 128 mensen gevaccineerd\nWeek 3: 192 mensen gevaccineerd\nWeek 4: 256 mensen gevaccineerd\nWeek 5: 320 mensen gevaccineerd\nWeek 6: 384 mensen gevaccineerd\nWeek 7: 448 mensen gevaccineerd\nWeek 8: 512 mensen gevaccineerd\nNog vatbaar: 128\n"
+    -
+      testcases:
+        - stdin: "120\n15\n25\n"
+          stdout: "Week 1: 15 mensen gevaccineerd\nWeek 2: 30 mensen gevaccineerd\nNog vatbaar: 90\n"
+    -
+      testcases:
+        - stdin: "500\n70\n60\n"
+          stdout: "Week 1: 70 mensen gevaccineerd\nWeek 2: 140 mensen gevaccineerd\nWeek 3: 210 mensen gevaccineerd\nWeek 4: 280 mensen gevaccineerd\nWeek 5: 350 mensen gevaccineerd\nNog vatbaar: 150\n"
+    -
+      testcases:
+        - stdin: "10000\n900\n85\n"
+          stdout: "Week 1: 900 mensen gevaccineerd\nWeek 2: 1800 mensen gevaccineerd\nWeek 3: 2700 mensen gevaccineerd\nWeek 4: 3600 mensen gevaccineerd\nWeek 5: 4500 mensen gevaccineerd\nWeek 6: 5400 mensen gevaccineerd\nWeek 7: 6300 mensen gevaccineerd\nWeek 8: 7200 mensen gevaccineerd\nWeek 9: 8100 mensen gevaccineerd\nWeek 10: 9000 mensen gevaccineerd\nNog vatbaar: 1000\n"
+    -
+      testcases:
+        - stdin: "42\n5\n95\n"
+          stdout: "Week 1: 5 mensen gevaccineerd\nWeek 2: 10 mensen gevaccineerd\nWeek 3: 15 mensen gevaccineerd\nWeek 4: 20 mensen gevaccineerd\nWeek 5: 25 mensen gevaccineerd\nWeek 6: 30 mensen gevaccineerd\nWeek 7: 35 mensen gevaccineerd\nWeek 8: 40 mensen gevaccineerd\nNog vatbaar: 2\n"
+    -
+      testcases:
+        - stdin: "360\n40\n66.6\n"
+          stdout: "Week 1: 40 mensen gevaccineerd\nWeek 2: 80 mensen gevaccineerd\nWeek 3: 120 mensen gevaccineerd\nWeek 4: 160 mensen gevaccineerd\nWeek 5: 200 mensen gevaccineerd\nWeek 6: 240 mensen gevaccineerd\nNog vatbaar: 120\n"
+    -
+      testcases:
+        - stdin: "75\n10\n10\n"
+          stdout: "Week 1: 10 mensen gevaccineerd\nNog vatbaar: 65\n"
+    -
+      testcases:
+        - stdin: "600\n55\n55\n"
+          stdout: "Week 1: 55 mensen gevaccineerd\nWeek 2: 110 mensen gevaccineerd\nWeek 3: 165 mensen gevaccineerd\nWeek 4: 220 mensen gevaccineerd\nWeek 5: 275 mensen gevaccineerd\nWeek 6: 330 mensen gevaccineerd\nNog vatbaar: 270\n"
+    -
+      testcases:
+        - stdin: "810\n81\n90\n"
+          stdout: "Week 1: 81 mensen gevaccineerd\nWeek 2: 162 mensen gevaccineerd\nWeek 3: 243 mensen gevaccineerd\nWeek 4: 324 mensen gevaccineerd\nWeek 5: 405 mensen gevaccineerd\nWeek 6: 486 mensen gevaccineerd\nWeek 7: 567 mensen gevaccineerd\nWeek 8: 648 mensen gevaccineerd\nWeek 9: 729 mensen gevaccineerd\nNog vatbaar: 81\n"
+    -
+      testcases:
+        - stdin: "100\n1\n1\n"
+          stdout: "Week 1: 1 mensen gevaccineerd\nNog vatbaar: 99\n"
+    -
+      testcases:
+        - stdin: "250\n30\n100\n"
+          stdout: "Week 1: 30 mensen gevaccineerd\nWeek 2: 60 mensen gevaccineerd\nWeek 3: 90 mensen gevaccineerd\nWeek 4: 120 mensen gevaccineerd\nWeek 5: 150 mensen gevaccineerd\nWeek 6: 180 mensen gevaccineerd\nWeek 7: 210 mensen gevaccineerd\nWeek 8: 240 mensen gevaccineerd\nWeek 9: 250 mensen gevaccineerd\nNog vatbaar: 0\n"
+    -
+      testcases:
+        - stdin: "1234\n123\n45\n"
+          stdout: "Week 1: 123 mensen gevaccineerd\nWeek 2: 246 mensen gevaccineerd\nWeek 3: 369 mensen gevaccineerd\nWeek 4: 492 mensen gevaccineerd\nWeek 5: 615 mensen gevaccineerd\nNog vatbaar: 619\n"

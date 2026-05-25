@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Virus op sociale media",
+      "en": "Social media virus"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Herhaling",
+    "Pandemie",
+    "While-lus",
+    "Virale challenge",
+    "Math floor"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+}

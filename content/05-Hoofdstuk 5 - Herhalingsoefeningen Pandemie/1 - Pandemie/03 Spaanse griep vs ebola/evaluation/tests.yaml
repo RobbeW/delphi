@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "500000\n2.5\n1000\n50\n"
+          stdout: "Spaanse griep: 12500 verwachte overlijdens\nEbola: 500 verwachte overlijdens\nGrootste dodentol: Spaanse griep.\n"
+    -
+      testcases:
+        - stdin: "2000\n10\n900\n25\n"
+          stdout: "Spaanse griep: 200 verwachte overlijdens\nEbola: 225 verwachte overlijdens\nGrootste dodentol: Ebola.\n"
+    -
+      testcases:
+        - stdin: "1000\n20\n400\n50\n"
+          stdout: "Spaanse griep: 200 verwachte overlijdens\nEbola: 200 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "25000\n1.2\n500\n60\n"
+          stdout: "Spaanse griep: 300 verwachte overlijdens\nEbola: 300 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "100\n5\n20\n30\n"
+          stdout: "Spaanse griep: 5 verwachte overlijdens\nEbola: 6 verwachte overlijdens\nGrootste dodentol: Ebola.\n"
+    -
+      testcases:
+        - stdin: "8000\n3.1\n1000\n18\n"
+          stdout: "Spaanse griep: 248 verwachte overlijdens\nEbola: 180 verwachte overlijdens\nGrootste dodentol: Spaanse griep.\n"
+    -
+      testcases:
+        - stdin: "1200\n12.5\n600\n25\n"
+          stdout: "Spaanse griep: 150 verwachte overlijdens\nEbola: 150 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "300000\n0.8\n8000\n20\n"
+          stdout: "Spaanse griep: 2400 verwachte overlijdens\nEbola: 1600 verwachte overlijdens\nGrootste dodentol: Spaanse griep.\n"
+    -
+      testcases:
+        - stdin: "40\n50\n100\n20\n"
+          stdout: "Spaanse griep: 20 verwachte overlijdens\nEbola: 20 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "999\n9.9\n10\n90\n"
+          stdout: "Spaanse griep: 98 verwachte overlijdens\nEbola: 9 verwachte overlijdens\nGrootste dodentol: Spaanse griep.\n"
+    -
+      testcases:
+        - stdin: "1500\n4\n200\n30\n"
+          stdout: "Spaanse griep: 60 verwachte overlijdens\nEbola: 60 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "700\n14\n140\n70\n"
+          stdout: "Spaanse griep: 98 verwachte overlijdens\nEbola: 98 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "10000\n2\n2000\n9\n"
+          stdout: "Spaanse griep: 200 verwachte overlijdens\nEbola: 180 verwachte overlijdens\nGrootste dodentol: Spaanse griep.\n"
+    -
+      testcases:
+        - stdin: "90\n33.3\n60\n50\n"
+          stdout: "Spaanse griep: 29 verwachte overlijdens\nEbola: 30 verwachte overlijdens\nGrootste dodentol: Ebola.\n"
+    -
+      testcases:
+        - stdin: "250\n20\n100\n50\n"
+          stdout: "Spaanse griep: 50 verwachte overlijdens\nEbola: 50 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "1000\n0.5\n10\n50\n"
+          stdout: "Spaanse griep: 5 verwachte overlijdens\nEbola: 5 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "400\n12\n1000\n4\n"
+          stdout: "Spaanse griep: 48 verwachte overlijdens\nEbola: 40 verwachte overlijdens\nGrootste dodentol: Spaanse griep.\n"
+    -
+      testcases:
+        - stdin: "1234\n6.7\n88\n93\n"
+          stdout: "Spaanse griep: 82 verwachte overlijdens\nEbola: 81 verwachte overlijdens\nGrootste dodentol: Spaanse griep.\n"
+    -
+      testcases:
+        - stdin: "600\n8\n96\n50\n"
+          stdout: "Spaanse griep: 48 verwachte overlijdens\nEbola: 48 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"
+    -
+      testcases:
+        - stdin: "20\n5\n2\n50\n"
+          stdout: "Spaanse griep: 1 verwachte overlijdens\nEbola: 1 verwachte overlijdens\nBeide ziektes hebben dezelfde verwachte dodentol.\n"

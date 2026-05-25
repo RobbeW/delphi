@@ -1,0 +1,26 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Ziekenhuiscapaciteit",
+      "en": "Hospital capacity"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Herhaling",
+    "Pandemie",
+    "For-lus",
+    "If",
+    "Zorgcapaciteit"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+}

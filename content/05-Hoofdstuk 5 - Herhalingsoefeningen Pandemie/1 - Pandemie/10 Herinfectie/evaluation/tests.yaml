@@ -1,0 +1,142 @@
+- tab: Feedback
+  contexts:
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "12\n4\n25\n"
+          stdout: "Ronde 1: 2 herinfecties, 10 resistent\nRonde 2: 3 herinfecties, 7 resistent\nRonde 3: 2 herinfecties, 5 resistent\nRonde 4: 2 herinfecties, 3 resistent\nTotaal herinfecties: 9\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "8\n6\n50\n"
+          stdout: "Ronde 1: 3 herinfecties, 5 resistent\nRonde 2: 3 herinfecties, 2 resistent\nRonde 3: 0 herinfecties, 2 resistent\nRonde 4: 2 herinfecties, 0 resistent\nTotaal herinfecties: 8\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "20\n3\n10\n"
+          stdout: "Ronde 1: 4 herinfecties, 16 resistent\nRonde 2: 0 herinfecties, 16 resistent\nRonde 3: 1 herinfecties, 15 resistent\nTotaal herinfecties: 5\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "5\n8\n100\n"
+          stdout: "Ronde 1: 5 herinfecties, 0 resistent\nTotaal herinfecties: 5\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "15\n5\n33\n"
+          stdout: "Ronde 1: 4 herinfecties, 11 resistent\nRonde 2: 3 herinfecties, 8 resistent\nRonde 3: 4 herinfecties, 4 resistent\nRonde 4: 0 herinfecties, 4 resistent\nRonde 5: 2 herinfecties, 2 resistent\nTotaal herinfecties: 13\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "9\n4\n0\n"
+          stdout: "Ronde 1: 0 herinfecties, 9 resistent\nRonde 2: 0 herinfecties, 9 resistent\nRonde 3: 0 herinfecties, 9 resistent\nRonde 4: 0 herinfecties, 9 resistent\nTotaal herinfecties: 0\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "25\n2\n75\n"
+          stdout: "Ronde 1: 21 herinfecties, 4 resistent\nRonde 2: 2 herinfecties, 2 resistent\nTotaal herinfecties: 23\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "6\n6\n20\n"
+          stdout: "Ronde 1: 1 herinfecties, 5 resistent\nRonde 2: 1 herinfecties, 4 resistent\nRonde 3: 1 herinfecties, 3 resistent\nRonde 4: 0 herinfecties, 3 resistent\nRonde 5: 1 herinfecties, 2 resistent\nRonde 6: 0 herinfecties, 2 resistent\nTotaal herinfecties: 4\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "30\n3\n40\n"
+          stdout: "Ronde 1: 11 herinfecties, 19 resistent\nRonde 2: 10 herinfecties, 9 resistent\nRonde 3: 2 herinfecties, 7 resistent\nTotaal herinfecties: 23\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "11\n7\n15\n"
+          stdout: "Ronde 1: 2 herinfecties, 9 resistent\nRonde 2: 0 herinfecties, 9 resistent\nRonde 3: 2 herinfecties, 7 resistent\nRonde 4: 1 herinfecties, 6 resistent\nRonde 5: 1 herinfecties, 5 resistent\nRonde 6: 1 herinfecties, 4 resistent\nRonde 7: 0 herinfecties, 4 resistent\nTotaal herinfecties: 7\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "18\n5\n60\n"
+          stdout: "Ronde 1: 11 herinfecties, 7 resistent\nRonde 2: 4 herinfecties, 3 resistent\nRonde 3: 3 herinfecties, 0 resistent\nTotaal herinfecties: 18\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "7\n10\n30\n"
+          stdout: "Ronde 1: 3 herinfecties, 4 resistent\nRonde 2: 0 herinfecties, 4 resistent\nRonde 3: 2 herinfecties, 2 resistent\nRonde 4: 0 herinfecties, 2 resistent\nRonde 5: 2 herinfecties, 0 resistent\nTotaal herinfecties: 7\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [56, 73, 90, 7, 24, 41, 58, 75, 92, 9]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "10\n1\n50\n"
+          stdout: "Ronde 1: 4 herinfecties, 6 resistent\nTotaal herinfecties: 4\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "40\n2\n25\n"
+          stdout: "Ronde 1: 10 herinfecties, 30 resistent\nRonde 2: 6 herinfecties, 24 resistent\nTotaal herinfecties: 16\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "13\n6\n45\n"
+          stdout: "Ronde 1: 5 herinfecties, 8 resistent\nRonde 2: 3 herinfecties, 5 resistent\nRonde 3: 3 herinfecties, 2 resistent\nRonde 4: 0 herinfecties, 2 resistent\nRonde 5: 2 herinfecties, 0 resistent\nTotaal herinfecties: 13\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "16\n4\n55\n"
+          stdout: "Ronde 1: 10 herinfecties, 6 resistent\nRonde 2: 3 herinfecties, 3 resistent\nRonde 3: 1 herinfecties, 2 resistent\nRonde 4: 1 herinfecties, 1 resistent\nTotaal herinfecties: 15\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "22\n3\n35\n"
+          stdout: "Ronde 1: 8 herinfecties, 14 resistent\nRonde 2: 4 herinfecties, 10 resistent\nRonde 3: 5 herinfecties, 5 resistent\nTotaal herinfecties: 17\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "3\n5\n80\n"
+          stdout: "Ronde 1: 3 herinfecties, 0 resistent\nTotaal herinfecties: 3\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "14\n8\n12\n"
+          stdout: "Ronde 1: 1 herinfecties, 13 resistent\nRonde 2: 2 herinfecties, 11 resistent\nRonde 3: 2 herinfecties, 9 resistent\nRonde 4: 1 herinfecties, 8 resistent\nRonde 5: 1 herinfecties, 7 resistent\nRonde 6: 0 herinfecties, 7 resistent\nRonde 7: 0 herinfecties, 7 resistent\nRonde 8: 1 herinfecties, 6 resistent\nTotaal herinfecties: 8\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "19\n4\n90\n"
+          stdout: "Ronde 1: 18 herinfecties, 1 resistent\nRonde 2: 1 herinfecties, 0 resistent\nTotaal herinfecties: 19\n"

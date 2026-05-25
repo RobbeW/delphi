@@ -1,0 +1,28 @@
+{
+  "type": "exercise",
+  "programming_language": "python",
+  "access": "public",
+  "description": {
+    "names": {
+      "nl": "Bereken effectieve R",
+      "en": "Calculate effective R"
+    }
+  },
+  "evaluation": {
+    "handler": "tested",
+    "test_suite": "tests.yaml"
+  },
+  "labels": [
+    "Robbe Wulgaert",
+    "Python",
+    "Python in de Klas",
+    "Herhaling",
+    "Pandemie",
+    "R0",
+    "Simulatie",
+    "While-lus",
+    "Procenten",
+    "Effectieve R"
+  ],
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+}

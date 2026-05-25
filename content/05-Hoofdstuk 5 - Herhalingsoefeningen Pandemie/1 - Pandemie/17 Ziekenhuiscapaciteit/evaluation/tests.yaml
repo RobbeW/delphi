@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "60\n50\n2\n20\n5\n10\n8\n"
+          stdout: "Dag 1: 65 bedden bezet\nDag 2: 67 bedden bezet\nCode rood op dag 1.\n"
+    -
+      testcases:
+        - stdin: "100\n80\n3\n5\n10\n4\n6\n3\n7\n"
+          stdout: "Dag 1: 75 bedden bezet\nDag 2: 73 bedden bezet\nDag 3: 69 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "30\n0\n2\n10\n0\n25\n1\n"
+          stdout: "Dag 1: 10 bedden bezet\nDag 2: 34 bedden bezet\nCode rood op dag 2.\n"
+    -
+      testcases:
+        - stdin: "50\n60\n1\n0\n0\n"
+          stdout: "Dag 1: 60 bedden bezet\nCode rood op dag 1.\n"
+    -
+      testcases:
+        - stdin: "20\n10\n4\n5\n0\n5\n0\n5\n0\n5\n0\n"
+          stdout: "Dag 1: 15 bedden bezet\nDag 2: 20 bedden bezet\nDag 3: 25 bedden bezet\nDag 4: 30 bedden bezet\nCode rood op dag 3.\n"
+    -
+      testcases:
+        - stdin: "75\n70\n2\n10\n10\n10\n0\n"
+          stdout: "Dag 1: 70 bedden bezet\nDag 2: 80 bedden bezet\nCode rood op dag 2.\n"
+    -
+      testcases:
+        - stdin: "10\n5\n3\n0\n7\n2\n0\n1\n0\n"
+          stdout: "Dag 1: 0 bedden bezet\nDag 2: 2 bedden bezet\nDag 3: 3 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "200\n150\n4\n30\n20\n40\n10\n10\n5\n5\n5\n"
+          stdout: "Dag 1: 160 bedden bezet\nDag 2: 190 bedden bezet\nDag 3: 195 bedden bezet\nDag 4: 195 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "40\n39\n1\n1\n0\n"
+          stdout: "Dag 1: 40 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "40\n39\n1\n0\n0\n"
+          stdout: "Dag 1: 39 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "90\n20\n5\n20\n0\n20\n0\n20\n0\n20\n0\n20\n0\n"
+          stdout: "Dag 1: 40 bedden bezet\nDag 2: 60 bedden bezet\nDag 3: 80 bedden bezet\nDag 4: 100 bedden bezet\nDag 5: 120 bedden bezet\nCode rood op dag 4.\n"
+    -
+      testcases:
+        - stdin: "100\n0\n3\n50\n0\n50\n0\n1\n0\n"
+          stdout: "Dag 1: 50 bedden bezet\nDag 2: 100 bedden bezet\nDag 3: 101 bedden bezet\nCode rood op dag 3.\n"
+    -
+      testcases:
+        - stdin: "12\n12\n2\n0\n1\n0\n1\n"
+          stdout: "Dag 1: 11 bedden bezet\nDag 2: 10 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "12\n12\n2\n1\n0\n0\n0\n"
+          stdout: "Dag 1: 13 bedden bezet\nDag 2: 13 bedden bezet\nCode rood op dag 1.\n"
+    -
+      testcases:
+        - stdin: "300\n250\n3\n30\n20\n40\n20\n60\n10\n"
+          stdout: "Dag 1: 260 bedden bezet\nDag 2: 280 bedden bezet\nDag 3: 330 bedden bezet\nCode rood op dag 3.\n"
+    -
+      testcases:
+        - stdin: "5\n0\n1\n0\n0\n"
+          stdout: "Dag 1: 0 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "5\n0\n1\n6\n0\n"
+          stdout: "Dag 1: 6 bedden bezet\nCode rood op dag 1.\n"
+    -
+      testcases:
+        - stdin: "80\n79\n2\n0\n0\n2\n0\n"
+          stdout: "Dag 1: 79 bedden bezet\nDag 2: 81 bedden bezet\nCode rood op dag 2.\n"
+    -
+      testcases:
+        - stdin: "100\n110\n2\n0\n20\n0\n20\n"
+          stdout: "Dag 1: 90 bedden bezet\nDag 2: 70 bedden bezet\nGeen overbelasting.\n"
+    -
+      testcases:
+        - stdin: "70\n10\n6\n10\n0\n10\n0\n10\n0\n10\n0\n10\n0\n10\n0\n"
+          stdout: "Dag 1: 20 bedden bezet\nDag 2: 30 bedden bezet\nDag 3: 40 bedden bezet\nDag 4: 50 bedden bezet\nDag 5: 60 bedden bezet\nDag 6: 70 bedden bezet\nGeen overbelasting.\n"

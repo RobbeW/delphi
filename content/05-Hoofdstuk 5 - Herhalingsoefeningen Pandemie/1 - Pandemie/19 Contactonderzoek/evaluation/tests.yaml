@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "Ali\n20\nBo\n5\nstop\n"
+          stdout: "Er zijn 2 contacten genoteerd.\nRisicocontacten: 1\nLangste contact: Ali (20 minuten)\n"
+    -
+      testcases:
+        - stdin: "stop\n"
+          stdout: "Er zijn 0 contacten genoteerd.\nRisicocontacten: 0\nGeen risicocontact gevonden.\n"
+    -
+      testcases:
+        - stdin: "Mila\n15\nNoor\n15\nstop\n"
+          stdout: "Er zijn 2 contacten genoteerd.\nRisicocontacten: 2\nLangste contact: Mila (15 minuten)\n"
+    -
+      testcases:
+        - stdin: "A\n1\nB\n2\nC\n3\nstop\n"
+          stdout: "Er zijn 3 contacten genoteerd.\nRisicocontacten: 0\nLangste contact: C (3 minuten)\n"
+    -
+      testcases:
+        - stdin: "Lina\n60\nstop\n"
+          stdout: "Er zijn 1 contacten genoteerd.\nRisicocontacten: 1\nLangste contact: Lina (60 minuten)\n"
+    -
+      testcases:
+        - stdin: "Jan\n14\nPiet\n16\nSara\n30\nstop\n"
+          stdout: "Er zijn 3 contacten genoteerd.\nRisicocontacten: 2\nLangste contact: Sara (30 minuten)\n"
+    -
+      testcases:
+        - stdin: "X\n0\nY\n0\nstop\n"
+          stdout: "Er zijn 2 contacten genoteerd.\nRisicocontacten: 0\nLangste contact: X (0 minuten)\n"
+    -
+      testcases:
+        - stdin: "Ada\n100\nBob\n99\nstop\n"
+          stdout: "Er zijn 2 contacten genoteerd.\nRisicocontacten: 2\nLangste contact: Ada (100 minuten)\n"
+    -
+      testcases:
+        - stdin: "K1\n15\nK2\n14\nK3\n13\nstop\n"
+          stdout: "Er zijn 3 contacten genoteerd.\nRisicocontacten: 1\nLangste contact: K1 (15 minuten)\n"
+    -
+      testcases:
+        - stdin: "Raf\n5\nSam\n25\nTom\n10\nUma\n40\nstop\n"
+          stdout: "Er zijn 4 contacten genoteerd.\nRisicocontacten: 2\nLangste contact: Uma (40 minuten)\n"
+    -
+      testcases:
+        - stdin: "Evi\n17\nstop\n"
+          stdout: "Er zijn 1 contacten genoteerd.\nRisicocontacten: 1\nLangste contact: Evi (17 minuten)\n"
+    -
+      testcases:
+        - stdin: "A\n12\nB\n18\nC\n24\nD\n6\nstop\n"
+          stdout: "Er zijn 4 contacten genoteerd.\nRisicocontacten: 2\nLangste contact: C (24 minuten)\n"
+    -
+      testcases:
+        - stdin: "Noa\n1\nstop\n"
+          stdout: "Er zijn 1 contacten genoteerd.\nRisicocontacten: 0\nLangste contact: Noa (1 minuten)\n"
+    -
+      testcases:
+        - stdin: "Lou\n45\nMax\n45\nstop\n"
+          stdout: "Er zijn 2 contacten genoteerd.\nRisicocontacten: 2\nLangste contact: Lou (45 minuten)\n"
+    -
+      testcases:
+        - stdin: "Iris\n22\nJade\n8\nKobe\n9\nstop\n"
+          stdout: "Er zijn 3 contacten genoteerd.\nRisicocontacten: 1\nLangste contact: Iris (22 minuten)\n"
+    -
+      testcases:
+        - stdin: "Wout\n30\nstop\n"
+          stdout: "Er zijn 1 contacten genoteerd.\nRisicocontacten: 1\nLangste contact: Wout (30 minuten)\n"
+    -
+      testcases:
+        - stdin: "A\n15\nB\n15\nC\n15\nD\n15\nstop\n"
+          stdout: "Er zijn 4 contacten genoteerd.\nRisicocontacten: 4\nLangste contact: A (15 minuten)\n"
+    -
+      testcases:
+        - stdin: "P\n3\nQ\n33\nstop\n"
+          stdout: "Er zijn 2 contacten genoteerd.\nRisicocontacten: 1\nLangste contact: Q (33 minuten)\n"
+    -
+      testcases:
+        - stdin: "N1\n10\nN2\n20\nN3\n30\nN4\n40\nN5\n50\nstop\n"
+          stdout: "Er zijn 5 contacten genoteerd.\nRisicocontacten: 4\nLangste contact: N5 (50 minuten)\n"
+    -
+      testcases:
+        - stdin: "Solo\n14\nstop\n"
+          stdout: "Er zijn 1 contacten genoteerd.\nRisicocontacten: 0\nLangste contact: Solo (14 minuten)\n"

@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "20\n2\n0\n2\n50\n3\n"
+          stdout: "Ronde 1: vatbaar=16, besmet=5, resistent=1\nRonde 2: vatbaar=6, besmet=13, resistent=3\nRonde 3: vatbaar=0, besmet=13, resistent=9\n"
+    -
+      testcases:
+        - stdin: "100\n5\n0\n1\n20\n5\n"
+          stdout: "Ronde 1: vatbaar=95, besmet=9, resistent=1\nRonde 2: vatbaar=86, besmet=17, resistent=2\nRonde 3: vatbaar=69, besmet=31, resistent=5\nRonde 4: vatbaar=38, besmet=56, resistent=11\nRonde 5: vatbaar=0, besmet=83, resistent=22\n"
+    -
+      testcases:
+        - stdin: "0\n10\n0\n3\n30\n4\n"
+          stdout: "Ronde 1: vatbaar=0, besmet=7, resistent=3\nRonde 2: vatbaar=0, besmet=5, resistent=5\nRonde 3: vatbaar=0, besmet=4, resistent=6\nRonde 4: vatbaar=0, besmet=3, resistent=7\n"
+    -
+      testcases:
+        - stdin: "50\n1\n10\n4\n0\n3\n"
+          stdout: "Ronde 1: vatbaar=46, besmet=5, resistent=10\nRonde 2: vatbaar=26, besmet=25, resistent=10\nRonde 3: vatbaar=0, besmet=51, resistent=10\n"
+    -
+      testcases:
+        - stdin: "200\n12\n5\n2\n25\n6\n"
+          stdout: "Ronde 1: vatbaar=176, besmet=33, resistent=8\nRonde 2: vatbaar=110, besmet=91, resistent=16\nRonde 3: vatbaar=0, besmet=179, resistent=38\nRonde 4: vatbaar=0, besmet=135, resistent=82\nRonde 5: vatbaar=0, besmet=102, resistent=115\nRonde 6: vatbaar=0, besmet=77, resistent=140\n"
+    -
+      testcases:
+        - stdin: "30\n4\n1\n1\n100\n5\n"
+          stdout: "Ronde 1: vatbaar=26, besmet=4, resistent=5\nRonde 2: vatbaar=22, besmet=4, resistent=9\nRonde 3: vatbaar=18, besmet=4, resistent=13\nRonde 4: vatbaar=14, besmet=4, resistent=17\nRonde 5: vatbaar=10, besmet=4, resistent=21\n"
+    -
+      testcases:
+        - stdin: "75\n3\n2\n5\n10\n4\n"
+          stdout: "Ronde 1: vatbaar=60, besmet=18, resistent=2\nRonde 2: vatbaar=0, besmet=77, resistent=3\nRonde 3: vatbaar=0, besmet=70, resistent=10\nRonde 4: vatbaar=0, besmet=63, resistent=17\n"
+    -
+      testcases:
+        - stdin: "10\n0\n0\n2\n50\n5\n"
+          stdout: ""
+    -
+      testcases:
+        - stdin: "500\n20\n0\n3\n40\n5\n"
+          stdout: "Ronde 1: vatbaar=440, besmet=72, resistent=8\nRonde 2: vatbaar=224, besmet=260, resistent=36\nRonde 3: vatbaar=0, besmet=380, resistent=140\nRonde 4: vatbaar=0, besmet=228, resistent=292\nRonde 5: vatbaar=0, besmet=137, resistent=383\n"
+    -
+      testcases:
+        - stdin: "8\n2\n0\n2\n25\n6\n"
+          stdout: "Ronde 1: vatbaar=4, besmet=6, resistent=0\nRonde 2: vatbaar=0, besmet=9, resistent=1\nRonde 3: vatbaar=0, besmet=7, resistent=3\nRonde 4: vatbaar=0, besmet=6, resistent=4\nRonde 5: vatbaar=0, besmet=5, resistent=5\nRonde 6: vatbaar=0, besmet=4, resistent=6\n"
+    -
+      testcases:
+        - stdin: "60\n6\n6\n2\n33\n4\n"
+          stdout: "Ronde 1: vatbaar=48, besmet=17, resistent=7\nRonde 2: vatbaar=14, besmet=46, resistent=12\nRonde 3: vatbaar=0, besmet=45, resistent=27\nRonde 4: vatbaar=0, besmet=31, resistent=41\n"
+    -
+      testcases:
+        - stdin: "120\n8\n0\n1\n12\n7\n"
+          stdout: "Ronde 1: vatbaar=112, besmet=16, resistent=0\nRonde 2: vatbaar=96, besmet=31, resistent=1\nRonde 3: vatbaar=65, besmet=59, resistent=4\nRonde 4: vatbaar=6, besmet=111, resistent=11\nRonde 5: vatbaar=0, besmet=104, resistent=24\nRonde 6: vatbaar=0, besmet=92, resistent=36\nRonde 7: vatbaar=0, besmet=81, resistent=47\n"
+    -
+      testcases:
+        - stdin: "25\n5\n5\n0\n50\n3\n"
+          stdout: "Ronde 1: vatbaar=25, besmet=3, resistent=7\nRonde 2: vatbaar=25, besmet=2, resistent=8\nRonde 3: vatbaar=25, besmet=1, resistent=9\n"
+    -
+      testcases:
+        - stdin: "90\n9\n9\n2\n66\n4\n"
+          stdout: "Ronde 1: vatbaar=72, besmet=22, resistent=14\nRonde 2: vatbaar=28, besmet=52, resistent=28\nRonde 3: vatbaar=0, besmet=46, resistent=62\nRonde 4: vatbaar=0, besmet=16, resistent=92\n"
+    -
+      testcases:
+        - stdin: "15\n1\n0\n10\n10\n2\n"
+          stdout: "Ronde 1: vatbaar=5, besmet=11, resistent=0\nRonde 2: vatbaar=0, besmet=15, resistent=1\n"
+    -
+      testcases:
+        - stdin: "300\n1\n0\n1\n0\n10\n"
+          stdout: "Ronde 1: vatbaar=299, besmet=2, resistent=0\nRonde 2: vatbaar=297, besmet=4, resistent=0\nRonde 3: vatbaar=293, besmet=8, resistent=0\nRonde 4: vatbaar=285, besmet=16, resistent=0\nRonde 5: vatbaar=269, besmet=32, resistent=0\nRonde 6: vatbaar=237, besmet=64, resistent=0\nRonde 7: vatbaar=173, besmet=128, resistent=0\nRonde 8: vatbaar=45, besmet=256, resistent=0\nRonde 9: vatbaar=0, besmet=301, resistent=0\nRonde 10: vatbaar=0, besmet=301, resistent=0\n"
+    -
+      testcases:
+        - stdin: "40\n10\n20\n3\n50\n3\n"
+          stdout: "Ronde 1: vatbaar=10, besmet=35, resistent=25\nRonde 2: vatbaar=0, besmet=28, resistent=42\nRonde 3: vatbaar=0, besmet=14, resistent=56\n"
+    -
+      testcases:
+        - stdin: "1000\n30\n0\n2\n20\n4\n"
+          stdout: "Ronde 1: vatbaar=940, besmet=84, resistent=6\nRonde 2: vatbaar=772, besmet=236, resistent=22\nRonde 3: vatbaar=300, besmet=661, resistent=69\nRonde 4: vatbaar=0, besmet=829, resistent=201\n"
+    -
+      testcases:
+        - stdin: "5\n5\n0\n1\n20\n5\n"
+          stdout: "Ronde 1: vatbaar=0, besmet=9, resistent=1\nRonde 2: vatbaar=0, besmet=8, resistent=2\nRonde 3: vatbaar=0, besmet=7, resistent=3\nRonde 4: vatbaar=0, besmet=6, resistent=4\nRonde 5: vatbaar=0, besmet=5, resistent=5\n"
+    -
+      testcases:
+        - stdin: "72\n4\n8\n2\n75\n6\n"
+          stdout: "Ronde 1: vatbaar=64, besmet=9, resistent=11\nRonde 2: vatbaar=46, besmet=21, resistent=17\nRonde 3: vatbaar=4, besmet=48, resistent=32\nRonde 4: vatbaar=0, besmet=16, resistent=68\nRonde 5: vatbaar=0, besmet=4, resistent=80\nRonde 6: vatbaar=0, besmet=1, resistent=83\n"

@@ -1,0 +1,142 @@
+- tab: Feedback
+  contexts:
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "10\n30\n5\n"
+          stdout: "Dag 1: 3 genezen, 7 ziek\nDag 2: 1 genezen, 6 ziek\nDag 3: 2 genezen, 4 ziek\nDag 4: 2 genezen, 2 ziek\nDag 5: 0 genezen, 2 ziek\nTotaal genezen: 8\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "15\n50\n3\n"
+          stdout: "Dag 1: 6 genezen, 9 ziek\nDag 2: 6 genezen, 3 ziek\nDag 3: 0 genezen, 3 ziek\nTotaal genezen: 12\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "8\n10\n7\n"
+          stdout: "Dag 1: 2 genezen, 6 ziek\nDag 2: 1 genezen, 5 ziek\nDag 3: 0 genezen, 5 ziek\nDag 4: 1 genezen, 4 ziek\nDag 5: 0 genezen, 4 ziek\nDag 6: 0 genezen, 4 ziek\nDag 7: 0 genezen, 4 ziek\nTotaal genezen: 4\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "20\n80\n4\n"
+          stdout: "Dag 1: 17 genezen, 3 ziek\nDag 2: 2 genezen, 1 ziek\nDag 3: 1 genezen, 0 ziek\nTotaal genezen: 20\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "6\n0\n5\n"
+          stdout: "Dag 1: 0 genezen, 6 ziek\nDag 2: 0 genezen, 6 ziek\nDag 3: 0 genezen, 6 ziek\nDag 4: 0 genezen, 6 ziek\nDag 5: 0 genezen, 6 ziek\nTotaal genezen: 0\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "30\n25\n6\n"
+          stdout: "Dag 1: 8 genezen, 22 ziek\nDag 2: 5 genezen, 17 ziek\nDag 3: 4 genezen, 13 ziek\nDag 4: 4 genezen, 9 ziek\nDag 5: 3 genezen, 6 ziek\nDag 6: 1 genezen, 5 ziek\nTotaal genezen: 25\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "12\n60\n4\n"
+          stdout: "Dag 1: 8 genezen, 4 ziek\nDag 2: 2 genezen, 2 ziek\nDag 3: 2 genezen, 0 ziek\nTotaal genezen: 12\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "5\n100\n10\n"
+          stdout: "Dag 1: 5 genezen, 0 ziek\nTotaal genezen: 5\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "18\n40\n5\n"
+          stdout: "Dag 1: 6 genezen, 12 ziek\nDag 2: 5 genezen, 7 ziek\nDag 3: 4 genezen, 3 ziek\nDag 4: 1 genezen, 2 ziek\nDag 5: 1 genezen, 1 ziek\nTotaal genezen: 17\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "25\n35\n4\n"
+          stdout: "Dag 1: 8 genezen, 17 ziek\nDag 2: 6 genezen, 11 ziek\nDag 3: 4 genezen, 7 ziek\nDag 4: 2 genezen, 5 ziek\nTotaal genezen: 20\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "9\n15\n8\n"
+          stdout: "Dag 1: 1 genezen, 8 ziek\nDag 2: 1 genezen, 7 ziek\nDag 3: 1 genezen, 6 ziek\nDag 4: 1 genezen, 5 ziek\nDag 5: 1 genezen, 4 ziek\nDag 6: 1 genezen, 3 ziek\nDag 7: 0 genezen, 3 ziek\nDag 8: 1 genezen, 2 ziek\nTotaal genezen: 7\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "14\n55\n6\n"
+          stdout: "Dag 1: 10 genezen, 4 ziek\nDag 2: 1 genezen, 3 ziek\nDag 3: 2 genezen, 1 ziek\nDag 4: 0 genezen, 1 ziek\nDag 5: 0 genezen, 1 ziek\nDag 6: 1 genezen, 0 ziek\nTotaal genezen: 14\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "22\n20\n3\n"
+          stdout: "Dag 1: 4 genezen, 18 ziek\nDag 2: 4 genezen, 14 ziek\nDag 3: 2 genezen, 12 ziek\nTotaal genezen: 10\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "7\n70\n5\n"
+          stdout: "Dag 1: 4 genezen, 3 ziek\nDag 2: 3 genezen, 0 ziek\nTotaal genezen: 7\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "11\n45\n4\n"
+          stdout: "Dag 1: 3 genezen, 8 ziek\nDag 2: 5 genezen, 3 ziek\nDag 3: 0 genezen, 3 ziek\nDag 4: 3 genezen, 0 ziek\nTotaal genezen: 11\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "16\n65\n5\n"
+          stdout: "Dag 1: 10 genezen, 6 ziek\nDag 2: 4 genezen, 2 ziek\nDag 3: 2 genezen, 0 ziek\nTotaal genezen: 16\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [4, 21, 38, 55, 72, 89, 6, 23]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "4\n50\n2\n"
+          stdout: "Dag 1: 3 genezen, 1 ziek\nDag 2: 0 genezen, 1 ziek\nTotaal genezen: 3\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "28\n33\n6\n"
+          stdout: "Dag 1: 8 genezen, 20 ziek\nDag 2: 7 genezen, 13 ziek\nDag 3: 4 genezen, 9 ziek\nDag 4: 3 genezen, 6 ziek\nDag 5: 2 genezen, 4 ziek\nDag 6: 1 genezen, 3 ziek\nTotaal genezen: 25\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "13\n90\n3\n"
+          stdout: "Dag 1: 11 genezen, 2 ziek\nDag 2: 1 genezen, 1 ziek\nDag 3: 1 genezen, 0 ziek\nTotaal genezen: 13\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71, 88, 5, 22, 39, 56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47, 64, 81, 98, 15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48, 65, 82]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "19\n5\n8\n"
+          stdout: "Dag 1: 2 genezen, 17 ziek\nDag 2: 0 genezen, 17 ziek\nDag 3: 0 genezen, 17 ziek\nDag 4: 2 genezen, 15 ziek\nDag 5: 1 genezen, 14 ziek\nDag 6: 0 genezen, 14 ziek\nDag 7: 1 genezen, 13 ziek\nDag 8: 1 genezen, 12 ziek\nTotaal genezen: 7\n"

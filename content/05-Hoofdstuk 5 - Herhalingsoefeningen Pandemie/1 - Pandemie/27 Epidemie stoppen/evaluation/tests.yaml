@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "2.5\n1200\n100\n"
+          stdout: "Start: 0 gevaccineerd, R = 2.5\nRonde 1: 100 gevaccineerd, R = 2.29\nRonde 2: 200 gevaccineerd, R = 2.08\nRonde 3: 300 gevaccineerd, R = 1.88\nRonde 4: 400 gevaccineerd, R = 1.67\nRonde 5: 500 gevaccineerd, R = 1.46\nRonde 6: 600 gevaccineerd, R = 1.25\nRonde 7: 700 gevaccineerd, R = 1.04\nRonde 8: 800 gevaccineerd, R = 0.83\nDe epidemie stopt na 8 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.6\n1000\n125\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.6\nRonde 1: 125 gevaccineerd, R = 1.4\nRonde 2: 250 gevaccineerd, R = 1.2\nRonde 3: 375 gevaccineerd, R = 1.0\nRonde 4: 500 gevaccineerd, R = 0.8\nDe epidemie stopt na 4 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "0.8\n900\n100\n"
+          stdout: "Start: 0 gevaccineerd, R = 0.8\nDe epidemie stopt na 0 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "3.2\n800\n80\n"
+          stdout: "Start: 0 gevaccineerd, R = 3.2\nRonde 1: 80 gevaccineerd, R = 2.88\nRonde 2: 160 gevaccineerd, R = 2.56\nRonde 3: 240 gevaccineerd, R = 2.24\nRonde 4: 320 gevaccineerd, R = 1.92\nRonde 5: 400 gevaccineerd, R = 1.6\nRonde 6: 480 gevaccineerd, R = 1.28\nRonde 7: 560 gevaccineerd, R = 0.96\nDe epidemie stopt na 7 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.1\n500\n20\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.1\nRonde 1: 20 gevaccineerd, R = 1.06\nRonde 2: 40 gevaccineerd, R = 1.01\nRonde 3: 60 gevaccineerd, R = 0.97\nDe epidemie stopt na 3 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "4\n2000\n250\n"
+          stdout: "Start: 0 gevaccineerd, R = 4.0\nRonde 1: 250 gevaccineerd, R = 3.5\nRonde 2: 500 gevaccineerd, R = 3.0\nRonde 3: 750 gevaccineerd, R = 2.5\nRonde 4: 1000 gevaccineerd, R = 2.0\nRonde 5: 1250 gevaccineerd, R = 1.5\nRonde 6: 1500 gevaccineerd, R = 1.0\nRonde 7: 1750 gevaccineerd, R = 0.5\nDe epidemie stopt na 7 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "2\n100\n10\n"
+          stdout: "Start: 0 gevaccineerd, R = 2.0\nRonde 1: 10 gevaccineerd, R = 1.8\nRonde 2: 20 gevaccineerd, R = 1.6\nRonde 3: 30 gevaccineerd, R = 1.4\nRonde 4: 40 gevaccineerd, R = 1.2\nRonde 5: 50 gevaccineerd, R = 1.0\nRonde 6: 60 gevaccineerd, R = 0.8\nDe epidemie stopt na 6 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.25\n240\n30\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.25\nRonde 1: 30 gevaccineerd, R = 1.09\nRonde 2: 60 gevaccineerd, R = 0.94\nDe epidemie stopt na 2 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "5\n1000\n100\n"
+          stdout: "Start: 0 gevaccineerd, R = 5.0\nRonde 1: 100 gevaccineerd, R = 4.5\nRonde 2: 200 gevaccineerd, R = 4.0\nRonde 3: 300 gevaccineerd, R = 3.5\nRonde 4: 400 gevaccineerd, R = 3.0\nRonde 5: 500 gevaccineerd, R = 2.5\nRonde 6: 600 gevaccineerd, R = 2.0\nRonde 7: 700 gevaccineerd, R = 1.5\nRonde 8: 800 gevaccineerd, R = 1.0\nRonde 9: 900 gevaccineerd, R = 0.5\nDe epidemie stopt na 9 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.01\n1000\n5\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.01\nRonde 1: 5 gevaccineerd, R = 1.0\nRonde 2: 10 gevaccineerd, R = 1.0\nRonde 3: 15 gevaccineerd, R = 0.99\nDe epidemie stopt na 3 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "2.75\n600\n75\n"
+          stdout: "Start: 0 gevaccineerd, R = 2.75\nRonde 1: 75 gevaccineerd, R = 2.41\nRonde 2: 150 gevaccineerd, R = 2.06\nRonde 3: 225 gevaccineerd, R = 1.72\nRonde 4: 300 gevaccineerd, R = 1.38\nRonde 5: 375 gevaccineerd, R = 1.03\nRonde 6: 450 gevaccineerd, R = 0.69\nDe epidemie stopt na 6 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.5\n750\n50\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.5\nRonde 1: 50 gevaccineerd, R = 1.4\nRonde 2: 100 gevaccineerd, R = 1.3\nRonde 3: 150 gevaccineerd, R = 1.2\nRonde 4: 200 gevaccineerd, R = 1.1\nRonde 5: 250 gevaccineerd, R = 1.0\nRonde 6: 300 gevaccineerd, R = 0.9\nDe epidemie stopt na 6 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "3.5\n1400\n200\n"
+          stdout: "Start: 0 gevaccineerd, R = 3.5\nRonde 1: 200 gevaccineerd, R = 3.0\nRonde 2: 400 gevaccineerd, R = 2.5\nRonde 3: 600 gevaccineerd, R = 2.0\nRonde 4: 800 gevaccineerd, R = 1.5\nRonde 5: 1000 gevaccineerd, R = 1.0\nRonde 6: 1200 gevaccineerd, R = 0.5\nDe epidemie stopt na 6 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "2.2\n1000\n90\n"
+          stdout: "Start: 0 gevaccineerd, R = 2.2\nRonde 1: 90 gevaccineerd, R = 2.0\nRonde 2: 180 gevaccineerd, R = 1.8\nRonde 3: 270 gevaccineerd, R = 1.61\nRonde 4: 360 gevaccineerd, R = 1.41\nRonde 5: 450 gevaccineerd, R = 1.21\nRonde 6: 540 gevaccineerd, R = 1.01\nRonde 7: 630 gevaccineerd, R = 0.81\nDe epidemie stopt na 7 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "0.95\n1200\n100\n"
+          stdout: "Start: 0 gevaccineerd, R = 0.95\nDe epidemie stopt na 0 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.8\n360\n40\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.8\nRonde 1: 40 gevaccineerd, R = 1.6\nRonde 2: 80 gevaccineerd, R = 1.4\nRonde 3: 120 gevaccineerd, R = 1.2\nRonde 4: 160 gevaccineerd, R = 1.0\nRonde 5: 200 gevaccineerd, R = 0.8\nDe epidemie stopt na 5 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "2.6\n975\n125\n"
+          stdout: "Start: 0 gevaccineerd, R = 2.6\nRonde 1: 125 gevaccineerd, R = 2.27\nRonde 2: 250 gevaccineerd, R = 1.93\nRonde 3: 375 gevaccineerd, R = 1.6\nRonde 4: 500 gevaccineerd, R = 1.27\nRonde 5: 625 gevaccineerd, R = 0.93\nDe epidemie stopt na 5 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.33\n100\n7\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.33\nRonde 1: 7 gevaccineerd, R = 1.24\nRonde 2: 14 gevaccineerd, R = 1.14\nRonde 3: 21 gevaccineerd, R = 1.05\nRonde 4: 28 gevaccineerd, R = 0.96\nDe epidemie stopt na 4 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "6\n3000\n500\n"
+          stdout: "Start: 0 gevaccineerd, R = 6.0\nRonde 1: 500 gevaccineerd, R = 5.0\nRonde 2: 1000 gevaccineerd, R = 4.0\nRonde 3: 1500 gevaccineerd, R = 3.0\nRonde 4: 2000 gevaccineerd, R = 2.0\nRonde 5: 2500 gevaccineerd, R = 1.0\nRonde 6: 3000 gevaccineerd, R = 0.0\nDe epidemie stopt na 6 vaccinatierondes.\n"
+    -
+      testcases:
+        - stdin: "1.2\n50\n1\n"
+          stdout: "Start: 0 gevaccineerd, R = 1.2\nRonde 1: 1 gevaccineerd, R = 1.18\nRonde 2: 2 gevaccineerd, R = 1.15\nRonde 3: 3 gevaccineerd, R = 1.13\nRonde 4: 4 gevaccineerd, R = 1.1\nRonde 5: 5 gevaccineerd, R = 1.08\nRonde 6: 6 gevaccineerd, R = 1.06\nRonde 7: 7 gevaccineerd, R = 1.03\nRonde 8: 8 gevaccineerd, R = 1.01\nRonde 9: 9 gevaccineerd, R = 0.98\nDe epidemie stopt na 9 vaccinatierondes.\n"

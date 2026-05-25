@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "4\n3\n0\n5\n100\n"
+          stdout: "Ronde 1: 12 mensen geloven het gerucht.\nRonde 2: 36 mensen geloven het gerucht.\nRonde 3: 108 mensen geloven het gerucht.\nHet gerucht gaat viraal na 3 rondes.\n"
+    -
+      testcases:
+        - stdin: "10\n2\n25\n6\n80\n"
+          stdout: "Ronde 1: 15 mensen geloven het gerucht.\nRonde 2: 23 mensen geloven het gerucht.\nRonde 3: 35 mensen geloven het gerucht.\nRonde 4: 53 mensen geloven het gerucht.\nRonde 5: 80 mensen geloven het gerucht.\nHet gerucht gaat viraal na 5 rondes.\n"
+    -
+      testcases:
+        - stdin: "8\n1.5\n50\n6\n30\n"
+          stdout: "Ronde 1: 6 mensen geloven het gerucht.\nRonde 2: 5 mensen geloven het gerucht.\nRonde 3: 4 mensen geloven het gerucht.\nRonde 4: 3 mensen geloven het gerucht.\nRonde 5: 2 mensen geloven het gerucht.\nRonde 6: 2 mensen geloven het gerucht.\nNa 6 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "5\n1\n0\n4\n100\n"
+          stdout: "Ronde 1: 5 mensen geloven het gerucht.\nRonde 2: 5 mensen geloven het gerucht.\nRonde 3: 5 mensen geloven het gerucht.\nRonde 4: 5 mensen geloven het gerucht.\nNa 4 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "20\n2.2\n40\n5\n70\n"
+          stdout: "Ronde 1: 27 mensen geloven het gerucht.\nRonde 2: 36 mensen geloven het gerucht.\nRonde 3: 48 mensen geloven het gerucht.\nRonde 4: 63 mensen geloven het gerucht.\nRonde 5: 83 mensen geloven het gerucht.\nHet gerucht gaat viraal na 5 rondes.\n"
+    -
+      testcases:
+        - stdin: "3\n4\n10\n4\n200\n"
+          stdout: "Ronde 1: 11 mensen geloven het gerucht.\nRonde 2: 40 mensen geloven het gerucht.\nRonde 3: 144 mensen geloven het gerucht.\nRonde 4: 519 mensen geloven het gerucht.\nHet gerucht gaat viraal na 4 rondes.\n"
+    -
+      testcases:
+        - stdin: "1\n10\n90\n5\n50\n"
+          stdout: "Ronde 1: 1 mensen geloven het gerucht.\nRonde 2: 1 mensen geloven het gerucht.\nRonde 3: 1 mensen geloven het gerucht.\nRonde 4: 1 mensen geloven het gerucht.\nRonde 5: 1 mensen geloven het gerucht.\nNa 5 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "15\n1.8\n20\n6\n100\n"
+          stdout: "Ronde 1: 22 mensen geloven het gerucht.\nRonde 2: 32 mensen geloven het gerucht.\nRonde 3: 46 mensen geloven het gerucht.\nRonde 4: 66 mensen geloven het gerucht.\nRonde 5: 95 mensen geloven het gerucht.\nRonde 6: 137 mensen geloven het gerucht.\nHet gerucht gaat viraal na 6 rondes.\n"
+    -
+      testcases:
+        - stdin: "30\n1.1\n0\n3\n60\n"
+          stdout: "Ronde 1: 33 mensen geloven het gerucht.\nRonde 2: 36 mensen geloven het gerucht.\nRonde 3: 39 mensen geloven het gerucht.\nNa 3 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "7\n2.5\n30\n6\n90\n"
+          stdout: "Ronde 1: 12 mensen geloven het gerucht.\nRonde 2: 21 mensen geloven het gerucht.\nRonde 3: 37 mensen geloven het gerucht.\nRonde 4: 65 mensen geloven het gerucht.\nRonde 5: 114 mensen geloven het gerucht.\nHet gerucht gaat viraal na 5 rondes.\n"
+    -
+      testcases:
+        - stdin: "2\n3\n80\n6\n10\n"
+          stdout: "Ronde 1: 2 mensen geloven het gerucht.\nRonde 2: 2 mensen geloven het gerucht.\nRonde 3: 2 mensen geloven het gerucht.\nRonde 4: 2 mensen geloven het gerucht.\nRonde 5: 2 mensen geloven het gerucht.\nRonde 6: 2 mensen geloven het gerucht.\nNa 6 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "50\n1.5\n60\n5\n100\n"
+          stdout: "Ronde 1: 30 mensen geloven het gerucht.\nRonde 2: 18 mensen geloven het gerucht.\nRonde 3: 11 mensen geloven het gerucht.\nRonde 4: 7 mensen geloven het gerucht.\nRonde 5: 4 mensen geloven het gerucht.\nNa 5 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "6\n5\n50\n3\n40\n"
+          stdout: "Ronde 1: 15 mensen geloven het gerucht.\nRonde 2: 38 mensen geloven het gerucht.\nRonde 3: 95 mensen geloven het gerucht.\nHet gerucht gaat viraal na 3 rondes.\n"
+    -
+      testcases:
+        - stdin: "100\n2\n0\n5\n100\n"
+          stdout: "Het gerucht gaat viraal na 0 rondes.\n"
+    -
+      testcases:
+        - stdin: "9\n1.2\n20\n8\n20\n"
+          stdout: "Ronde 1: 8 mensen geloven het gerucht.\nRonde 2: 8 mensen geloven het gerucht.\nRonde 3: 8 mensen geloven het gerucht.\nRonde 4: 8 mensen geloven het gerucht.\nRonde 5: 8 mensen geloven het gerucht.\nRonde 6: 8 mensen geloven het gerucht.\nRonde 7: 8 mensen geloven het gerucht.\nRonde 8: 8 mensen geloven het gerucht.\nNa 8 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "12\n2\n75\n5\n30\n"
+          stdout: "Ronde 1: 6 mensen geloven het gerucht.\nRonde 2: 3 mensen geloven het gerucht.\nRonde 3: 2 mensen geloven het gerucht.\nRonde 4: 1 mensen geloven het gerucht.\nRonde 5: 1 mensen geloven het gerucht.\nNa 5 rondes is het gerucht nog niet viraal.\n"
+    -
+      testcases:
+        - stdin: "4\n2\n100\n5\n10\n"
+          stdout: "Ronde 1: 0 mensen geloven het gerucht.\nHet gerucht dooft uit na 1 rondes.\n"
+    -
+      testcases:
+        - stdin: "25\n3\n33\n4\n150\n"
+          stdout: "Ronde 1: 51 mensen geloven het gerucht.\nRonde 2: 103 mensen geloven het gerucht.\nRonde 3: 208 mensen geloven het gerucht.\nHet gerucht gaat viraal na 3 rondes.\n"
+    -
+      testcases:
+        - stdin: "11\n1.9\n10\n5\n120\n"
+          stdout: "Ronde 1: 18 mensen geloven het gerucht.\nRonde 2: 31 mensen geloven het gerucht.\nRonde 3: 53 mensen geloven het gerucht.\nRonde 4: 90 mensen geloven het gerucht.\nRonde 5: 154 mensen geloven het gerucht.\nHet gerucht gaat viraal na 5 rondes.\n"
+    -
+      testcases:
+        - stdin: "5\n2.4\n15\n7\n200\n"
+          stdout: "Ronde 1: 11 mensen geloven het gerucht.\nRonde 2: 23 mensen geloven het gerucht.\nRonde 3: 47 mensen geloven het gerucht.\nRonde 4: 96 mensen geloven het gerucht.\nRonde 5: 196 mensen geloven het gerucht.\nRonde 6: 400 mensen geloven het gerucht.\nHet gerucht gaat viraal na 6 rondes.\n"

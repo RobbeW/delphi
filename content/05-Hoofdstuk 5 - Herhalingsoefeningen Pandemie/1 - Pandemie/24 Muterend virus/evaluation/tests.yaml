@@ -1,0 +1,142 @@
+- tab: Feedback
+  contexts:
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [1, 2, 5, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.5\n10\n4\n"
+          stdout: "Cyclus 1: variant zwakker, R0 = 1.25, nieuwe besmettingen = 12, totaal = 22\nCyclus 2: variant stabiel, R0 = 1.25, nieuwe besmettingen = 15, totaal = 37\nCyclus 3: variant besmettelijker, R0 = 1.65, nieuwe besmettingen = 24, totaal = 61\nCyclus 4: variant stabiel, R0 = 1.65, nieuwe besmettingen = 39, totaal = 100\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [5, 5, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "0.9\n20\n3\n"
+          stdout: "Cyclus 1: variant besmettelijker, R0 = 1.3, nieuwe besmettingen = 26, totaal = 46\nCyclus 2: variant besmettelijker, R0 = 1.7, nieuwe besmettingen = 44, totaal = 90\nCyclus 3: variant besmettelijker, R0 = 2.1, nieuwe besmettingen = 92, totaal = 182\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [1, 1, 1, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "0.8\n12\n4\n"
+          stdout: "Cyclus 1: variant zwakker, R0 = 0.55, nieuwe besmettingen = 6, totaal = 18\nCyclus 2: variant zwakker, R0 = 0.3, nieuwe besmettingen = 1, totaal = 19\nCyclus 3: variant zwakker, R0 = 0.05, nieuwe besmettingen = 0, totaal = 19\nCyclus 4: variant zwakker, R0 = 0.0, nieuwe besmettingen = 0, totaal = 19\nDe uitbraak dooft uit.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [2, 3, 4, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.2\n15\n4\n"
+          stdout: "Cyclus 1: variant stabiel, R0 = 1.2, nieuwe besmettingen = 18, totaal = 33\nCyclus 2: variant stabiel, R0 = 1.2, nieuwe besmettingen = 21, totaal = 54\nCyclus 3: variant stabiel, R0 = 1.2, nieuwe besmettingen = 25, totaal = 79\nCyclus 4: variant stabiel, R0 = 1.2, nieuwe besmettingen = 30, totaal = 109\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [5, 1, 5, 1, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.1\n8\n5\n"
+          stdout: "Cyclus 1: variant besmettelijker, R0 = 1.5, nieuwe besmettingen = 12, totaal = 20\nCyclus 2: variant zwakker, R0 = 1.25, nieuwe besmettingen = 15, totaal = 35\nCyclus 3: variant besmettelijker, R0 = 1.65, nieuwe besmettingen = 24, totaal = 59\nCyclus 4: variant zwakker, R0 = 1.4, nieuwe besmettingen = 33, totaal = 92\nCyclus 5: variant stabiel, R0 = 1.4, nieuwe besmettingen = 46, totaal = 138\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [1, 5, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "2\n5\n3\n"
+          stdout: "Cyclus 1: variant zwakker, R0 = 1.75, nieuwe besmettingen = 8, totaal = 13\nCyclus 2: variant besmettelijker, R0 = 2.15, nieuwe besmettingen = 17, totaal = 30\nCyclus 3: variant besmettelijker, R0 = 2.55, nieuwe besmettingen = 43, totaal = 73\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [3, 3, 1, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1\n30\n4\n"
+          stdout: "Cyclus 1: variant stabiel, R0 = 1.0, nieuwe besmettingen = 30, totaal = 60\nCyclus 2: variant stabiel, R0 = 1.0, nieuwe besmettingen = 30, totaal = 90\nCyclus 3: variant zwakker, R0 = 0.75, nieuwe besmettingen = 22, totaal = 112\nCyclus 4: variant besmettelijker, R0 = 1.15, nieuwe besmettingen = 25, totaal = 137\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [5, 2, 1, 1, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.7\n6\n5\n"
+          stdout: "Cyclus 1: variant besmettelijker, R0 = 2.1, nieuwe besmettingen = 12, totaal = 18\nCyclus 2: variant stabiel, R0 = 2.1, nieuwe besmettingen = 25, totaal = 43\nCyclus 3: variant zwakker, R0 = 1.85, nieuwe besmettingen = 46, totaal = 89\nCyclus 4: variant zwakker, R0 = 1.6, nieuwe besmettingen = 73, totaal = 162\nCyclus 5: variant besmettelijker, R0 = 2.0, nieuwe besmettingen = 146, totaal = 308\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [1, 2, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "0.4\n40\n3\n"
+          stdout: "Cyclus 1: variant zwakker, R0 = 0.15, nieuwe besmettingen = 6, totaal = 46\nCyclus 2: variant stabiel, R0 = 0.15, nieuwe besmettingen = 0, totaal = 46\nCyclus 3: variant stabiel, R0 = 0.15, nieuwe besmettingen = 0, totaal = 46\nDe uitbraak dooft uit.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [5, 5, 1, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.25\n9\n4\n"
+          stdout: "Cyclus 1: variant besmettelijker, R0 = 1.65, nieuwe besmettingen = 14, totaal = 23\nCyclus 2: variant besmettelijker, R0 = 2.05, nieuwe besmettingen = 28, totaal = 51\nCyclus 3: variant zwakker, R0 = 1.8, nieuwe besmettingen = 50, totaal = 101\nCyclus 4: variant stabiel, R0 = 1.8, nieuwe besmettingen = 90, totaal = 191\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [2, 5, 2, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "0.95\n18\n4\n"
+          stdout: "Cyclus 1: variant stabiel, R0 = 0.95, nieuwe besmettingen = 17, totaal = 35\nCyclus 2: variant besmettelijker, R0 = 1.35, nieuwe besmettingen = 22, totaal = 57\nCyclus 3: variant stabiel, R0 = 1.35, nieuwe besmettingen = 29, totaal = 86\nCyclus 4: variant besmettelijker, R0 = 1.75, nieuwe besmettingen = 50, totaal = 136\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [1, 1, 5, 5, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.6\n7\n5\n"
+          stdout: "Cyclus 1: variant zwakker, R0 = 1.35, nieuwe besmettingen = 9, totaal = 16\nCyclus 2: variant zwakker, R0 = 1.1, nieuwe besmettingen = 9, totaal = 25\nCyclus 3: variant besmettelijker, R0 = 1.5, nieuwe besmettingen = 13, totaal = 38\nCyclus 4: variant besmettelijker, R0 = 1.9, nieuwe besmettingen = 24, totaal = 62\nCyclus 5: variant besmettelijker, R0 = 2.3, nieuwe besmettingen = 55, totaal = 117\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [3, 4, 2, 1, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.05\n25\n5\n"
+          stdout: "Cyclus 1: variant stabiel, R0 = 1.05, nieuwe besmettingen = 26, totaal = 51\nCyclus 2: variant stabiel, R0 = 1.05, nieuwe besmettingen = 27, totaal = 78\nCyclus 3: variant stabiel, R0 = 1.05, nieuwe besmettingen = 28, totaal = 106\nCyclus 4: variant zwakker, R0 = 0.8, nieuwe besmettingen = 22, totaal = 128\nCyclus 5: variant zwakker, R0 = 0.55, nieuwe besmettingen = 12, totaal = 140\nDe variant verzwakt.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [5, 1, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "2.4\n3\n3\n"
+          stdout: "Cyclus 1: variant besmettelijker, R0 = 2.8, nieuwe besmettingen = 8, totaal = 11\nCyclus 2: variant zwakker, R0 = 2.55, nieuwe besmettingen = 20, totaal = 31\nCyclus 3: variant stabiel, R0 = 2.55, nieuwe besmettingen = 51, totaal = 82\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [1, 5, 1, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "0.75\n50\n4\n"
+          stdout: "Cyclus 1: variant zwakker, R0 = 0.5, nieuwe besmettingen = 25, totaal = 75\nCyclus 2: variant besmettelijker, R0 = 0.9, nieuwe besmettingen = 22, totaal = 97\nCyclus 3: variant zwakker, R0 = 0.65, nieuwe besmettingen = 14, totaal = 111\nCyclus 4: variant besmettelijker, R0 = 1.05, nieuwe besmettingen = 14, totaal = 125\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [2, 2, 2, 2, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.3\n11\n5\n"
+          stdout: "Cyclus 1: variant stabiel, R0 = 1.3, nieuwe besmettingen = 14, totaal = 25\nCyclus 2: variant stabiel, R0 = 1.3, nieuwe besmettingen = 18, totaal = 43\nCyclus 3: variant stabiel, R0 = 1.3, nieuwe besmettingen = 23, totaal = 66\nCyclus 4: variant stabiel, R0 = 1.3, nieuwe besmettingen = 29, totaal = 95\nCyclus 5: variant stabiel, R0 = 1.3, nieuwe besmettingen = 37, totaal = 132\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [5, 5, 5, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1\n4\n4\n"
+          stdout: "Cyclus 1: variant besmettelijker, R0 = 1.4, nieuwe besmettingen = 5, totaal = 9\nCyclus 2: variant besmettelijker, R0 = 1.8, nieuwe besmettingen = 9, totaal = 18\nCyclus 3: variant besmettelijker, R0 = 2.2, nieuwe besmettingen = 19, totaal = 37\nCyclus 4: variant besmettelijker, R0 = 2.6, nieuwe besmettingen = 49, totaal = 86\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [1, 3, 5, 2, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.8\n10\n5\n"
+          stdout: "Cyclus 1: variant zwakker, R0 = 1.55, nieuwe besmettingen = 15, totaal = 25\nCyclus 2: variant stabiel, R0 = 1.55, nieuwe besmettingen = 23, totaal = 48\nCyclus 3: variant besmettelijker, R0 = 1.95, nieuwe besmettingen = 44, totaal = 92\nCyclus 4: variant stabiel, R0 = 1.95, nieuwe besmettingen = 85, totaal = 177\nCyclus 5: variant zwakker, R0 = 1.7, nieuwe besmettingen = 144, totaal = 321\nDe variant blijft groeien.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [4, 4, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "0.6\n16\n3\n"
+          stdout: "Cyclus 1: variant stabiel, R0 = 0.6, nieuwe besmettingen = 9, totaal = 25\nCyclus 2: variant stabiel, R0 = 0.6, nieuwe besmettingen = 5, totaal = 30\nCyclus 3: variant zwakker, R0 = 0.35, nieuwe besmettingen = 1, totaal = 31\nDe variant verzwakt.\n"
+    -
+      before:
+        python:
+          data: "import random\nwaarden = [5, 1, 5, 1, 5, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
+      testcases:
+        - stdin: "1.4\n5\n6\n"
+          stdout: "Cyclus 1: variant besmettelijker, R0 = 1.8, nieuwe besmettingen = 9, totaal = 14\nCyclus 2: variant zwakker, R0 = 1.55, nieuwe besmettingen = 13, totaal = 27\nCyclus 3: variant besmettelijker, R0 = 1.95, nieuwe besmettingen = 25, totaal = 52\nCyclus 4: variant zwakker, R0 = 1.7, nieuwe besmettingen = 42, totaal = 94\nCyclus 5: variant besmettelijker, R0 = 2.1, nieuwe besmettingen = 88, totaal = 182\nCyclus 6: variant zwakker, R0 = 1.85, nieuwe besmettingen = 162, totaal = 344\nDe variant blijft groeien.\n"

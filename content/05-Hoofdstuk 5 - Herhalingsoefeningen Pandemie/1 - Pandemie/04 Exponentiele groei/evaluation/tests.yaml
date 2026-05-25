@@ -1,0 +1,82 @@
+- tab: Feedback
+  contexts:
+    -
+      testcases:
+        - stdin: "2\n2\n5\n1000\n"
+          stdout: "Week 1: 4 besmettingen\nWeek 2: 8 besmettingen\nWeek 3: 16 besmettingen\nWeek 4: 32 besmettingen\nWeek 5: 64 besmettingen\n"
+    -
+      testcases:
+        - stdin: "20\n1.5\n6\n200\n"
+          stdout: "Week 1: 30 besmettingen\nWeek 2: 45 besmettingen\nWeek 3: 67 besmettingen\nWeek 4: 100 besmettingen\nWeek 5: 150 besmettingen\nWeek 6: 200 besmettingen\nDe grens wordt bereikt na week 6.\n"
+    -
+      testcases:
+        - stdin: "5\n3\n4\n300\n"
+          stdout: "Week 1: 15 besmettingen\nWeek 2: 45 besmettingen\nWeek 3: 135 besmettingen\nWeek 4: 300 besmettingen\nDe grens wordt bereikt na week 4.\n"
+    -
+      testcases:
+        - stdin: "100\n2\n2\n150\n"
+          stdout: "Week 1: 150 besmettingen\nDe grens wordt bereikt na week 1.\n"
+    -
+      testcases:
+        - stdin: "1000\n2\n4\n1000\n"
+          stdout: "De grens is al bereikt.\n"
+    -
+      testcases:
+        - stdin: "7\n1.1\n5\n100\n"
+          stdout: "Week 1: 7 besmettingen\nWeek 2: 7 besmettingen\nWeek 3: 7 besmettingen\nWeek 4: 7 besmettingen\nWeek 5: 7 besmettingen\n"
+    -
+      testcases:
+        - stdin: "12\n2.4\n6\n500\n"
+          stdout: "Week 1: 28 besmettingen\nWeek 2: 67 besmettingen\nWeek 3: 160 besmettingen\nWeek 4: 384 besmettingen\nWeek 5: 500 besmettingen\nDe grens wordt bereikt na week 5.\n"
+    -
+      testcases:
+        - stdin: "1\n10\n3\n1000\n"
+          stdout: "Week 1: 10 besmettingen\nWeek 2: 100 besmettingen\nWeek 3: 1000 besmettingen\nDe grens wordt bereikt na week 3.\n"
+    -
+      testcases:
+        - stdin: "30\n0.9\n4\n100\n"
+          stdout: "Week 1: 27 besmettingen\nWeek 2: 24 besmettingen\nWeek 3: 21 besmettingen\nWeek 4: 18 besmettingen\n"
+    -
+      testcases:
+        - stdin: "4\n2.5\n8\n80\n"
+          stdout: "Week 1: 10 besmettingen\nWeek 2: 25 besmettingen\nWeek 3: 62 besmettingen\nWeek 4: 80 besmettingen\nDe grens wordt bereikt na week 4.\n"
+    -
+      testcases:
+        - stdin: "50\n1.2\n10\n120\n"
+          stdout: "Week 1: 60 besmettingen\nWeek 2: 72 besmettingen\nWeek 3: 86 besmettingen\nWeek 4: 103 besmettingen\nWeek 5: 120 besmettingen\nDe grens wordt bereikt na week 5.\n"
+    -
+      testcases:
+        - stdin: "3\n4\n5\n100\n"
+          stdout: "Week 1: 12 besmettingen\nWeek 2: 48 besmettingen\nWeek 3: 100 besmettingen\nDe grens wordt bereikt na week 3.\n"
+    -
+      testcases:
+        - stdin: "8\n1\n3\n20\n"
+          stdout: "Week 1: 8 besmettingen\nWeek 2: 8 besmettingen\nWeek 3: 8 besmettingen\n"
+    -
+      testcases:
+        - stdin: "9\n3.3\n2\n200\n"
+          stdout: "Week 1: 29 besmettingen\nWeek 2: 95 besmettingen\n"
+    -
+      testcases:
+        - stdin: "10\n2\n0\n100\n"
+          stdout: ""
+    -
+      testcases:
+        - stdin: "11\n2\n4\n90\n"
+          stdout: "Week 1: 22 besmettingen\nWeek 2: 44 besmettingen\nWeek 3: 88 besmettingen\nWeek 4: 90 besmettingen\nDe grens wordt bereikt na week 4.\n"
+    -
+      testcases:
+        - stdin: "15\n1.8\n7\n300\n"
+          stdout: "Week 1: 27 besmettingen\nWeek 2: 48 besmettingen\nWeek 3: 86 besmettingen\nWeek 4: 154 besmettingen\nWeek 5: 277 besmettingen\nWeek 6: 300 besmettingen\nDe grens wordt bereikt na week 6.\n"
+    -
+      testcases:
+        - stdin: "6\n5\n4\n600\n"
+          stdout: "Week 1: 30 besmettingen\nWeek 2: 150 besmettingen\nWeek 3: 600 besmettingen\nDe grens wordt bereikt na week 3.\n"
+    -
+      testcases:
+        - stdin: "70\n1.3\n4\n200\n"
+          stdout: "Week 1: 91 besmettingen\nWeek 2: 118 besmettingen\nWeek 3: 153 besmettingen\nWeek 4: 198 besmettingen\n"
+    -
+      testcases:
+        - stdin: "5\n2\n10\n512\n"
+          stdout: "Week 1: 10 besmettingen\nWeek 2: 20 besmettingen\nWeek 3: 40 besmettingen\nWeek 4: 80 besmettingen\nWeek 5: 160 besmettingen\nWeek 6: 320 besmettingen\nWeek 7: 512 besmettingen\nDe grens wordt bereikt na week 7.\n"
