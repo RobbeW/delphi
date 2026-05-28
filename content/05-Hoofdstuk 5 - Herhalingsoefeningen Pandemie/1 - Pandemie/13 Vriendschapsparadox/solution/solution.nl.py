@@ -1,11 +1,11 @@
-aantal_personen = int(input())
+aantal_personen = int(input("Aantal personen? "))
 vriendenlijst = []
 totaal = 0
 maximum = -1
 populairste = 0
 
 for persoon in range(1, aantal_personen + 1):
-    vrienden = int(input())
+    vrienden = int(input("Aantal vrienden? "))
     vriendenlijst.append(vrienden)
     totaal += vrienden
     if vrienden > maximum:

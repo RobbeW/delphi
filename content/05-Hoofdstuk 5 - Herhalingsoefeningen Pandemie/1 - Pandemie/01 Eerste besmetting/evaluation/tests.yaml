@@ -26,16 +26,16 @@
           stdout: "Totaal besmet: 210\nZwaarst getroffen wijk: 6 met 60 besmettingen.\nStatus: opvolgen.\n"
     -
       testcases:
-        - stdin: "1\n0\n"
-          stdout: "Totaal besmet: 0\nZwaarst getroffen wijk: 1 met 0 besmettingen.\nStatus: rustig.\n"
+        - stdin: "1\n1\n"
+          stdout: "Totaal besmet: 1\nZwaarst getroffen wijk: 1 met 1 besmettingen.\nStatus: rustig.\n"
     -
       testcases:
         - stdin: "4\n25\n25\n24\n25\n"
           stdout: "Totaal besmet: 99\nZwaarst getroffen wijk: 1 met 25 besmettingen.\nStatus: opvolgen.\n"
     -
       testcases:
-        - stdin: "3\n49\n0\n0\n"
-          stdout: "Totaal besmet: 49\nZwaarst getroffen wijk: 1 met 49 besmettingen.\nStatus: opvolgen.\n"
+        - stdin: "3\n49\n1\n1\n"
+          stdout: "Totaal besmet: 51\nZwaarst getroffen wijk: 1 met 49 besmettingen.\nStatus: opvolgen.\n"
     -
       testcases:
         - stdin: "2\n99\n1\n"
@@ -46,8 +46,8 @@
           stdout: "Totaal besmet: 72\nZwaarst getroffen wijk: 2 met 18 besmettingen.\nStatus: opvolgen.\n"
     -
       testcases:
-        - stdin: "3\n100\n0\n0\n"
-          stdout: "Totaal besmet: 100\nZwaarst getroffen wijk: 1 met 100 besmettingen.\nStatus: opvolgen.\n"
+        - stdin: "3\n100\n1\n1\n"
+          stdout: "Totaal besmet: 102\nZwaarst getroffen wijk: 1 met 100 besmettingen.\nStatus: opvolgen.\n"
     -
       testcases:
         - stdin: "4\n8\n9\n10\n11\n"
@@ -66,8 +66,8 @@
           stdout: "Totaal besmet: 99\nZwaarst getroffen wijk: 1 met 20 besmettingen.\nStatus: opvolgen.\n"
     -
       testcases:
-        - stdin: "4\n0\n0\n0\n0\n"
-          stdout: "Totaal besmet: 0\nZwaarst getroffen wijk: 1 met 0 besmettingen.\nStatus: rustig.\n"
+        - stdin: "4\n1\n1\n1\n1\n"
+          stdout: "Totaal besmet: 4\nZwaarst getroffen wijk: 1 met 1 besmettingen.\nStatus: rustig.\n"
     -
       testcases:
         - stdin: "2\n48\n49\n"

@@ -1,9 +1,9 @@
 import math
 
-spaanse_besmettingen = int(input())
-spaanse_sterfte = float(input())
-ebola_besmettingen = int(input())
-ebola_sterfte = float(input())
+spaanse_besmettingen = int(input("Besmettingen Spaanse griep? "))
+spaanse_sterfte = float(input("Sterftepercentage Spaanse griep? "))
+ebola_besmettingen = int(input("Besmettingen ebola? "))
+ebola_sterfte = float(input("Sterftepercentage ebola? "))
 
 spaanse_doden = math.floor(spaanse_besmettingen * spaanse_sterfte / 100)
 ebola_doden = math.floor(ebola_besmettingen * ebola_sterfte / 100)

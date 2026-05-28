@@ -11,6 +11,7 @@ Deze oefening is bedoeld om een `while`-lus te gebruiken: je weet vooraf niet ho
 * Zolang het aantal besmettingen kleiner is dan de grens, vermenigvuldig je met de factor.
 * Tel bij elke herhaling een week op.
 * Print hoeveel weken nodig zijn en hoeveel besmettingen er dan zijn.
+* Als het startaantal al minstens gelijk is aan de grens, zijn er 0 weken nodig.
 
 #### Rekenregel
 

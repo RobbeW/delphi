@@ -11,10 +11,12 @@ In deze oefening groeit het aantal besmettingen per cyclus. Je stopt zodra de si
 * Gebruik variabelen zoals `besmet`, `cyclus` en `nieuwe_besmettingen` om de groei bij te houden.
 * Print na elke cyclus het totaal aantal besmettingen.
 * Stop wanneer het totaal minstens gelijk is aan het maximum.
+* Als het startaantal al minstens gelijk is aan het maximum, print je dat de volledige populatie al besmet is.
+* Als er in een cyclus geen nieuwe besmettingen meer ontstaan, print je dat de epidemie uitdooft.
 
 #### Rekenregel
 
-Per cyclus bereken je eerst `nieuwe_besmettingen = math.floor(besmet * r0)`. Daarna tel je die nieuwe besmettingen bij het bestaande totaal. Als het totaal daardoor boven het maximum zou gaan, gebruik je alleen het aantal dat nog nodig is om precies aan het maximum te komen.
+Per cyclus bereken je eerst `nieuwe_besmettingen = math.floor(besmet * r0)`. Daarna tel je die nieuwe besmettingen bij het bestaande totaal. Als het totaal daardoor boven het maximum zou gaan, gebruik je alleen het aantal dat nog nodig is om precies aan het maximum te komen. Als `nieuwe_besmettingen` 0 is, kan de epidemie niet verder groeien.
 
 #### Voorbeeld
 

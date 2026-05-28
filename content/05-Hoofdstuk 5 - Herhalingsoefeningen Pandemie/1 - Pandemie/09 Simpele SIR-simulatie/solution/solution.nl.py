@@ -1,11 +1,11 @@
 import math
 
-vatbaar = int(input())
-besmet = int(input())
-resistent = int(input())
-besmettingskracht = int(input())
-herstelpercentage = float(input())
-max_rondes = int(input())
+vatbaar = int(input("Aantal vatbare personen? "))
+besmet = int(input("Aantal besmette personen? "))
+resistent = int(input("Aantal resistente personen? "))
+besmettingskracht = int(input("Besmettingskracht? "))
+herstelpercentage = float(input("Herstelpercentage? "))
+max_rondes = int(input("Aantal rondes? "))
 
 ronde = 0
 while ronde < max_rondes and besmet > 0:

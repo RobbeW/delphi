@@ -2,12 +2,14 @@
 
 Een nieuw virus duikt op in verschillende wijken. De eerste cijfers zijn nog klein, maar de onderzoekers willen meteen weten hoeveel besmettingen er in totaal zijn. Ook willen ze weten welke wijk de meeste besmettingen telt.
 
+In dit eerste rapport nemen de onderzoekers alleen wijken op waar minstens 1 besmetting gemeld is.
+
 Een uitbraak onder de 20 besmettingen noemen we voorlopig rustig. Vanaf 20 besmettingen moet de situatie opgevolgd worden.
 
 ## Gevraagd
 
 * Vraag eerst het aantal wijken en bewaar dit bijvoorbeeld in `aantal_wijken`.
-* Vraag daarna per wijk het aantal besmette personen.
+* Vraag daarna per wijk het aantal besmette personen. Elke ingevoerde wijk heeft minstens 1 besmetting.
 * Tel alle besmettingen op in `totaal`.
 * Onthoud welke wijk het zwaarst getroffen is met variabelen zoals `max_besmettingen` en `max_wijk`.
 * Print het totaal, de zwaarst getroffen wijk en de status.

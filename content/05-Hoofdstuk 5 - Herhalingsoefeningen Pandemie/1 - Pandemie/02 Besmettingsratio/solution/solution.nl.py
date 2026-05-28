@@ -1,8 +1,8 @@
 import math
 
-r0 = float(input())
-besmettingen = int(input())
-populatie = int(input())
+r0 = float(input("R0? "))
+besmettingen = int(input("Startaantal besmettingen? "))
+populatie = int(input("Maximum aantal besmettingen? "))
 
 cyclus = 0
 

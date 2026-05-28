@@ -12,6 +12,7 @@ Vaccinatie verlaagt het vatbare deel van de bevolking. Je zoekt hoeveel vaccinat
 * Vaccineer ronde per ronde bij zolang de effectieve `R` minstens 1 is.
 * Print na elke ronde het aantal gevaccineerden en de nieuwe `R`.
 * Print op het einde na hoeveel rondes de epidemie stopt.
+* Als `R` bij de start al kleiner is dan 1, stopt de epidemie na 0 vaccinatierondes.
 
 #### Rekenregel
 

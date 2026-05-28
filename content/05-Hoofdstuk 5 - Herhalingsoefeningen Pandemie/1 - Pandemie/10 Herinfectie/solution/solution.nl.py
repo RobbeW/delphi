@@ -1,8 +1,8 @@
 import random
 
-resistent = int(input())
-rondes = int(input())
-kans = int(input())
+resistent = int(input("Aantal resistente personen? "))
+rondes = int(input("Aantal rondes? "))
+kans = int(input("Kans op herinfectie? "))
 totaal = 0
 ronde = 0
 

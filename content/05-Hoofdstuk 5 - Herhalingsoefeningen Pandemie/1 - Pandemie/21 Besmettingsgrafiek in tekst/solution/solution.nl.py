@@ -1,9 +1,9 @@
 import math
 
-weken = int(input())
-besmettingen = int(input())
-factor = float(input())
-schaal = int(input())
+weken = int(input("Aantal weken? "))
+besmettingen = int(input("Startaantal besmettingen? "))
+factor = float(input("Groeifactor? "))
+schaal = int(input("Schaal per ster? "))
 
 for week in range(1, weken + 1):
     aantal_sterren = besmettingen // schaal

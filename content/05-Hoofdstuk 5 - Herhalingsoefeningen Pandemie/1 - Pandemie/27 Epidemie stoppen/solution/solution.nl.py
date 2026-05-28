@@ -1,6 +1,6 @@
-r0 = float(input())
-populatie = int(input())
-prikken_per_ronde = int(input())
+r0 = float(input("R0? "))
+populatie = int(input("Populatie? "))
+prikken_per_ronde = int(input("Vaccinaties per ronde? "))
 
 gevaccineerd = 0
 rondes = 0

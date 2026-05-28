@@ -1,8 +1,8 @@
 import math
 
-besmettingen = int(input())
-factor = float(input())
-grens = int(input())
+besmettingen = int(input("Startaantal besmettingen? "))
+factor = float(input("Groeifactor? "))
+grens = int(input("Grens? "))
 
 weken = 0
 

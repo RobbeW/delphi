@@ -11,6 +11,7 @@ Je simuleert een challenge die elke dag meer mensen bereikt, maar je stopt zodra
 * Bereken per dag hoeveel nieuwe deelnemers erbij komen.
 * Print per dag het aantal nieuwe deelnemers en het totaal.
 * Print op het einde of de challenge viraal ging of hoeveel mensen bereikt zijn.
+* Als het startaantal al minstens gelijk is aan de virale grens, gaat de challenge viraal na dag 0.
 
 #### Rekenregel
 

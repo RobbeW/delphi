@@ -1,7 +1,7 @@
 import random
 
-contacten = int(input())
-kans = int(input())
+contacten = int(input("Aantal contacten? "))
+kans = int(input("Besmettingskans? "))
 besmet = 0
 
 for contact in range(contacten):

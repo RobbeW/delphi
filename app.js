@@ -2111,22 +2111,43 @@ function askModal(message) {
   });
 }
 
+function extractPythonErrorSummary(rawMessage) {
+  const lines = String(rawMessage || "")
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  for (let index = lines.length - 1; index >= 0; index -= 1) {
+    if (/^[A-Za-z_][A-Za-z0-9_]*Error:/.test(lines[index])) {
+      return lines[index];
+    }
+  }
+
+  return "";
+}
+
+function withPythonErrorSummary(explanation, rawMessage) {
+  const summary = extractPythonErrorSummary(rawMessage);
+  return summary ? `${explanation}\nPython meldt: ${summary}` : explanation;
+}
+
 function translateRuntimeError(rawMessage) {
   const message = String(rawMessage || "Onbekende fout");
   if (message.includes("NameError")) {
-    return "NameError: je gebruikt een variabele die nog niet bestaat.";
+    return withPythonErrorSummary("NameError: je gebruikt een variabele die nog niet bestaat.", message);
   }
   if (message.includes("SyntaxError")) {
-    return "SyntaxError: controleer haakjes, dubbele punten en inspringing.";
+    return withPythonErrorSummary("SyntaxError: controleer haakjes, dubbele punten en inspringing.", message);
   }
   if (message.includes("IndentationError")) {
-    return "IndentationError: je inspringing klopt niet.";
+    return withPythonErrorSummary("IndentationError: je inspringing klopt niet.", message);
   }
   if (message.includes("TypeError")) {
-    return "TypeError: een datatype wordt verkeerd gebruikt in je code.";
+    return withPythonErrorSummary("TypeError: een datatype wordt verkeerd gebruikt in je code.", message);
   }
   if (message.includes("ModuleNotFoundError")) {
-    return "ModuleNotFoundError: deze module is niet beschikbaar in de browser-runtime.";
+    return withPythonErrorSummary("ModuleNotFoundError: deze module is niet beschikbaar in de browser-runtime.", message);
   }
   if (message.includes("python is not yet supported")) {
     return "Deze Papyros-build ondersteunt Python momenteel niet. Gebruik een build met Python-backend assets.";
@@ -2743,6 +2764,46 @@ function patchPapyrosBackends(BackendManager) {
   );
 }
 
+function normalizePapyrosContentType(contentType) {
+  if (typeof contentType === "string" && contentType.trim()) {
+    return contentType;
+  }
+  if (!contentType || typeof contentType !== "object") {
+    return "text/plain";
+  }
+
+  const candidates = [
+    contentType.contentType,
+    contentType.mimeType,
+    contentType.mediaType,
+    contentType.type,
+    contentType.value,
+  ];
+  const match = candidates.find((value) => typeof value === "string" && value.includes("/"));
+  return match || "text/plain";
+}
+
+function normalizePapyrosEventForPublish(event) {
+  if (!event || typeof event !== "object") {
+    return event;
+  }
+
+  const normalized = {
+    ...event,
+    contentType: normalizePapyrosContentType(event.contentType),
+  };
+
+  if (normalized.data && typeof normalized.data === "object") {
+    try {
+      normalized.data = JSON.stringify(normalized.data);
+    } catch {
+      normalized.data = String(normalized.data);
+    }
+  }
+
+  return normalized;
+}
+
 function patchRunnerLaunch(papyros, BackendManager, comlinkProxy) {
   const runner = papyros && papyros.runner;
   if (!runner || typeof runner !== "object") {
@@ -2769,7 +2830,9 @@ function patchRunnerLaunch(papyros, BackendManager, comlinkProxy) {
     this.backend = new Promise(async (resolve, reject) => {
       try {
         const workerProxy = backend.workerProxy;
-        await workerProxy.launch(comlinkProxy((event) => BackendManager.publish(event)));
+        await workerProxy.launch(comlinkProxy((event) =>
+          BackendManager.publish(normalizePapyrosEventForPublish(event))
+        ));
         if (typeof self.updateRunModes === "function") {
           self.updateRunModes();
         }
@@ -3017,7 +3080,7 @@ function renderOutputFromPapyros() {
     }
 
     const type = String(entry.type || entry.channel || "").toLowerCase();
-    const content = entry.content ?? entry.text ?? entry.message ?? entry.value;
+    const content = getPapyrosEntryPayload(entry);
 
     if (typeof content === "string" && (type.includes("image") || content.startsWith("data:image"))) {
       images.push(content);
@@ -3113,6 +3176,16 @@ function startLiveOutputRendering() {
   }, 120);
 }
 
+function getPapyrosEntryPayload(entry) {
+  if (typeof entry === "string") {
+    return entry;
+  }
+  if (!entry || typeof entry !== "object") {
+    return entry;
+  }
+  return entry.content ?? entry.text ?? entry.message ?? entry.value ?? entry.data;
+}
+
 function extractTextOutputFromEntries(entries) {
   const textParts = [];
 
@@ -3128,7 +3201,7 @@ function extractTextOutputFromEntries(entries) {
     }
 
     const type = String(entry.type || entry.channel || "").toLowerCase();
-    const content = entry.content ?? entry.text ?? entry.message ?? entry.value;
+    const content = getPapyrosEntryPayload(entry);
 
     if (typeof content === "string" && (type.includes("image") || content.startsWith("data:image"))) {
       return;
@@ -3145,6 +3218,76 @@ function extractTextOutputFromEntries(entries) {
   });
 
   return joinConsoleTextPartsForDisplay(textParts);
+}
+
+function isPapyrosErrorEntry(entry) {
+  if (!entry || typeof entry !== "object") {
+    return false;
+  }
+  const markers = [
+    entry.type,
+    entry.channel,
+    entry.stream,
+    entry.kind,
+    entry.name,
+    entry.level,
+  ].map((value) => String(value || "").toLowerCase());
+
+  return markers.some((value) =>
+    value === "error" ||
+    value === "stderr" ||
+    value.includes("error") ||
+    value.includes("stderr")
+  );
+}
+
+function looksLikePythonRuntimeError(text) {
+  const value = String(text || "");
+  if (value.includes("Traceback (most recent call last):")) {
+    return true;
+  }
+  return /\b(?:NameError|TypeError|ValueError|ZeroDivisionError|IndexError|KeyError|AttributeError|ImportError|ModuleNotFoundError|IndentationError|SyntaxError|EOFError):/.test(value);
+}
+
+function extractRuntimeErrorFromEntries(entries) {
+  const outputEntries = Array.isArray(entries) ? entries : [];
+
+  for (const entry of outputEntries) {
+    if (!isPapyrosErrorEntry(entry)) {
+      continue;
+    }
+    const payload = getPapyrosEntryPayload(entry);
+    if (payload !== undefined && payload !== null && String(payload).trim().length > 0) {
+      return formatPapyrosRuntimeErrorPayload(payload);
+    }
+    try {
+      return JSON.stringify(entry);
+    } catch {
+      return "Onbekende runtime-fout.";
+    }
+  }
+
+  const combinedText = extractTextOutputFromEntries(outputEntries);
+  return looksLikePythonRuntimeError(combinedText) ? combinedText : "";
+}
+
+function formatPapyrosRuntimeErrorPayload(payload) {
+  if (payload && typeof payload === "object") {
+    return payload.what || payload.traceback || payload.message || payload.name || JSON.stringify(payload);
+  }
+
+  const text = String(payload || "");
+  const trimmed = text.trim();
+  if (!trimmed.startsWith("{")) {
+    return text;
+  }
+
+  try {
+    const parsed = JSON.parse(trimmed);
+    return parsed.what || parsed.traceback || parsed.message || parsed.name || text;
+  } catch {
+    return text;
+  }
 }
 
 function normalizeOutputForComparison(text) {
@@ -3873,10 +4016,20 @@ async function runSingleEvaluationCase(code, stdin, setupCode = "") {
       throw new Error("Papyros runner.start() is niet beschikbaar.");
     }
 
-    await state.papyros.runner.start();
+    try {
+      await state.papyros.runner.start();
+    } catch (error) {
+      const runtimeError = extractRuntimeErrorFromEntries(getPapyrosOutputEntries());
+      throw new Error(runtimeError || formatErrorDetails(error) || String(error || "Onbekende runtime-fout"));
+    }
     await waitForOutputStability();
 
-    const actual = extractTextOutputFromEntries(getPapyrosOutputEntries());
+    const outputEntries = getPapyrosOutputEntries();
+    const runtimeError = extractRuntimeErrorFromEntries(outputEntries);
+    if (runtimeError) {
+      throw new Error(runtimeError);
+    }
+    const actual = extractTextOutputFromEntries(outputEntries);
     lastActual = actual;
     const normalizedActual = normalizeOutputForComparison(actual);
     if (normalizedActual.length > 0 || attempt === maxAttempts) {
@@ -4239,10 +4392,19 @@ async function runCode() {
     }
 
     startLiveOutputRendering();
-    await state.papyros.runner.start();
+    try {
+      await state.papyros.runner.start();
+    } catch (error) {
+      const runtimeError = extractRuntimeErrorFromEntries(getPapyrosOutputEntries());
+      throw new Error(runtimeError || formatErrorDetails(error) || String(error || "Onbekende runtime-fout"));
+    }
     stopLiveOutputRendering();
     await waitForOutputStability({ maxWaitMs: 900, stableWindowMs: 100 });
     renderOutputFromPapyros();
+    const liveRuntimeError = extractRuntimeErrorFromEntries(getPapyrosOutputEntries());
+    if (liveRuntimeError) {
+      throw new Error(liveRuntimeError);
+    }
 
     let toastMessage = "Code uitgevoerd.";
     let toastOk = true;

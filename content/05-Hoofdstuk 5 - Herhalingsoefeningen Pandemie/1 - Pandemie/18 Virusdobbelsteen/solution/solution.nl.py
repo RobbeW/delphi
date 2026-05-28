@@ -1,7 +1,7 @@
 import random
 
-grens = int(input())
-max_beurten = int(input())
+grens = int(input("Besmettingsgrens? "))
+max_beurten = int(input("Maximaal aantal beurten? "))
 totaal = 0
 beurt = 0
 

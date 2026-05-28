@@ -1,10 +1,10 @@
 import math
 
-gelovers = int(input())
-factor = float(input())
-factcheck = float(input())
-max_rondes = int(input())
-grens = int(input())
+gelovers = int(input("Startaantal gelovers? "))
+factor = float(input("Verspreidingsfactor? "))
+factcheck = float(input("Factcheckpercentage? "))
+max_rondes = int(input("Aantal rondes? "))
+grens = int(input("Virale grens? "))
 
 ronde = 0
 

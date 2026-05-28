@@ -1,0 +1,469 @@
+{
+  "tabs": [
+    {
+      "name": "Feedback",
+      "contexts": [
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "8\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 2\nNieuwe besmettingen: 62\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([2, 9, 6, 3, 10, 7, 4, 1]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "12\n1\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 3\nNieuwe besmettingen: 84\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "20\n3\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 4\nNieuwe besmettingen: 148\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "5\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 1\nNieuwe besmettingen: 33\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([3, 10, 7, 4, 1]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "16\n4\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 3\nNieuwe besmettingen: 127\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "10\n1\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 2\nNieuwe besmettingen: 58\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([7, 4, 1, 8, 5, 2, 9, 6, 3, 10]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "25\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 4\nNieuwe besmettingen: 142\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "7\n3\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 1\nNieuwe besmettingen: 43\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([1, 8, 5, 2, 9, 6, 3]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "30\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 6\nNieuwe besmettingen: 198\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "11\n4\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 2\nNieuwe besmettingen: 86\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "18\n1\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 4\nNieuwe besmettingen: 114\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "6\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 2\nNieuwe besmettingen: 58\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([9, 6, 3, 10, 7, 4]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "14\n3\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 3\nNieuwe besmettingen: 108\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "22\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 5\nNieuwe besmettingen: 159\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "9\n1\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 2\nNieuwe besmettingen: 57\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([10, 7, 4, 1, 8, 5, 2, 9, 6]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "15\n4\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 2\nNieuwe besmettingen: 102\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "4\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 0\nNieuwe besmettingen: 8\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([4, 1, 8, 5]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "28\n3\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 6\nNieuwe besmettingen: 216\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "13\n2\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 2\nNieuwe besmettingen: 72\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        },
+        {
+          "testcases": [
+            {
+              "input": {
+                "stdin": {
+                  "type": "text",
+                  "data": "17\n1\n"
+                }
+              },
+              "output": {
+                "stdout": {
+                  "type": "text",
+                  "data": "Superverspreiders: 4\nNieuwe besmettingen: 113\n"
+                }
+              }
+            }
+          ],
+          "before": {
+            "python": {
+              "data": "import random; waarden = iter([5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7]); random.randint = lambda a, b: next(waarden)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
