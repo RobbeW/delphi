@@ -1,0 +1,3979 @@
+<!--
+  Project Delphi - standalone explainer demo
+  Copyright (c) 2026 Robbe Wulgaert
+  Citeer/vermeld als: Robbe Wulgaert, AI in de Klas, robbewulgaert.be
+-->
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Delphi - Herhalingsopdrachten Pandemie Reeks 10</title>
+  <meta name="description" content="Standalone demo voor stap-voor-stap uitleg bij Herhalingsopdrachten Pandemie Reeks 10.">
+  <meta name="author" content="Robbe Wulgaert, AI in de Klas, robbewulgaert.be">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-purple: #5200ff;
+      --brand-purple-dark: #3700b3;
+      --brand-aqua: #3dffd0;
+      --bg: #f3f5f8;
+      --panel: #ffffff;
+      --soft: #f7f3ff;
+      --ink: #23272e;
+      --muted: #625b70;
+      --line: #e2ddea;
+      --code-bg: #161820;
+      --good: #0a6d57;
+      --warn: #8a5c00;
+      --bad: #a1142b;
+      --shadow: 0 10px 26px rgba(26, 34, 76, 0.06);
+      --strong-shadow: 0 16px 30px rgba(82, 0, 255, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    code,
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: -999px;
+      z-index: 100;
+      border-radius: 8px;
+      background: var(--brand-purple);
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 900;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    .learning-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(82, 0, 255, 0.12);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .exercise-progress {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 1 auto;
+      max-width: min(42vw, 620px);
+      overflow-x: auto;
+      padding: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(82, 0, 255, 0.45) transparent;
+    }
+
+    .exercise-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--brand-purple);
+      color: #fff;
+      font-weight: 900;
+      opacity: 0.72;
+      box-shadow: var(--shadow);
+    }
+
+    .exercise-btn.current {
+      background: #fff;
+      color: var(--brand-purple);
+      border: 2px solid var(--brand-purple);
+      opacity: 1;
+      box-shadow: 0 0 0 3px #ece6fa, var(--shadow);
+      transform: scale(1.08);
+    }
+
+    .opdracht {
+      flex: 1 1 260px;
+      min-width: 220px;
+      max-width: 44rem;
+      line-height: 1.25;
+    }
+
+    .opdracht strong {
+      display: block;
+      color: #1a224c;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .opdracht span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-btn {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(82, 0, 255, 0.18);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: #fff;
+      color: var(--brand-purple-dark);
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .brand-btn:hover,
+    .brand-btn:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(82, 0, 255, 0.45);
+      outline: none;
+      box-shadow: 0 14px 30px rgba(82, 0, 255, 0.12);
+    }
+
+    .brand-btn.primary {
+      border-color: var(--brand-purple);
+      background: var(--brand-purple);
+      color: #fff;
+      box-shadow: var(--strong-shadow);
+    }
+
+    .brand-btn.primary:hover,
+    .brand-btn.primary:focus-visible {
+      background: var(--brand-purple-dark);
+      border-color: var(--brand-purple-dark);
+    }
+
+    .brand-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      transform: none;
+    }
+
+    .status-pill {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(82, 0, 255, 0.16);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: #fff;
+      color: var(--brand-purple-dark);
+      font-size: 0.84rem;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.78fr) minmax(360px, 1.18fr) minmax(280px, 0.92fr);
+      gap: 14px;
+      padding: 14px;
+      min-height: calc(100vh - 67px);
+    }
+
+    .panel {
+      min-width: 0;
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 14px;
+      background: #fff;
+    }
+
+    .panel-title {
+      color: var(--brand-purple);
+      font-weight: 900;
+    }
+
+    .panel-subtitle {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .panel-body {
+      padding: 14px;
+      overflow: auto;
+    }
+
+    .exercise-panel .panel-body,
+    .coach-panel .panel-body {
+      max-height: calc(100vh - 138px);
+    }
+
+    .section-label {
+      margin: 0 0 8px;
+      color: #3f4351;
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .summary-list {
+      margin: 0 0 16px;
+      padding-left: 1.15rem;
+      color: #2e3340;
+    }
+
+    .summary-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .concepts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .concept-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(82, 0, 255, 0.18);
+      background: var(--soft);
+      color: var(--brand-purple-dark);
+      padding: 6px 10px;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .note-box {
+      border-left: 5px solid var(--brand-purple);
+      border-radius: 8px;
+      background: #fbfbff;
+      padding: 12px;
+      color: #3f4351;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .note-box strong {
+      display: block;
+      color: var(--brand-purple-dark);
+      margin-bottom: 4px;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .step-jump {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .step-jump.current {
+      border-color: rgba(82, 0, 255, 0.55);
+      background: var(--soft);
+      box-shadow: 0 0 0 3px rgba(82, 0, 255, 0.07);
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--brand-purple);
+      color: #fff;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .step-jump span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .code-panel {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .code-panel .panel-body {
+      display: block;
+      min-height: 0;
+      max-height: calc(100vh - 138px);
+    }
+
+    .step-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .step-card h2 {
+      margin: 0 0 8px;
+      color: var(--brand-purple-dark);
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .code-wrap {
+      min-height: 104px;
+      border: 1px solid #161820;
+      border-radius: 8px;
+      background: var(--code-bg);
+      overflow: auto;
+      margin-bottom: 12px;
+    }
+
+    .code-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #f8f8f2;
+      font-size: 0.93rem;
+      line-height: 1.48;
+    }
+
+    .code-table tr {
+      transition: background 140ms ease;
+    }
+
+    .code-table tr.is-active {
+      background: rgba(61, 255, 208, 0.18);
+    }
+
+    .code-table tr.is-active .line-no {
+      color: var(--brand-aqua);
+    }
+
+    .line-no {
+      width: 52px;
+      user-select: none;
+      color: #8b92a8;
+      text-align: right;
+      padding: 0 12px;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      vertical-align: top;
+    }
+
+    .line-code {
+      white-space: pre-wrap;
+      word-break: break-word;
+      padding: 0 14px;
+      vertical-align: top;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .control-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(22, 24, 32, 0.46);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(94vw, 860px);
+      max-height: min(86vh, 760px);
+      overflow: auto;
+      position: relative;
+      border: 1px solid rgba(82, 0, 255, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 22px 70px rgba(35, 39, 46, 0.22);
+      padding: 18px;
+    }
+
+    .modal-box.wide {
+      width: min(96vw, 1040px);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: #f2f0fd;
+      color: var(--brand-purple-dark);
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+
+    .modal-box h2 {
+      margin: 0 42px 8px 0;
+      color: var(--brand-purple-dark);
+      font-size: 1.4rem;
+      line-height: 1.2;
+    }
+
+    .modal-box p {
+      margin: 0 0 12px;
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 1.1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .modal-pre {
+      margin: 0;
+      max-height: 420px;
+      overflow: auto;
+      border-radius: 8px;
+      background: var(--code-bg);
+      color: #fff;
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      white-space: pre;
+    }
+
+    .kv-table,
+    .trace-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .kv-table th,
+    .kv-table td,
+    .trace-table th,
+    .trace-table td {
+      border-bottom: 1px solid #e6eaf3;
+      padding: 7px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .kv-table th,
+    .trace-table th {
+      color: #555f76;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .kv-table td:first-child {
+      color: var(--brand-purple-dark);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .kv-table code,
+    .trace-table code {
+      border-radius: 5px;
+      background: #ede9fe;
+      padding: 2px 5px;
+      color: #27223a;
+    }
+
+    .indicator {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(82, 0, 255, 0.14);
+      border-radius: 8px;
+      background: #fbfbff;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+
+    .indicator-title {
+      color: var(--brand-purple-dark);
+      font-weight: 900;
+    }
+
+    .indicator-row {
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .output-box {
+      min-height: 110px;
+      margin: 0 0 14px;
+      border-radius: 8px;
+      border: 1px solid #161820;
+      background: #161820;
+      color: #fff;
+      padding: 12px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .trace-wrap {
+      overflow: auto;
+      border: 1px solid #e6eaf3;
+      border-radius: 8px;
+      background: #fbfcff;
+      margin-bottom: 14px;
+    }
+
+    .trace-table th {
+      background: #f0f4ff;
+    }
+
+    .mistakes {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .mistake {
+      border: 1px solid #e6eaf3;
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .mistake strong {
+      display: block;
+      color: var(--bad);
+      margin-bottom: 4px;
+    }
+
+    .mistake span {
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .inputs {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .input-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid #e6eaf3;
+      border-radius: 8px;
+      background: #fbfcff;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .input-pill code {
+      color: var(--brand-purple-dark);
+    }
+
+    @media (max-width: 1180px) {
+      .app-shell {
+        grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.1fr);
+      }
+
+      .coach-panel {
+        grid-column: 1 / -1;
+      }
+
+      .coach-panel .panel-body {
+        max-height: none;
+        display: grid;
+        grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr);
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .learning-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .exercise-progress,
+      .opdracht,
+      .toolbar {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .toolbar {
+        justify-content: flex-start;
+      }
+
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .exercise-panel .panel-body,
+      .code-panel .panel-body,
+      .coach-panel .panel-body {
+        max-height: none;
+      }
+
+      .coach-panel .panel-body {
+        display: block;
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .toolbar,
+      .control-group,
+      .controls {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .brand-btn,
+      .status-pill {
+        width: 100%;
+      }
+
+      .opdracht span {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Spring naar uitleg</a>
+
+  <header class="learning-header">
+    <nav class="exercise-progress" id="exercise-progress" aria-label="Kies een oefening"></nav>
+
+    <div class="opdracht">
+      <strong id="exercise-title">Herhalingsopdrachten Pandemie Reeks 10</strong>
+      <span id="exercise-theme">Virusmodellen, simulaties, groei, toeval en vergelijkingen in Python.</span>
+    </div>
+
+    <div class="toolbar">
+      <span class="status-pill" id="step-status">Stap 1</span>
+      <button class="brand-btn" id="reset-btn" type="button">Reset uitleg</button>
+      <a class="brand-btn primary" href="platform.html">Naar Delphi</a>
+    </div>
+  </header>
+
+  <main id="main" class="app-shell">
+    <section class="panel exercise-panel" aria-labelledby="assignment-heading">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title" id="assignment-heading">Oefening</div>
+          <div class="panel-subtitle" id="pattern-label">Patroon</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <p class="section-label">Wat moet je programma doen?</p>
+        <ul class="summary-list" id="summary-list"></ul>
+
+        <p class="section-label">Welke concepten heb je nodig?</p>
+        <div class="concepts" id="concepts"></div>
+
+        <div class="note-box">
+          <strong>Belangrijkste concept</strong>
+          <span id="core-idea"></span>
+        </div>
+
+        <div class="note-box">
+          <strong>Wanneer stopt de lus?</strong>
+          <span id="stop-condition"></span>
+        </div>
+
+        <p class="section-label">Denkstappen</p>
+        <div class="step-list" id="step-list"></div>
+      </div>
+    </section>
+
+    <section class="panel code-panel" aria-labelledby="code-heading">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title" id="code-heading">Code en uitleg</div>
+          <div class="panel-subtitle">Je ziet alleen het fragment dat bij deze stap hoort.</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <article class="step-card" aria-live="polite">
+          <h2 id="step-title">Stap</h2>
+          <p id="step-explanation"></p>
+        </article>
+
+        <p class="section-label">Codefragment bij deze stap</p>
+        <div class="code-wrap" aria-label="Codefragment bij deze stap">
+          <table class="code-table">
+            <tbody id="code-lines"></tbody>
+          </table>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <button class="brand-btn" id="prev-step" type="button">Vorige stap</button>
+            <button class="brand-btn primary" id="next-step" type="button">Volgende stap</button>
+          </div>
+          <div class="control-group">
+            <button class="brand-btn" id="step-modal-btn" type="button">Open stapkaart</button>
+            <button class="brand-btn" id="solution-modal-btn" type="button">Open sleutel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel coach-panel" aria-labelledby="coach-heading">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title" id="coach-heading">Wat verandert er?</div>
+          <div class="panel-subtitle">Variabelen, uitvoer en voorbeeldtrace.</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div>
+          <p class="section-label">Voorbeeldinvoer</p>
+          <div class="inputs" id="inputs-list"></div>
+
+          <div class="indicator" id="indicator"></div>
+
+          <p class="section-label">Variabelen op dit moment</p>
+          <table class="kv-table">
+            <thead>
+              <tr>
+                <th>Naam</th>
+                <th>Waarde</th>
+                <th>Waarom?</th>
+              </tr>
+            </thead>
+            <tbody id="variables-body"></tbody>
+          </table>
+        </div>
+
+        <div>
+          <p class="section-label">Uitvoer</p>
+          <pre class="output-box" id="output-box"></pre>
+
+          <p class="section-label" id="trace-title">Voorbeeldtrace</p>
+          <div class="trace-wrap">
+            <table class="trace-table">
+              <thead id="trace-head"></thead>
+              <tbody id="trace-body"></tbody>
+            </table>
+          </div>
+
+          <p class="section-label">Veelgemaakte fouten</p>
+          <div class="mistakes" id="mistakes"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="modal" id="step-modal" aria-hidden="true" role="dialog" aria-labelledby="step-modal-title">
+    <div class="modal-box">
+      <button class="modal-close" id="close-step-modal" type="button" aria-label="Sluit stapkaart">x</button>
+      <h2 id="step-modal-title">Stapkaart</h2>
+      <p id="step-modal-explanation"></p>
+      <div class="modal-grid">
+        <div>
+          <p class="section-label">Codefragment</p>
+          <pre class="modal-pre"><code id="step-modal-code"></code></pre>
+        </div>
+        <div>
+          <p class="section-label">Variabelen</p>
+          <table class="kv-table">
+            <thead>
+              <tr>
+                <th>Naam</th>
+                <th>Waarde</th>
+                <th>Waarom?</th>
+              </tr>
+            </thead>
+            <tbody id="step-modal-variables"></tbody>
+          </table>
+          <p class="section-label">Uitvoer</p>
+          <pre class="output-box" id="step-modal-output"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="solution-modal" aria-hidden="true" role="dialog" aria-labelledby="solution-modal-title">
+    <div class="modal-box wide">
+      <button class="modal-close" id="close-solution-modal" type="button" aria-label="Sluit sleutel">x</button>
+      <h2 id="solution-modal-title">Volledige oplossingssleutel</h2>
+      <p>Je hebt de denkstappen doorlopen. Hier staat de oplossing nog eens als geheel.</p>
+      <pre class="modal-pre"><code id="solution-modal-code"></code></pre>
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+
+    const EXERCISES = [
+      {
+            "id": 1,
+            "title": "Eerste besmetting",
+            "theme": "Besmettingen per wijk optellen en de zwaarst getroffen wijk zoeken.",
+            "pattern": "For-lus met som en maximum",
+            "summary": [
+                  "Vraag hoeveel wijken er zijn.",
+                  "Vraag per wijk het aantal besmettingen.",
+                  "Tel alle besmettingen op.",
+                  "Onthoud welke wijk het hoogste aantal besmettingen heeft.",
+                  "Print het totaal, de zwaarst getroffen wijk en de status."
+            ],
+            "concepts": [
+                  "input()",
+                  "int()",
+                  "for",
+                  "range()",
+                  "somvariabele",
+                  "maximum bijhouden",
+                  "if",
+                  "print() met komma's"
+            ],
+            "core": "Je verwerkt elke wijk maar een keer. In dezelfde lus groeit het totaal en vergelijk je elke wijk met het hoogste aantal tot nu toe.",
+            "stop": "De for-lus stopt nadat alle wijken van 1 tot en met aantal_wijken verwerkt zijn.",
+            "inputs": [
+                  [
+                        "aantal_wijken",
+                        "3"
+                  ],
+                  [
+                        "wijk 1",
+                        "12"
+                  ],
+                  [
+                        "wijk 2",
+                        "4"
+                  ],
+                  [
+                        "wijk 3",
+                        "19"
+                  ]
+            ],
+            "code": [
+                  "aantal_wijken = int(input(\"Hoeveel wijken? \"))",
+                  "totaal = 0",
+                  "max_besmettingen = 0",
+                  "max_wijk = 0",
+                  "",
+                  "for wijk in range(1, aantal_wijken + 1):",
+                  "    besmettingen = int(input(\"Aantal besmettingen in deze wijk? \"))",
+                  "    totaal += besmettingen",
+                  "",
+                  "    if besmettingen > max_besmettingen:",
+                  "        max_besmettingen = besmettingen",
+                  "        max_wijk = wijk",
+                  "",
+                  "print(\"Totaal besmet:\", totaal)",
+                  "print(\"Zwaarst getroffen wijk:\", max_wijk, \"met\", max_besmettingen, \"besmettingen.\")",
+                  "",
+                  "if totaal >= 20:",
+                  "    print(\"Status: opvolgen.\")",
+                  "else:",
+                  "    print(\"Status: rustig.\")"
+            ],
+            "steps": [
+                  {
+                        "title": "Vraag hoeveel wijken er zijn.",
+                        "explanation": "Dit getal bepaalt hoeveel keer de for-lus straks moet lopen. Omdat het om een aantal gaat, gebruik je int().",
+                        "lines": [
+                              1
+                        ],
+                        "variables": [
+                              [
+                                    "aantal_wijken",
+                                    "3",
+                                    "De gebruiker wil drie wijken invoeren."
+                              ]
+                        ],
+                        "indicator": [
+                              "Invoer",
+                              "Het aantal wijken stuurt de herhaling.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Zet totaal en maximum klaar.",
+                        "explanation": "Voor je begint te herhalen, maak je de variabelen die tijdens de lus zullen veranderen.",
+                        "lines": [
+                              2,
+                              3,
+                              4
+                        ],
+                        "variables": [
+                              [
+                                    "totaal",
+                                    "0",
+                                    "Er zijn nog geen besmettingen opgeteld."
+                              ],
+                              [
+                                    "max_besmettingen",
+                                    "0",
+                                    "Het hoogste aantal begint op 0."
+                              ],
+                              [
+                                    "max_wijk",
+                                    "0",
+                                    "Er is nog geen zwaarst getroffen wijk."
+                              ]
+                        ],
+                        "indicator": [
+                              "Startwaarden",
+                              "Tellers, sommen en maxima maak je altijd voor de lus.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Doorloop alle wijken.",
+                        "explanation": "range(1, aantal_wijken + 1) geeft wijknummers die voor mensen logisch tellen: 1, 2, 3.",
+                        "lines": [
+                              6,
+                              7,
+                              8
+                        ],
+                        "variables": [
+                              [
+                                    "wijk",
+                                    "1, daarna 2, daarna 3",
+                                    "De teller van de for-lus."
+                              ],
+                              [
+                                    "besmettingen",
+                                    "12 -> 4 -> 19",
+                                    "De invoer voor de huidige wijk."
+                              ],
+                              [
+                                    "totaal",
+                                    "12 -> 16 -> 35",
+                                    "Het totaal groeit per wijk."
+                              ]
+                        ],
+                        "indicator": [
+                              "Som opbouwen",
+                              "Elke nieuwe invoer wordt bij totaal geteld.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Werk het maximum bij.",
+                        "explanation": "Als de huidige wijk meer besmettingen heeft dan het huidige maximum, vervang je het maximum en onthoud je het wijknummer.",
+                        "lines": [
+                              10,
+                              11,
+                              12
+                        ],
+                        "variables": [
+                              [
+                                    "max_besmettingen",
+                                    "19",
+                                    "Wijk 3 heeft in het voorbeeld het hoogste aantal."
+                              ],
+                              [
+                                    "max_wijk",
+                                    "3",
+                                    "Dit wijknummer hoort bij het maximum."
+                              ]
+                        ],
+                        "indicator": [
+                              "Vergelijken",
+                              "Je bewaart niet alleen de hoogste waarde, maar ook waar die waarde vandaan komt.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Print totaal en zwaarste wijk.",
+                        "explanation": "Na de lus zijn alle wijken verwerkt. Dan pas ken je het definitieve totaal en maximum.",
+                        "lines": [
+                              14,
+                              15
+                        ],
+                        "variables": [
+                              [
+                                    "totaal",
+                                    "35",
+                                    "12 + 4 + 19."
+                              ],
+                              [
+                                    "max_wijk",
+                                    "3",
+                                    "De derde wijk was het zwaarst getroffen."
+                              ],
+                              [
+                                    "max_besmettingen",
+                                    "19",
+                                    "Het maximum in het voorbeeld."
+                              ]
+                        ],
+                        "indicator": [
+                              "Na de lus",
+                              "Print resultaten pas wanneer de berekening klaar is.",
+                              "good"
+                        ],
+                        "output": "Totaal besmet: 35\nZwaarst getroffen wijk: 3 met 19 besmettingen."
+                  },
+                  {
+                        "title": "Bepaal de status.",
+                        "explanation": "De status hangt af van het totaal. Vanaf 20 besmettingen verschijnt opvolgen, anders rustig.",
+                        "lines": [
+                              17,
+                              18,
+                              19,
+                              20
+                        ],
+                        "variables": [
+                              [
+                                    "totaal",
+                                    "35",
+                                    "35 is groter dan of gelijk aan 20."
+                              ]
+                        ],
+                        "indicator": [
+                              "Beslissing",
+                              "De if kiest precies een van de twee statussen.",
+                              "warn"
+                        ],
+                        "output": "Totaal besmet: 35\nZwaarst getroffen wijk: 3 met 19 besmettingen.\nStatus: opvolgen."
+                  }
+            ],
+            "traceTitle": "Voorbeeldtrace met drie wijken",
+            "traceColumns": [
+                  "wijk",
+                  "besmettingen",
+                  "totaal",
+                  "maximum"
+            ],
+            "traceRows": [
+                  [
+                        "1",
+                        "12",
+                        "12",
+                        "wijk 1: 12"
+                  ],
+                  [
+                        "2",
+                        "4",
+                        "16",
+                        "wijk 1: 12"
+                  ],
+                  [
+                        "3",
+                        "19",
+                        "35",
+                        "wijk 3: 19"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "Maximum pas na de lus zoeken.",
+                        "Vergelijk elke wijk meteen in de lus, wanneer je de waarde nog hebt."
+                  ],
+                  [
+                        "max_wijk niet bijwerken.",
+                        "Als je max_besmettingen vervangt, moet je ook het wijknummer bewaren."
+                  ],
+                  [
+                        "range(aantal_wijken) gebruiken en wijk 0 tonen.",
+                        "Gebruik range(1, aantal_wijken + 1) als je wijknummers vanaf 1 wil tonen."
+                  ]
+            ]
+      },
+      {
+            "id": 2,
+            "title": "Besmettingsratio",
+            "theme": "Een epidemie laten groeien tot de populatie bereikt is, met controle op uitdoven.",
+            "pattern": "While-lus met grens, break en aftopping",
+            "summary": [
+                  "Vraag R0, het startaantal besmettingen en de maximale populatie.",
+                  "Bereken per cyclus nieuwe besmettingen met math.floor().",
+                  "Stop als er geen nieuwe besmettingen meer bijkomen.",
+                  "Beperk de laatste stap tot de maximale populatie.",
+                  "Print na elke cyclus het totaal aantal besmettingen."
+            ],
+            "concepts": [
+                  "import math",
+                  "math.floor()",
+                  "float()",
+                  "int()",
+                  "while",
+                  "if",
+                  "break",
+                  "grenswaarde",
+                  "print() met komma's"
+            ],
+            "core": "Een while-lus past hier omdat je vooraf niet weet hoeveel cycli nodig zijn. De lus stopt door een grens of door break wanneer de groei stilvalt.",
+            "stop": "De lus stopt wanneer besmettingen de populatie bereikt, of vroeger als nieuwe_besmettingen gelijk is aan 0.",
+            "inputs": [
+                  [
+                        "r0",
+                        "2.4"
+                  ],
+                  [
+                        "besmettingen",
+                        "20"
+                  ],
+                  [
+                        "populatie",
+                        "1200"
+                  ]
+            ],
+            "code": [
+                  "import math",
+                  "",
+                  "r0 = float(input(\"R0? \"))",
+                  "besmettingen = int(input(\"Startaantal besmettingen? \"))",
+                  "populatie = int(input(\"Maximum aantal besmettingen? \"))",
+                  "",
+                  "cyclus = 0",
+                  "",
+                  "if besmettingen >= populatie:",
+                  "    print(\"De volledige populatie is al besmet.\")",
+                  "else:",
+                  "    while besmettingen < populatie:",
+                  "        nieuwe_besmettingen = math.floor(besmettingen * r0)",
+                  "",
+                  "        if nieuwe_besmettingen == 0:",
+                  "            print(\"De epidemie dooft uit na\", cyclus, \"cycli met\", besmettingen, \"besmettingen.\")",
+                  "            break",
+                  "",
+                  "        if besmettingen + nieuwe_besmettingen > populatie:",
+                  "            nieuwe_besmettingen = populatie - besmettingen",
+                  "",
+                  "        besmettingen += nieuwe_besmettingen",
+                  "        cyclus += 1",
+                  "        print(\"Na\", cyclus, \"cycli zijn er\", besmettingen, \"besmettingen.\")"
+            ],
+            "steps": [
+                  {
+                        "title": "Importeer math en vraag de invoer.",
+                        "explanation": "math.floor() rondt nieuwe besmettingen naar beneden af. R0 is een kommagetal, de aantallen zijn gehele getallen.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5
+                        ],
+                        "variables": [
+                              [
+                                    "r0",
+                                    "2.4",
+                                    "Elke besmette persoon veroorzaakt gemiddeld 2.4 nieuwe besmettingen."
+                              ],
+                              [
+                                    "besmettingen",
+                                    "20",
+                                    "Het startaantal."
+                              ],
+                              [
+                                    "populatie",
+                                    "1200",
+                                    "Hier mag het totaal niet boven gaan."
+                              ]
+                        ],
+                        "indicator": [
+                              "Invoer",
+                              "Let op het verschil tussen float() en int().",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Zet de cyclusteller op 0.",
+                        "explanation": "Voor de eerste cyclus is er nog geen cyclus afgewerkt.",
+                        "lines": [
+                              7
+                        ],
+                        "variables": [
+                              [
+                                    "cyclus",
+                                    "0",
+                                    "De teller stijgt pas na een echte groeistap."
+                              ]
+                        ],
+                        "indicator": [
+                              "Teller",
+                              "Initialiseer een teller altijd voor de lus.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Controleer of de grens al bereikt is.",
+                        "explanation": "Als het startaantal al minstens de populatie is, hoeft de simulatie niet te starten.",
+                        "lines": [
+                              9,
+                              10,
+                              11
+                        ],
+                        "variables": [
+                              [
+                                    "besmettingen >= populatie",
+                                    "False",
+                                    "20 is kleiner dan 1200, dus de else wordt uitgevoerd."
+                              ]
+                        ],
+                        "indicator": [
+                              "Voorcontrole",
+                              "Deze if voorkomt een overbodige lus.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Bereken nieuwe besmettingen.",
+                        "explanation": "Zolang het totaal onder de populatie zit, bereken je de groei op basis van het huidige aantal besmettingen.",
+                        "lines": [
+                              12,
+                              13
+                        ],
+                        "variables": [
+                              [
+                                    "cyclus 1",
+                                    "math.floor(20 * 2.4) = 48",
+                                    "De eerste groeistap."
+                              ],
+                              [
+                                    "nieuwe_besmettingen",
+                                    "48",
+                                    "Naar beneden afgerond."
+                              ]
+                        ],
+                        "indicator": [
+                              "Groei",
+                              "De nieuwe besmettingen hangen af van het huidige totaal.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Stop als de epidemie uitdooft.",
+                        "explanation": "Wanneer math.floor() 0 oplevert, verandert het totaal niet meer. break stopt dan de lus.",
+                        "lines": [
+                              15,
+                              16,
+                              17
+                        ],
+                        "variables": [
+                              [
+                                    "nieuwe_besmettingen",
+                                    "48",
+                                    "In het voorbeeld is dit niet 0."
+                              ],
+                              [
+                                    "break",
+                                    "niet uitgevoerd",
+                                    "De simulatie gaat verder."
+                              ]
+                        ],
+                        "indicator": [
+                              "Nooduitgang",
+                              "break gebruik je hier om een vastlopende lus te vermijden.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Beperk de laatste sprong.",
+                        "explanation": "Als de groei boven de populatie zou gaan, maak je nieuwe_besmettingen precies groot genoeg om op de populatie te eindigen.",
+                        "lines": [
+                              19,
+                              20
+                        ],
+                        "variables": [
+                              [
+                                    "voor cyclus 4",
+                                    "785 + 1884 > 1200",
+                                    "De normale groei zou te ver gaan."
+                              ],
+                              [
+                                    "nieuwe_besmettingen",
+                                    "415",
+                                    "1200 - 785."
+                              ]
+                        ],
+                        "indicator": [
+                              "Aftoppen",
+                              "Zo print je nooit meer besmettingen dan de populatie.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Werk totaal en teller bij.",
+                        "explanation": "Na elke geldige cyclus stijgt het totaal, stijgt de teller en verschijnt er een regel uitvoer.",
+                        "lines": [
+                              22,
+                              23,
+                              24
+                        ],
+                        "variables": [
+                              [
+                                    "cyclus",
+                                    "4",
+                                    "Na vier stappen is de populatie bereikt."
+                              ],
+                              [
+                                    "besmettingen",
+                                    "1200",
+                                    "Het maximum is bereikt."
+                              ]
+                        ],
+                        "indicator": [
+                              "Uitvoer",
+                              "De print staat in de lus omdat je elke cyclus wil tonen.",
+                              "good"
+                        ],
+                        "output": "Na 1 cycli zijn er 68 besmettingen.\nNa 2 cycli zijn er 231 besmettingen.\nNa 3 cycli zijn er 785 besmettingen.\nNa 4 cycli zijn er 1200 besmettingen."
+                  }
+            ],
+            "traceTitle": "Voorbeeldtrace met R0 = 2.4",
+            "traceColumns": [
+                  "cyclus",
+                  "start",
+                  "nieuwe",
+                  "totaal"
+            ],
+            "traceRows": [
+                  [
+                        "1",
+                        "20",
+                        "48",
+                        "68"
+                  ],
+                  [
+                        "2",
+                        "68",
+                        "163",
+                        "231"
+                  ],
+                  [
+                        "3",
+                        "231",
+                        "554",
+                        "785"
+                  ],
+                  [
+                        "4",
+                        "785",
+                        "415 na aftoppen",
+                        "1200"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "De laatste stap boven de populatie laten gaan.",
+                        "Controleer of besmettingen + nieuwe_besmettingen groter wordt dan populatie."
+                  ],
+                  [
+                        "Geen break voorzien bij 0 nieuwe besmettingen.",
+                        "Als er geen groei is, blijft de while-voorwaarde mogelijk altijd waar."
+                  ],
+                  [
+                        "cyclus verhogen voor een uitdovende epidemie.",
+                        "Verhoog cyclus pas wanneer er echt een cyclus met groei is verwerkt."
+                  ]
+            ]
+      },
+      {
+            "id": 3,
+            "title": "Spaanse griep versus ebola",
+            "theme": "Verwachte overlijdens berekenen en twee ziektes vergelijken.",
+            "pattern": "Berekenen, afronden en vergelijken",
+            "summary": [
+                  "Vraag besmettingen en sterftepercentage voor beide ziektes.",
+                  "Bereken de verwachte overlijdens met math.floor().",
+                  "Print beide aantallen.",
+                  "Vergelijk welke ziekte de grootste verwachte dodentol heeft.",
+                  "Voorzie ook het geval waarin de aantallen gelijk zijn."
+            ],
+            "concepts": [
+                  "import math",
+                  "math.floor()",
+                  "int()",
+                  "float()",
+                  "percentage",
+                  "if",
+                  "elif",
+                  "else",
+                  "print() met komma's"
+            ],
+            "core": "Je zet percentages eerst om naar een deel van 100. Daarna vergelijk je de twee afgeronde aantallen met if, elif en else.",
+            "stop": "Er is geen lus. Het programma stopt nadat de vergelijking een van de drie boodschappen heeft geprint.",
+            "inputs": [
+                  [
+                        "Spaanse besmettingen",
+                        "500000"
+                  ],
+                  [
+                        "Spaanse sterfte",
+                        "2.5"
+                  ],
+                  [
+                        "Ebola besmettingen",
+                        "1000"
+                  ],
+                  [
+                        "Ebola sterfte",
+                        "50"
+                  ]
+            ],
+            "code": [
+                  "import math",
+                  "",
+                  "spaanse_besmettingen = int(input(\"Besmettingen Spaanse griep? \"))",
+                  "spaanse_sterfte = float(input(\"Sterftepercentage Spaanse griep? \"))",
+                  "ebola_besmettingen = int(input(\"Besmettingen ebola? \"))",
+                  "ebola_sterfte = float(input(\"Sterftepercentage ebola? \"))",
+                  "",
+                  "spaanse_doden = math.floor(spaanse_besmettingen * spaanse_sterfte / 100)",
+                  "ebola_doden = math.floor(ebola_besmettingen * ebola_sterfte / 100)",
+                  "",
+                  "print(\"Spaanse griep:\", spaanse_doden, \"verwachte overlijdens\")",
+                  "print(\"Ebola:\", ebola_doden, \"verwachte overlijdens\")",
+                  "",
+                  "if spaanse_doden > ebola_doden:",
+                  "    print(\"Grootste dodentol: Spaanse griep.\")",
+                  "elif ebola_doden > spaanse_doden:",
+                  "    print(\"Grootste dodentol: Ebola.\")",
+                  "else:",
+                  "    print(\"Beide ziektes hebben dezelfde verwachte dodentol.\")"
+            ],
+            "steps": [
+                  {
+                        "title": "Importeer math en vraag de gegevens.",
+                        "explanation": "Besmettingen zijn gehele aantallen. Sterftepercentages kunnen kommagetallen zijn.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5,
+                              6
+                        ],
+                        "variables": [
+                              [
+                                    "spaanse_besmettingen",
+                                    "500000",
+                                    "Aantal besmettingen."
+                              ],
+                              [
+                                    "spaanse_sterfte",
+                                    "2.5",
+                                    "Percentage."
+                              ],
+                              [
+                                    "ebola_besmettingen",
+                                    "1000",
+                                    "Aantal besmettingen."
+                              ],
+                              [
+                                    "ebola_sterfte",
+                                    "50",
+                                    "Percentage."
+                              ]
+                        ],
+                        "indicator": [
+                              "Invoer",
+                              "Gebruik float() voor percentages met komma's.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Bereken verwachte overlijdens.",
+                        "explanation": "Vermenigvuldig besmettingen met het percentage en deel door 100. math.floor() rondt naar beneden af.",
+                        "lines": [
+                              8,
+                              9
+                        ],
+                        "variables": [
+                              [
+                                    "spaanse_doden",
+                                    "12500",
+                                    "math.floor(500000 * 2.5 / 100)."
+                              ],
+                              [
+                                    "ebola_doden",
+                                    "500",
+                                    "math.floor(1000 * 50 / 100)."
+                              ]
+                        ],
+                        "indicator": [
+                              "Percentage",
+                              "Een percentage is een deel op 100.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Print beide resultaten.",
+                        "explanation": "Eerst toon je de berekende aantallen apart. Daarna komt pas de vergelijking.",
+                        "lines": [
+                              11,
+                              12
+                        ],
+                        "variables": [
+                              [
+                                    "spaanse_doden",
+                                    "12500",
+                                    "Wordt in de eerste zin gebruikt."
+                              ],
+                              [
+                                    "ebola_doden",
+                                    "500",
+                                    "Wordt in de tweede zin gebruikt."
+                              ]
+                        ],
+                        "indicator": [
+                              "Uitvoer",
+                              "Gebruik print() met komma's om tekst en waarden te combineren.",
+                              "good"
+                        ],
+                        "output": "Spaanse griep: 12500 verwachte overlijdens\nEbola: 500 verwachte overlijdens"
+                  },
+                  {
+                        "title": "Vergelijk de dodentol.",
+                        "explanation": "if controleert of Spaanse griep groter is. elif controleert daarna ebola. else vangt gelijke aantallen op.",
+                        "lines": [
+                              14,
+                              15,
+                              16,
+                              17,
+                              18,
+                              19
+                        ],
+                        "variables": [
+                              [
+                                    "spaanse_doden > ebola_doden",
+                                    "True",
+                                    "12500 is groter dan 500."
+                              ]
+                        ],
+                        "indicator": [
+                              "Keuze",
+                              "Met elif vermijd je dat meerdere takken tegelijk lopen.",
+                              "warn"
+                        ],
+                        "output": "Spaanse griep: 12500 verwachte overlijdens\nEbola: 500 verwachte overlijdens\nGrootste dodentol: Spaanse griep."
+                  }
+            ],
+            "traceTitle": "Berekening in het voorbeeld",
+            "traceColumns": [
+                  "ziekte",
+                  "berekening",
+                  "verwachte overlijdens"
+            ],
+            "traceRows": [
+                  [
+                        "Spaanse griep",
+                        "floor(500000 * 2.5 / 100)",
+                        "12500"
+                  ],
+                  [
+                        "Ebola",
+                        "floor(1000 * 50 / 100)",
+                        "500"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "Het percentage niet door 100 delen.",
+                        "2.5 procent betekent 2.5 / 100, niet 2.5 keer het aantal."
+                  ],
+                  [
+                        "round() gebruiken waar floor() gevraagd is.",
+                        "De opdracht vraagt naar beneden afronden, dus gebruik math.floor()."
+                  ],
+                  [
+                        "Geen gelijk geval voorzien.",
+                        "Gebruik else voor dezelfde verwachte dodentol."
+                  ]
+            ]
+      },
+      {
+            "id": 4,
+            "title": "Exponentiele groei",
+            "theme": "Besmettingen per week laten groeien met een factor en stoppen bij een alarmgrens.",
+            "pattern": "For-lus met groeifactor en alarmgrens",
+            "summary": [
+                  "Vraag startaantal, groeifactor, aantal weken en alarmgrens.",
+                  "Controleer of de grens al bereikt is.",
+                  "Bereken per week het nieuwe aantal besmettingen.",
+                  "Beperk het aantal tot de alarmgrens als de groei te ver gaat.",
+                  "Stop zodra de grens bereikt wordt."
+            ],
+            "concepts": [
+                  "import math",
+                  "math.floor()",
+                  "for",
+                  "range()",
+                  "factor",
+                  "if",
+                  "break",
+                  "str()",
+                  "print() met komma's"
+            ],
+            "core": "Een for-lus past omdat het maximum aantal weken bekend is. break stopt de lus vroeger als de alarmgrens al bereikt wordt.",
+            "stop": "De for-lus stopt na het gevraagde aantal weken, of vroeger door break zodra besmettingen minstens grens is.",
+            "inputs": [
+                  [
+                        "besmettingen",
+                        "2"
+                  ],
+                  [
+                        "factor",
+                        "2"
+                  ],
+                  [
+                        "weken",
+                        "5"
+                  ],
+                  [
+                        "grens",
+                        "1000"
+                  ]
+            ],
+            "code": [
+                  "import math",
+                  "",
+                  "besmettingen = int(input(\"Startaantal besmettingen? \"))",
+                  "factor = float(input(\"Groeifactor? \"))",
+                  "weken = int(input(\"Aantal weken? \"))",
+                  "grens = int(input(\"Alarmgrens? \"))",
+                  "",
+                  "if besmettingen >= grens:",
+                  "    print(\"De grens is al bereikt.\")",
+                  "else:",
+                  "    for week in range(1, weken + 1):",
+                  "        besmettingen = math.floor(besmettingen * factor)",
+                  "",
+                  "        if besmettingen > grens:",
+                  "            besmettingen = grens",
+                  "",
+                  "        print(\"Week\", str(week) + \":\", besmettingen, \"besmettingen\")",
+                  "",
+                  "        if besmettingen >= grens:",
+                  "            print(\"De grens wordt bereikt na week\", str(week) + \".\")",
+                  "            break"
+            ],
+            "steps": [
+                  {
+                        "title": "Importeer math en vraag de waarden.",
+                        "explanation": "De factor kan een kommagetal zijn. De aantallen en het aantal weken zijn gehele getallen.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5,
+                              6
+                        ],
+                        "variables": [
+                              [
+                                    "besmettingen",
+                                    "2",
+                                    "Startaantal."
+                              ],
+                              [
+                                    "factor",
+                                    "2.0",
+                                    "Elke week verdubbelt."
+                              ],
+                              [
+                                    "weken",
+                                    "5",
+                                    "Maximaal vijf herhalingen."
+                              ],
+                              [
+                                    "grens",
+                                    "1000",
+                                    "Alarmgrens."
+                              ]
+                        ],
+                        "indicator": [
+                              "Invoer",
+                              "De groeifactor wordt met float() gelezen.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Controleer de startwaarde.",
+                        "explanation": "Als de grens al bereikt is, hoeft de for-lus niet te starten.",
+                        "lines": [
+                              8,
+                              9,
+                              10
+                        ],
+                        "variables": [
+                              [
+                                    "besmettingen >= grens",
+                                    "False",
+                                    "2 is kleiner dan 1000."
+                              ]
+                        ],
+                        "indicator": [
+                              "Voorcontrole",
+                              "Zo voorkom je onnodige berekeningen.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Herhaal per week.",
+                        "explanation": "range(1, weken + 1) laat week lopen van 1 tot en met het opgegeven aantal weken.",
+                        "lines": [
+                              11
+                        ],
+                        "variables": [
+                              [
+                                    "week",
+                                    "1 -> 5",
+                                    "De teller stelt het weeknummer voor."
+                              ]
+                        ],
+                        "indicator": [
+                              "Menselijke telling",
+                              "Start bij 1 wanneer je weeknummers wil tonen.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Bereken de groei.",
+                        "explanation": "Elke week wordt het vorige aantal vermenigvuldigd met de factor en naar beneden afgerond.",
+                        "lines": [
+                              12
+                        ],
+                        "variables": [
+                              [
+                                    "week 1",
+                                    "math.floor(2 * 2.0) = 4",
+                                    "Het nieuwe aantal na een week."
+                              ],
+                              [
+                                    "besmettingen",
+                                    "4 -> 8 -> 16 -> 32 -> 64",
+                                    "Het aantal groeit stap voor stap."
+                              ]
+                        ],
+                        "indicator": [
+                              "Groeifactor",
+                              "Je rekent telkens verder met de nieuwe waarde.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Beperk tot de alarmgrens.",
+                        "explanation": "Als de berekening boven de grens zou eindigen, zet je besmettingen gelijk aan grens.",
+                        "lines": [
+                              14,
+                              15
+                        ],
+                        "variables": [
+                              [
+                                    "besmettingen > grens",
+                                    "False in dit voorbeeld",
+                                    "64 blijft onder 1000."
+                              ]
+                        ],
+                        "indicator": [
+                              "Aftoppen",
+                              "Deze controle is vooral belangrijk bij grote groeifactoren.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Print en stop eventueel.",
+                        "explanation": "Na elke week print je de stand. Als de grens bereikt is, print je ook de week en stopt de lus met break.",
+                        "lines": [
+                              17,
+                              19,
+                              20,
+                              21
+                        ],
+                        "variables": [
+                              [
+                                    "besmettingen",
+                                    "64",
+                                    "Na vijf weken in het voorbeeld."
+                              ],
+                              [
+                                    "break",
+                                    "niet uitgevoerd",
+                                    "De grens is niet bereikt."
+                              ]
+                        ],
+                        "indicator": [
+                              "Uitvoer per week",
+                              "De print staat in de lus omdat je elke week wil tonen.",
+                              "good"
+                        ],
+                        "output": "Week 1: 4 besmettingen\nWeek 2: 8 besmettingen\nWeek 3: 16 besmettingen\nWeek 4: 32 besmettingen\nWeek 5: 64 besmettingen"
+                  }
+            ],
+            "traceTitle": "Voorbeeldtrace met factor 2",
+            "traceColumns": [
+                  "week",
+                  "berekening",
+                  "besmettingen"
+            ],
+            "traceRows": [
+                  [
+                        "1",
+                        "floor(2 * 2)",
+                        "4"
+                  ],
+                  [
+                        "2",
+                        "floor(4 * 2)",
+                        "8"
+                  ],
+                  [
+                        "3",
+                        "floor(8 * 2)",
+                        "16"
+                  ],
+                  [
+                        "4",
+                        "floor(16 * 2)",
+                        "32"
+                  ],
+                  [
+                        "5",
+                        "floor(32 * 2)",
+                        "64"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "range(1, weken) gebruiken.",
+                        "Dan wordt de laatste week niet verwerkt. Gebruik range(1, weken + 1)."
+                  ],
+                  [
+                        "De grens pas na de print aftoppen.",
+                        "Beperk eerst tot de grens en print daarna."
+                  ],
+                  [
+                        "Geen break gebruiken na het bereiken van de grens.",
+                        "Zonder break blijven overbodige weken verschijnen."
+                  ]
+            ]
+      },
+      {
+            "id": 5,
+            "title": "Hoeveel weken tot 1 miljoen",
+            "theme": "Berekenen hoeveel weken nodig zijn om een grens te bereiken.",
+            "pattern": "While-lus tot grens of geen groei",
+            "summary": [
+                  "Vraag startaantal, groeifactor en grens.",
+                  "Tel hoeveel weken voorbijgaan.",
+                  "Bereken telkens de volgende waarde met math.floor().",
+                  "Stop als de groei niet meer vooruitgaat.",
+                  "Print het resultaat wanneer de grens bereikt wordt."
+            ],
+            "concepts": [
+                  "import math",
+                  "math.floor()",
+                  "while",
+                  "break",
+                  "while-else",
+                  "teller",
+                  "vergelijkingsoperatoren",
+                  "print() met komma's"
+            ],
+            "core": "De while-lus blijft rekenen tot de grens bereikt is. De extra controle volgende <= besmettingen voorkomt een eindeloze lus bij te kleine groei.",
+            "stop": "De lus stopt wanneer besmettingen minstens grens is, of door break wanneer de volgende waarde niet groter wordt.",
+            "inputs": [
+                  [
+                        "besmettingen",
+                        "2"
+                  ],
+                  [
+                        "factor",
+                        "2"
+                  ],
+                  [
+                        "grens",
+                        "1000000"
+                  ]
+            ],
+            "code": [
+                  "import math",
+                  "",
+                  "besmettingen = int(input(\"Startaantal besmettingen? \"))",
+                  "factor = float(input(\"Groeifactor? \"))",
+                  "grens = int(input(\"Grens? \"))",
+                  "",
+                  "weken = 0",
+                  "",
+                  "while besmettingen < grens:",
+                  "    volgende = math.floor(besmettingen * factor)",
+                  "",
+                  "    if volgende <= besmettingen:",
+                  "        print(\"De grens wordt niet bereikt. Na\", weken, \"weken zijn er\", besmettingen, \"besmettingen.\")",
+                  "        break",
+                  "",
+                  "    besmettingen = volgende",
+                  "    weken += 1",
+                  "else:",
+                  "    print(\"Na\", weken, \"weken zijn er\", besmettingen, \"besmettingen.\")"
+            ],
+            "steps": [
+                  {
+                        "title": "Importeer math en vraag de waarden.",
+                        "explanation": "De grens en het startaantal zijn gehele getallen. De factor kan een kommagetal zijn.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5
+                        ],
+                        "variables": [
+                              [
+                                    "besmettingen",
+                                    "2",
+                                    "Startaantal."
+                              ],
+                              [
+                                    "factor",
+                                    "2.0",
+                                    "Verdubbeling per week."
+                              ],
+                              [
+                                    "grens",
+                                    "1000000",
+                                    "Het doel."
+                              ]
+                        ],
+                        "indicator": [
+                              "Invoer",
+                              "Gebruik float() voor de factor.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Start de weekteller.",
+                        "explanation": "Voor de eerste berekening zijn er nog 0 weken voorbij.",
+                        "lines": [
+                              7
+                        ],
+                        "variables": [
+                              [
+                                    "weken",
+                                    "0",
+                                    "De teller wordt in de lus verhoogd."
+                              ]
+                        ],
+                        "indicator": [
+                              "Teller",
+                              "Zet tellers klaar voor de lus.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Herhaal zolang de grens niet bereikt is.",
+                        "explanation": "De while-voorwaarde kijkt naar de huidige stand. Zolang die onder de grens zit, moet er nog een week bijkomen.",
+                        "lines": [
+                              9,
+                              10
+                        ],
+                        "variables": [
+                              [
+                                    "besmettingen < grens",
+                                    "True",
+                                    "2 is kleiner dan 1000000."
+                              ],
+                              [
+                                    "volgende",
+                                    "4",
+                                    "math.floor(2 * 2.0)."
+                              ]
+                        ],
+                        "indicator": [
+                              "Voorwaarde",
+                              "De lus wordt gestuurd door een grenswaarde.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Stop als de groei vastloopt.",
+                        "explanation": "Als volgende niet groter is dan besmettingen, geraakt het programma nooit aan de grens. Dan print je een aparte boodschap en gebruik je break.",
+                        "lines": [
+                              12,
+                              13,
+                              14
+                        ],
+                        "variables": [
+                              [
+                                    "volgende <= besmettingen",
+                                    "False in dit voorbeeld",
+                                    "4 is groter dan 2."
+                              ]
+                        ],
+                        "indicator": [
+                              "Veiligheid",
+                              "Deze controle voorkomt een eindeloze herhaling.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Werk waarde en teller bij.",
+                        "explanation": "Een geslaagde week vervangt besmettingen door volgende en verhoogt weken met 1.",
+                        "lines": [
+                              16,
+                              17
+                        ],
+                        "variables": [
+                              [
+                                    "week 1",
+                                    "besmettingen = 4",
+                                    "De eerste verdubbeling."
+                              ],
+                              [
+                                    "weken",
+                                    "1",
+                                    "Er is een week verwerkt."
+                              ]
+                        ],
+                        "indicator": [
+                              "Update",
+                              "De volgorde is belangrijk: eerst nieuwe waarde, dan teller omhoog.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Print wanneer de grens bereikt is.",
+                        "explanation": "De else bij while wordt uitgevoerd als de lus normaal stopt, dus zonder break.",
+                        "lines": [
+                              18,
+                              19
+                        ],
+                        "variables": [
+                              [
+                                    "weken",
+                                    "19",
+                                    "Na 19 verdubbelingen."
+                              ],
+                              [
+                                    "besmettingen",
+                                    "1048576",
+                                    "Dit is groter dan 1000000."
+                              ]
+                        ],
+                        "indicator": [
+                              "While-else",
+                              "Deze else hoort bij de while-lus, niet bij de if.",
+                              "warn"
+                        ],
+                        "output": "Na 19 weken zijn er 1048576 besmettingen."
+                  }
+            ],
+            "traceTitle": "Enkele weken uit de verdubbeling",
+            "traceColumns": [
+                  "week",
+                  "berekening",
+                  "besmettingen"
+            ],
+            "traceRows": [
+                  [
+                        "0",
+                        "start",
+                        "2"
+                  ],
+                  [
+                        "1",
+                        "floor(2 * 2)",
+                        "4"
+                  ],
+                  [
+                        "2",
+                        "floor(4 * 2)",
+                        "8"
+                  ],
+                  [
+                        "3",
+                        "floor(8 * 2)",
+                        "16"
+                  ],
+                  [
+                        "...",
+                        "verdubbelt verder",
+                        "..."
+                  ],
+                  [
+                        "19",
+                        "floor(524288 * 2)",
+                        "1048576"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "De teller verhogen voor je weet of er groei is.",
+                        "Verhoog weken pas nadat volgende geldig is."
+                  ],
+                  [
+                        "Geen controle op volgende <= besmettingen.",
+                        "Bij factor 1 of lager kan de lus anders blijven lopen."
+                  ],
+                  [
+                        "De while-else verwarren met de if-else.",
+                        "Deze else wordt alleen uitgevoerd als de while niet met break stopt."
+                  ]
+            ]
+      },
+      {
+            "id": 6,
+            "title": "Kans op besmetting",
+            "theme": "Per contact met toeval bepalen of iemand besmet raakt.",
+            "pattern": "For-lus met toevalskans",
+            "summary": [
+                  "Vraag het aantal contacten.",
+                  "Vraag de besmettingskans als percentage.",
+                  "Simuleer per contact een worp van 1 tot en met 100.",
+                  "Tel een besmetting als de worp kleiner dan of gelijk aan de kans is.",
+                  "Print besmet en niet besmet."
+            ],
+            "concepts": [
+                  "import random",
+                  "random.randint()",
+                  "int()",
+                  "for",
+                  "range()",
+                  "if",
+                  "teller",
+                  "print() met komma's"
+            ],
+            "core": "Een kanspercentage kan je simuleren met een willekeurig getal van 1 tot en met 100. Bij kans 30 zijn worpen 1 tot en met 30 besmet.",
+            "stop": "De for-lus stopt na precies contacten herhalingen.",
+            "inputs": [
+                  [
+                        "contacten",
+                        "8"
+                  ],
+                  [
+                        "kans",
+                        "30"
+                  ]
+            ],
+            "code": [
+                  "import random",
+                  "",
+                  "contacten = int(input(\"Aantal contacten? \"))",
+                  "kans = int(input(\"Besmettingskans? \"))",
+                  "besmet = 0",
+                  "",
+                  "for contact in range(contacten):",
+                  "    worp = random.randint(1, 100)",
+                  "",
+                  "    if worp <= kans:",
+                  "        besmet += 1",
+                  "",
+                  "print(\"Besmet:\", besmet)",
+                  "print(\"Niet besmet:\", contacten - besmet)"
+            ],
+            "steps": [
+                  {
+                        "title": "Importeer random en vraag de invoer.",
+                        "explanation": "random.randint() is nodig om toeval te simuleren. Contacten en kans zijn gehele getallen.",
+                        "lines": [
+                              1,
+                              3,
+                              4
+                        ],
+                        "variables": [
+                              [
+                                    "contacten",
+                                    "8",
+                                    "Er komen acht simulaties."
+                              ],
+                              [
+                                    "kans",
+                                    "30",
+                                    "30 procent kans per contact."
+                              ]
+                        ],
+                        "indicator": [
+                              "Toeval",
+                              "random.randint(1, 100) gebruikt grenzen die allebei meetellen.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Start de besmettingsteller.",
+                        "explanation": "Voor de simulatie begint, zijn er nog 0 besmette contacten geteld.",
+                        "lines": [
+                              5
+                        ],
+                        "variables": [
+                              [
+                                    "besmet",
+                                    "0",
+                                    "De teller stijgt alleen bij een geslaagde kansworp."
+                              ]
+                        ],
+                        "indicator": [
+                              "Teller",
+                              "Zet de teller voor de for-lus op 0.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Herhaal voor elk contact.",
+                        "explanation": "range(contacten) voert de code exact acht keer uit in het voorbeeld.",
+                        "lines": [
+                              7,
+                              8
+                        ],
+                        "variables": [
+                              [
+                                    "contact",
+                                    "0 -> 7",
+                                    "De teller zelf wordt niet geprint."
+                              ],
+                              [
+                                    "worp",
+                                    "bijvoorbeeld 12, 44, 28...",
+                                    "Elke herhaling krijgt een nieuwe toevalswaarde."
+                              ]
+                        ],
+                        "indicator": [
+                              "Simulatie",
+                              "Elke lusdoorgang stelt een contact voor.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Controleer de kans.",
+                        "explanation": "Bij kans 30 tellen worpen 1 tot en met 30 als besmet. Grotere worpen tellen niet mee.",
+                        "lines": [
+                              10,
+                              11
+                        ],
+                        "variables": [
+                              [
+                                    "worp <= kans",
+                                    "True bij 12, false bij 44",
+                                    "Alleen True verhoogt besmet."
+                              ],
+                              [
+                                    "besmet",
+                                    "3 in een mogelijke run",
+                                    "Het resultaat verschilt per uitvoering."
+                              ]
+                        ],
+                        "indicator": [
+                              "Kansregel",
+                              "Kleiner dan of gelijk aan maakt 30 van de 100 worpen succesvol.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Print beide aantallen.",
+                        "explanation": "Niet besmet hoef je niet apart te tellen. Dat is contacten min besmet.",
+                        "lines": [
+                              13,
+                              14
+                        ],
+                        "variables": [
+                              [
+                                    "besmet",
+                                    "3",
+                                    "Mogelijke uitkomst."
+                              ],
+                              [
+                                    "contacten - besmet",
+                                    "5",
+                                    "8 - 3."
+                              ]
+                        ],
+                        "indicator": [
+                              "Afleiden",
+                              "Soms kan je een tweede teller vervangen door een eenvoudige berekening.",
+                              "good"
+                        ],
+                        "output": "Besmet: 3\nNiet besmet: 5"
+                  }
+            ],
+            "traceTitle": "Mogelijke toevalstrace",
+            "traceColumns": [
+                  "contact",
+                  "worp",
+                  "resultaat",
+                  "besmet totaal"
+            ],
+            "traceRows": [
+                  [
+                        "1",
+                        "12",
+                        "besmet",
+                        "1"
+                  ],
+                  [
+                        "2",
+                        "44",
+                        "niet besmet",
+                        "1"
+                  ],
+                  [
+                        "3",
+                        "28",
+                        "besmet",
+                        "2"
+                  ],
+                  [
+                        "4",
+                        "91",
+                        "niet besmet",
+                        "2"
+                  ],
+                  [
+                        "...",
+                        "willekeurig",
+                        "...",
+                        "..."
+                  ],
+                  [
+                        "8",
+                        "7",
+                        "besmet",
+                        "3"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "random.randint() gebruiken zonder import random.",
+                        "Zet import random bovenaan."
+                  ],
+                  [
+                        "worp < kans gebruiken.",
+                        "Bij kans 30 moet 30 zelf ook meetellen, dus gebruik <=."
+                  ],
+                  [
+                        "Niet besmet apart tellen en inconsistent maken.",
+                        "Gebruik contacten - besmet om het tweede aantal af te leiden."
+                  ]
+            ]
+      },
+      {
+            "id": 7,
+            "title": "Vaccinatiecampagne",
+            "theme": "Per week vaccinaties optellen tot een doelpercentage bereikt is.",
+            "pattern": "While-lus met doelpercentage",
+            "summary": [
+                  "Vraag populatie, vaccinaties per week en doelpercentage.",
+                  "Bereken hoeveel mensen gevaccineerd moeten zijn met math.ceil().",
+                  "Tel per week vaccinaties op.",
+                  "Beperk het aantal gevaccineerden tot de populatie.",
+                  "Print na de campagne hoeveel mensen nog vatbaar zijn."
+            ],
+            "concepts": [
+                  "import math",
+                  "math.ceil()",
+                  "while",
+                  "and",
+                  "teller",
+                  "percentage",
+                  "if",
+                  "str()",
+                  "print() met komma's"
+            ],
+            "core": "Het doelpercentage wordt eerst omgezet naar een aantal mensen. Daarna groeit gevaccineerd per week tot dat doel of de volledige populatie bereikt is.",
+            "stop": "De while-lus stopt zodra gevaccineerd minstens doel is, of zodra de volledige populatie gevaccineerd is.",
+            "inputs": [
+                  [
+                        "populatie",
+                        "1200"
+                  ],
+                  [
+                        "per_week",
+                        "100"
+                  ],
+                  [
+                        "doelpercentage",
+                        "70"
+                  ]
+            ],
+            "code": [
+                  "import math",
+                  "",
+                  "populatie = int(input(\"Populatie? \"))",
+                  "per_week = int(input(\"Vaccinaties per week? \"))",
+                  "doelpercentage = float(input(\"Doelpercentage? \"))",
+                  "",
+                  "doel = math.ceil(populatie * doelpercentage / 100)",
+                  "gevaccineerd = 0",
+                  "week = 0",
+                  "",
+                  "while gevaccineerd < doel and gevaccineerd < populatie:",
+                  "    week += 1",
+                  "    gevaccineerd += per_week",
+                  "",
+                  "    if gevaccineerd > populatie:",
+                  "        gevaccineerd = populatie",
+                  "",
+                  "    print(\"Week\", str(week) + \":\", gevaccineerd, \"mensen gevaccineerd\")",
+                  "",
+                  "print(\"Nog vatbaar:\", populatie - gevaccineerd)"
+            ],
+            "steps": [
+                  {
+                        "title": "Importeer math en vraag de campagnegegevens.",
+                        "explanation": "math.ceil() is nodig omdat een doelpercentage naar boven afgerond wordt naar een volledig persoon.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5
+                        ],
+                        "variables": [
+                              [
+                                    "populatie",
+                                    "1200",
+                                    "Totaal aantal mensen."
+                              ],
+                              [
+                                    "per_week",
+                                    "100",
+                                    "Wekelijkse vooruitgang."
+                              ],
+                              [
+                                    "doelpercentage",
+                                    "70.0",
+                                    "Het doel in procent."
+                              ]
+                        ],
+                        "indicator": [
+                              "Invoer",
+                              "Het doelpercentage kan een kommagetal zijn.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Bereken het doel en startwaarden.",
+                        "explanation": "70 procent van 1200 is 840. Met ceil() rond je correct naar boven als het geen geheel getal zou zijn.",
+                        "lines": [
+                              7,
+                              8,
+                              9
+                        ],
+                        "variables": [
+                              [
+                                    "doel",
+                                    "840",
+                                    "math.ceil(1200 * 70 / 100)."
+                              ],
+                              [
+                                    "gevaccineerd",
+                                    "0",
+                                    "Nog niemand in de simulatie."
+                              ],
+                              [
+                                    "week",
+                                    "0",
+                                    "Nog geen week verwerkt."
+                              ]
+                        ],
+                        "indicator": [
+                              "Doel",
+                              "Zet een percentage om naar een concreet aantal.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Herhaal zolang het doel niet bereikt is.",
+                        "explanation": "De voorwaarde gebruikt and: beide delen moeten waar zijn om verder te gaan.",
+                        "lines": [
+                              11
+                        ],
+                        "variables": [
+                              [
+                                    "gevaccineerd < doel",
+                                    "True",
+                                    "0 is kleiner dan 840."
+                              ],
+                              [
+                                    "gevaccineerd < populatie",
+                                    "True",
+                                    "0 is kleiner dan 1200."
+                              ]
+                        ],
+                        "indicator": [
+                              "Dubbele grens",
+                              "De lus bewaakt het doel en de maximale populatie.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Tel een week en vaccinaties op.",
+                        "explanation": "Elke lusdoorgang is een week. Daarom verhoog je week en gevaccineerd in de lus.",
+                        "lines": [
+                              12,
+                              13
+                        ],
+                        "variables": [
+                              [
+                                    "week",
+                                    "1 -> 9",
+                                    "De campagne duurt negen weken in het voorbeeld."
+                              ],
+                              [
+                                    "gevaccineerd",
+                                    "100 -> 900",
+                                    "Na week 9 is het doel van 840 voorbij."
+                              ]
+                        ],
+                        "indicator": [
+                              "Groeiende waarde",
+                              "gevaccineerd verandert elke week.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Beperk tot de populatie.",
+                        "explanation": "Je kan nooit meer mensen vaccineren dan er mensen zijn. Deze if vangt dat op.",
+                        "lines": [
+                              15,
+                              16
+                        ],
+                        "variables": [
+                              [
+                                    "gevaccineerd > populatie",
+                                    "False in dit voorbeeld",
+                                    "900 blijft onder 1200."
+                              ]
+                        ],
+                        "indicator": [
+                              "Maximum",
+                              "Een simulatie mag niet voorbij de echte bovengrens gaan.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Print per week en eindresultaat.",
+                        "explanation": "De weekregels staan in de lus. Nog vatbaar print je pas na de lus.",
+                        "lines": [
+                              18,
+                              20
+                        ],
+                        "variables": [
+                              [
+                                    "gevaccineerd",
+                                    "900",
+                                    "Na week 9."
+                              ],
+                              [
+                                    "populatie - gevaccineerd",
+                                    "300",
+                                    "Nog vatbaar."
+                              ]
+                        ],
+                        "indicator": [
+                              "Na de lus",
+                              "Het eindresultaat verschijnt wanneer het doel bereikt is.",
+                              "good"
+                        ],
+                        "output": "Week 1: 100 mensen gevaccineerd\nWeek 2: 200 mensen gevaccineerd\nWeek 3: 300 mensen gevaccineerd\nWeek 4: 400 mensen gevaccineerd\nWeek 5: 500 mensen gevaccineerd\nWeek 6: 600 mensen gevaccineerd\nWeek 7: 700 mensen gevaccineerd\nWeek 8: 800 mensen gevaccineerd\nWeek 9: 900 mensen gevaccineerd\nNog vatbaar: 300"
+                  }
+            ],
+            "traceTitle": "Vaccinatietrace voor 70 procent doel",
+            "traceColumns": [
+                  "week",
+                  "gevaccineerd",
+                  "doel",
+                  "nog vatbaar"
+            ],
+            "traceRows": [
+                  [
+                        "0",
+                        "0",
+                        "840",
+                        "1200"
+                  ],
+                  [
+                        "1",
+                        "100",
+                        "840",
+                        "1100"
+                  ],
+                  [
+                        "2",
+                        "200",
+                        "840",
+                        "1000"
+                  ],
+                  [
+                        "...",
+                        "...",
+                        "840",
+                        "..."
+                  ],
+                  [
+                        "8",
+                        "800",
+                        "840",
+                        "400"
+                  ],
+                  [
+                        "9",
+                        "900",
+                        "840",
+                        "300"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "doel met round() berekenen.",
+                        "Gebruik math.ceil(), want je wil minstens het doelpercentage halen."
+                  ],
+                  [
+                        "De eindboodschap in de lus zetten.",
+                        "Print Nog vatbaar pas nadat de campagne gestopt is."
+                  ],
+                  [
+                        "Geen bovengrens op populatie zetten.",
+                        "Als per_week groot is, mag gevaccineerd niet boven populatie blijven."
+                  ]
+            ]
+      },
+      {
+            "id": 8,
+            "title": "Bereken effectieve R",
+            "theme": "R0 aanpassen door vaccinatie en maskers en daarna enkele cycli simuleren.",
+            "pattern": "Effectieve R en begrensde simulatie",
+            "summary": [
+                  "Vraag R0, vaccinatiepercentage, maskerpercentage, startaantal en aantal cycli.",
+                  "Bereken de effectieve R en rond af op twee decimalen.",
+                  "Print of de epidemie groeit, krimpt of stabiel blijft.",
+                  "Simuleer per cyclus nieuwe besmettingen met math.floor().",
+                  "Stop na het maximale aantal cycli of wanneer er geen besmettingen meer zijn."
+            ],
+            "concepts": [
+                  "import math",
+                  "round()",
+                  "math.floor()",
+                  "while",
+                  "and",
+                  "if",
+                  "elif",
+                  "else",
+                  "str()",
+                  "print() met komma's"
+            ],
+            "core": "Vaccinatie en maskers verlagen R0 met factoren. Daarna bepaalt effectieve_r of de aantallen groeien, krimpen of gelijk blijven.",
+            "stop": "De while-lus stopt wanneer cyclus max_cycli bereikt, of wanneer besmettingen 0 wordt.",
+            "inputs": [
+                  [
+                        "r0",
+                        "2.4"
+                  ],
+                  [
+                        "vaccinatie",
+                        "40"
+                  ],
+                  [
+                        "maskers",
+                        "20"
+                  ],
+                  [
+                        "besmettingen",
+                        "15"
+                  ],
+                  [
+                        "max_cycli",
+                        "4"
+                  ]
+            ],
+            "code": [
+                  "import math",
+                  "",
+                  "r0 = float(input(\"R0? \"))",
+                  "vaccinatie = float(input(\"Vaccinatiepercentage? \"))",
+                  "maskers = float(input(\"Maskerpercentage? \"))",
+                  "besmettingen = int(input(\"Startaantal besmettingen? \"))",
+                  "max_cycli = int(input(\"Aantal cycli? \"))",
+                  "",
+                  "effectieve_r = r0 * (1 - vaccinatie / 100) * (1 - maskers / 100)",
+                  "effectieve_r = round(effectieve_r, 2)",
+                  "",
+                  "print(\"Effectieve R:\", effectieve_r)",
+                  "",
+                  "if effectieve_r > 1:",
+                  "    print(\"De epidemie groeit.\")",
+                  "elif effectieve_r < 1:",
+                  "    print(\"De epidemie krimpt.\")",
+                  "else:",
+                  "    print(\"De epidemie blijft stabiel.\")",
+                  "",
+                  "cyclus = 0",
+                  "",
+                  "while cyclus < max_cycli and besmettingen > 0:",
+                  "    cyclus += 1",
+                  "    nieuwe_besmettingen = math.floor(besmettingen * effectieve_r)",
+                  "    print(\"Cyclus\", str(cyclus) + \":\", nieuwe_besmettingen, \"nieuwe besmettingen\")",
+                  "    besmettingen = nieuwe_besmettingen"
+            ],
+            "steps": [
+                  {
+                        "title": "Vraag alle invoer.",
+                        "explanation": "Percentages en R0 kunnen kommagetallen zijn. Startaantal en aantal cycli zijn gehele getallen.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5,
+                              6,
+                              7
+                        ],
+                        "variables": [
+                              [
+                                    "r0",
+                                    "2.4",
+                                    "Basisreproductiegetal."
+                              ],
+                              [
+                                    "vaccinatie",
+                                    "40.0",
+                                    "40 procent gevaccineerd."
+                              ],
+                              [
+                                    "maskers",
+                                    "20.0",
+                                    "20 procent maskereffect."
+                              ],
+                              [
+                                    "besmettingen",
+                                    "15",
+                                    "Startaantal."
+                              ],
+                              [
+                                    "max_cycli",
+                                    "4",
+                                    "Maximaal vier simulatiestappen."
+                              ]
+                        ],
+                        "indicator": [
+                              "Invoer",
+                              "Gebruik float() voor percentages.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Bereken effectieve R.",
+                        "explanation": "Vaccinatie laat 60 procent effect over, maskers 80 procent. Die factoren vermenigvuldig je met R0.",
+                        "lines": [
+                              9,
+                              10
+                        ],
+                        "variables": [
+                              [
+                                    "effectieve_r",
+                                    "1.15",
+                                    "round(2.4 * 0.6 * 0.8, 2)."
+                              ]
+                        ],
+                        "indicator": [
+                              "Factoren",
+                              "Een daling met 40 procent wordt 1 - 40 / 100.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Print de effectieve R.",
+                        "explanation": "Eerst toon je de berekende waarde, zodat de gebruiker ziet waarmee de simulatie verder rekent.",
+                        "lines": [
+                              12
+                        ],
+                        "variables": [
+                              [
+                                    "effectieve_r",
+                                    "1.15",
+                                    "De afgeronde waarde."
+                              ]
+                        ],
+                        "indicator": [
+                              "Uitvoer",
+                              "Deze waarde verklaart de richting van de epidemie.",
+                              "good"
+                        ],
+                        "output": "Effectieve R: 1.15"
+                  },
+                  {
+                        "title": "Bepaal de richting.",
+                        "explanation": "Boven 1 groeit de epidemie. Onder 1 krimpt ze. Exact 1 betekent stabiel.",
+                        "lines": [
+                              14,
+                              15,
+                              16,
+                              17,
+                              18,
+                              19
+                        ],
+                        "variables": [
+                              [
+                                    "effectieve_r > 1",
+                                    "True",
+                                    "1.15 is groter dan 1."
+                              ]
+                        ],
+                        "indicator": [
+                              "Interpretatie",
+                              "De vergelijking vertaalt een getal naar betekenis.",
+                              "good"
+                        ],
+                        "output": "Effectieve R: 1.15\nDe epidemie groeit."
+                  },
+                  {
+                        "title": "Start en bewaak de simulatie.",
+                        "explanation": "De while-lus loopt zolang er nog cycli over zijn en zolang er nog besmettingen zijn.",
+                        "lines": [
+                              21,
+                              23
+                        ],
+                        "variables": [
+                              [
+                                    "cyclus",
+                                    "0",
+                                    "Er is nog geen cyclus verwerkt."
+                              ],
+                              [
+                                    "cyclus < max_cycli",
+                                    "True",
+                                    "0 is kleiner dan 4."
+                              ],
+                              [
+                                    "besmettingen > 0",
+                                    "True",
+                                    "15 is groter dan 0."
+                              ]
+                        ],
+                        "indicator": [
+                              "Dubbele voorwaarde",
+                              "and betekent dat beide voorwaarden waar moeten zijn.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Bereken en print per cyclus.",
+                        "explanation": "Per cyclus stijgt de teller, bereken je nieuwe besmettingen en gebruik je die als start voor de volgende cyclus.",
+                        "lines": [
+                              24,
+                              25,
+                              26,
+                              27
+                        ],
+                        "variables": [
+                              [
+                                    "cyclus",
+                                    "4",
+                                    "Na vier herhalingen."
+                              ],
+                              [
+                                    "nieuwe_besmettingen",
+                                    "24",
+                                    "De vierde berekening."
+                              ],
+                              [
+                                    "besmettingen",
+                                    "24",
+                                    "Wordt de nieuwe startwaarde."
+                              ]
+                        ],
+                        "indicator": [
+                              "Simulatie",
+                              "Elke cyclus gebruikt de uitkomst van de vorige cyclus.",
+                              "good"
+                        ],
+                        "output": "Effectieve R: 1.15\nDe epidemie groeit.\nCyclus 1: 17 nieuwe besmettingen\nCyclus 2: 19 nieuwe besmettingen\nCyclus 3: 21 nieuwe besmettingen\nCyclus 4: 24 nieuwe besmettingen"
+                  }
+            ],
+            "traceTitle": "Simulatie met effectieve R 1.15",
+            "traceColumns": [
+                  "cyclus",
+                  "berekening",
+                  "nieuwe besmettingen"
+            ],
+            "traceRows": [
+                  [
+                        "1",
+                        "floor(15 * 1.15)",
+                        "17"
+                  ],
+                  [
+                        "2",
+                        "floor(17 * 1.15)",
+                        "19"
+                  ],
+                  [
+                        "3",
+                        "floor(19 * 1.15)",
+                        "21"
+                  ],
+                  [
+                        "4",
+                        "floor(21 * 1.15)",
+                        "24"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "Percentages rechtstreeks aftrekken van R0.",
+                        "Gebruik factoren: 1 - percentage / 100."
+                  ],
+                  [
+                        "effectieve_r niet afronden voor de simulatie.",
+                        "De oplossing rekent verder met de afgeronde effectieve_r."
+                  ],
+                  [
+                        "besmettingen niet vervangen door nieuwe_besmettingen.",
+                        "De volgende cyclus moet vertrekken van het vorige resultaat."
+                  ]
+            ]
+      },
+      {
+            "id": 9,
+            "title": "Simpele SIR-simulatie",
+            "theme": "Vatbare, besmette en resistente personen per ronde bijwerken.",
+            "pattern": "SIR-simulatie met drie toestanden",
+            "summary": [
+                  "Vraag het aantal vatbare, besmette en resistente personen.",
+                  "Vraag besmettingskracht, herstelpercentage en aantal rondes.",
+                  "Bereken per ronde nieuwe besmettingen en herstelde personen.",
+                  "Werk vatbaar, besmet en resistent in de juiste volgorde bij.",
+                  "Print de toestand na elke ronde."
+            ],
+            "concepts": [
+                  "import math",
+                  "math.floor()",
+                  "min()",
+                  "while",
+                  "and",
+                  "teller",
+                  "som en verschil",
+                  "str()",
+                  "string-concatenatie"
+            ],
+            "core": "SIR werkt met drie groepen. Elke ronde verhuist een aantal mensen van vatbaar naar besmet en van besmet naar resistent.",
+            "stop": "De while-lus stopt na max_rondes of zodra besmet gelijk is aan 0.",
+            "inputs": [
+                  [
+                        "vatbaar",
+                        "20"
+                  ],
+                  [
+                        "besmet",
+                        "2"
+                  ],
+                  [
+                        "resistent",
+                        "0"
+                  ],
+                  [
+                        "besmettingskracht",
+                        "2"
+                  ],
+                  [
+                        "herstelpercentage",
+                        "50"
+                  ],
+                  [
+                        "max_rondes",
+                        "3"
+                  ]
+            ],
+            "code": [
+                  "import math",
+                  "",
+                  "vatbaar = int(input(\"Aantal vatbare personen? \"))",
+                  "besmet = int(input(\"Aantal besmette personen? \"))",
+                  "resistent = int(input(\"Aantal resistente personen? \"))",
+                  "besmettingskracht = int(input(\"Besmettingskracht? \"))",
+                  "herstelpercentage = float(input(\"Herstelpercentage? \"))",
+                  "max_rondes = int(input(\"Aantal rondes? \"))",
+                  "",
+                  "ronde = 0",
+                  "",
+                  "while ronde < max_rondes and besmet > 0:",
+                  "    ronde += 1",
+                  "    nieuwe_besmettingen = min(vatbaar, besmet * besmettingskracht)",
+                  "    hersteld = math.floor(besmet * herstelpercentage / 100)",
+                  "",
+                  "    vatbaar -= nieuwe_besmettingen",
+                  "    besmet = besmet + nieuwe_besmettingen - hersteld",
+                  "    resistent += hersteld",
+                  "",
+                  "    print(\"Ronde \" + str(ronde) + \": vatbaar=\" + str(vatbaar) + \", besmet=\" + str(besmet) + \", resistent=\" + str(resistent))"
+            ],
+            "steps": [
+                  {
+                        "title": "Vraag de SIR-waarden.",
+                        "explanation": "De drie groepen beschrijven de toestand: vatbaar, besmet en resistent. Het herstelpercentage kan een kommagetal zijn.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5,
+                              6,
+                              7,
+                              8
+                        ],
+                        "variables": [
+                              [
+                                    "vatbaar",
+                                    "20",
+                                    "Kan nog besmet raken."
+                              ],
+                              [
+                                    "besmet",
+                                    "2",
+                                    "Kan anderen besmetten."
+                              ],
+                              [
+                                    "resistent",
+                                    "0",
+                                    "Niet meer vatbaar in dit model."
+                              ],
+                              [
+                                    "besmettingskracht",
+                                    "2",
+                                    "Nieuwe besmettingen per besmette persoon."
+                              ],
+                              [
+                                    "herstelpercentage",
+                                    "50.0",
+                                    "De helft herstelt per ronde."
+                              ],
+                              [
+                                    "max_rondes",
+                                    "3",
+                                    "Maximaal drie rondes."
+                              ]
+                        ],
+                        "indicator": [
+                              "Model",
+                              "SIR splitst de populatie in drie groepen.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Start de rondeteller en lus.",
+                        "explanation": "De simulatie loopt zolang er rondes over zijn en er nog besmette personen zijn.",
+                        "lines": [
+                              10,
+                              12
+                        ],
+                        "variables": [
+                              [
+                                    "ronde",
+                                    "0",
+                                    "Nog geen ronde verwerkt."
+                              ],
+                              [
+                                    "ronde < max_rondes",
+                                    "True",
+                                    "0 is kleiner dan 3."
+                              ],
+                              [
+                                    "besmet > 0",
+                                    "True",
+                                    "2 is groter dan 0."
+                              ]
+                        ],
+                        "indicator": [
+                              "Dubbele stop",
+                              "De lus kan door tijd of door nul besmettingen stoppen.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Bereken veranderingen voor deze ronde.",
+                        "explanation": "min() voorkomt dat je meer mensen besmet dan er vatbaar zijn. hersteld wordt naar beneden afgerond.",
+                        "lines": [
+                              13,
+                              14,
+                              15
+                        ],
+                        "variables": [
+                              [
+                                    "ronde",
+                                    "1",
+                                    "De eerste ronde."
+                              ],
+                              [
+                                    "nieuwe_besmettingen",
+                                    "4",
+                                    "min(20, 2 * 2)."
+                              ],
+                              [
+                                    "hersteld",
+                                    "1",
+                                    "floor(2 * 50 / 100)."
+                              ]
+                        ],
+                        "indicator": [
+                              "Verandering",
+                              "Bereken eerst de veranderingen, werk daarna de groepen bij.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Werk de drie groepen bij.",
+                        "explanation": "Nieuwe besmettingen gaan uit vatbaar en komen bij besmet. Herstelden gaan uit besmet en komen bij resistent.",
+                        "lines": [
+                              17,
+                              18,
+                              19
+                        ],
+                        "variables": [
+                              [
+                                    "vatbaar",
+                                    "16",
+                                    "20 - 4."
+                              ],
+                              [
+                                    "besmet",
+                                    "5",
+                                    "2 + 4 - 1."
+                              ],
+                              [
+                                    "resistent",
+                                    "1",
+                                    "0 + 1."
+                              ]
+                        ],
+                        "indicator": [
+                              "Balans",
+                              "Elke groep wordt aangepast vanuit dezelfde rondeberekening.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Print de toestand.",
+                        "explanation": "De opdracht wil exact deze tekstvorm. Daarom gebruikt de code string-concatenatie met str().",
+                        "lines": [
+                              21
+                        ],
+                        "variables": [
+                              [
+                                    "ronde",
+                                    "1 -> 3",
+                                    "Wordt mee in de tekst gezet."
+                              ],
+                              [
+                                    "vatbaar, besmet, resistent",
+                                    "0, 13, 9 na ronde 3",
+                                    "De eindtoestand in het voorbeeld."
+                              ]
+                        ],
+                        "indicator": [
+                              "Exacte uitvoer",
+                              "str() zet getallen om naar tekst voor de concatenatie.",
+                              "good"
+                        ],
+                        "output": "Ronde 1: vatbaar=16, besmet=5, resistent=1\nRonde 2: vatbaar=6, besmet=13, resistent=3\nRonde 3: vatbaar=0, besmet=13, resistent=9"
+                  }
+            ],
+            "traceTitle": "SIR-trace voor drie rondes",
+            "traceColumns": [
+                  "ronde",
+                  "vatbaar",
+                  "besmet",
+                  "resistent"
+            ],
+            "traceRows": [
+                  [
+                        "0",
+                        "20",
+                        "2",
+                        "0"
+                  ],
+                  [
+                        "1",
+                        "16",
+                        "5",
+                        "1"
+                  ],
+                  [
+                        "2",
+                        "6",
+                        "13",
+                        "3"
+                  ],
+                  [
+                        "3",
+                        "0",
+                        "13",
+                        "9"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "min() weglaten bij nieuwe besmettingen.",
+                        "Dan kan vatbaar negatief worden."
+                  ],
+                  [
+                        "hersteld berekenen nadat besmet al aangepast is.",
+                        "Bereken hersteld op basis van het besmette aantal aan het begin van de ronde."
+                  ],
+                  [
+                        "De print met losse komma's maken terwijl exact concatenatie gevraagd is.",
+                        "Gebruik de opgegeven tekstvorm met str() zodat de uitvoer exact klopt."
+                  ]
+            ]
+      },
+      {
+            "id": 10,
+            "title": "Herinfectie",
+            "theme": "Per ronde en per resistente persoon met toeval bepalen of herinfectie optreedt.",
+            "pattern": "While-lus met geneste for-lus en toeval",
+            "summary": [
+                  "Vraag het aantal resistente personen, rondes en kans op herinfectie.",
+                  "Herhaal zolang er rondes over zijn en er resistente personen zijn.",
+                  "Controleer per resistente persoon met random.randint() of die herinfecteert.",
+                  "Trek herinfecties af van resistent en tel ze bij totaal.",
+                  "Print per ronde en op het einde het totaal."
+            ],
+            "concepts": [
+                  "import random",
+                  "random.randint()",
+                  "while",
+                  "for",
+                  "range()",
+                  "if",
+                  "teller",
+                  "geneste lus",
+                  "str()",
+                  "string-concatenatie"
+            ],
+            "core": "De while-lus bestuurt de rondes. Binnen elke ronde controleert een for-lus elke resistente persoon apart.",
+            "stop": "De while-lus stopt wanneer ronde gelijk is aan rondes, of wanneer resistent 0 wordt.",
+            "inputs": [
+                  [
+                        "resistent",
+                        "12"
+                  ],
+                  [
+                        "rondes",
+                        "4"
+                  ],
+                  [
+                        "kans",
+                        "25"
+                  ]
+            ],
+            "code": [
+                  "import random",
+                  "",
+                  "resistent = int(input(\"Aantal resistente personen? \"))",
+                  "rondes = int(input(\"Aantal rondes? \"))",
+                  "kans = int(input(\"Kans op herinfectie? \"))",
+                  "totaal = 0",
+                  "ronde = 0",
+                  "",
+                  "while ronde < rondes and resistent > 0:",
+                  "    ronde += 1",
+                  "    herinfecties = 0",
+                  "",
+                  "    for persoon in range(resistent):",
+                  "        if random.randint(1, 100) <= kans:",
+                  "            herinfecties += 1",
+                  "",
+                  "    resistent -= herinfecties",
+                  "    totaal += herinfecties",
+                  "",
+                  "    print(\"Ronde \" + str(ronde) + \": \" + str(herinfecties) + \" herinfecties, \" + str(resistent) + \" resistent\")",
+                  "",
+                  "print(\"Totaal herinfecties:\", totaal)"
+            ],
+            "steps": [
+                  {
+                        "title": "Importeer random en vraag de invoer.",
+                        "explanation": "De kans wordt gesimuleerd met random.randint(1, 100). Alle invoer is hier een geheel getal.",
+                        "lines": [
+                              1,
+                              3,
+                              4,
+                              5
+                        ],
+                        "variables": [
+                              [
+                                    "resistent",
+                                    "12",
+                                    "Aantal personen dat per ronde getest wordt."
+                              ],
+                              [
+                                    "rondes",
+                                    "4",
+                                    "Maximaal vier rondes."
+                              ],
+                              [
+                                    "kans",
+                                    "25",
+                                    "25 procent kans op herinfectie per persoon."
+                              ]
+                        ],
+                        "indicator": [
+                              "Toeval",
+                              "Een kans van 25 betekent worpen 1 tot en met 25.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Start totaal en ronde.",
+                        "explanation": "totaal telt alle herinfecties over alle rondes. ronde telt hoeveel rondes al gebeurd zijn.",
+                        "lines": [
+                              6,
+                              7
+                        ],
+                        "variables": [
+                              [
+                                    "totaal",
+                                    "0",
+                                    "Nog geen herinfecties."
+                              ],
+                              [
+                                    "ronde",
+                                    "0",
+                                    "Nog geen ronde verwerkt."
+                              ]
+                        ],
+                        "indicator": [
+                              "Startwaarden",
+                              "Deze tellers blijven buiten de while-lus bestaan.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Start een ronde zolang dat kan.",
+                        "explanation": "De while-lus gaat verder zolang er rondes over zijn en er nog resistente personen zijn.",
+                        "lines": [
+                              9,
+                              10,
+                              11
+                        ],
+                        "variables": [
+                              [
+                                    "ronde",
+                                    "1",
+                                    "De teller stijgt aan het begin van de ronde."
+                              ],
+                              [
+                                    "herinfecties",
+                                    "0",
+                                    "Per ronde begin je opnieuw op 0."
+                              ]
+                        ],
+                        "indicator": [
+                              "Rondeteller",
+                              "herinfecties is een tijdelijke teller per ronde.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Controleer elke resistente persoon.",
+                        "explanation": "De for-lus loopt over het aantal resistente personen dat bij het begin van deze ronde bestond.",
+                        "lines": [
+                              13,
+                              14,
+                              15
+                        ],
+                        "variables": [
+                              [
+                                    "persoon",
+                                    "0 -> resistent - 1",
+                                    "Elke doorgang stelt een persoon voor."
+                              ],
+                              [
+                                    "herinfecties",
+                                    "bijvoorbeeld 2",
+                                    "Stijgt alleen als de toevalsworp klein genoeg is."
+                              ]
+                        ],
+                        "indicator": [
+                              "Geneste lus",
+                              "Een for-lus binnen een while-lus laat je per ronde meerdere personen testen.",
+                              "warn"
+                        ]
+                  },
+                  {
+                        "title": "Werk resistent en totaal bij.",
+                        "explanation": "Herinfecties verdwijnen uit de resistente groep en worden toegevoegd aan het totaalaantal.",
+                        "lines": [
+                              17,
+                              18
+                        ],
+                        "variables": [
+                              [
+                                    "resistent",
+                                    "10 na ronde 1",
+                                    "12 - 2 in de mogelijke run."
+                              ],
+                              [
+                                    "totaal",
+                                    "2 na ronde 1",
+                                    "Totaal over alle rondes."
+                              ]
+                        ],
+                        "indicator": [
+                              "Bijwerken",
+                              "Een rondeteller en een totaalteller hebben elk hun eigen taak.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Print ronde en totaal.",
+                        "explanation": "Na elke ronde verschijnt de stand. Na de while-lus verschijnt het totaalaantal herinfecties.",
+                        "lines": [
+                              20,
+                              22
+                        ],
+                        "variables": [
+                              [
+                                    "ronde",
+                                    "4",
+                                    "Vier rondes uitgevoerd in de mogelijke run."
+                              ],
+                              [
+                                    "totaal",
+                                    "9",
+                                    "Alle herinfecties samen."
+                              ],
+                              [
+                                    "resistent",
+                                    "3",
+                                    "Nog resistent na ronde 4."
+                              ]
+                        ],
+                        "indicator": [
+                              "Exacte uitvoer",
+                              "De rondezin gebruikt str() om getallen in tekst te plakken.",
+                              "good"
+                        ],
+                        "output": "Ronde 1: 2 herinfecties, 10 resistent\nRonde 2: 3 herinfecties, 7 resistent\nRonde 3: 2 herinfecties, 5 resistent\nRonde 4: 2 herinfecties, 3 resistent\nTotaal herinfecties: 9"
+                  }
+            ],
+            "traceTitle": "Mogelijke herinfectietrace",
+            "traceColumns": [
+                  "ronde",
+                  "herinfecties",
+                  "resistent",
+                  "totaal"
+            ],
+            "traceRows": [
+                  [
+                        "1",
+                        "2",
+                        "10",
+                        "2"
+                  ],
+                  [
+                        "2",
+                        "3",
+                        "7",
+                        "5"
+                  ],
+                  [
+                        "3",
+                        "2",
+                        "5",
+                        "7"
+                  ],
+                  [
+                        "4",
+                        "2",
+                        "3",
+                        "9"
+                  ]
+            ],
+            "mistakes": [
+                  [
+                        "herinfecties buiten de while-lus op 0 zetten.",
+                        "Dan blijft de rondeteller opstapelen. Zet herinfecties elke ronde opnieuw op 0."
+                  ],
+                  [
+                        "range(resistent) gebruiken nadat resistent al verlaagd is.",
+                        "Controleer eerst alle personen van de ronde, pas daarna verlaag je resistent."
+                  ],
+                  [
+                        "totaal vervangen door herinfecties.",
+                        "Gebruik totaal += herinfecties om alle rondes samen te tellen."
+                  ]
+            ]
+      }
+];
+
+    const state = {
+      exerciseIndex: 0,
+      stepIndex: 0
+    };
+
+    const ui = {
+      progress: document.getElementById("exercise-progress"),
+      exerciseTitle: document.getElementById("exercise-title"),
+      exerciseTheme: document.getElementById("exercise-theme"),
+      stepStatus: document.getElementById("step-status"),
+      resetBtn: document.getElementById("reset-btn"),
+      patternLabel: document.getElementById("pattern-label"),
+      summaryList: document.getElementById("summary-list"),
+      concepts: document.getElementById("concepts"),
+      coreIdea: document.getElementById("core-idea"),
+      stopCondition: document.getElementById("stop-condition"),
+      stepList: document.getElementById("step-list"),
+      stepTitle: document.getElementById("step-title"),
+      stepExplanation: document.getElementById("step-explanation"),
+      codeLines: document.getElementById("code-lines"),
+      prevStep: document.getElementById("prev-step"),
+      nextStep: document.getElementById("next-step"),
+      stepModalBtn: document.getElementById("step-modal-btn"),
+      solutionModalBtn: document.getElementById("solution-modal-btn"),
+      stepModal: document.getElementById("step-modal"),
+      closeStepModal: document.getElementById("close-step-modal"),
+      stepModalTitle: document.getElementById("step-modal-title"),
+      stepModalExplanation: document.getElementById("step-modal-explanation"),
+      stepModalCode: document.getElementById("step-modal-code"),
+      stepModalVariables: document.getElementById("step-modal-variables"),
+      stepModalOutput: document.getElementById("step-modal-output"),
+      solutionModal: document.getElementById("solution-modal"),
+      closeSolutionModal: document.getElementById("close-solution-modal"),
+      solutionModalCode: document.getElementById("solution-modal-code"),
+      inputsList: document.getElementById("inputs-list"),
+      indicator: document.getElementById("indicator"),
+      variablesBody: document.getElementById("variables-body"),
+      outputBox: document.getElementById("output-box"),
+      traceTitle: document.getElementById("trace-title"),
+      traceHead: document.getElementById("trace-head"),
+      traceBody: document.getElementById("trace-body"),
+      mistakes: document.getElementById("mistakes")
+    };
+
+    function currentExercise() {
+      return EXERCISES[state.exerciseIndex];
+    }
+
+    function currentStep() {
+      return currentExercise().steps[state.stepIndex];
+    }
+
+    function createElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) {
+        element.className = className;
+      }
+      if (typeof text === "string") {
+        element.textContent = text;
+      }
+      return element;
+    }
+
+    function clearNode(node) {
+      while (node.firstChild) {
+        node.removeChild(node.firstChild);
+      }
+    }
+
+    function renderProgress() {
+      clearNode(ui.progress);
+      EXERCISES.forEach((exercise, index) => {
+        const button = createElement("button", "exercise-btn", String(exercise.id));
+        button.type = "button";
+        button.title = exercise.title;
+        button.setAttribute("aria-label", "Open oefening " + exercise.id + ": " + exercise.title);
+        if (index === state.exerciseIndex) {
+          button.classList.add("current");
+          button.setAttribute("aria-current", "true");
+        }
+        button.addEventListener("click", () => {
+          state.exerciseIndex = index;
+          state.stepIndex = 0;
+          closeAllModals();
+          render();
+          scrollCodePanelTop();
+        });
+        ui.progress.appendChild(button);
+      });
+    }
+
+    function renderSummary(exercise) {
+      clearNode(ui.summaryList);
+      exercise.summary.forEach((item) => {
+        ui.summaryList.appendChild(createElement("li", "", item));
+      });
+
+      clearNode(ui.concepts);
+      exercise.concepts.forEach((concept) => {
+        ui.concepts.appendChild(createElement("span", "concept-chip", concept));
+      });
+    }
+
+    function renderStepList(exercise) {
+      clearNode(ui.stepList);
+      exercise.steps.forEach((step, index) => {
+        const button = createElement("button", "step-jump", "");
+        button.type = "button";
+        if (index === state.stepIndex) {
+          button.classList.add("current");
+        }
+        const number = createElement("span", "step-number", String(index + 1));
+        const label = createElement("span", "", step.title);
+        button.append(number, label);
+        button.addEventListener("click", () => {
+          state.stepIndex = index;
+          closeAllModals();
+          render();
+          scrollCodePanelTop();
+        });
+        ui.stepList.appendChild(button);
+      });
+    }
+
+    function getStepLineNumbers(step) {
+      const numbers = Array.isArray(step.lines) ? step.lines : [];
+      return [...new Set(numbers)]
+        .filter((lineNumber) => Number.isInteger(lineNumber) && lineNumber > 0)
+        .sort((a, b) => a - b);
+    }
+
+    function getStepCodeText(exercise, step) {
+      const lineNumbers = getStepLineNumbers(step);
+      return lineNumbers
+        .map((lineNumber) => {
+          const code = exercise.code[lineNumber - 1] || "";
+          return String(lineNumber).padStart(2, " ") + "  " + code;
+        })
+        .join("\n");
+    }
+
+    function renderCode(exercise, step) {
+      clearNode(ui.codeLines);
+      const lineNumbers = getStepLineNumbers(step);
+      lineNumbers.forEach((lineNumber) => {
+        const line = exercise.code[lineNumber - 1] || "";
+        const row = document.createElement("tr");
+        row.classList.add("is-active");
+        const numberCell = createElement("td", "line-no", String(lineNumber));
+        const codeCell = createElement("td", "line-code", line || " ");
+        row.append(numberCell, codeCell);
+        ui.codeLines.appendChild(row);
+      });
+    }
+
+    function renderInputs(exercise) {
+      clearNode(ui.inputsList);
+      exercise.inputs.forEach(([label, value]) => {
+        const row = createElement("div", "input-pill", "");
+        const name = createElement("span", "", label);
+        const code = createElement("code", "", value);
+        row.append(name, code);
+        ui.inputsList.appendChild(row);
+      });
+    }
+
+    function renderIndicator(step) {
+      clearNode(ui.indicator);
+      const indicator = step.indicator || ["Denkstap", "Bekijk wat deze regel doet.", "good"];
+      const title = createElement("div", "indicator-title", indicator[0]);
+      const row = createElement("div", "indicator-row", "");
+      row.appendChild(createElement("span", "", indicator[1]));
+      ui.indicator.append(title, row);
+    }
+
+    function renderVariableRows(tbody, variables) {
+      clearNode(tbody);
+      if (!variables.length) {
+        const row = document.createElement("tr");
+        const cell = createElement("td", "", "Nog geen variabelen.");
+        cell.colSpan = 3;
+        row.appendChild(cell);
+        tbody.appendChild(row);
+        return;
+      }
+
+      variables.forEach(([name, value, note]) => {
+        const row = document.createElement("tr");
+        const nameCell = createElement("td", "", name);
+        const valueCell = document.createElement("td");
+        valueCell.appendChild(createElement("code", "", value));
+        const noteCell = createElement("td", "", note);
+        row.append(nameCell, valueCell, noteCell);
+        tbody.appendChild(row);
+      });
+    }
+
+    function renderVariables(step) {
+      renderVariableRows(ui.variablesBody, step.variables || []);
+    }
+
+    function renderTrace(exercise) {
+      ui.traceTitle.textContent = exercise.traceTitle || "Voorbeeldtrace";
+      clearNode(ui.traceHead);
+      clearNode(ui.traceBody);
+
+      const headRow = document.createElement("tr");
+      exercise.traceColumns.forEach((column) => {
+        headRow.appendChild(createElement("th", "", column));
+      });
+      ui.traceHead.appendChild(headRow);
+
+      exercise.traceRows.forEach((values) => {
+        const row = document.createElement("tr");
+        values.forEach((value) => {
+          row.appendChild(createElement("td", "", value));
+        });
+        ui.traceBody.appendChild(row);
+      });
+    }
+
+    function renderMistakes(exercise) {
+      clearNode(ui.mistakes);
+      exercise.mistakes.forEach(([mistake, correction]) => {
+        const item = createElement("div", "mistake", "");
+        item.appendChild(createElement("strong", "", mistake));
+        item.appendChild(createElement("span", "", correction));
+        ui.mistakes.appendChild(item);
+      });
+    }
+
+    function renderSolutionButton(exercise) {
+      const canOpen = state.stepIndex === exercise.steps.length - 1;
+      ui.solutionModalBtn.disabled = !canOpen;
+      ui.solutionModalBtn.textContent = canOpen ? "Open sleutel" : "Sleutel na laatste stap";
+      ui.solutionModalBtn.title = canOpen
+        ? "Open de volledige oplossingssleutel in een apart venster."
+        : "Doorloop eerst alle denkstappen.";
+    }
+
+    function scrollCodePanelTop() {
+      const body = document.querySelector(".code-panel .panel-body");
+      if (body) {
+        body.scrollTop = 0;
+      }
+    }
+
+    function openModal(modal) {
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function closeAllModals() {
+      closeModal(ui.stepModal);
+      closeModal(ui.solutionModal);
+    }
+
+    function openStepModal() {
+      const exercise = currentExercise();
+      const step = currentStep();
+      ui.stepModalTitle.textContent = "Stap " + (state.stepIndex + 1) + ": " + step.title;
+      ui.stepModalExplanation.textContent = step.explanation;
+      ui.stepModalCode.textContent = getStepCodeText(exercise, step);
+      renderVariableRows(ui.stepModalVariables, step.variables || []);
+      ui.stepModalOutput.textContent = step.output || "(Nog geen uitvoer op dit punt.)";
+      openModal(ui.stepModal);
+    }
+
+    function openSolutionModal() {
+      const exercise = currentExercise();
+      if (state.stepIndex !== exercise.steps.length - 1) {
+        return;
+      }
+      ui.solutionModalCode.textContent = exercise.code.join("\n");
+      openModal(ui.solutionModal);
+    }
+
+    function render() {
+      const exercise = currentExercise();
+      const step = currentStep();
+      const totalSteps = exercise.steps.length;
+
+      renderProgress();
+      ui.exerciseTitle.textContent = exercise.id + ". " + exercise.title;
+      ui.exerciseTheme.textContent = exercise.theme;
+      ui.stepStatus.textContent = "Stap " + (state.stepIndex + 1) + " van " + totalSteps;
+      ui.patternLabel.textContent = exercise.pattern;
+      ui.coreIdea.textContent = exercise.core;
+      ui.stopCondition.textContent = exercise.stop;
+
+      renderSummary(exercise);
+      renderStepList(exercise);
+
+      ui.stepTitle.textContent = step.title;
+      ui.stepExplanation.textContent = step.explanation;
+
+      renderCode(exercise, step);
+      renderInputs(exercise);
+      renderIndicator(step);
+      renderVariables(step);
+      ui.outputBox.textContent = step.output || "(Nog geen uitvoer op dit punt.)";
+      renderTrace(exercise);
+      renderMistakes(exercise);
+      renderSolutionButton(exercise);
+
+      ui.prevStep.disabled = state.stepIndex === 0;
+      ui.nextStep.disabled = state.stepIndex === totalSteps - 1;
+      ui.nextStep.textContent = state.stepIndex === totalSteps - 1 ? "Laatste stap" : "Volgende stap";
+    }
+
+    ui.prevStep.addEventListener("click", () => {
+      if (state.stepIndex > 0) {
+        state.stepIndex -= 1;
+        closeAllModals();
+        render();
+        scrollCodePanelTop();
+      }
+    });
+
+    ui.nextStep.addEventListener("click", () => {
+      const totalSteps = currentExercise().steps.length;
+      if (state.stepIndex < totalSteps - 1) {
+        state.stepIndex += 1;
+        closeAllModals();
+        render();
+        scrollCodePanelTop();
+      }
+    });
+
+    ui.stepModalBtn.addEventListener("click", openStepModal);
+    ui.solutionModalBtn.addEventListener("click", openSolutionModal);
+    ui.closeStepModal.addEventListener("click", () => closeModal(ui.stepModal));
+    ui.closeSolutionModal.addEventListener("click", () => closeModal(ui.solutionModal));
+    ui.stepModal.addEventListener("click", (event) => {
+      if (event.target === ui.stepModal) {
+        closeModal(ui.stepModal);
+      }
+    });
+    ui.solutionModal.addEventListener("click", (event) => {
+      if (event.target === ui.solutionModal) {
+        closeModal(ui.solutionModal);
+      }
+    });
+
+    ui.resetBtn.addEventListener("click", () => {
+      state.stepIndex = 0;
+      closeAllModals();
+      render();
+      scrollCodePanelTop();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+      if (event.key === "Escape") {
+        closeAllModals();
+      }
+      if (event.key === "ArrowRight") {
+        ui.nextStep.click();
+      }
+      if (event.key === "ArrowLeft") {
+        ui.prevStep.click();
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>
