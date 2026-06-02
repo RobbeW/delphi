@@ -4261,22 +4261,24 @@
       {
             "id": 18,
             "title": "Virusdobbelsteen",
-            "theme": "Besmettingen simuleren met random.randint.",
-            "pattern": "Deterministische random-simulatie met seed",
+            "theme": "Besmettingen per worp optellen.",
+            "pattern": "Een reeks willekeurige worpen sommeren",
             "summary": [
-                  "Importeer random en zet random.seed(1).",
                   "Vraag het aantal beurten.",
-                  "Gooi per beurt random.randint(1, 6).",
-                  "Tel alle worpen op en print het totaal."
+                  "Simuleer per beurt een worp met random.randint(1, 6).",
+                  "Tel alle worpen op in een totaal.",
+                  "Print het totaal na alle beurten."
             ],
             "concepts": [
                   "import random",
-                  "random.seed()",
-                  "random.randint()",
+                  "int()",
                   "for-lus",
-                  "accumulator"
+                  "range()",
+                  "random.randint()",
+                  "accumulator",
+                  "+="
             ],
-            "core": "random.randint(1, 6) geeft een geheel getal van 1 tot en met 6. De seed maakt de reeks testbaar.",
+            "core": "Omdat elke beurt een eigen worp krijgt, maak je binnen de lus telkens een nieuw willekeurig getal.",
             "stop": "De lus stopt na het aantal beurten.",
             "inputs": [
                   [
@@ -4284,14 +4286,12 @@
                         "8"
                   ],
                   [
-                        "randomreeks bij seed 1",
-                        "2, 5, 1, 3, 1, 4, 4, 4"
+                        "voorbeeldworpen",
+                        "5, 2, 1, 4, 3, 3, 3, 6"
                   ]
             ],
             "code": [
                   "import random",
-                  "",
-                  "random.seed(1)",
                   "",
                   "beurten = int(input(\"Aantal beurten? \"))",
                   "",
@@ -4305,69 +4305,80 @@
             ],
             "steps": [
                   {
-                        "title": "Initialiseer random en lees beurten.",
-                        "explanation": "De vaste seed zorgt dat iedereen dezelfde worpen krijgt.",
+                        "title": "Lees het aantal beurten.",
+                        "explanation": "Dit getal bepaalt hoeveel willekeurige worpen je maakt.",
                         "lines": [
-                              1,
-                              3,
-                              5,
-                              7
+                              3
                         ],
                         "variables": [
                               [
                                     "beurten",
                                     "8",
-                                    "Acht worpen."
-                              ],
-                              [
-                                    "totaal",
-                                    "0",
-                                    "Starttotaal."
+                                    "Er volgen acht worpen."
                               ]
                         ],
                         "indicator": [
-                              "Random",
-                              "Zet de seed voor de tests.",
+                              "Input",
+                              "Bepaal de luslengte.",
                               "good"
                         ]
                   },
                   {
-                        "title": "Gooi per beurt.",
-                        "explanation": "Elke iteratie maakt een willekeurige worp van 1 tot en met 6.",
+                        "title": "Start het totaal.",
+                        "explanation": "Voor je waarden optelt, zet je het totaal op nul.",
                         "lines": [
-                              9,
-                              10,
-                              11
+                              5
+                        ],
+                        "variables": [
+                              [
+                                    "totaal",
+                                    "0",
+                                    "Nog geen worpen geteld."
+                              ]
+                        ],
+                        "indicator": [
+                              "Accumulator",
+                              "Begin op nul.",
+                              "good"
+                        ]
+                  },
+                  {
+                        "title": "Tel elke worp erbij.",
+                        "explanation": "Binnen de lus maak je een worp met random.randint(1, 6) en tel je die bij totaal.",
+                        "lines": [
+                              7,
+                              8,
+                              9
                         ],
                         "variables": [
                               [
                                     "worpen",
-                                    "2, 5, 1, 3, 1, 4, 4, 4",
-                                    "Reeks bij seed 1."
+                                    "5, 2, 1, 4, 3, 3, 3, 6",
+                                    "Een mogelijke reeks willekeurige worpen."
                               ],
                               [
                                     "totaal",
-                                    "24",
-                                    "Som van de worpen."
+                                    "27",
+                                    "Som van alle worpen."
                               ]
                         ],
                         "indicator": [
                               "Lus",
-                              "Gebruik random.randint binnen de lus.",
+                              "Een klassieke som-lus.",
                               "good"
                         ]
                   },
                   {
-                        "title": "Print het totaal.",
-                        "explanation": "Na alle worpen is het totaal bekend.",
+                        "title": "Print het resultaat.",
+                        "explanation": "Na de lus is het totaal volledig.",
                         "lines": [
-                              13
+                              11
                         ],
                         "variables": [
                               [
                                     "uitvoer",
-                                    "Na 8 beurten zijn er 24 besmettingen.",
-                                    "Som van acht worpen."
+                                    "Na 8 beurten zijn er 27 besmettingen.",
+                                    "Eindresultaat."
                               ]
                         ],
                         "indicator": [
@@ -4375,10 +4386,10 @@
                               "Print na de lus.",
                               "warn"
                         ],
-                        "output": "Na 8 beurten zijn er 24 besmettingen."
+                        "output": "Na 8 beurten zijn er 27 besmettingen."
                   }
             ],
-            "traceTitle": "Trace van de vaste randomreeks",
+            "traceTitle": "Trace voor acht voorbeeldworpen",
             "traceColumns": [
                   "beurt",
                   "worp",
@@ -4386,13 +4397,18 @@
             ],
             "traceRows": [
                   [
+                        "start",
+                        "-",
+                        "0"
+                  ],
+                  [
                         "1",
-                        "2",
-                        "2"
+                        "5",
+                        "5"
                   ],
                   [
                         "2",
-                        "5",
+                        "2",
                         "7"
                   ],
                   [
@@ -4402,38 +4418,42 @@
                   ],
                   [
                         "4",
-                        "3",
-                        "11"
-                  ],
-                  [
-                        "5",
-                        "1",
+                        "4",
                         "12"
                   ],
                   [
+                        "5",
+                        "3",
+                        "15"
+                  ],
+                  [
                         "6",
-                        "4",
-                        "16"
+                        "3",
+                        "18"
                   ],
                   [
                         "7",
-                        "4",
-                        "20"
+                        "3",
+                        "21"
                   ],
                   [
                         "8",
-                        "4",
-                        "24"
+                        "6",
+                        "27"
                   ]
             ],
             "mistakes": [
                   [
-                        "random.randint zonder import random gebruiken",
-                        "Importeer random bovenaan."
+                        "random niet importeren",
+                        "Zet bovenaan import random."
                   ],
                   [
-                        "De seed weglaten",
-                        "Dan zijn de tests niet voorspelbaar."
+                        "De worp buiten de lus maken",
+                        "Elke beurt heeft een eigen worp, dus random.randint hoort in de lus."
+                  ],
+                  [
+                        "totaal binnen de lus opnieuw op nul zetten",
+                        "Zet totaal voor de lus op nul."
                   ]
             ]
       },
