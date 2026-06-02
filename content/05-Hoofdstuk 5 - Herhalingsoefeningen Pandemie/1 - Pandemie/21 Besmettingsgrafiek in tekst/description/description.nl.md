@@ -1,34 +1,47 @@
 ## Gegeven
 
-Een grafiek hoeft niet altijd met echte assen en kleuren te werken. In de console kun je een eenvoudige besmettingsgrafiek maken met sterretjes.
+In de console kun je een eenvoudige grafiek maken met sterretjes.
 
-Elke ster stelt een vast aantal besmettingen voor. Zo oefen je tegelijk met groei en stringherhaling.
+Elke ster stelt een vast aantal besmettingen voor.
 
 ## Gevraagd
 
-* Vraag het aantal weken, het startaantal besmettingen, de groeifactor en de schaalwaarde per ster.
-* Gebruik variabelen zoals `besmettingen`, `factor`, `schaal` en `sterren`.
-* Print per week het aantal besmettingen tussen haakjes.
-* Print daarnaast een rij sterretjes die bij dat aantal hoort.
-* Werk daarna het aantal besmettingen bij voor de volgende week.
+* Vraag het aantal weken.
+* Vraag hoeveel besmettingen 1 ster voorstelt.
+* Vraag per week het aantal besmettingen.
+* Print per week een rij sterretjes.
+* Als er nog een rest is, voeg je een `+` toe.
 
 #### Rekenregel
 
-Het aantal sterretjes is `besmettingen // schaal`. Bij 40 besmettingen en schaal 10 print je dus 4 sterretjes. Als er wel besmettingen zijn maar de deling 0 sterretjes geeft, print je toch 1 sterretje. Voor de volgende week wordt `besmettingen = math.floor(besmettingen * factor)`.
+Het aantal sterretjes is:
+
+```
+besmettingen // schaal
+```
+
+De rest bereken je met:
+
+```
+besmettingen % schaal
+```
+
+Als er besmettingen zijn maar het aantal volledige sterretjes 0 is, print je toch 1 ster. Als er minstens 1 volledige ster is en er blijft een rest over, voeg je een `+` toe.
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
 3
-20
-2
 10
+20
+35
+80
 ```
 
 moet je programma exact dit printen:
 ```
-Week 1 (20): **
-Week 2 (40): ****
-Week 3 (80): ********
+Week 1: **
+Week 2: ***+
+Week 3: ********
 ```

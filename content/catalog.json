@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-25T12:47:36.043Z",
+  "generatedAt": "2026-06-02T13:58:32.309Z",
   "sourceRoot": "content",
   "totals": {
     "chapters": 5,
     "subchapters": 23,
-    "exercises": 246,
-    "evaluableExercises": 220,
+    "exercises": 241,
+    "evaluableExercises": 215,
     "theoryItems": 26
   },
   "chapters": [
@@ -1294,18 +1294,6 @@
               "starterPath": null
             },
             {
-              "id": "02-Hoofdstuk 2 - Selectie/7-Evaluatie/05 Punten en Remediëring",
-              "title": "Punten en Remediëring",
-              "order": 5,
-              "type": "exercise",
-              "evaluable": true,
-              "path": "content/02-Hoofdstuk 2 - Selectie/7-Evaluatie/05 Punten en Remediëring",
-              "descriptionPath": "content/02-Hoofdstuk 2 - Selectie/7-Evaluatie/05 Punten en Remediëring/description/description.nl.md",
-              "testsPath": "content/02-Hoofdstuk 2 - Selectie/7-Evaluatie/05 Punten en Remediëring/evaluation/tests.yaml",
-              "testsFormat": "yaml",
-              "starterPath": null
-            },
-            {
               "id": "02-Hoofdstuk 2 - Selectie/7-Evaluatie/06 Soort driehoek",
               "title": "Soort driehoek",
               "order": 6,
@@ -1726,18 +1714,6 @@
               "path": "content/03-Hoofdstuk 3 - Begrensde herhaling/1 - Opstellen herhaling/14 Sierpiński",
               "descriptionPath": "content/03-Hoofdstuk 3 - Begrensde herhaling/1 - Opstellen herhaling/14 Sierpiński/description/description.nl.md",
               "testsPath": "content/03-Hoofdstuk 3 - Begrensde herhaling/1 - Opstellen herhaling/14 Sierpiński/evaluation/tests.yaml",
-              "testsFormat": "yaml",
-              "starterPath": null
-            },
-            {
-              "id": "03-Hoofdstuk 3 - Begrensde herhaling/1 - Opstellen herhaling/14 Sierpiński",
-              "title": "Sierpiński",
-              "order": 14,
-              "type": "exercise",
-              "evaluable": true,
-              "path": "content/03-Hoofdstuk 3 - Begrensde herhaling/1 - Opstellen herhaling/14 Sierpiński",
-              "descriptionPath": "content/03-Hoofdstuk 3 - Begrensde herhaling/1 - Opstellen herhaling/14 Sierpiński/description/description.nl.md",
-              "testsPath": "content/03-Hoofdstuk 3 - Begrensde herhaling/1 - Opstellen herhaling/14 Sierpiński/evaluation/tests.yaml",
               "testsFormat": "yaml",
               "starterPath": null
             },
@@ -2582,18 +2558,6 @@
           "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen",
           "exercises": [
             {
-              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack",
-              "title": "Blackjack",
-              "order": 1,
-              "type": "exercise",
-              "evaluable": true,
-              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack",
-              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack/description/description.nl.md",
-              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Blackjack/evaluation/tests.json",
-              "testsFormat": "json",
-              "starterPath": null
-            },
-            {
               "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager",
               "title": "Hoger Lager",
               "order": 1,
@@ -2602,18 +2566,6 @@
               "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager",
               "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager/description/description.nl.md",
               "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/01 Hoger-Lager/evaluation/tests.json",
-              "testsFormat": "json",
-              "starterPath": null
-            },
-            {
-              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen",
-              "title": "Dubbele zessen",
-              "order": 2,
-              "type": "exercise",
-              "evaluable": true,
-              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen",
-              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen/description/description.nl.md",
-              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/02 Dubbele zessen/evaluation/tests.json",
               "testsFormat": "json",
               "starterPath": null
             },
@@ -2638,18 +2590,6 @@
               "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Blackjack",
               "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Blackjack/description/description.nl.md",
               "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Blackjack/evaluation/tests.json",
-              "testsFormat": "json",
-              "starterPath": null
-            },
-            {
-              "id": "04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors",
-              "title": "Rock Paper Scissors",
-              "order": 3,
-              "type": "exercise",
-              "evaluable": true,
-              "path": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors",
-              "descriptionPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors/description/description.nl.md",
-              "testsPath": "content/04-Hoofdstuk 4 - Voorwaardelijke herhaling/4 - Spelen met Herhalingen/03 Rock Paper Scissors/evaluation/tests.json",
               "testsFormat": "json",
               "starterPath": null
             },

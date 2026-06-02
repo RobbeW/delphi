@@ -1,37 +1,37 @@
 ## Gegeven
 
-Bij contactonderzoek noteer je wie contact had met een besmette persoon. Niet elk contact is even belangrijk: een langer contact telt als risicocontact.
+Bij contactonderzoek telt een contact vanaf 15 minuten als risicocontact, behalve als er bescherming was.
 
-De invoer stopt pas wanneer de naam `stop` wordt ingevoerd.
+In deze oefening krijg je een vast aantal contacten.
 
 ## Gevraagd
 
-* Vraag telkens een `naam`.
-* Stop de lus wanneer de naam `stop` is.
-* Vraag voor elke andere naam het aantal minuten contact.
-* Tel alle contacten in `aantal_contacten`.
-* Tel contacten vanaf 15 minuten als `risicocontacten`.
-* Onthoud ook het langste contact met `langste_naam` en `langste_duur`.
-* Als er meteen `stop` wordt ingevoerd, print je dat er geen risicocontact gevonden werd.
+* Vraag hoeveel contacten je controleert.
+* Vraag per contact het aantal minuten.
+* Vraag per contact of er bescherming was: `ja` of `nee`.
+* Tel hoeveel contacten minstens 15 minuten duurden en niet beschermd waren.
+* Print het aantal risicocontacten.
 
 #### Rekenregel
 
-Een contact vanaf 15 minuten telt als risicocontact. Voor het langste contact vergelijk je elke nieuwe `duur` met `langste_duur`. Is de nieuwe duur groter, dan vervang je ook `langste_naam`.
+Een contact is een risicocontact als:
+
+```
+minuten >= 15 and not is_beschermd
+```
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
-Ali
+2
 20
-Bo
+nee
 5
-stop
+nee
 ```
 
 moet je programma exact dit printen:
 ```
-Er zijn 2 contacten genoteerd.
 Risicocontacten: 1
-Langste contact: Ali (20 minuten)
 ```

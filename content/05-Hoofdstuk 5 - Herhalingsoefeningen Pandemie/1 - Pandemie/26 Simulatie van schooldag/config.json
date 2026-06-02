@@ -18,9 +18,13 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "Geneste lussen",
+    "For-lus",
     "Schoolmodel",
     "Contactstructuur"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "HKX76jC-hkUyeM9e3Mn-TH4QwZwXsZFPXxTAZ6smuaFtngsGXWjWXFMjshjDKKfW",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

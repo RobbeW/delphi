@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "1\nja\nnee\nja\nnee\n"
+        - stdin: "1\nja\n"
           stdout: "Persoon 1: quarantaine\nTotaal in quarantaine: 1\n"
     -
       testcases:
-        - stdin: "1\nja\nnee\nja\nja\n"
+        - stdin: "1\nnee\n"
           stdout: "Persoon 1: geen quarantaine\nTotaal in quarantaine: 0\n"
     -
       testcases:
-        - stdin: "2\nnee\nja\nnee\nja\nja\nnee\nja\nnee\n"
-          stdout: "Persoon 1: quarantaine\nPersoon 2: quarantaine\nTotaal in quarantaine: 2\n"
+        - stdin: "3\nja\nnee\nja\n"
+          stdout: "Persoon 1: quarantaine\nPersoon 2: geen quarantaine\nPersoon 3: quarantaine\nTotaal in quarantaine: 2\n"
     -
       testcases:
-        - stdin: "3\nnee\nnee\nnee\nnee\nja\nnee\nja\nnee\nnee\nja\nja\nja\n"
-          stdout: "Persoon 1: geen quarantaine\nPersoon 2: quarantaine\nPersoon 3: quarantaine\nTotaal in quarantaine: 2\n"
+        - stdin: "2\nnee\nnee\n"
+          stdout: "Persoon 1: geen quarantaine\nPersoon 2: geen quarantaine\nTotaal in quarantaine: 0\n"
     -
       testcases:
-        - stdin: "2\nja\nja\nnee\nja\nnee\nnee\nja\nnee\n"
-          stdout: "Persoon 1: quarantaine\nPersoon 2: geen quarantaine\nTotaal in quarantaine: 1\n"
+        - stdin: "4\nja\nja\nja\nja\n"
+          stdout: "Persoon 1: quarantaine\nPersoon 2: quarantaine\nPersoon 3: quarantaine\nPersoon 4: quarantaine\nTotaal in quarantaine: 4\n"
     -
       testcases:
-        - stdin: "4\nja\nnee\nnee\nnee\nja\nnee\nja\nnee\nja\nnee\nja\nja\nnee\nnee\nnee\nnee\n"
-          stdout: "Persoon 1: geen quarantaine\nPersoon 2: quarantaine\nPersoon 3: geen quarantaine\nPersoon 4: geen quarantaine\nTotaal in quarantaine: 1\n"
-    -
-      testcases:
-        - stdin: "1\nnee\nnee\nja\nnee\n"
-          stdout: "Persoon 1: geen quarantaine\nTotaal in quarantaine: 0\n"
-    -
-      testcases:
-        - stdin: "3\nnee\nja\nnee\nnee\nnee\nja\nja\nja\nja\nnee\nnee\nnee\n"
-          stdout: "Persoon 1: quarantaine\nPersoon 2: quarantaine\nPersoon 3: geen quarantaine\nTotaal in quarantaine: 2\n"
-    -
-      testcases:
-        - stdin: "2\nja\nnee\nja\nnee\nja\nnee\nja\nja\n"
-          stdout: "Persoon 1: quarantaine\nPersoon 2: geen quarantaine\nTotaal in quarantaine: 1\n"
-    -
-      testcases:
-        - stdin: "5\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\nnee\n"
-          stdout: "Persoon 1: geen quarantaine\nPersoon 2: geen quarantaine\nPersoon 3: geen quarantaine\nPersoon 4: geen quarantaine\nPersoon 5: geen quarantaine\nTotaal in quarantaine: 0\n"
-    -
-      testcases:
-        - stdin: "1\nnee\nja\nnee\nnee\n"
-          stdout: "Persoon 1: quarantaine\nTotaal in quarantaine: 1\n"
-    -
-      testcases:
-        - stdin: "2\nja\nnee\nja\nnee\nnee\nnee\nja\nnee\n"
-          stdout: "Persoon 1: quarantaine\nPersoon 2: geen quarantaine\nTotaal in quarantaine: 1\n"
-    -
-      testcases:
-        - stdin: "3\nja\nnee\nja\nja\nja\nnee\nja\nnee\nnee\nja\nnee\nja\n"
-          stdout: "Persoon 1: geen quarantaine\nPersoon 2: quarantaine\nPersoon 3: quarantaine\nTotaal in quarantaine: 2\n"
-    -
-      testcases:
-        - stdin: "1\nja\nja\nja\nja\n"
-          stdout: "Persoon 1: quarantaine\nTotaal in quarantaine: 1\n"
-    -
-      testcases:
-        - stdin: "2\nja\nnee\nnee\nja\nja\nnee\nja\nnee\n"
-          stdout: "Persoon 1: geen quarantaine\nPersoon 2: quarantaine\nTotaal in quarantaine: 1\n"
-    -
-      testcases:
-        - stdin: "4\nnee\nja\nnee\nnee\nnee\nnee\nja\nja\nja\nnee\nja\nnee\nnee\nnee\nnee\nnee\n"
-          stdout: "Persoon 1: quarantaine\nPersoon 2: geen quarantaine\nPersoon 3: quarantaine\nPersoon 4: geen quarantaine\nTotaal in quarantaine: 2\n"
-    -
-      testcases:
-        - stdin: "3\nja\nnee\nnee\nnee\nja\nnee\nnee\nnee\nja\nnee\nnee\nnee\n"
-          stdout: "Persoon 1: geen quarantaine\nPersoon 2: geen quarantaine\nPersoon 3: geen quarantaine\nTotaal in quarantaine: 0\n"
-    -
-      testcases:
-        - stdin: "1\nnee\nnee\nnee\nja\n"
-          stdout: "Persoon 1: geen quarantaine\nTotaal in quarantaine: 0\n"
-    -
-      testcases:
-        - stdin: "2\nnee\nja\nja\nnee\nja\nnee\nja\nja\n"
-          stdout: "Persoon 1: quarantaine\nPersoon 2: geen quarantaine\nTotaal in quarantaine: 1\n"
-    -
-      testcases:
-        - stdin: "3\nnee\nnee\nja\nnee\nnee\nnee\nja\nnee\nnee\nnee\nja\nnee\n"
-          stdout: "Persoon 1: geen quarantaine\nPersoon 2: geen quarantaine\nPersoon 3: geen quarantaine\nTotaal in quarantaine: 0\n"
+        - stdin: "5\nnee\nja\nnee\nnee\nja\n"
+          stdout: "Persoon 1: geen quarantaine\nPersoon 2: quarantaine\nPersoon 3: geen quarantaine\nPersoon 4: geen quarantaine\nPersoon 5: quarantaine\nTotaal in quarantaine: 2\n"

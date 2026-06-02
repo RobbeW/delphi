@@ -18,9 +18,13 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "While-lus",
+    "For-lus",
     "Contact tracing",
-    "String input"
+    "If"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "WGnuSPHVUdxz2x-sMehsh7Eu_2bWg6Kxrd9w2bH7q25xhZTbCUQj89wwvq3_igPr",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

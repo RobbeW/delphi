@@ -18,9 +18,13 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "Deling met rest",
+    "Vermenigvuldiging",
     "Logistiek",
-    "Math ceil"
+    "If"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "JrSvy2gKutzfWnauYwGKnQjNPX4R42_jX5qXeG2QDfpHrFA7uaa8pzQygZTjuCd2",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

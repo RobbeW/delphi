@@ -1,36 +1,35 @@
 ## Gegeven
 
-Een virus verspreidt zich in besmettingscycli. Elke besmette persoon kan gemiddeld een aantal nieuwe personen besmetten. Dat gemiddelde noemen we de besmettingsratio of `R0`.
+Een besmettingsratio zegt hoeveel nieuwe personen elke besmette persoon gemiddeld besmet.
 
-In deze oefening groeit het aantal besmettingen per cyclus. Je stopt zodra de simulatie het maximum aantal besmettingen bereikt of overschrijdt.
+In deze oefening gebruiken we een eenvoudige versie: `r0` is een geheel getal. Als er 10 besmette personen zijn en `r0` is 2, dan komen er 20 nieuwe besmettingen bij.
 
 ## Gevraagd
 
-* Vraag `r0`, het startaantal besmettingen en het maximum aantal besmettingen.
+* Vraag `r0`, het startaantal besmettingen en het aantal cycli.
 * Bereken per cyclus hoeveel nieuwe besmettingen erbij komen.
-* Gebruik variabelen zoals `besmet`, `cyclus` en `nieuwe_besmettingen` om de groei bij te houden.
+* Tel de nieuwe besmettingen bij het totaal.
 * Print na elke cyclus het totaal aantal besmettingen.
-* Stop wanneer het totaal minstens gelijk is aan het maximum.
-* Als het startaantal al minstens gelijk is aan het maximum, print je dat de volledige populatie al besmet is.
-* Als er in een cyclus geen nieuwe besmettingen meer ontstaan, print je dat de epidemie uitdooft.
 
 #### Rekenregel
 
-Per cyclus bereken je eerst `nieuwe_besmettingen = math.floor(besmet * r0)`. Daarna tel je die nieuwe besmettingen bij het bestaande totaal. Als het totaal daardoor boven het maximum zou gaan, gebruik je alleen het aantal dat nog nodig is om precies aan het maximum te komen. Als `nieuwe_besmettingen` 0 is, kan de epidemie niet verder groeien.
+Per cyclus:
+
+1. `nieuwe_besmettingen = besmettingen * r0`
+2. `besmettingen = besmettingen + nieuwe_besmettingen`
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
-2.4
-20
-1200
+2
+10
+3
 ```
 
 moet je programma exact dit printen:
 ```
-Na 1 cycli zijn er 68 besmettingen.
-Na 2 cycli zijn er 231 besmettingen.
-Na 3 cycli zijn er 785 besmettingen.
-Na 4 cycli zijn er 1200 besmettingen.
+Na 1 cycli zijn er 30 besmettingen.
+Na 2 cycli zijn er 90 besmettingen.
+Na 3 cycli zijn er 270 besmettingen.
 ```

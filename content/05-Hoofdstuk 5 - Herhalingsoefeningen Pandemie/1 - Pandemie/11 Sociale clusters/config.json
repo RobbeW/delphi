@@ -22,5 +22,9 @@
     "Clusters",
     "Sociale netwerken"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "K-bVEnJrw_74MVajvXfgZv87QVEXEyZ72MWZ4xii--uiCAMHNWVRXiHXbevXBsGj",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

@@ -1,142 +1,26 @@
 - tab: Feedback
   contexts:
     -
-      before:
-        python:
-          data: "import random\nwaarden = [12, 29, 46, 63, 80, 97, 14, 31]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "8\n30\n"
-          stdout: "Besmet: 3\nNiet besmet: 5\n"
+        - stdin: "10\n30\n"
+          stdout: "Verwacht besmet: 3\nVerwacht niet besmet: 7\nMinstens 1 verwacht vanaf: 4 contacten\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "12\n50\n"
-          stdout: "Besmet: 6\nNiet besmet: 6\n"
+        - stdin: "20\n50\n"
+          stdout: "Verwacht besmet: 10\nVerwacht niet besmet: 10\nMinstens 1 verwacht vanaf: 2 contacten\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [86, 3, 20, 37, 54]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "5\n10\n"
-          stdout: "Besmet: 1\nNiet besmet: 4\n"
+        - stdin: "8\n25\n"
+          stdout: "Verwacht besmet: 2\nVerwacht niet besmet: 6\nMinstens 1 verwacht vanaf: 4 contacten\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [23, 40, 57, 74, 91, 8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "20\n25\n"
-          stdout: "Besmet: 5\nNiet besmet: 15\n"
+        - stdin: "12\n0\n"
+          stdout: "Verwacht besmet: 0\nVerwacht niet besmet: 12\nMinstens 1 verwacht vanaf: 0 contacten\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [60, 77, 94, 11, 28, 45, 62]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "7\n80\n"
-          stdout: "Besmet: 6\nNiet besmet: 1\n"
+        - stdin: "15\n100\n"
+          stdout: "Verwacht besmet: 15\nVerwacht niet besmet: 0\nMinstens 1 verwacht vanaf: 1 contacten\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [97, 14, 31, 48, 65, 82, 99, 16, 33, 50, 67, 84, 1, 18, 35]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "15\n40\n"
-          stdout: "Besmet: 7\nNiet besmet: 8\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [34, 51, 68, 85, 2, 19, 36, 53, 70, 87]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "10\n0\n"
-          stdout: "Besmet: 0\nNiet besmet: 10\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [71, 88, 5, 22, 39, 56, 73, 90, 7, 24]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "10\n100\n"
-          stdout: "Besmet: 10\nNiet besmet: 0\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [8, 25, 42, 59, 76, 93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "18\n33\n"
-          stdout: "Besmet: 6\nNiet besmet: 12\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [45, 62, 79, 96, 13, 30]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "6\n66\n"
-          stdout: "Besmet: 4\nNiet besmet: 2\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [82, 99, 16, 33, 50, 67, 84, 1, 18, 35, 52, 69, 86, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "14\n15\n"
-          stdout: "Besmet: 2\nNiet besmet: 12\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [19, 36, 53, 70, 87, 4, 21, 38, 55]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "9\n75\n"
-          stdout: "Besmet: 8\nNiet besmet: 1\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [56, 73, 90, 7, 24, 41, 58, 75, 92, 9, 26]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "11\n45\n"
-          stdout: "Besmet: 5\nNiet besmet: 6\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [93, 10, 27, 44, 61, 78, 95, 12, 29, 46, 63, 80, 97, 14, 31, 48]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "16\n20\n"
-          stdout: "Besmet: 3\nNiet besmet: 13\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [30, 47, 64, 81]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "4\n90\n"
-          stdout: "Besmet: 4\nNiet besmet: 0\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [67, 84, 1, 18, 35, 52, 69, 86, 3, 20, 37, 54, 71]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "13\n55\n"
-          stdout: "Besmet: 8\nNiet besmet: 5\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [4, 21, 38, 55, 72, 89, 6, 23, 40, 57, 74, 91, 8, 25, 42, 59, 76]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "17\n35\n"
-          stdout: "Besmet: 6\nNiet besmet: 11\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [41, 58, 75, 92, 9, 26, 43, 60, 77, 94, 11, 28, 45, 62, 79, 96, 13, 30, 47]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "19\n65\n"
-          stdout: "Besmet: 13\nNiet besmet: 6\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [78, 95, 12]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "3\n5\n"
-          stdout: "Besmet: 0\nNiet besmet: 3\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [15, 32, 49, 66, 83, 100, 17, 34, 51, 68, 85, 2, 19, 36, 53, 70, 87, 4, 21, 38, 55]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "21\n48\n"
-          stdout: "Besmet: 10\nNiet besmet: 11\n"
+        - stdin: "40\n10\n"
+          stdout: "Verwacht besmet: 4\nVerwacht niet besmet: 36\nMinstens 1 verwacht vanaf: 10 contacten\n"

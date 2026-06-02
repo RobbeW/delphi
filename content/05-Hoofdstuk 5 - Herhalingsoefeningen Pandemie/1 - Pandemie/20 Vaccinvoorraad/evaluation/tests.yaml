@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "125\n2\n6\n10\n"
-          stdout: "Nodige dosissen: 250\nNodige flacons: 42\nVolle dozen: 4\nLosse flacons: 2\nTe bestellen dozen: 5\n"
+        - stdin: "3\n2\n300\n50\n75\n25\n"
+          stdout: "Nodige dosissen: 300\nEr zijn genoeg dosissen.\n"
     -
       testcases:
-        - stdin: "120\n1\n6\n10\n"
-          stdout: "Nodige dosissen: 120\nNodige flacons: 20\nVolle dozen: 2\nLosse flacons: 0\nTe bestellen dozen: 2\n"
+        - stdin: "2\n2\n200\n125\n5\n"
+          stdout: "Nodige dosissen: 260\nTekort: 60\n"
     -
       testcases:
-        - stdin: "1000\n2\n5\n20\n"
-          stdout: "Nodige dosissen: 2000\nNodige flacons: 400\nVolle dozen: 20\nLosse flacons: 0\nTe bestellen dozen: 20\n"
+        - stdin: "1\n1\n10\n10\n"
+          stdout: "Nodige dosissen: 10\nEr zijn genoeg dosissen.\n"
     -
       testcases:
-        - stdin: "1\n2\n10\n5\n"
-          stdout: "Nodige dosissen: 2\nNodige flacons: 1\nVolle dozen: 0\nLosse flacons: 1\nTe bestellen dozen: 1\n"
+        - stdin: "0\n2\n5\n"
+          stdout: "Nodige dosissen: 0\nEr zijn genoeg dosissen.\n"
     -
       testcases:
-        - stdin: "999\n3\n7\n12\n"
-          stdout: "Nodige dosissen: 2997\nNodige flacons: 429\nVolle dozen: 35\nLosse flacons: 9\nTe bestellen dozen: 36\n"
+        - stdin: "3\n3\n80\n10\n20\n0\n"
+          stdout: "Nodige dosissen: 90\nTekort: 10\n"
     -
       testcases:
-        - stdin: "50\n1\n1\n10\n"
-          stdout: "Nodige dosissen: 50\nNodige flacons: 50\nVolle dozen: 5\nLosse flacons: 0\nTe bestellen dozen: 5\n"
-    -
-      testcases:
-        - stdin: "360\n2\n6\n6\n"
-          stdout: "Nodige dosissen: 720\nNodige flacons: 120\nVolle dozen: 20\nLosse flacons: 0\nTe bestellen dozen: 20\n"
-    -
-      testcases:
-        - stdin: "721\n1\n8\n9\n"
-          stdout: "Nodige dosissen: 721\nNodige flacons: 91\nVolle dozen: 10\nLosse flacons: 1\nTe bestellen dozen: 11\n"
-    -
-      testcases:
-        - stdin: "84\n2\n14\n3\n"
-          stdout: "Nodige dosissen: 168\nNodige flacons: 12\nVolle dozen: 4\nLosse flacons: 0\nTe bestellen dozen: 4\n"
-    -
-      testcases:
-        - stdin: "600\n3\n10\n25\n"
-          stdout: "Nodige dosissen: 1800\nNodige flacons: 180\nVolle dozen: 7\nLosse flacons: 5\nTe bestellen dozen: 8\n"
-    -
-      testcases:
-        - stdin: "41\n2\n6\n4\n"
-          stdout: "Nodige dosissen: 82\nNodige flacons: 14\nVolle dozen: 3\nLosse flacons: 2\nTe bestellen dozen: 4\n"
-    -
-      testcases:
-        - stdin: "17\n1\n5\n10\n"
-          stdout: "Nodige dosissen: 17\nNodige flacons: 4\nVolle dozen: 0\nLosse flacons: 4\nTe bestellen dozen: 1\n"
-    -
-      testcases:
-        - stdin: "2000\n2\n6\n100\n"
-          stdout: "Nodige dosissen: 4000\nNodige flacons: 667\nVolle dozen: 6\nLosse flacons: 67\nTe bestellen dozen: 7\n"
-    -
-      testcases:
-        - stdin: "333\n3\n9\n11\n"
-          stdout: "Nodige dosissen: 999\nNodige flacons: 111\nVolle dozen: 10\nLosse flacons: 1\nTe bestellen dozen: 11\n"
-    -
-      testcases:
-        - stdin: "75\n2\n4\n8\n"
-          stdout: "Nodige dosissen: 150\nNodige flacons: 38\nVolle dozen: 4\nLosse flacons: 6\nTe bestellen dozen: 5\n"
-    -
-      testcases:
-        - stdin: "10\n2\n3\n2\n"
-          stdout: "Nodige dosissen: 20\nNodige flacons: 7\nVolle dozen: 3\nLosse flacons: 1\nTe bestellen dozen: 4\n"
-    -
-      testcases:
-        - stdin: "250\n1\n12\n5\n"
-          stdout: "Nodige dosissen: 250\nNodige flacons: 21\nVolle dozen: 4\nLosse flacons: 1\nTe bestellen dozen: 5\n"
-    -
-      testcases:
-        - stdin: "144\n2\n8\n6\n"
-          stdout: "Nodige dosissen: 288\nNodige flacons: 36\nVolle dozen: 6\nLosse flacons: 0\nTe bestellen dozen: 6\n"
-    -
-      testcases:
-        - stdin: "88\n3\n10\n10\n"
-          stdout: "Nodige dosissen: 264\nNodige flacons: 27\nVolle dozen: 2\nLosse flacons: 7\nTe bestellen dozen: 3\n"
-    -
-      testcases:
-        - stdin: "500\n2\n7\n13\n"
-          stdout: "Nodige dosissen: 1000\nNodige flacons: 143\nVolle dozen: 11\nLosse flacons: 0\nTe bestellen dozen: 11\n"
+        - stdin: "2\n2\n0\n50\n0\n"
+          stdout: "Nodige dosissen: 100\nTekort: 100\n"

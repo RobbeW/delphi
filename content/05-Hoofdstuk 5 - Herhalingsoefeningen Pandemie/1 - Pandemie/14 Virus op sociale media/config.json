@@ -18,9 +18,12 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "While-lus",
-    "Virale challenge",
-    "Math floor"
+    "For-lus",
+    "Virale challenge"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "_udXJAxBZtDzBYTZKFvJytAXx3Q7bM_E7dfZrDtcykJ5paX_YcXcQrmnn5SXF5AD",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

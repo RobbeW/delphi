@@ -18,11 +18,13 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "R0",
-    "Simulatie",
     "For-lus",
-    "Netwerken tussen steden",
-    "Math floor"
+    "Steden",
+    "Besmettingen"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "iZeHztsGCjQEMMUY77Fp3Z5xp_36hKv5-BQ2A96rhPC5D6aqSD67MAetHvJwZirS",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

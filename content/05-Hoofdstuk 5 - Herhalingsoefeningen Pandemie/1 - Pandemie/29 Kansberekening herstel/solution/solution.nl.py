@@ -1,19 +1,19 @@
-import random
+import math
 
-ziek = int(input("Startaantal zieken? "))
-kans = int(input("Herstelkans? "))
-max_dagen = int(input("Aantal dagen? "))
+aantal_groepen = int(input("Aantal groepen? "))
+
 totaal_genezen = 0
-dag = 0
+totaal_nog_ziek = 0
 
-while dag < max_dagen and ziek > 0:
-    dag += 1
-    genezen = 0
-    for patient in range(ziek):
-        if random.randint(1, 100) <= kans:
-            genezen += 1
-    ziek -= genezen
+for groep in range(aantal_groepen):
+    ziek = int(input("Aantal zieken? "))
+    kans = int(input("Herstelkans? "))
+
+    genezen = math.floor(ziek * kans / 100)
+    nog_ziek = ziek - genezen
+
     totaal_genezen += genezen
-    print("Dag " + str(dag) + ": " + str(genezen) + " genezen, " + str(ziek) + " ziek")
+    totaal_nog_ziek += nog_ziek
 
-print("Totaal genezen:", totaal_genezen)
+print("Genezen:", totaal_genezen)
+print("Nog ziek:", totaal_nog_ziek)

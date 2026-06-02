@@ -1,21 +1,26 @@
 ## Gegeven
 
-In sociale netwerken lijkt het vaak alsof je vrienden populairder zijn dan jij. Dat komt doordat mensen met veel contacten in veel vriendengroepen tegelijk opduiken.
+In een sociaal netwerk heeft niet iedereen evenveel vrienden.
 
-Je onderzoekt een kleine groep personen en vergelijkt hun aantal vrienden.
+Je onderzoekt een kleine groep personen en berekent het gemiddelde aantal vrienden. Je zoekt ook wie de meeste vrienden heeft.
 
 ## Gevraagd
 
 * Vraag hoeveel personen je onderzoekt.
 * Vraag per persoon het aantal vrienden.
-* Bereken het gemiddelde met variabelen zoals `totaal` en `gemiddelde`.
-* Zoek de populairste persoon met `max_vrienden` en `populairste_persoon`.
-* Tel hoeveel personen minder vrienden hebben dan het gemiddelde.
-* Print het gemiddelde, de populairste persoon en het aantal personen onder het gemiddelde.
+* Bereken het gemiddelde aantal vrienden.
+* Zoek de populairste persoon.
+* Print het gemiddelde en de populairste persoon.
 
 #### Rekenregel
 
-Het gemiddelde is `totaal / aantal_personen`, afgerond op twee decimalen. Daarna vergelijk je elke persoon opnieuw met dat gemiddelde om te tellen wie eronder zit.
+Het gemiddelde is:
+
+```
+totaal / aantal_personen
+```
+
+Rond het gemiddelde af op twee decimalen met `round(..., 2)`.
 
 #### Voorbeeld
 
@@ -32,5 +37,4 @@ moet je programma exact dit printen:
 ```
 Gemiddeld aantal vrienden: 4.5
 Populairste persoon: 2 met 8 vrienden.
-Aantal personen onder het gemiddelde: 2
 ```

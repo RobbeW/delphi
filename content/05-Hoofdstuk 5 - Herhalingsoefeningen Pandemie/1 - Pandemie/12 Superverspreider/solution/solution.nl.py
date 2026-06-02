@@ -1,17 +1,14 @@
-import random
+aantal_groepen = int(input("Aantal groepen? "))
 
-personen = int(input("Aantal besmette personen? "))
-gewone_besmettingen = int(input("Gewone besmettingen per persoon? "))
-superverspreiders = 0
+totaal_superverspreiders = 0
 totaal = 0
 
-for persoon in range(personen):
-    worp = random.randint(1, 10)
-    if worp >= 9:
-        superverspreiders += 1
-        totaal += 25
-    else:
-        totaal += gewone_besmettingen
+for groep in range(aantal_groepen):
+    gewone_personen = int(input("Gewone besmette personen? "))
+    superverspreiders = int(input("Aantal superverspreiders? "))
 
-print("Superverspreiders:", superverspreiders)
+    totaal_superverspreiders += superverspreiders
+    totaal += gewone_personen * 2 + superverspreiders * 25
+
+print("Superverspreiders:", totaal_superverspreiders)
 print("Nieuwe besmettingen:", totaal)

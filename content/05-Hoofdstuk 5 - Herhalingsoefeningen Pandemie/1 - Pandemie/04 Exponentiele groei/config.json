@@ -22,5 +22,9 @@
     "Exponentiele groei",
     "Math floor"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "VW26G_WX88PvNWwJU8NXmryCyiU5-nnsRA2ygpWy5zgRTsCQhXnhTRNZxStdd9jr",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

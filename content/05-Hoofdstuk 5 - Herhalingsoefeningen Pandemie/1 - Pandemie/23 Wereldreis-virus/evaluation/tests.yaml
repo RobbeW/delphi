@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "4\n5\n1.5\n25\n"
-          stdout: "Stad 1: 7 lokale besmettingen, 12 totaal\nNaar stad 2 reizen 3 besmette personen.\nStad 2: 4 lokale besmettingen, 7 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 1 lokale besmettingen, 2 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 1 lokale besmettingen, 2 totaal\n"
+        - stdin: "3\n5\n2\n"
+          stdout: "Stad 1: 7 besmettingen\nStad 2: 9 besmettingen\nStad 3: 11 besmettingen\n"
     -
       testcases:
-        - stdin: "3\n10\n2.2\n10\n"
-          stdout: "Stad 1: 22 lokale besmettingen, 32 totaal\nNaar stad 2 reizen 3 besmette personen.\nStad 2: 6 lokale besmettingen, 9 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 2 lokale besmettingen, 3 totaal\n"
+        - stdin: "1\n10\n5\n"
+          stdout: "Stad 1: 15 besmettingen\n"
     -
       testcases:
-        - stdin: "5\n1\n3\n50\n"
-          stdout: "Stad 1: 3 lokale besmettingen, 4 totaal\nNaar stad 2 reizen 2 besmette personen.\nStad 2: 6 lokale besmettingen, 8 totaal\nNaar stad 3 reizen 4 besmette personen.\nStad 3: 12 lokale besmettingen, 16 totaal\nNaar stad 4 reizen 8 besmette personen.\nStad 4: 24 lokale besmettingen, 32 totaal\nNaar stad 5 reizen 16 besmette personen.\nStad 5: 48 lokale besmettingen, 64 totaal\n"
+        - stdin: "4\n0\n3\n"
+          stdout: "Stad 1: 3 besmettingen\nStad 2: 6 besmettingen\nStad 3: 9 besmettingen\nStad 4: 12 besmettingen\n"
     -
       testcases:
-        - stdin: "2\n40\n0.8\n30\n"
-          stdout: "Stad 1: 32 lokale besmettingen, 72 totaal\nNaar stad 2 reizen 21 besmette personen.\nStad 2: 16 lokale besmettingen, 37 totaal\n"
+        - stdin: "0\n5\n2\n"
+          stdout: ""
     -
       testcases:
-        - stdin: "6\n7\n1.1\n20\n"
-          stdout: "Stad 1: 7 lokale besmettingen, 14 totaal\nNaar stad 2 reizen 2 besmette personen.\nStad 2: 2 lokale besmettingen, 4 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 1 lokale besmettingen, 2 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 1 lokale besmettingen, 2 totaal\nNaar stad 5 reizen 1 besmette personen.\nStad 5: 1 lokale besmettingen, 2 totaal\nNaar stad 6 reizen 1 besmette personen.\nStad 6: 1 lokale besmettingen, 2 totaal\n"
+        - stdin: "2\n7\n0\n"
+          stdout: "Stad 1: 7 besmettingen\nStad 2: 7 besmettingen\n"
     -
       testcases:
-        - stdin: "4\n12\n2.5\n15\n"
-          stdout: "Stad 1: 30 lokale besmettingen, 42 totaal\nNaar stad 2 reizen 6 besmette personen.\nStad 2: 15 lokale besmettingen, 21 totaal\nNaar stad 3 reizen 3 besmette personen.\nStad 3: 7 lokale besmettingen, 10 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 2 lokale besmettingen, 3 totaal\n"
-    -
-      testcases:
-        - stdin: "3\n3\n0.4\n25\n"
-          stdout: "Stad 1: 1 lokale besmettingen, 4 totaal\nNaar stad 2 reizen 1 besmette personen.\nStad 2: 0 lokale besmettingen, 1 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 0 lokale besmettingen, 1 totaal\n"
-    -
-      testcases:
-        - stdin: "5\n20\n1.8\n5\n"
-          stdout: "Stad 1: 36 lokale besmettingen, 56 totaal\nNaar stad 2 reizen 2 besmette personen.\nStad 2: 3 lokale besmettingen, 5 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 1 lokale besmettingen, 2 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 1 lokale besmettingen, 2 totaal\nNaar stad 5 reizen 1 besmette personen.\nStad 5: 1 lokale besmettingen, 2 totaal\n"
-    -
-      testcases:
-        - stdin: "1\n100\n2\n50\n"
-          stdout: "Stad 1: 200 lokale besmettingen, 300 totaal\n"
-    -
-      testcases:
-        - stdin: "4\n2\n4\n10\n"
-          stdout: "Stad 1: 8 lokale besmettingen, 10 totaal\nNaar stad 2 reizen 1 besmette personen.\nStad 2: 4 lokale besmettingen, 5 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 4 lokale besmettingen, 5 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 4 lokale besmettingen, 5 totaal\n"
-    -
-      testcases:
-        - stdin: "6\n15\n0.9\n35\n"
-          stdout: "Stad 1: 13 lokale besmettingen, 28 totaal\nNaar stad 2 reizen 9 besmette personen.\nStad 2: 8 lokale besmettingen, 17 totaal\nNaar stad 3 reizen 5 besmette personen.\nStad 3: 4 lokale besmettingen, 9 totaal\nNaar stad 4 reizen 3 besmette personen.\nStad 4: 2 lokale besmettingen, 5 totaal\nNaar stad 5 reizen 1 besmette personen.\nStad 5: 0 lokale besmettingen, 1 totaal\nNaar stad 6 reizen 1 besmette personen.\nStad 6: 0 lokale besmettingen, 1 totaal\n"
-    -
-      testcases:
-        - stdin: "3\n50\n1.2\n40\n"
-          stdout: "Stad 1: 60 lokale besmettingen, 110 totaal\nNaar stad 2 reizen 44 besmette personen.\nStad 2: 52 lokale besmettingen, 96 totaal\nNaar stad 3 reizen 38 besmette personen.\nStad 3: 45 lokale besmettingen, 83 totaal\n"
-    -
-      testcases:
-        - stdin: "5\n8\n2.1\n18\n"
-          stdout: "Stad 1: 16 lokale besmettingen, 24 totaal\nNaar stad 2 reizen 4 besmette personen.\nStad 2: 8 lokale besmettingen, 12 totaal\nNaar stad 3 reizen 2 besmette personen.\nStad 3: 4 lokale besmettingen, 6 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 2 lokale besmettingen, 3 totaal\nNaar stad 5 reizen 1 besmette personen.\nStad 5: 2 lokale besmettingen, 3 totaal\n"
-    -
-      testcases:
-        - stdin: "4\n1\n0.2\n10\n"
-          stdout: "Stad 1: 0 lokale besmettingen, 1 totaal\nNaar stad 2 reizen 1 besmette personen.\nStad 2: 0 lokale besmettingen, 1 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 0 lokale besmettingen, 1 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 0 lokale besmettingen, 1 totaal\n"
-    -
-      testcases:
-        - stdin: "7\n6\n1.6\n12\n"
-          stdout: "Stad 1: 9 lokale besmettingen, 15 totaal\nNaar stad 2 reizen 1 besmette personen.\nStad 2: 1 lokale besmettingen, 2 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 1 lokale besmettingen, 2 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 1 lokale besmettingen, 2 totaal\nNaar stad 5 reizen 1 besmette personen.\nStad 5: 1 lokale besmettingen, 2 totaal\nNaar stad 6 reizen 1 besmette personen.\nStad 6: 1 lokale besmettingen, 2 totaal\nNaar stad 7 reizen 1 besmette personen.\nStad 7: 1 lokale besmettingen, 2 totaal\n"
-    -
-      testcases:
-        - stdin: "2\n5\n5\n50\n"
-          stdout: "Stad 1: 25 lokale besmettingen, 30 totaal\nNaar stad 2 reizen 15 besmette personen.\nStad 2: 75 lokale besmettingen, 90 totaal\n"
-    -
-      testcases:
-        - stdin: "5\n30\n1\n20\n"
-          stdout: "Stad 1: 30 lokale besmettingen, 60 totaal\nNaar stad 2 reizen 12 besmette personen.\nStad 2: 12 lokale besmettingen, 24 totaal\nNaar stad 3 reizen 4 besmette personen.\nStad 3: 4 lokale besmettingen, 8 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 1 lokale besmettingen, 2 totaal\nNaar stad 5 reizen 1 besmette personen.\nStad 5: 1 lokale besmettingen, 2 totaal\n"
-    -
-      testcases:
-        - stdin: "3\n9\n3.3\n8\n"
-          stdout: "Stad 1: 29 lokale besmettingen, 38 totaal\nNaar stad 2 reizen 3 besmette personen.\nStad 2: 9 lokale besmettingen, 12 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 3 lokale besmettingen, 4 totaal\n"
-    -
-      testcases:
-        - stdin: "4\n4\n1.75\n60\n"
-          stdout: "Stad 1: 7 lokale besmettingen, 11 totaal\nNaar stad 2 reizen 6 besmette personen.\nStad 2: 10 lokale besmettingen, 16 totaal\nNaar stad 3 reizen 9 besmette personen.\nStad 3: 15 lokale besmettingen, 24 totaal\nNaar stad 4 reizen 14 besmette personen.\nStad 4: 24 lokale besmettingen, 38 totaal\n"
-    -
-      testcases:
-        - stdin: "6\n2\n2.4\n33\n"
-          stdout: "Stad 1: 4 lokale besmettingen, 6 totaal\nNaar stad 2 reizen 1 besmette personen.\nStad 2: 2 lokale besmettingen, 3 totaal\nNaar stad 3 reizen 1 besmette personen.\nStad 3: 2 lokale besmettingen, 3 totaal\nNaar stad 4 reizen 1 besmette personen.\nStad 4: 2 lokale besmettingen, 3 totaal\nNaar stad 5 reizen 1 besmette personen.\nStad 5: 2 lokale besmettingen, 3 totaal\nNaar stad 6 reizen 1 besmette personen.\nStad 6: 2 lokale besmettingen, 3 totaal\n"
+        - stdin: "5\n1\n1\n"
+          stdout: "Stad 1: 2 besmettingen\nStad 2: 3 besmettingen\nStad 3: 4 besmettingen\nStad 4: 5 besmettingen\nStad 5: 6 besmettingen\n"

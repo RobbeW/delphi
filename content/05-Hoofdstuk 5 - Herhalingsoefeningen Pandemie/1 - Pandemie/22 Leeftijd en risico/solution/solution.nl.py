@@ -1,29 +1,19 @@
 aantal_personen = int(input("Aantal personen? "))
-hoog_risico = 0
 
-for persoon in range(1, aantal_personen + 1):
+laag = 0
+matig = 0
+hoog = 0
+
+for persoon in range(aantal_personen):
     leeftijd = int(input("Leeftijd? "))
-    gevaccineerd = input("Gevaccineerd? ") == "ja"
-    chronisch = input("Chronische aandoening? ") == "ja"
 
-    score = 0
     if leeftijd >= 65:
-        score += 2
+        hoog += 1
     elif leeftijd >= 45:
-        score += 1
-    if not gevaccineerd:
-        score += 1
-    if chronisch:
-        score += 2
-
-    if score >= 4:
-        risico = "hoog"
-        hoog_risico += 1
-    elif score >= 2:
-        risico = "matig"
+        matig += 1
     else:
-        risico = "laag"
+        laag += 1
 
-    print("Persoon " + str(persoon) + ": score " + str(score) + ", risico " + risico)
-
-print("Aantal hoog risico:", hoog_risico)
+print("Laag risico:", laag)
+print("Matig risico:", matig)
+print("Hoog risico:", hoog)

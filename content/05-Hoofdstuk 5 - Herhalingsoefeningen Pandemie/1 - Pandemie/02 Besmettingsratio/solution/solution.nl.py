@@ -1,24 +1,8 @@
-import math
-
-r0 = float(input("R0? "))
+r0 = int(input("R0? "))
 besmettingen = int(input("Startaantal besmettingen? "))
-populatie = int(input("Maximum aantal besmettingen? "))
+cycli = int(input("Aantal cycli? "))
 
-cyclus = 0
-
-if besmettingen >= populatie:
-    print("De volledige populatie is al besmet.")
-else:
-    while besmettingen < populatie:
-        nieuwe_besmettingen = math.floor(besmettingen * r0)
-
-        if nieuwe_besmettingen == 0:
-            print("De epidemie dooft uit na", cyclus, "cycli met", besmettingen, "besmettingen.")
-            break
-
-        if besmettingen + nieuwe_besmettingen > populatie:
-            nieuwe_besmettingen = populatie - besmettingen
-
-        besmettingen += nieuwe_besmettingen
-        cyclus += 1
-        print("Na", cyclus, "cycli zijn er", besmettingen, "besmettingen.")
+for cyclus in range(1, cycli + 1):
+    nieuwe_besmettingen = besmettingen * r0
+    besmettingen += nieuwe_besmettingen
+    print("Na", cyclus, "cycli zijn er", besmettingen, "besmettingen.")

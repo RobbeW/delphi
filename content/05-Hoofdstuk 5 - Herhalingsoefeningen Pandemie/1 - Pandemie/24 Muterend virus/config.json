@@ -19,10 +19,12 @@
     "Herhaling",
     "Pandemie",
     "R0",
-    "Simulatie",
-    "Random",
-    "Varianten",
-    "While-lus"
+    "If",
+    "Varianten"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "8NymTWrHC_nvcbN448XPCV5dtNGJkQn_Eef8_fCsAYJW4Nba-8J22GcBrEGqENS2",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

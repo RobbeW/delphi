@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "10\n3\n3\n500\n"
-          stdout: "Dag 1: 30 nieuwe deelnemers, 40 totaal\nDag 2: 90 nieuwe deelnemers, 130 totaal\nDag 3: 270 nieuwe deelnemers, 400 totaal\nNa 3 dagen zijn er 400 deelnemers bereikt.\n"
+        - stdin: "10\n3\n3\n"
+          stdout: "Dag 1: 30 deelnemers\nDag 2: 90 deelnemers\nDag 3: 270 deelnemers\n"
     -
       testcases:
-        - stdin: "2\n2\n4\n100\n"
-          stdout: "Dag 1: 4 nieuwe deelnemers, 6 totaal\nDag 2: 8 nieuwe deelnemers, 14 totaal\nDag 3: 16 nieuwe deelnemers, 30 totaal\nDag 4: 32 nieuwe deelnemers, 62 totaal\nNa 4 dagen zijn er 62 deelnemers bereikt.\n"
+        - stdin: "5\n2\n4\n"
+          stdout: "Dag 1: 10 deelnemers\nDag 2: 20 deelnemers\nDag 3: 40 deelnemers\nDag 4: 80 deelnemers\n"
     -
       testcases:
-        - stdin: "5\n1\n2\n100\n"
-          stdout: "Dag 1: 5 nieuwe deelnemers, 10 totaal\nDag 2: 5 nieuwe deelnemers, 15 totaal\nNa 2 dagen zijn er 15 deelnemers bereikt.\n"
+        - stdin: "1\n10\n2\n"
+          stdout: "Dag 1: 10 deelnemers\nDag 2: 100 deelnemers\n"
     -
       testcases:
-        - stdin: "20\n2.5\n5\n200\n"
-          stdout: "Dag 1: 50 nieuwe deelnemers, 70 totaal\nDag 2: 125 nieuwe deelnemers, 195 totaal\nDag 3: 5 nieuwe deelnemers, 200 totaal\nDe challenge gaat viraal na dag 3.\n"
+        - stdin: "20\n1\n3\n"
+          stdout: "Dag 1: 20 deelnemers\nDag 2: 20 deelnemers\nDag 3: 20 deelnemers\n"
     -
       testcases:
-        - stdin: "1\n10\n3\n50\n"
-          stdout: "Dag 1: 10 nieuwe deelnemers, 11 totaal\nDag 2: 39 nieuwe deelnemers, 50 totaal\nDe challenge gaat viraal na dag 2.\n"
+        - stdin: "3\n4\n0\n"
+          stdout: ""
     -
       testcases:
-        - stdin: "100\n2\n5\n100\n"
-          stdout: "De challenge gaat viraal na dag 0.\n"
-    -
-      testcases:
-        - stdin: "8\n1.5\n8\n80\n"
-          stdout: "Dag 1: 12 nieuwe deelnemers, 20 totaal\nDag 2: 18 nieuwe deelnemers, 38 totaal\nDag 3: 27 nieuwe deelnemers, 65 totaal\nDag 4: 15 nieuwe deelnemers, 80 totaal\nDe challenge gaat viraal na dag 4.\n"
-    -
-      testcases:
-        - stdin: "12\n2\n2\n40\n"
-          stdout: "Dag 1: 24 nieuwe deelnemers, 36 totaal\nDag 2: 4 nieuwe deelnemers, 40 totaal\nDe challenge gaat viraal na dag 2.\n"
-    -
-      testcases:
-        - stdin: "3\n4\n6\n1000\n"
-          stdout: "Dag 1: 12 nieuwe deelnemers, 15 totaal\nDag 2: 48 nieuwe deelnemers, 63 totaal\nDag 3: 192 nieuwe deelnemers, 255 totaal\nDag 4: 745 nieuwe deelnemers, 1000 totaal\nDe challenge gaat viraal na dag 4.\n"
-    -
-      testcases:
-        - stdin: "50\n1.1\n10\n200\n"
-          stdout: "Dag 1: 55 nieuwe deelnemers, 105 totaal\nDag 2: 60 nieuwe deelnemers, 165 totaal\nDag 3: 35 nieuwe deelnemers, 200 totaal\nDe challenge gaat viraal na dag 3.\n"
-    -
-      testcases:
-        - stdin: "7\n3.2\n4\n300\n"
-          stdout: "Dag 1: 22 nieuwe deelnemers, 29 totaal\nDag 2: 70 nieuwe deelnemers, 99 totaal\nDag 3: 201 nieuwe deelnemers, 300 totaal\nDe challenge gaat viraal na dag 3.\n"
-    -
-      testcases:
-        - stdin: "30\n0.9\n4\n100\n"
-          stdout: "Dag 1: 27 nieuwe deelnemers, 57 totaal\nDag 2: 24 nieuwe deelnemers, 81 totaal\nDag 3: 19 nieuwe deelnemers, 100 totaal\nDe challenge gaat viraal na dag 3.\n"
-    -
-      testcases:
-        - stdin: "4\n5\n2\n90\n"
-          stdout: "Dag 1: 20 nieuwe deelnemers, 24 totaal\nDag 2: 66 nieuwe deelnemers, 90 totaal\nDe challenge gaat viraal na dag 2.\n"
-    -
-      testcases:
-        - stdin: "6\n2.4\n5\n120\n"
-          stdout: "Dag 1: 14 nieuwe deelnemers, 20 totaal\nDag 2: 33 nieuwe deelnemers, 53 totaal\nDag 3: 67 nieuwe deelnemers, 120 totaal\nDe challenge gaat viraal na dag 3.\n"
-    -
-      testcases:
-        - stdin: "15\n3\n1\n100\n"
-          stdout: "Dag 1: 45 nieuwe deelnemers, 60 totaal\nNa 1 dagen zijn er 60 deelnemers bereikt.\n"
-    -
-      testcases:
-        - stdin: "9\n1.8\n7\n70\n"
-          stdout: "Dag 1: 16 nieuwe deelnemers, 25 totaal\nDag 2: 28 nieuwe deelnemers, 53 totaal\nDag 3: 17 nieuwe deelnemers, 70 totaal\nDe challenge gaat viraal na dag 3.\n"
-    -
-      testcases:
-        - stdin: "11\n2.2\n6\n250\n"
-          stdout: "Dag 1: 24 nieuwe deelnemers, 35 totaal\nDag 2: 52 nieuwe deelnemers, 87 totaal\nDag 3: 114 nieuwe deelnemers, 201 totaal\nDag 4: 49 nieuwe deelnemers, 250 totaal\nDe challenge gaat viraal na dag 4.\n"
-    -
-      testcases:
-        - stdin: "25\n1.5\n4\n200\n"
-          stdout: "Dag 1: 37 nieuwe deelnemers, 62 totaal\nDag 2: 55 nieuwe deelnemers, 117 totaal\nDag 3: 82 nieuwe deelnemers, 199 totaal\nDag 4: 1 nieuwe deelnemers, 200 totaal\nDe challenge gaat viraal na dag 4.\n"
-    -
-      testcases:
-        - stdin: "5\n10\n1\n30\n"
-          stdout: "Dag 1: 25 nieuwe deelnemers, 30 totaal\nDe challenge gaat viraal na dag 1.\n"
-    -
-      testcases:
-        - stdin: "40\n2\n4\n500\n"
-          stdout: "Dag 1: 80 nieuwe deelnemers, 120 totaal\nDag 2: 160 nieuwe deelnemers, 280 totaal\nDag 3: 220 nieuwe deelnemers, 500 totaal\nDe challenge gaat viraal na dag 3.\n"
+        - stdin: "7\n5\n1\n"
+          stdout: "Dag 1: 35 deelnemers\n"

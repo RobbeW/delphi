@@ -19,10 +19,12 @@
     "Herhaling",
     "Pandemie",
     "R0",
-    "Simulatie",
-    "While-lus",
     "Procenten",
     "Effectieve R"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "RJXaspuEqdP2PmyxhaKv3PQwPxKWbtyvnSPJc7bXpQrjvBhDf23B4P_QjmbPeiCs",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

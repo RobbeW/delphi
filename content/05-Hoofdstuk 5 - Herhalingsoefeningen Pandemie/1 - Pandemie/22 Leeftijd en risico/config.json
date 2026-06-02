@@ -19,8 +19,11 @@
     "Herhaling",
     "Pandemie",
     "If-elif-else",
-    "Risicogroepen",
-    "For-lus"
+    "Risicogroepen"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "pDXCaHT-6nHYfc3Pp_7iQJ4TQeRUkyXhUXRtHp-H6Vi7BeNARPUUMxPxetQaaMKn",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

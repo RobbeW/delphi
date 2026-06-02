@@ -19,8 +19,12 @@
     "Herhaling",
     "Pandemie",
     "Procenten",
-    "For-lus",
-    "Round"
+    "Berekeningen",
+    "Math floor"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "n5TWP6Y_YFg4Z4-cuUdp4K8qfKfmmE3gznGV3CV-AQ-Cp3Rv9qNiTYAc6gHQaUuH",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

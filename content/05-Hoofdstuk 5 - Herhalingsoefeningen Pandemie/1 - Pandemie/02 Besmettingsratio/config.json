@@ -20,9 +20,12 @@
     "Pandemie",
     "R0",
     "Simulatie",
-    "While-lus",
-    "Math floor",
+    "For-lus",
     "Epidemische groei"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "bSEM8XzpEi3q-amzTsQRYnrQCq6wPD-Ka3dfX2e2vGWWcgbAnz6jbdyNT598We4j",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

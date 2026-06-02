@@ -1,30 +1,52 @@
 ## Gegeven
 
-Niet elk contact leidt tot een besmetting. Daarom simuleren we elk contact apart. Voor elk contact trekt het programma een willekeurig getal van 1 tot en met 100.
+Niet elk contact leidt tot een besmetting. Met een besmettingskans kan je berekenen hoeveel besmettingen je ongeveer verwacht.
 
-Ligt dat getal kleiner dan of gelijk aan de besmettingskans, dan raakt die persoon besmet.
+In deze oefening gebruiken we geen willekeur. Je berekent alleen het verwachte aantal besmettingen.
 
 ## Gevraagd
 
-* Vraag het aantal contacten en de besmettingskans in procent.
-* Gebruik `random.randint(1, 100)` voor elk contact.
-* Tel met variabelen zoals `besmet` en `niet_besmet` hoeveel contacten besmet raken.
-* Print op het einde beide aantallen.
+* Vraag het aantal contacten.
+* Vraag de besmettingskans in procent.
+* Bereken hoeveel contacten je verwacht te besmetten.
+* Print het verwachte aantal besmette en niet-besmette contacten.
+* Bereken vanaf hoeveel contacten je minstens 1 besmetting verwacht.
 
 #### Rekenregel
 
-Een willekeurig getal kleiner dan of gelijk aan de besmettingskans telt als besmetting. Bij een kans van 30 raakt een contact dus besmet als `worp <= 30`.
+Gebruik:
+
+```
+besmet = math.floor(contacten * kans / 100)
+```
+
+Daarna is:
+
+```
+niet_besmet = contacten - besmet
+```
+
+Als `kans <= 0` of `contacten <= 0`, dan is het minimum `0`.
+
+Anders gebruik je:
+
+```
+minimum_contacten = math.ceil(100 / kans)
+```
+
+Met `math.ceil()` rond je naar boven af.
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
-8
+10
 30
 ```
 
-kan je programma bijvoorbeeld dit printen:
+moet je programma exact dit printen:
 ```
-Besmet: 3
-Niet besmet: 5
+Verwacht besmet: 3
+Verwacht niet besmet: 7
+Minstens 1 verwacht vanaf: 4 contacten
 ```
