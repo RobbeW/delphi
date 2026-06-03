@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260324-47";
+const APP_VERSION = "20260603-1";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -100,6 +100,7 @@ const state = {
   inputSwIssue: "",
   inputChannelBroken: false,
   liveOutputTimer: null,
+  activeTourCleanup: null,
   toastTimer: null,
   timerRunning: false,
   timerLastStart: 0,
@@ -1003,6 +1004,230 @@ function renderAssignmentMarkdown(markdown, basePath = null) {
   enhanceRenderedAssignmentMedia(ui.assignmentMarkdown, basePath);
 }
 
+function createUiElement(tag, className = "", text = null) {
+  const element = document.createElement(tag);
+  if (className) {
+    element.className = className;
+  }
+  if (text !== null && text !== undefined) {
+    element.textContent = String(text);
+  }
+  return element;
+}
+
+function markTheoryItemCompleted(exercise, options = {}) {
+  if (!exercise || !exercise.id) {
+    return;
+  }
+  const previous = getExerciseEvalStatus(exercise.id);
+  setExerciseEvalStatus(exercise.id, "success");
+  renderProgress();
+  renderChapterMenu();
+  if (options.toast !== false && previous !== "success") {
+    showToast("Theorie gemarkeerd als gelezen.", true);
+  }
+}
+
+function appendTheoryReadButton(container, exercise) {
+  const wrap = createUiElement("div", "theory-read-actions");
+  const status = getExerciseEvalStatus(exercise && exercise.id);
+  const button = createUiElement(
+    "button",
+    "brand-btn theory-read-btn",
+    status === "success" ? "Gelezen" : "Markeer als gelezen"
+  );
+  button.type = "button";
+  button.disabled = status === "success";
+  button.addEventListener("click", () => {
+    markTheoryItemCompleted(exercise);
+    button.textContent = "Gelezen";
+    button.disabled = true;
+  });
+  wrap.appendChild(button);
+  container.appendChild(wrap);
+}
+
+function clearActiveTour() {
+  if (typeof state.activeTourCleanup === "function") {
+    state.activeTourCleanup();
+    state.activeTourCleanup = null;
+  }
+  const overlay = document.querySelector(".tour-overlay");
+  if (overlay) {
+    overlay.remove();
+  }
+  document.body.classList.remove("tour-active");
+}
+
+function renderTheoryTour(container, exercise, tour) {
+  clearActiveTour();
+
+  const steps = Array.isArray(tour && tour.steps) ? tour.steps : [];
+  if (steps.length === 0) {
+    appendTheoryReadButton(container, exercise);
+    return;
+  }
+
+  let stepIndex = 0;
+  const intro = createUiElement("section", "tour-intro");
+  intro.appendChild(createUiElement("h3", "", tour.title || "Rondleiding"));
+  intro.appendChild(
+    createUiElement(
+      "p",
+      "",
+      tour.intro || "Doorloop de belangrijkste onderdelen van de leeromgeving."
+    )
+  );
+  const startButton = createUiElement("button", "brand-btn primary", "Start rondleiding");
+  startButton.type = "button";
+  intro.appendChild(startButton);
+  container.appendChild(intro);
+
+  const overlay = createUiElement("div", "tour-overlay");
+  overlay.setAttribute("aria-live", "polite");
+  const highlight = createUiElement("div", "tour-highlight");
+  const callout = createUiElement("div", "tour-callout");
+  const calloutTitle = createUiElement("h3", "", "");
+  const calloutText = createUiElement("p", "", "");
+  const status = createUiElement("span", "tour-status", "");
+  const controls = createUiElement("div", "tour-controls");
+  const prevButton = createUiElement("button", "brand-btn", "Vorige");
+  const nextButton = createUiElement("button", "brand-btn primary", "Volgende");
+  const skipButton = createUiElement("button", "brand-btn", "Overslaan");
+  prevButton.type = "button";
+  nextButton.type = "button";
+  skipButton.type = "button";
+  controls.append(prevButton, nextButton, skipButton);
+  callout.append(calloutTitle, calloutText, status, controls);
+  overlay.append(highlight, callout);
+
+  function getStepTarget(step) {
+    if (!step || !step.selector) {
+      return ui.assignmentMarkdown || document.body;
+    }
+    return document.querySelector(step.selector) || ui.assignmentMarkdown || document.body;
+  }
+
+  function positionTour() {
+    const step = steps[stepIndex];
+    const target = getStepTarget(step);
+    const firstRect = target.getBoundingClientRect();
+    if (
+      target !== document.body &&
+      typeof target.scrollIntoView === "function" &&
+      (firstRect.top < 0 ||
+        firstRect.left < 0 ||
+        firstRect.bottom > window.innerHeight ||
+        firstRect.right > window.innerWidth)
+    ) {
+      target.scrollIntoView({ block: "center", inline: "center", behavior: "auto" });
+    }
+
+    const rect = target.getBoundingClientRect();
+    const margin = 8;
+    const left = Math.max(8, rect.left - margin);
+    const top = Math.max(8, rect.top - margin);
+    const width = Math.min(window.innerWidth - left - 8, rect.width + margin * 2);
+    const height = Math.min(window.innerHeight - top - 8, rect.height + margin * 2);
+
+    highlight.style.left = `${left}px`;
+    highlight.style.top = `${top}px`;
+    highlight.style.width = `${Math.max(48, width)}px`;
+    highlight.style.height = `${Math.max(36, height)}px`;
+
+    const calloutWidth = Math.min(340, window.innerWidth - 24);
+    const preferredLeft = Math.min(
+      Math.max(12, left + width + 14),
+      window.innerWidth - calloutWidth - 12
+    );
+    const belowTop = top + height + 12;
+    const preferredTop =
+      belowTop + 180 < window.innerHeight
+        ? belowTop
+        : Math.max(12, Math.min(top, window.innerHeight - 220));
+
+    callout.style.width = `${calloutWidth}px`;
+    callout.style.left = `${preferredLeft}px`;
+    callout.style.top = `${preferredTop}px`;
+  }
+
+  function renderStep() {
+    const step = steps[stepIndex];
+    calloutTitle.textContent = step.title || `Stap ${stepIndex + 1}`;
+    calloutText.textContent = step.text || "";
+    status.textContent = `Stap ${stepIndex + 1} van ${steps.length}`;
+    prevButton.disabled = stepIndex === 0;
+    nextButton.textContent = stepIndex === steps.length - 1 ? "Klaar" : "Volgende";
+    positionTour();
+  }
+
+  function finishTour(markComplete = true) {
+    clearActiveTour();
+    if (markComplete) {
+      markTheoryItemCompleted(exercise);
+    }
+  }
+
+  function startTour() {
+    clearActiveTour();
+    closeMenu();
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    document.body.appendChild(overlay);
+    document.body.classList.add("tour-active");
+    state.activeTourCleanup = () => {
+      window.removeEventListener("resize", positionTour);
+      window.removeEventListener("scroll", positionTour, true);
+      overlay.remove();
+      document.body.classList.remove("tour-active");
+    };
+    window.addEventListener("resize", positionTour);
+    window.addEventListener("scroll", positionTour, true);
+    stepIndex = 0;
+    renderStep();
+  }
+
+  startButton.addEventListener("click", startTour);
+  prevButton.addEventListener("click", () => {
+    stepIndex = Math.max(0, stepIndex - 1);
+    renderStep();
+  });
+  nextButton.addEventListener("click", () => {
+    if (stepIndex >= steps.length - 1) {
+      finishTour(true);
+      return;
+    }
+    stepIndex += 1;
+    renderStep();
+  });
+  skipButton.addEventListener("click", () => finishTour(false));
+
+  window.requestAnimationFrame(startTour);
+}
+
+async function enhanceTheoryAssignment(exercise, renderToken) {
+  if (!exercise || exercise.type !== "theory" || !ui.assignmentMarkdown) {
+    return;
+  }
+
+  if (exercise.theoryKind === "tour" && exercise.theoryPath) {
+    let tour = null;
+    try {
+      tour = await fetchJsonFile(exercise.theoryPath);
+    } catch {
+      tour = null;
+    }
+    if (renderToken !== state.assignmentRenderToken) {
+      return;
+    }
+    if (tour) {
+      renderTheoryTour(ui.assignmentMarkdown, exercise, tour);
+      return;
+    }
+  }
+
+  appendTheoryReadButton(ui.assignmentMarkdown, exercise);
+}
+
 async function fetchTextFile(relativePath) {
   if (!relativePath) {
     return null;
@@ -1014,6 +1239,14 @@ async function fetchTextFile(relativePath) {
     return null;
   }
   return response.text();
+}
+
+async function fetchJsonFile(relativePath) {
+  const raw = await fetchTextFile(relativePath);
+  if (!raw) {
+    return null;
+  }
+  return JSON.parse(raw);
 }
 
 async function resolveStarterCode(exercise) {
@@ -1029,6 +1262,7 @@ async function resolveStarterCode(exercise) {
 }
 
 async function renderAssignmentInfo() {
+  clearActiveTour();
   const chapter = getCurrentChapter();
   const subchapter = getCurrentSubchapter();
   const exercise = getCurrentExercise();
@@ -1083,6 +1317,7 @@ async function renderAssignmentInfo() {
     markdown && markdown.trim().length > 0 ? markdown.trim() : fallbackMarkdown,
     exercise.descriptionPath
   );
+  await enhanceTheoryAssignment(exercise, renderToken);
 }
 
 function clearOutputPanels() {
@@ -1431,10 +1666,16 @@ function normalizeCatalog(rawCatalog) {
                 type: exercise && exercise.type === "theory" ? "theory" : evaluable ? "exercise" : "theory",
                 evaluable,
                 path: (exercise && exercise.path) || null,
+                configPath: (exercise && exercise.configPath) || null,
                 descriptionPath: (exercise && exercise.descriptionPath) || null,
                 testsPath: (exercise && exercise.testsPath) || null,
                 testsFormat: (exercise && exercise.testsFormat) || null,
                 starterPath: (exercise && exercise.starterPath) || null,
+                theoryKind: (exercise && exercise.theoryKind) || null,
+                theoryPath: (exercise && exercise.theoryPath) || null,
+                videoUrl: (exercise && exercise.videoUrl) || null,
+                colabUrl: (exercise && exercise.colabUrl) || null,
+                colabLabel: (exercise && exercise.colabLabel) || null,
               };
             })
             .filter(Boolean);

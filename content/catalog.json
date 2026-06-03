@@ -1,14 +1,44 @@
 {
-  "generatedAt": "2026-06-02T13:58:32.309Z",
+  "generatedAt": "2026-06-03T18:31:25.911Z",
   "sourceRoot": "content",
   "totals": {
-    "chapters": 5,
-    "subchapters": 23,
-    "exercises": 241,
+    "chapters": 6,
+    "subchapters": 24,
+    "exercises": 242,
     "evaluableExercises": 215,
-    "theoryItems": 26
+    "theoryItems": 27
   },
   "chapters": [
+    {
+      "id": "00-Inleiding",
+      "title": "Inleiding",
+      "order": 0,
+      "path": "content/00-Inleiding",
+      "subchapters": [
+        {
+          "id": "00-Inleiding/01-Wegwijs in Delphi",
+          "title": "Wegwijs in Delphi",
+          "order": 1,
+          "path": "content/00-Inleiding/01-Wegwijs in Delphi",
+          "exercises": [
+            {
+              "id": "00-Inleiding/01-Wegwijs in Delphi/00-Rondleiding Door De Leeromgeving",
+              "title": "Rondleiding door de leeromgeving",
+              "order": 0,
+              "type": "theory",
+              "evaluable": false,
+              "path": "content/00-Inleiding/01-Wegwijs in Delphi/00-Rondleiding Door De Leeromgeving",
+              "descriptionPath": "content/00-Inleiding/01-Wegwijs in Delphi/00-Rondleiding Door De Leeromgeving/description/description.nl.md",
+              "testsPath": null,
+              "testsFormat": null,
+              "starterPath": "content/00-Inleiding/01-Wegwijs in Delphi/00-Rondleiding Door De Leeromgeving/starter/starter.py",
+              "theoryKind": "tour",
+              "theoryPath": "content/00-Inleiding/01-Wegwijs in Delphi/00-Rondleiding Door De Leeromgeving/theory/theory.json"
+            }
+          ]
+        }
+      ]
+    },
     {
       "id": "01-Hoofdstuk 1 - Sequentie",
       "title": "Hoofdstuk 1 Sequentie",
