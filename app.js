@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260603-1";
+const APP_VERSION = "20260603-2";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -1078,8 +1078,16 @@ function renderTheoryTour(container, exercise, tour) {
       tour.intro || "Doorloop de belangrijkste onderdelen van de leeromgeving."
     )
   );
-  const startButton = createUiElement("button", "brand-btn primary", "Start rondleiding");
+  const tourCompleted = getExerciseEvalStatus(exercise && exercise.id) === "success";
+  const startButton = createUiElement(
+    "button",
+    "brand-btn primary tour-start-button",
+    tourCompleted ? "Rondleiding opnieuw starten" : "Start rondleiding"
+  );
   startButton.type = "button";
+  if (!tourCompleted) {
+    startButton.classList.add("tour-start-nudge");
+  }
   intro.appendChild(startButton);
   container.appendChild(intro);
 
@@ -1200,8 +1208,6 @@ function renderTheoryTour(container, exercise, tour) {
     renderStep();
   });
   skipButton.addEventListener("click", () => finishTour(false));
-
-  window.requestAnimationFrame(startTour);
 }
 
 async function enhanceTheoryAssignment(exercise, renderToken) {

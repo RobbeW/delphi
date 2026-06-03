@@ -676,6 +676,28 @@ body {
   color: var(--brand-purple);
 }
 
+.tour-start-button {
+  margin-top: 0.25rem;
+}
+
+.tour-start-nudge {
+  animation: tour-start-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes tour-start-pulse {
+  0%,
+  100% {
+    box-shadow: 0 2px 10px rgba(82, 0, 255, 0.11);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(82, 0, 255, 0.11),
+      0 12px 24px rgba(82, 0, 255, 0.18);
+    transform: translateY(-1px);
+  }
+}
+
 .tour-overlay {
   position: fixed;
   inset: 0;
@@ -728,8 +750,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .tour-start-nudge,
   .tour-highlight,
   .tour-callout {
+    animation: none;
     transition: none;
   }
 }
