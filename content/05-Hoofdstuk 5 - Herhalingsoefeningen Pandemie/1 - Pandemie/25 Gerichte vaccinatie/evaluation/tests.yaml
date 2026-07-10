@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "5\n3\n3\n12\n8\n20\n10\n"
-          stdout: "Vaccin 1: persoon 4 met 20 contacten\nVaccin 2: persoon 2 met 12 contacten\nVaccin 3: persoon 5 met 10 contacten\nBeschermde contacten: 42\n"
+        - stdin: "5\n3\n12\n8\n20\n10\n"
+          stdout: "Te vaccineren personen: 3\nBeschermde contacten: 42\n"
     -
       testcases:
-        - stdin: "3\n1\n1\n2\n3\n"
-          stdout: "Vaccin 1: persoon 3 met 3 contacten\nBeschermde contacten: 3\n"
+        - stdin: "3\n1\n2\n3\n"
+          stdout: "Te vaccineren personen: 0\nBeschermde contacten: 0\n"
     -
       testcases:
-        - stdin: "4\n10\n5\n4\n3\n2\n"
-          stdout: "Vaccin 1: persoon 1 met 5 contacten\nVaccin 2: persoon 2 met 4 contacten\nVaccin 3: persoon 3 met 3 contacten\nVaccin 4: persoon 4 met 2 contacten\nBeschermde contacten: 14\n"
+        - stdin: "1\n10\n"
+          stdout: "Te vaccineren personen: 1\nBeschermde contacten: 10\n"
     -
       testcases:
-        - stdin: "3\n2\n0\n0\n0\n"
-          stdout: "Beschermde contacten: 0\n"
+        - stdin: "4\n10\n9\n11\n0\n"
+          stdout: "Te vaccineren personen: 2\nBeschermde contacten: 21\n"
     -
       testcases:
-        - stdin: "6\n2\n9\n9\n8\n7\n6\n5\n"
-          stdout: "Vaccin 1: persoon 1 met 9 contacten\nVaccin 2: persoon 2 met 9 contacten\nBeschermde contacten: 18\n"
+        - stdin: "0\n"
+          stdout: "Te vaccineren personen: 0\nBeschermde contacten: 0\n"
     -
       testcases:
-        - stdin: "5\n0\n100\n90\n80\n70\n60\n"
-          stdout: "Beschermde contacten: 0\n"
-    -
-      testcases:
-        - stdin: "1\n1\n42\n"
-          stdout: "Vaccin 1: persoon 1 met 42 contacten\nBeschermde contacten: 42\n"
-    -
-      testcases:
-        - stdin: "7\n3\n1\n4\n9\n16\n25\n36\n49\n"
-          stdout: "Vaccin 1: persoon 7 met 49 contacten\nVaccin 2: persoon 6 met 36 contacten\nVaccin 3: persoon 5 met 25 contacten\nBeschermde contacten: 110\n"
-    -
-      testcases:
-        - stdin: "4\n2\n10\n10\n10\n10\n"
-          stdout: "Vaccin 1: persoon 1 met 10 contacten\nVaccin 2: persoon 2 met 10 contacten\nBeschermde contacten: 20\n"
-    -
-      testcases:
-        - stdin: "6\n4\n0\n12\n0\n12\n0\n12\n"
-          stdout: "Vaccin 1: persoon 2 met 12 contacten\nVaccin 2: persoon 4 met 12 contacten\nVaccin 3: persoon 6 met 12 contacten\nBeschermde contacten: 36\n"
-    -
-      testcases:
-        - stdin: "8\n5\n8\n6\n7\n5\n3\n0\n9\n10\n"
-          stdout: "Vaccin 1: persoon 8 met 10 contacten\nVaccin 2: persoon 7 met 9 contacten\nVaccin 3: persoon 1 met 8 contacten\nVaccin 4: persoon 3 met 7 contacten\nVaccin 5: persoon 2 met 6 contacten\nBeschermde contacten: 40\n"
-    -
-      testcases:
-        - stdin: "2\n3\n5\n1\n"
-          stdout: "Vaccin 1: persoon 1 met 5 contacten\nVaccin 2: persoon 2 met 1 contacten\nBeschermde contacten: 6\n"
-    -
-      testcases:
-        - stdin: "5\n2\n20\n1\n20\n1\n20\n"
-          stdout: "Vaccin 1: persoon 1 met 20 contacten\nVaccin 2: persoon 3 met 20 contacten\nBeschermde contacten: 40\n"
-    -
-      testcases:
-        - stdin: "6\n6\n1\n2\n3\n4\n5\n6\n"
-          stdout: "Vaccin 1: persoon 6 met 6 contacten\nVaccin 2: persoon 5 met 5 contacten\nVaccin 3: persoon 4 met 4 contacten\nVaccin 4: persoon 3 met 3 contacten\nVaccin 5: persoon 2 met 2 contacten\nVaccin 6: persoon 1 met 1 contacten\nBeschermde contacten: 21\n"
-    -
-      testcases:
-        - stdin: "4\n1\n0\n100\n0\n0\n"
-          stdout: "Vaccin 1: persoon 2 met 100 contacten\nBeschermde contacten: 100\n"
-    -
-      testcases:
-        - stdin: "3\n2\n15\n14\n13\n"
-          stdout: "Vaccin 1: persoon 1 met 15 contacten\nVaccin 2: persoon 2 met 14 contacten\nBeschermde contacten: 29\n"
-    -
-      testcases:
-        - stdin: "7\n4\n30\n20\n10\n0\n5\n15\n25\n"
-          stdout: "Vaccin 1: persoon 1 met 30 contacten\nVaccin 2: persoon 7 met 25 contacten\nVaccin 3: persoon 2 met 20 contacten\nVaccin 4: persoon 6 met 15 contacten\nBeschermde contacten: 90\n"
-    -
-      testcases:
-        - stdin: "5\n5\n1\n1\n1\n1\n1\n"
-          stdout: "Vaccin 1: persoon 1 met 1 contacten\nVaccin 2: persoon 2 met 1 contacten\nVaccin 3: persoon 3 met 1 contacten\nVaccin 4: persoon 4 met 1 contacten\nVaccin 5: persoon 5 met 1 contacten\nBeschermde contacten: 5\n"
-    -
-      testcases:
-        - stdin: "6\n3\n50\n40\n30\n20\n10\n0\n"
-          stdout: "Vaccin 1: persoon 1 met 50 contacten\nVaccin 2: persoon 2 met 40 contacten\nVaccin 3: persoon 3 met 30 contacten\nBeschermde contacten: 120\n"
-    -
-      testcases:
-        - stdin: "4\n2\n7\n8\n9\n10\n"
-          stdout: "Vaccin 1: persoon 4 met 10 contacten\nVaccin 2: persoon 3 met 9 contacten\nBeschermde contacten: 19\n"
+        - stdin: "5\n15\n15\n15\n15\n15\n"
+          stdout: "Te vaccineren personen: 5\nBeschermde contacten: 75\n"

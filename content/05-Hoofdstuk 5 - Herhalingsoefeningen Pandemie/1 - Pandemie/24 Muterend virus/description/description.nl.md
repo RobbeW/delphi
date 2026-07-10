@@ -1,36 +1,40 @@
 ## Gegeven
 
-Virussen blijven niet altijd hetzelfde. Een mutatie kan de `R0` lager maken, ongeveer gelijk houden of net verhogen. Daardoor verandert de groei tijdens de simulatie.
+Een mutatie kan de `R0` van een virus veranderen.
 
-Je simuleert meerdere cycli. In elke cyclus bepaalt een willekeurig getal hoe de variant verandert.
+In deze oefening bereken je de nieuwe `R0` na meerdere mutaties met een `for`-lus.
 
 ## Gevraagd
 
-* Vraag de startwaarde van `r0`, het startaantal besmettingen en het aantal cycli.
-* Gebruik per cyclus `random.randint(1, 3)` om de mutatie te bepalen.
-* Pas `r0` aan en rond de waarde af op twee decimalen.
-* Bereken daarna het aantal `nieuwe_besmettingen` en het nieuwe `totaal`.
-* Print per cyclus het type variant, de `R0`, de nieuwe besmettingen en het totaal.
-* Print op het einde of de uitbraak uitdooft, de variant blijft groeien of de variant verzwakt.
+* Vraag de startwaarde van `R0`.
+* Vraag hoeveel mutaties er zijn.
+* Vraag per mutatie de verandering van `R0`.
+* Bereken na elke mutatie de nieuwe `R0`.
+* Print of de variant sterker, zwakker of stabiel is.
 
 #### Rekenregel
 
-Een mutatie met waarde 1 maakt `r0` 0.25 lager, maar nooit lager dan 0. Een mutatie met waarde 2 laat `r0` gelijk. Een mutatie met waarde 3 maakt `r0` 0.4 hoger. Rond `r0` daarna af op twee decimalen en bereken `nieuwe_besmettingen = math.floor(besmettingen * r0)`. Als de laatste actieve besmettingen 0 zijn, dooft de uitbraak uit. Anders blijft de variant groeien bij `r0 > 1`; in de andere gevallen verzwakt ze.
+Gebruik per mutatie:
+
+```
+nieuwe_r0 = round(nieuwe_r0 + verandering, 2)
+```
+
+Vergelijk daarna de nieuwe waarde met de oude waarde.
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
 1.5
-10
-4
+3
+0.4
+-0.1
+0.25
 ```
 
-kan je programma bijvoorbeeld dit printen:
+moet je programma exact dit printen:
 ```
-Cyclus 1: variant zwakker, R0 = 1.25, nieuwe besmettingen = 12, totaal = 22
-Cyclus 2: variant stabiel, R0 = 1.25, nieuwe besmettingen = 15, totaal = 37
-Cyclus 3: variant besmettelijker, R0 = 1.65, nieuwe besmettingen = 24, totaal = 61
-Cyclus 4: variant stabiel, R0 = 1.65, nieuwe besmettingen = 39, totaal = 100
-De variant blijft groeien.
+Nieuwe R0: 2.05
+De variant wordt sterker.
 ```

@@ -18,9 +18,13 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "Random",
-    "While-lus",
-    "Recovery rate"
+    "Procenten",
+    "Recovery rate",
+    "Math floor"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "tw3ArYJs9UnniSqmZrD_H72U__5tkJbb4aTKbxgESVS7v5Ff6UnTnrQ-aGqg92yS",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

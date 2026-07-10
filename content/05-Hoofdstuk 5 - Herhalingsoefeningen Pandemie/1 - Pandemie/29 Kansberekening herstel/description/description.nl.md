@@ -1,37 +1,48 @@
 ## Gegeven
 
-Naast besmettingen wil je ook herstel kunnen simuleren. Elke zieke persoon heeft per dag een kans om te genezen.
+Een herstelkans kan je gebruiken om te berekenen hoeveel zieken ongeveer genezen.
 
-Voor elke zieke persoon trek je een willekeurig getal. Wie binnen de herstelkans valt, geneest en telt de volgende dag niet meer mee als ziek.
+In deze oefening bereken je het verwachte aantal genezingen voor meerdere groepen met een `for`-lus.
 
 ## Gevraagd
 
-* Vraag het startaantal zieken, de herstelkans in procent en het aantal dagen.
-* Gebruik per zieke persoon `random.randint(1, 100)`.
-* Tel per dag hoeveel personen `genezen`.
-* Verminder het aantal `ziek` met het aantal genezen personen.
-* Print per dag de genezingen en het aantal zieken.
-* Print op het einde het totaal aantal genezen personen.
+* Vraag hoeveel groepen zieken er zijn.
+* Vraag per groep het aantal zieken.
+* Vraag per groep de herstelkans in procent.
+* Bereken per groep hoeveel mensen naar verwachting genezen.
+* Tel alle genezen personen op.
+* Tel ook alle personen op die ziek blijven.
+* Print beide totalen.
 
 #### Rekenregel
 
-Voor elke zieke persoon trek je een getal van 1 tot en met 100. Als `worp <= herstelkans`, dan geneest die persoon. Na de dag wordt `ziek = ziek - genezen`.
+Gebruik:
+
+```
+genezen = math.floor(ziek * kans / 100)
+```
+
+Daarna:
+
+```
+nog_ziek = ziek - genezen
+```
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
+3
 10
 30
-5
+15
+50
+8
+10
 ```
 
-kan je programma bijvoorbeeld dit printen:
+moet je programma exact dit printen:
 ```
-Dag 1: 3 genezen, 7 ziek
-Dag 2: 1 genezen, 6 ziek
-Dag 3: 2 genezen, 4 ziek
-Dag 4: 2 genezen, 2 ziek
-Dag 5: 0 genezen, 2 ziek
-Totaal genezen: 8
+Genezen: 10
+Nog ziek: 23
 ```

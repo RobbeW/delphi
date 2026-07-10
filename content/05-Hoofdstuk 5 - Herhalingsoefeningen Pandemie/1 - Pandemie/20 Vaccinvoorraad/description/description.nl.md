@@ -1,36 +1,43 @@
 ## Gegeven
 
-Een vaccinatiecentrum moet niet alleen weten hoeveel dosissen nodig zijn. Vaccins zitten in flacons, en flacons worden geleverd in dozen.
+Een vaccinatiecentrum wil weten of er genoeg dosissen op voorraad zijn.
 
-Je rekent dus in drie stappen: dosissen, flacons en dozen.
+Elke persoon heeft evenveel dosissen nodig. Je krijgt meerdere groepen personen.
 
 ## Gevraagd
 
-* Vraag het aantal personen, het aantal dosissen per persoon, het aantal dosissen per flacon en het aantal flacons per doos.
-* Bereken het totaal aantal `dosissen`.
-* Bereken met gehele deling en rest hoeveel `flacons` nodig zijn.
-* Bereken hoeveel volle dozen en losse flacons dat zijn.
-* Bereken hoeveel dozen besteld moeten worden als losse flacons ook een extra doos nodig maken.
+* Vraag het aantal groepen.
+* Vraag het aantal dosissen per persoon.
+* Vraag hoeveel dosissen er op voorraad zijn.
+* Vraag per groep hoeveel personen erin zitten.
+* Bereken met een `for`-lus hoeveel dosissen in totaal nodig zijn.
+* Print het aantal nodige dosissen.
+* Print of er genoeg dosissen zijn of hoeveel tekort er is.
 
 #### Rekenregel
 
-Eerst bereken je `dosissen = personen * dosissen_per_persoon`. Voor flacons rond je naar boven af. Dat kan met gehele deling: als er een rest is, heb je een extra flacon nodig. Voor dozen gebruik je `//` voor volle dozen en `%` voor losse flacons.
+Tel per groep dit aantal bij het totaal:
+
+```
+nodig += personen * dosissen_per_persoon
+```
+
+Als de voorraad kleiner is dan `nodig`, is het tekort `nodig - voorraad`.
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
-125
+3
 2
-6
-10
+300
+50
+75
+25
 ```
 
 moet je programma exact dit printen:
 ```
-Nodige dosissen: 250
-Nodige flacons: 42
-Volle dozen: 4
-Losse flacons: 2
-Te bestellen dozen: 5
+Nodige dosissen: 300
+Er zijn genoeg dosissen.
 ```

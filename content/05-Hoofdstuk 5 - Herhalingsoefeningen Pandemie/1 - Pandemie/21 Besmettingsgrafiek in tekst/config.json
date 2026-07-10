@@ -18,9 +18,14 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "Geneste lussen",
-    "String-concatenatie",
-    "Visualisatie"
+    "For-lus",
+    "String-herhaling",
+    "Visualisatie",
+    "Math floor"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "NYmyRhp8dG_GCZePUJ7hbvTa2KD3Fjz-SqKRdaQUF5AbFQt4yBtYd2aqkgAjtU22",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

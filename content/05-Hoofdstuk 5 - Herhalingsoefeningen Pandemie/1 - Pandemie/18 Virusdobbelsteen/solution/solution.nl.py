@@ -1,17 +1,11 @@
 import random
 
-grens = int(input("Besmettingsgrens? "))
-max_beurten = int(input("Maximaal aantal beurten? "))
+beurten = int(input("Aantal beurten? "))
+
 totaal = 0
-beurt = 0
 
-while beurt < max_beurten and totaal < grens:
+for beurt in range(beurten):
     worp = random.randint(1, 6)
-    beurt += 1
     totaal += worp
-    print("Beurt " + str(beurt) + ": +" + str(worp) + " besmettingen, totaal " + str(totaal))
 
-if totaal >= grens:
-    print("De uitbraak bereikt de grens na", beurt, "beurten.")
-else:
-    print("Na", beurt, "beurten zijn er", totaal, "besmettingen.")
+print("Na", beurten, "beurten zijn er", totaal, "besmettingen.")

@@ -1,18 +1,18 @@
-import math
-
 populatie = int(input("Populatie? "))
 per_week = int(input("Vaccinaties per week? "))
-doelpercentage = float(input("Doelpercentage? "))
+weken = int(input("Aantal weken? "))
 
-doel = math.ceil(populatie * doelpercentage / 100)
 gevaccineerd = 0
-week = 0
 
-while gevaccineerd < doel and gevaccineerd < populatie:
-    week += 1
+for week in range(weken):
     gevaccineerd += per_week
     if gevaccineerd > populatie:
         gevaccineerd = populatie
-    print("Week", str(week) + ":", gevaccineerd, "mensen gevaccineerd")
 
+controles = 0
+for week in range(2, weken + 1, 2):
+    controles += 1
+
+print("Gevaccineerd:", gevaccineerd)
 print("Nog vatbaar:", populatie - gevaccineerd)
+print("Controles:", controles)

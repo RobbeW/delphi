@@ -18,9 +18,13 @@
     "Python in de Klas",
     "Herhaling",
     "Pandemie",
-    "Random",
+    "Berekeningen",
     "If",
     "Ongelijke netwerken"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "HsJmyydEzGaZU9TtJVFqrJvATuJCbpqD3fvU9JdkJwyFczJK7VRe293WN-7CtfsQ",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

@@ -1,19 +1,16 @@
-import random
-
 resistent = int(input("Aantal resistente personen? "))
+per_ronde = int(input("Herinfecties per ronde? "))
 rondes = int(input("Aantal rondes? "))
-kans = int(input("Kans op herinfectie? "))
-totaal = 0
-ronde = 0
 
-while ronde < rondes and resistent > 0:
-    ronde += 1
-    herinfecties = 0
-    for persoon in range(resistent):
-        if random.randint(1, 100) <= kans:
-            herinfecties += 1
-    resistent -= herinfecties
-    totaal += herinfecties
-    print("Ronde " + str(ronde) + ": " + str(herinfecties) + " herinfecties, " + str(resistent) + " resistent")
+totaal = 0
+
+for ronde in range(rondes):
+    if resistent > 0:
+        herinfecties = per_ronde
+        if herinfecties > resistent:
+            herinfecties = resistent
+        resistent -= herinfecties
+        totaal += herinfecties
 
 print("Totaal herinfecties:", totaal)
+print("Nog resistent:", resistent)

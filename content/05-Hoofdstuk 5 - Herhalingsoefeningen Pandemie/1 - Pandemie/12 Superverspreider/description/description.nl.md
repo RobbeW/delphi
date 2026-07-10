@@ -1,31 +1,38 @@
 ## Gegeven
 
-Bij sommige uitbraken veroorzaakt een klein aantal personen uitzonderlijk veel besmettingen. Zulke personen noemen we superverspreiders.
+Een superverspreider veroorzaakt veel meer besmettingen dan een gewone besmette persoon.
 
-In deze simulatie krijgt elke besmette persoon willekeurig een score van 1 tot en met 10. Alleen wie hoog genoeg scoort, wordt een superverspreider.
+In deze oefening verwerk je meerdere groepen met een `for`-lus.
 
 ## Gevraagd
 
-* Vraag het aantal besmette personen en het aantal gewone besmettingen per persoon.
-* Gebruik voor elke persoon `random.randint(1, 10)`.
-* Als de score minstens 9 is, telt die persoon als `superverspreider` en veroorzaakt die 25 nieuwe besmettingen.
-* Andere personen veroorzaken alleen het gewone aantal nieuwe besmettingen.
-* Print het aantal superverspreiders en het totaal aantal nieuwe besmettingen.
+* Vraag hoeveel groepen je onderzoekt.
+* Vraag per groep het aantal gewone besmette personen.
+* Vraag per groep het aantal superverspreiders.
+* Bereken het totale aantal superverspreiders.
+* Bereken het totaal aantal nieuwe besmettingen.
+* Print beide totalen.
 
 #### Rekenregel
 
-Elke persoon krijgt een score. Bij `score >= 9` tel je 25 nieuwe besmettingen. Anders tel je alleen het gewone aantal besmettingen. Tel alle nieuwe besmettingen samen in `nieuwe_besmettingen`.
+* een gewone besmette persoon veroorzaakt 2 nieuwe besmettingen
+* een superverspreider veroorzaakt 25 nieuwe besmettingen
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
-8
+3
+6
 2
+4
+0
+1
+1
 ```
 
-kan je programma bijvoorbeeld dit printen:
+moet je programma exact dit printen:
 ```
-Superverspreiders: 2
-Nieuwe besmettingen: 62
+Superverspreiders: 3
+Nieuwe besmettingen: 97
 ```

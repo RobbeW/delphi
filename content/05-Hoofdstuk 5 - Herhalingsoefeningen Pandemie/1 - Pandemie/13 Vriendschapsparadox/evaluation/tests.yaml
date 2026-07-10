@@ -3,80 +3,24 @@
     -
       testcases:
         - stdin: "4\n3\n8\n2\n5\n"
-          stdout: "Gemiddeld aantal vrienden: 4.5\nPopulairste persoon: 2 met 8 vrienden.\nAantal personen onder het gemiddelde: 2\n"
+          stdout: "Gemiddeld aantal vrienden: 4.5\nPopulairste persoon: 2 met 8 vrienden.\n"
     -
       testcases:
-        - stdin: "3\n10\n4\n7\n"
-          stdout: "Gemiddeld aantal vrienden: 7.0\nPopulairste persoon: 1 met 10 vrienden.\nAantal personen onder het gemiddelde: 1\n"
+        - stdin: "3\n10\n4\n6\n"
+          stdout: "Gemiddeld aantal vrienden: 6.67\nPopulairste persoon: 1 met 10 vrienden.\n"
     -
       testcases:
-        - stdin: "5\n1\n2\n3\n4\n9\n"
-          stdout: "Gemiddeld aantal vrienden: 3.8\nPopulairste persoon: 5 met 9 vrienden.\nAantal personen onder het gemiddelde: 3\n"
+        - stdin: "1\n7\n"
+          stdout: "Gemiddeld aantal vrienden: 7.0\nPopulairste persoon: 1 met 7 vrienden.\n"
     -
       testcases:
-        - stdin: "2\n5\n5\n"
-          stdout: "Gemiddeld aantal vrienden: 5.0\nPopulairste persoon: 1 met 5 vrienden.\nAantal personen onder het gemiddelde: 0\n"
+        - stdin: "5\n1\n2\n3\n4\n5\n"
+          stdout: "Gemiddeld aantal vrienden: 3.0\nPopulairste persoon: 5 met 5 vrienden.\n"
     -
       testcases:
-        - stdin: "6\n0\n1\n2\n3\n4\n5\n"
-          stdout: "Gemiddeld aantal vrienden: 2.5\nPopulairste persoon: 6 met 5 vrienden.\nAantal personen onder het gemiddelde: 3\n"
+        - stdin: "3\n6\n6\n2\n"
+          stdout: "Gemiddeld aantal vrienden: 4.67\nPopulairste persoon: 1 met 6 vrienden.\n"
     -
       testcases:
-        - stdin: "4\n12\n11\n10\n9\n"
-          stdout: "Gemiddeld aantal vrienden: 10.5\nPopulairste persoon: 1 met 12 vrienden.\nAantal personen onder het gemiddelde: 2\n"
-    -
-      testcases:
-        - stdin: "7\n3\n3\n3\n3\n3\n3\n30\n"
-          stdout: "Gemiddeld aantal vrienden: 6.86\nPopulairste persoon: 7 met 30 vrienden.\nAantal personen onder het gemiddelde: 6\n"
-    -
-      testcases:
-        - stdin: "1\n42\n"
-          stdout: "Gemiddeld aantal vrienden: 42.0\nPopulairste persoon: 1 met 42 vrienden.\nAantal personen onder het gemiddelde: 0\n"
-    -
-      testcases:
-        - stdin: "8\n8\n6\n7\n5\n3\n0\n9\n10\n"
-          stdout: "Gemiddeld aantal vrienden: 6.0\nPopulairste persoon: 8 met 10 vrienden.\nAantal personen onder het gemiddelde: 3\n"
-    -
-      testcases:
-        - stdin: "5\n20\n1\n1\n1\n1\n"
-          stdout: "Gemiddeld aantal vrienden: 4.8\nPopulairste persoon: 1 met 20 vrienden.\nAantal personen onder het gemiddelde: 4\n"
-    -
-      testcases:
-        - stdin: "3\n2\n20\n2\n"
-          stdout: "Gemiddeld aantal vrienden: 8.0\nPopulairste persoon: 2 met 20 vrienden.\nAantal personen onder het gemiddelde: 2\n"
-    -
-      testcases:
-        - stdin: "6\n6\n6\n6\n6\n6\n6\n"
-          stdout: "Gemiddeld aantal vrienden: 6.0\nPopulairste persoon: 1 met 6 vrienden.\nAantal personen onder het gemiddelde: 0\n"
-    -
-      testcases:
-        - stdin: "4\n0\n0\n0\n1\n"
-          stdout: "Gemiddeld aantal vrienden: 0.25\nPopulairste persoon: 4 met 1 vrienden.\nAantal personen onder het gemiddelde: 3\n"
-    -
-      testcases:
-        - stdin: "5\n13\n14\n15\n16\n17\n"
-          stdout: "Gemiddeld aantal vrienden: 15.0\nPopulairste persoon: 5 met 17 vrienden.\nAantal personen onder het gemiddelde: 2\n"
-    -
-      testcases:
-        - stdin: "7\n1\n4\n9\n16\n25\n36\n49\n"
-          stdout: "Gemiddeld aantal vrienden: 20.0\nPopulairste persoon: 7 met 49 vrienden.\nAantal personen onder het gemiddelde: 4\n"
-    -
-      testcases:
-        - stdin: "3\n100\n50\n0\n"
-          stdout: "Gemiddeld aantal vrienden: 50.0\nPopulairste persoon: 1 met 100 vrienden.\nAantal personen onder het gemiddelde: 1\n"
-    -
-      testcases:
-        - stdin: "6\n2\n3\n5\n8\n13\n21\n"
-          stdout: "Gemiddeld aantal vrienden: 8.67\nPopulairste persoon: 6 met 21 vrienden.\nAantal personen onder het gemiddelde: 4\n"
-    -
-      testcases:
-        - stdin: "4\n9\n1\n9\n1\n"
-          stdout: "Gemiddeld aantal vrienden: 5.0\nPopulairste persoon: 1 met 9 vrienden.\nAantal personen onder het gemiddelde: 2\n"
-    -
-      testcases:
-        - stdin: "5\n7\n8\n9\n10\n11\n"
-          stdout: "Gemiddeld aantal vrienden: 9.0\nPopulairste persoon: 5 met 11 vrienden.\nAantal personen onder het gemiddelde: 2\n"
-    -
-      testcases:
-        - stdin: "2\n0\n100\n"
-          stdout: "Gemiddeld aantal vrienden: 50.0\nPopulairste persoon: 2 met 100 vrienden.\nAantal personen onder het gemiddelde: 1\n"
+        - stdin: "2\n0\n10\n"
+          stdout: "Gemiddeld aantal vrienden: 5.0\nPopulairste persoon: 2 met 10 vrienden.\n"

@@ -4,464 +4,172 @@
       "name": "Feedback",
       "contexts": [
         {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(7247)"
+            }
+          },
           "testcases": [
             {
+              "description": "Uitvoeren met seed 7247 en invoer 8 leidt tot:",
               "input": {
                 "stdin": {
                   "type": "text",
-                  "data": "30\n8\n"
+                  "data": "8\n"
                 }
               },
               "output": {
                 "stdout": {
                   "type": "text",
-                  "data": "Beurt 1: +4 besmettingen, totaal 4\nBeurt 2: +3 besmettingen, totaal 7\nBeurt 3: +2 besmettingen, totaal 9\nBeurt 4: +1 besmettingen, totaal 10\nBeurt 5: +6 besmettingen, totaal 16\nBeurt 6: +5 besmettingen, totaal 21\nBeurt 7: +4 besmettingen, totaal 25\nBeurt 8: +3 besmettingen, totaal 28\nNa 8 beurten zijn er 28 besmettingen.\n"
+                  "data": "Na 8 beurten zijn er 27 besmettingen.\n"
                 }
               }
             }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
+          ]
         },
         {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6507)"
+            }
+          },
           "testcases": [
             {
+              "description": "Uitvoeren met seed 6507 en invoer 3 leidt tot:",
               "input": {
                 "stdin": {
                   "type": "text",
-                  "data": "12\n10\n"
+                  "data": "3\n"
                 }
               },
               "output": {
                 "stdout": {
                   "type": "text",
-                  "data": "Beurt 1: +5 besmettingen, totaal 5\nBeurt 2: +4 besmettingen, totaal 9\nBeurt 3: +3 besmettingen, totaal 12\nDe uitbraak bereikt de grens na 3 beurten.\n"
+                  "data": "Na 3 beurten zijn er 17 besmettingen.\n"
                 }
               }
             }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5, 4, 3, 2]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
+          ]
         },
         {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(6548)"
+            }
+          },
           "testcases": [
             {
+              "description": "Uitvoeren met seed 6548 en invoer 5 leidt tot:",
               "input": {
                 "stdin": {
                   "type": "text",
-                  "data": "50\n5\n"
+                  "data": "5\n"
                 }
               },
               "output": {
                 "stdout": {
                   "type": "text",
-                  "data": "Beurt 1: +6 besmettingen, totaal 6\nBeurt 2: +5 besmettingen, totaal 11\nBeurt 3: +4 besmettingen, totaal 15\nBeurt 4: +3 besmettingen, totaal 18\nBeurt 5: +2 besmettingen, totaal 20\nNa 5 beurten zijn er 20 besmettingen.\n"
+                  "data": "Na 5 beurten zijn er 18 besmettingen.\n"
                 }
               }
             }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([6, 5, 4, 3, 2]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
+          ]
         },
         {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(9833)"
+            }
+          },
           "testcases": [
             {
+              "description": "Uitvoeren met seed 9833 en invoer 6 leidt tot:",
               "input": {
                 "stdin": {
                   "type": "text",
-                  "data": "18\n3\n"
+                  "data": "6\n"
                 }
               },
               "output": {
                 "stdout": {
                   "type": "text",
-                  "data": "Beurt 1: +1 besmettingen, totaal 1\nBeurt 2: +6 besmettingen, totaal 7\nBeurt 3: +5 besmettingen, totaal 12\nNa 3 beurten zijn er 12 besmettingen.\n"
+                  "data": "Na 6 beurten zijn er 28 besmettingen.\n"
                 }
               }
             }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([1, 6, 5]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
+          ]
         },
         {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(3027)"
+            }
+          },
           "testcases": [
             {
+              "description": "Uitvoeren met seed 3027 en invoer 1 leidt tot:",
               "input": {
                 "stdin": {
                   "type": "text",
-                  "data": "100\n20\n"
+                  "data": "1\n"
                 }
               },
               "output": {
                 "stdout": {
                   "type": "text",
-                  "data": "Beurt 1: +2 besmettingen, totaal 2\nBeurt 2: +1 besmettingen, totaal 3\nBeurt 3: +6 besmettingen, totaal 9\nBeurt 4: +5 besmettingen, totaal 14\nBeurt 5: +4 besmettingen, totaal 18\nBeurt 6: +3 besmettingen, totaal 21\nBeurt 7: +2 besmettingen, totaal 23\nBeurt 8: +1 besmettingen, totaal 24\nBeurt 9: +6 besmettingen, totaal 30\nBeurt 10: +5 besmettingen, totaal 35\nBeurt 11: +4 besmettingen, totaal 39\nBeurt 12: +3 besmettingen, totaal 42\nBeurt 13: +2 besmettingen, totaal 44\nBeurt 14: +1 besmettingen, totaal 45\nBeurt 15: +6 besmettingen, totaal 51\nBeurt 16: +5 besmettingen, totaal 56\nBeurt 17: +4 besmettingen, totaal 60\nBeurt 18: +3 besmettingen, totaal 63\nBeurt 19: +2 besmettingen, totaal 65\nBeurt 20: +1 besmettingen, totaal 66\nNa 20 beurten zijn er 66 besmettingen.\n"
+                  "data": "Na 1 beurten zijn er 2 besmettingen.\n"
                 }
               }
             }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
+          ]
         },
         {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(5147)"
+            }
+          },
           "testcases": [
             {
+              "description": "Uitvoeren met seed 5147 en invoer 10 leidt tot:",
               "input": {
                 "stdin": {
                   "type": "text",
-                  "data": "7\n2\n"
+                  "data": "10\n"
                 }
               },
               "output": {
                 "stdout": {
                   "type": "text",
-                  "data": "Beurt 1: +3 besmettingen, totaal 3\nBeurt 2: +2 besmettingen, totaal 5\nNa 2 beurten zijn er 5 besmettingen.\n"
+                  "data": "Na 10 beurten zijn er 41 besmettingen.\n"
                 }
               }
             }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([3, 2]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
+          ]
         },
         {
+          "before": {
+            "python": {
+              "data": "import random; random.seed(9689)"
+            }
+          },
           "testcases": [
             {
+              "description": "Uitvoeren met seed 9689 en invoer 12 leidt tot:",
               "input": {
                 "stdin": {
                   "type": "text",
-                  "data": "25\n12\n"
+                  "data": "12\n"
                 }
               },
               "output": {
                 "stdout": {
                   "type": "text",
-                  "data": "Beurt 1: +4 besmettingen, totaal 4\nBeurt 2: +3 besmettingen, totaal 7\nBeurt 3: +2 besmettingen, totaal 9\nBeurt 4: +1 besmettingen, totaal 10\nBeurt 5: +6 besmettingen, totaal 16\nBeurt 6: +5 besmettingen, totaal 21\nBeurt 7: +4 besmettingen, totaal 25\nDe uitbraak bereikt de grens na 7 beurten.\n"
+                  "data": "Na 12 beurten zijn er 45 besmettingen.\n"
                 }
               }
             }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "40\n7\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +5 besmettingen, totaal 5\nBeurt 2: +4 besmettingen, totaal 9\nBeurt 3: +3 besmettingen, totaal 12\nBeurt 4: +2 besmettingen, totaal 14\nBeurt 5: +1 besmettingen, totaal 15\nBeurt 6: +6 besmettingen, totaal 21\nBeurt 7: +5 besmettingen, totaal 26\nNa 7 beurten zijn er 26 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "15\n15\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +6 besmettingen, totaal 6\nBeurt 2: +5 besmettingen, totaal 11\nBeurt 3: +4 besmettingen, totaal 15\nDe uitbraak bereikt de grens na 3 beurten.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "60\n10\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +1 besmettingen, totaal 1\nBeurt 2: +6 besmettingen, totaal 7\nBeurt 3: +5 besmettingen, totaal 12\nBeurt 4: +4 besmettingen, totaal 16\nBeurt 5: +3 besmettingen, totaal 19\nBeurt 6: +2 besmettingen, totaal 21\nBeurt 7: +1 besmettingen, totaal 22\nBeurt 8: +6 besmettingen, totaal 28\nBeurt 9: +5 besmettingen, totaal 33\nBeurt 10: +4 besmettingen, totaal 37\nNa 10 beurten zijn er 37 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "5\n5\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +2 besmettingen, totaal 2\nBeurt 2: +1 besmettingen, totaal 3\nBeurt 3: +6 besmettingen, totaal 9\nDe uitbraak bereikt de grens na 3 beurten.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "90\n25\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +3 besmettingen, totaal 3\nBeurt 2: +2 besmettingen, totaal 5\nBeurt 3: +1 besmettingen, totaal 6\nBeurt 4: +6 besmettingen, totaal 12\nBeurt 5: +5 besmettingen, totaal 17\nBeurt 6: +4 besmettingen, totaal 21\nBeurt 7: +3 besmettingen, totaal 24\nBeurt 8: +2 besmettingen, totaal 26\nBeurt 9: +1 besmettingen, totaal 27\nBeurt 10: +6 besmettingen, totaal 33\nBeurt 11: +5 besmettingen, totaal 38\nBeurt 12: +4 besmettingen, totaal 42\nBeurt 13: +3 besmettingen, totaal 45\nBeurt 14: +2 besmettingen, totaal 47\nBeurt 15: +1 besmettingen, totaal 48\nBeurt 16: +6 besmettingen, totaal 54\nBeurt 17: +5 besmettingen, totaal 59\nBeurt 18: +4 besmettingen, totaal 63\nBeurt 19: +3 besmettingen, totaal 66\nBeurt 20: +2 besmettingen, totaal 68\nBeurt 21: +1 besmettingen, totaal 69\nBeurt 22: +6 besmettingen, totaal 75\nBeurt 23: +5 besmettingen, totaal 80\nBeurt 24: +4 besmettingen, totaal 84\nBeurt 25: +3 besmettingen, totaal 87\nNa 25 beurten zijn er 87 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "33\n8\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +4 besmettingen, totaal 4\nBeurt 2: +3 besmettingen, totaal 7\nBeurt 3: +2 besmettingen, totaal 9\nBeurt 4: +1 besmettingen, totaal 10\nBeurt 5: +6 besmettingen, totaal 16\nBeurt 6: +5 besmettingen, totaal 21\nBeurt 7: +4 besmettingen, totaal 25\nBeurt 8: +3 besmettingen, totaal 28\nNa 8 beurten zijn er 28 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "44\n9\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +5 besmettingen, totaal 5\nBeurt 2: +4 besmettingen, totaal 9\nBeurt 3: +3 besmettingen, totaal 12\nBeurt 4: +2 besmettingen, totaal 14\nBeurt 5: +1 besmettingen, totaal 15\nBeurt 6: +6 besmettingen, totaal 21\nBeurt 7: +5 besmettingen, totaal 26\nBeurt 8: +4 besmettingen, totaal 30\nBeurt 9: +3 besmettingen, totaal 33\nNa 9 beurten zijn er 33 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "22\n4\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +6 besmettingen, totaal 6\nBeurt 2: +5 besmettingen, totaal 11\nBeurt 3: +4 besmettingen, totaal 15\nBeurt 4: +3 besmettingen, totaal 18\nNa 4 beurten zijn er 18 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "70\n16\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +1 besmettingen, totaal 1\nBeurt 2: +6 besmettingen, totaal 7\nBeurt 3: +5 besmettingen, totaal 12\nBeurt 4: +4 besmettingen, totaal 16\nBeurt 5: +3 besmettingen, totaal 19\nBeurt 6: +2 besmettingen, totaal 21\nBeurt 7: +1 besmettingen, totaal 22\nBeurt 8: +6 besmettingen, totaal 28\nBeurt 9: +5 besmettingen, totaal 33\nBeurt 10: +4 besmettingen, totaal 37\nBeurt 11: +3 besmettingen, totaal 40\nBeurt 12: +2 besmettingen, totaal 42\nBeurt 13: +1 besmettingen, totaal 43\nBeurt 14: +6 besmettingen, totaal 49\nBeurt 15: +5 besmettingen, totaal 54\nBeurt 16: +4 besmettingen, totaal 58\nNa 16 beurten zijn er 58 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "11\n6\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +2 besmettingen, totaal 2\nBeurt 2: +1 besmettingen, totaal 3\nBeurt 3: +6 besmettingen, totaal 9\nBeurt 4: +5 besmettingen, totaal 14\nDe uitbraak bereikt de grens na 4 beurten.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([2, 1, 6, 5, 4, 3]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "120\n30\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +3 besmettingen, totaal 3\nBeurt 2: +2 besmettingen, totaal 5\nBeurt 3: +1 besmettingen, totaal 6\nBeurt 4: +6 besmettingen, totaal 12\nBeurt 5: +5 besmettingen, totaal 17\nBeurt 6: +4 besmettingen, totaal 21\nBeurt 7: +3 besmettingen, totaal 24\nBeurt 8: +2 besmettingen, totaal 26\nBeurt 9: +1 besmettingen, totaal 27\nBeurt 10: +6 besmettingen, totaal 33\nBeurt 11: +5 besmettingen, totaal 38\nBeurt 12: +4 besmettingen, totaal 42\nBeurt 13: +3 besmettingen, totaal 45\nBeurt 14: +2 besmettingen, totaal 47\nBeurt 15: +1 besmettingen, totaal 48\nBeurt 16: +6 besmettingen, totaal 54\nBeurt 17: +5 besmettingen, totaal 59\nBeurt 18: +4 besmettingen, totaal 63\nBeurt 19: +3 besmettingen, totaal 66\nBeurt 20: +2 besmettingen, totaal 68\nBeurt 21: +1 besmettingen, totaal 69\nBeurt 22: +6 besmettingen, totaal 75\nBeurt 23: +5 besmettingen, totaal 80\nBeurt 24: +4 besmettingen, totaal 84\nBeurt 25: +3 besmettingen, totaal 87\nBeurt 26: +2 besmettingen, totaal 89\nBeurt 27: +1 besmettingen, totaal 90\nBeurt 28: +6 besmettingen, totaal 96\nBeurt 29: +5 besmettingen, totaal 101\nBeurt 30: +4 besmettingen, totaal 105\nNa 30 beurten zijn er 105 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1, 6, 5, 4]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "26\n10\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +4 besmettingen, totaal 4\nBeurt 2: +3 besmettingen, totaal 7\nBeurt 3: +2 besmettingen, totaal 9\nBeurt 4: +1 besmettingen, totaal 10\nBeurt 5: +6 besmettingen, totaal 16\nBeurt 6: +5 besmettingen, totaal 21\nBeurt 7: +4 besmettingen, totaal 25\nBeurt 8: +3 besmettingen, totaal 28\nDe uitbraak bereikt de grens na 8 beurten.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([4, 3, 2, 1, 6, 5, 4, 3, 2, 1]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
-        },
-        {
-          "testcases": [
-            {
-              "input": {
-                "stdin": {
-                  "type": "text",
-                  "data": "39\n11\n"
-                }
-              },
-              "output": {
-                "stdout": {
-                  "type": "text",
-                  "data": "Beurt 1: +5 besmettingen, totaal 5\nBeurt 2: +4 besmettingen, totaal 9\nBeurt 3: +3 besmettingen, totaal 12\nBeurt 4: +2 besmettingen, totaal 14\nBeurt 5: +1 besmettingen, totaal 15\nBeurt 6: +6 besmettingen, totaal 21\nBeurt 7: +5 besmettingen, totaal 26\nBeurt 8: +4 besmettingen, totaal 30\nBeurt 9: +3 besmettingen, totaal 33\nBeurt 10: +2 besmettingen, totaal 35\nBeurt 11: +1 besmettingen, totaal 36\nNa 11 beurten zijn er 36 besmettingen.\n"
-                }
-              }
-            }
-          ],
-          "before": {
-            "python": {
-              "data": "import random; waarden = iter([5, 4, 3, 2, 1, 6, 5, 4, 3, 2, 1]); random.randint = lambda a, b: next(waarden)"
-            }
-          }
+          ]
         }
       ]
     }

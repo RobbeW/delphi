@@ -1,142 +1,26 @@
 - tab: Feedback
   contexts:
     -
-      before:
-        python:
-          data: "import random\nwaarden = [2, 9, 6, 3, 10, 7, 4, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "8\n2\n"
-          stdout: "Superverspreiders: 2\nNieuwe besmettingen: 62\n"
+        - stdin: "3\n6\n2\n4\n0\n1\n1\n"
+          stdout: "Superverspreiders: 3\nNieuwe besmettingen: 97\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "12\n1\n"
-          stdout: "Superverspreiders: 3\nNieuwe besmettingen: 84\n"
+        - stdin: "2\n12\n0\n3\n1\n"
+          stdout: "Superverspreiders: 1\nNieuwe besmettingen: 55\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "20\n3\n"
-          stdout: "Superverspreiders: 4\nNieuwe besmettingen: 148\n"
+        - stdin: "1\n0\n3\n"
+          stdout: "Superverspreiders: 3\nNieuwe besmettingen: 75\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [3, 10, 7, 4, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "5\n2\n"
-          stdout: "Superverspreiders: 1\nNieuwe besmettingen: 33\n"
+        - stdin: "0\n"
+          stdout: "Superverspreiders: 0\nNieuwe besmettingen: 0\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "16\n4\n"
-          stdout: "Superverspreiders: 3\nNieuwe besmettingen: 127\n"
+        - stdin: "4\n10\n1\n4\n4\n20\n5\n0\n0\n"
+          stdout: "Superverspreiders: 10\nNieuwe besmettingen: 318\n"
     -
-      before:
-        python:
-          data: "import random\nwaarden = [7, 4, 1, 8, 5, 2, 9, 6, 3, 10]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
       testcases:
-        - stdin: "10\n1\n"
-          stdout: "Superverspreiders: 2\nNieuwe besmettingen: 58\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "25\n2\n"
-          stdout: "Superverspreiders: 4\nNieuwe besmettingen: 142\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [1, 8, 5, 2, 9, 6, 3]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "7\n3\n"
-          stdout: "Superverspreiders: 1\nNieuwe besmettingen: 43\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "30\n2\n"
-          stdout: "Superverspreiders: 6\nNieuwe besmettingen: 198\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "11\n4\n"
-          stdout: "Superverspreiders: 2\nNieuwe besmettingen: 86\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "18\n1\n"
-          stdout: "Superverspreiders: 4\nNieuwe besmettingen: 114\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [9, 6, 3, 10, 7, 4]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "6\n2\n"
-          stdout: "Superverspreiders: 2\nNieuwe besmettingen: 58\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "14\n3\n"
-          stdout: "Superverspreiders: 3\nNieuwe besmettingen: 108\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "22\n2\n"
-          stdout: "Superverspreiders: 5\nNieuwe besmettingen: 159\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [10, 7, 4, 1, 8, 5, 2, 9, 6]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "9\n1\n"
-          stdout: "Superverspreiders: 2\nNieuwe besmettingen: 57\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "15\n4\n"
-          stdout: "Superverspreiders: 2\nNieuwe besmettingen: 102\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [4, 1, 8, 5]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "4\n2\n"
-          stdout: "Superverspreiders: 0\nNieuwe besmettingen: 8\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "28\n3\n"
-          stdout: "Superverspreiders: 6\nNieuwe besmettingen: 216\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [8, 5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "13\n2\n"
-          stdout: "Superverspreiders: 2\nNieuwe besmettingen: 72\n"
-    -
-      before:
-        python:
-          data: "import random\nwaarden = [5, 2, 9, 6, 3, 10, 7, 4, 1, 8, 5, 2, 9, 6, 3, 10, 7]\ndef vaste_randint(a, b):\n    return waarden.pop(0)\nrandom.randint = vaste_randint"
-      testcases:
-        - stdin: "17\n1\n"
-          stdout: "Superverspreiders: 4\nNieuwe besmettingen: 113\n"
+        - stdin: "3\n2\n0\n0\n1\n5\n2\n"
+          stdout: "Superverspreiders: 3\nNieuwe besmettingen: 89\n"

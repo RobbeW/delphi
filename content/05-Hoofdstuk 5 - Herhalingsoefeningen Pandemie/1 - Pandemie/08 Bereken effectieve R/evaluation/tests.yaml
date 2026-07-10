@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "2.4\n40\n20\n15\n4\n"
-          stdout: "Effectieve R: 1.15\nDe epidemie groeit.\nCyclus 1: 17 nieuwe besmettingen\nCyclus 2: 19 nieuwe besmettingen\nCyclus 3: 21 nieuwe besmettingen\nCyclus 4: 24 nieuwe besmettingen\n"
+        - stdin: "2.4\n40\n"
+          stdout: "Effectieve R: 1.44\nDe epidemie groeit.\n"
     -
       testcases:
-        - stdin: "1.8\n20\n10\n25\n5\n"
-          stdout: "Effectieve R: 1.3\nDe epidemie groeit.\nCyclus 1: 32 nieuwe besmettingen\nCyclus 2: 41 nieuwe besmettingen\nCyclus 3: 53 nieuwe besmettingen\nCyclus 4: 68 nieuwe besmettingen\nCyclus 5: 88 nieuwe besmettingen\n"
+        - stdin: "1.5\n40\n"
+          stdout: "Effectieve R: 0.9\nDe epidemie krimpt.\n"
     -
       testcases:
-        - stdin: "1.4\n70\n0\n40\n6\n"
-          stdout: "Effectieve R: 0.42\nDe epidemie krimpt.\nCyclus 1: 16 nieuwe besmettingen\nCyclus 2: 6 nieuwe besmettingen\nCyclus 3: 2 nieuwe besmettingen\nCyclus 4: 0 nieuwe besmettingen\n"
+        - stdin: "2\n50\n"
+          stdout: "Effectieve R: 1.0\nDe epidemie blijft stabiel.\n"
     -
       testcases:
-        - stdin: "3\n50\n50\n100\n3\n"
-          stdout: "Effectieve R: 0.75\nDe epidemie krimpt.\nCyclus 1: 75 nieuwe besmettingen\nCyclus 2: 56 nieuwe besmettingen\nCyclus 3: 42 nieuwe besmettingen\n"
+        - stdin: "0.9\n0\n"
+          stdout: "Effectieve R: 0.9\nDe epidemie krimpt.\n"
     -
       testcases:
-        - stdin: "0.9\n0\n0\n30\n4\n"
-          stdout: "Effectieve R: 0.9\nDe epidemie krimpt.\nCyclus 1: 27 nieuwe besmettingen\nCyclus 2: 24 nieuwe besmettingen\nCyclus 3: 21 nieuwe besmettingen\nCyclus 4: 18 nieuwe besmettingen\n"
+        - stdin: "3\n75\n"
+          stdout: "Effectieve R: 0.75\nDe epidemie krimpt.\n"
     -
       testcases:
-        - stdin: "2.2\n10\n35\n12\n5\n"
-          stdout: "Effectieve R: 1.29\nDe epidemie groeit.\nCyclus 1: 15 nieuwe besmettingen\nCyclus 2: 19 nieuwe besmettingen\nCyclus 3: 24 nieuwe besmettingen\nCyclus 4: 30 nieuwe besmettingen\nCyclus 5: 38 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "1.25\n20\n0\n16\n4\n"
-          stdout: "Effectieve R: 1.0\nDe epidemie blijft stabiel.\nCyclus 1: 16 nieuwe besmettingen\nCyclus 2: 16 nieuwe besmettingen\nCyclus 3: 16 nieuwe besmettingen\nCyclus 4: 16 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "4\n80\n10\n60\n5\n"
-          stdout: "Effectieve R: 0.72\nDe epidemie krimpt.\nCyclus 1: 43 nieuwe besmettingen\nCyclus 2: 30 nieuwe besmettingen\nCyclus 3: 21 nieuwe besmettingen\nCyclus 4: 15 nieuwe besmettingen\nCyclus 5: 10 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "1\n0\n0\n9\n4\n"
-          stdout: "Effectieve R: 1.0\nDe epidemie blijft stabiel.\nCyclus 1: 9 nieuwe besmettingen\nCyclus 2: 9 nieuwe besmettingen\nCyclus 3: 9 nieuwe besmettingen\nCyclus 4: 9 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "2.6\n30\n25\n20\n6\n"
-          stdout: "Effectieve R: 1.36\nDe epidemie groeit.\nCyclus 1: 27 nieuwe besmettingen\nCyclus 2: 36 nieuwe besmettingen\nCyclus 3: 48 nieuwe besmettingen\nCyclus 4: 65 nieuwe besmettingen\nCyclus 5: 88 nieuwe besmettingen\nCyclus 6: 119 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "1.7\n45\n15\n18\n5\n"
-          stdout: "Effectieve R: 0.79\nDe epidemie krimpt.\nCyclus 1: 14 nieuwe besmettingen\nCyclus 2: 11 nieuwe besmettingen\nCyclus 3: 8 nieuwe besmettingen\nCyclus 4: 6 nieuwe besmettingen\nCyclus 5: 4 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "3.4\n60\n30\n50\n3\n"
-          stdout: "Effectieve R: 0.95\nDe epidemie krimpt.\nCyclus 1: 47 nieuwe besmettingen\nCyclus 2: 44 nieuwe besmettingen\nCyclus 3: 41 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "1.2\n10\n10\n7\n6\n"
-          stdout: "Effectieve R: 0.97\nDe epidemie krimpt.\nCyclus 1: 6 nieuwe besmettingen\nCyclus 2: 5 nieuwe besmettingen\nCyclus 3: 4 nieuwe besmettingen\nCyclus 4: 3 nieuwe besmettingen\nCyclus 5: 2 nieuwe besmettingen\nCyclus 6: 1 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "2\n75\n0\n40\n8\n"
-          stdout: "Effectieve R: 0.5\nDe epidemie krimpt.\nCyclus 1: 20 nieuwe besmettingen\nCyclus 2: 10 nieuwe besmettingen\nCyclus 3: 5 nieuwe besmettingen\nCyclus 4: 2 nieuwe besmettingen\nCyclus 5: 1 nieuwe besmettingen\nCyclus 6: 0 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "1.6\n25\n25\n22\n5\n"
-          stdout: "Effectieve R: 0.9\nDe epidemie krimpt.\nCyclus 1: 19 nieuwe besmettingen\nCyclus 2: 17 nieuwe besmettingen\nCyclus 3: 15 nieuwe besmettingen\nCyclus 4: 13 nieuwe besmettingen\nCyclus 5: 11 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "2.8\n15\n40\n10\n4\n"
-          stdout: "Effectieve R: 1.43\nDe epidemie groeit.\nCyclus 1: 14 nieuwe besmettingen\nCyclus 2: 20 nieuwe besmettingen\nCyclus 3: 28 nieuwe besmettingen\nCyclus 4: 40 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "0.7\n50\n0\n80\n3\n"
-          stdout: "Effectieve R: 0.35\nDe epidemie krimpt.\nCyclus 1: 28 nieuwe besmettingen\nCyclus 2: 9 nieuwe besmettingen\nCyclus 3: 3 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "5\n90\n0\n100\n4\n"
-          stdout: "Effectieve R: 0.5\nDe epidemie krimpt.\nCyclus 1: 50 nieuwe besmettingen\nCyclus 2: 25 nieuwe besmettingen\nCyclus 3: 12 nieuwe besmettingen\nCyclus 4: 6 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "1.9\n0\n60\n30\n5\n"
-          stdout: "Effectieve R: 0.76\nDe epidemie krimpt.\nCyclus 1: 22 nieuwe besmettingen\nCyclus 2: 16 nieuwe besmettingen\nCyclus 3: 12 nieuwe besmettingen\nCyclus 4: 9 nieuwe besmettingen\nCyclus 5: 6 nieuwe besmettingen\n"
-    -
-      testcases:
-        - stdin: "2.1\n35\n20\n13\n6\n"
-          stdout: "Effectieve R: 1.09\nDe epidemie groeit.\nCyclus 1: 14 nieuwe besmettingen\nCyclus 2: 15 nieuwe besmettingen\nCyclus 3: 16 nieuwe besmettingen\nCyclus 4: 17 nieuwe besmettingen\nCyclus 5: 18 nieuwe besmettingen\nCyclus 6: 19 nieuwe besmettingen\n"
+        - stdin: "1.25\n20\n"
+          stdout: "Effectieve R: 1.0\nDe epidemie blijft stabiel.\n"

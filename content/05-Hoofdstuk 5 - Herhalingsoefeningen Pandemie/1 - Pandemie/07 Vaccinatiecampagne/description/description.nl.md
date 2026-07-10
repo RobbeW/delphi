@@ -1,20 +1,30 @@
 ## Gegeven
 
-Een vaccinatiecampagne verlaagt het aantal vatbare personen in een bevolking. Elke week worden er vaccins gezet, maar het doel is niet altijd om iedereen te bereiken.
+Een vaccinatiecampagne verlaagt het aantal personen dat nog vatbaar is.
 
-Je berekent week per week hoeveel mensen al gevaccineerd zijn en hoeveel mensen daarna nog vatbaar blijven.
+In deze oefening loopt de campagne een vast aantal weken. Elke week worden evenveel mensen gevaccineerd.
 
 ## Gevraagd
 
-* Vraag de grootte van de bevolking, het aantal vaccinaties per week en het doelpercentage.
-* Bereken met variabelen zoals `doel`, `gevaccineerd` en `week` hoeveel mensen minstens gevaccineerd moeten worden.
-* Verhoog het aantal gevaccineerden week per week.
-* Print na elke week hoeveel mensen gevaccineerd zijn.
-* Print op het einde hoeveel mensen nog vatbaar zijn.
+* Vraag de grootte van de bevolking.
+* Vraag hoeveel mensen per week gevaccineerd worden.
+* Vraag hoeveel weken de campagne duurt.
+* Bereken hoeveel mensen na die weken gevaccineerd zijn.
+* Zorg ervoor dat het aantal gevaccineerden nooit groter wordt dan de bevolking.
+* Tel ook hoeveel controlemomenten er zijn als er om de 2 weken controle is.
+* Print hoeveel mensen gevaccineerd zijn, hoeveel mensen nog vatbaar zijn en hoeveel controles er zijn.
 
 #### Rekenregel
 
-Het vaccinatiedoel is `math.ceil(populatie * doelpercentage / 100)`. Je rondt dus naar boven af, want bij 840.2 personen moet je 841 mensen vaccineren om het doel echt te halen.
+Tel elke week het aantal vaccinaties erbij.
+
+Als het aantal gevaccineerden groter wordt dan de bevolking, maak je het gelijk aan de bevolking.
+
+Voor de controles gebruik je een `range()` met stapgrootte:
+
+```
+for week in range(2, weken + 1, 2):
+```
 
 #### Voorbeeld
 
@@ -22,19 +32,12 @@ Voor deze invoer:
 ```
 1200
 100
-70
+3
 ```
 
 moet je programma exact dit printen:
 ```
-Week 1: 100 mensen gevaccineerd
-Week 2: 200 mensen gevaccineerd
-Week 3: 300 mensen gevaccineerd
-Week 4: 400 mensen gevaccineerd
-Week 5: 500 mensen gevaccineerd
-Week 6: 600 mensen gevaccineerd
-Week 7: 700 mensen gevaccineerd
-Week 8: 800 mensen gevaccineerd
-Week 9: 900 mensen gevaccineerd
-Nog vatbaar: 300
+Gevaccineerd: 300
+Nog vatbaar: 900
+Controles: 1
 ```

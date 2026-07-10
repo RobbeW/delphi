@@ -20,7 +20,11 @@
     "Pandemie",
     "For-lus",
     "Netwerken",
-    "Hubs"
+    "Vergelijking"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "WYaXKv7W_SeXMRMVqGaPhHSzN6iWaR4BvP-aBcYvJe2sWtGT_hsF237Vm4egzp5P",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

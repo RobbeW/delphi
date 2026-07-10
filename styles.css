@@ -651,6 +651,113 @@ body {
   font-size: 0.85rem;
 }
 
+.theory-read-actions,
+.tour-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.theory-read-actions {
+  margin-top: 1rem;
+  border-top: 1px solid #ececf3;
+  padding-top: 0.9rem;
+}
+
+.tour-intro {
+  margin-top: 1rem;
+  border-top: 1px solid #ececf3;
+  padding-top: 0.9rem;
+}
+
+.tour-intro h3 {
+  margin: 0 0 0.35rem;
+  color: var(--brand-purple);
+}
+
+.tour-start-button {
+  margin-top: 0.25rem;
+}
+
+.tour-start-nudge {
+  animation: tour-start-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes tour-start-pulse {
+  0%,
+  100% {
+    box-shadow: 0 2px 10px rgba(82, 0, 255, 0.11);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow:
+      0 0 0 6px rgba(82, 0, 255, 0.11),
+      0 12px 24px rgba(82, 0, 255, 0.18);
+    transform: translateY(-1px);
+  }
+}
+
+.tour-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3500;
+  pointer-events: none;
+}
+
+.tour-highlight {
+  position: fixed;
+  border: 3px solid var(--brand-purple);
+  border-radius: 10px;
+  background: rgba(82, 0, 255, 0.08);
+  box-shadow:
+    0 0 0 9999px rgba(18, 15, 28, 0.18),
+    0 14px 40px rgba(82, 0, 255, 0.22);
+  transition: left 260ms ease, top 260ms ease, width 260ms ease, height 260ms ease;
+}
+
+.tour-callout {
+  position: fixed;
+  pointer-events: auto;
+  border: 1px solid rgba(82, 0, 255, 0.18);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+  padding: 0.9rem;
+  box-shadow: 0 18px 48px rgba(32, 22, 64, 0.18);
+  transition: left 260ms ease, top 260ms ease;
+}
+
+.tour-callout h3 {
+  margin: 0 0 0.35rem;
+  color: var(--brand-purple);
+}
+
+.tour-callout p {
+  margin: 0 0 0.75rem;
+}
+
+.tour-status {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.tour-controls {
+  gap: 0.45rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tour-start-nudge,
+  .tour-highlight,
+  .tour-callout {
+    animation: none;
+    transition: none;
+  }
+}
+
 .splitter {
   width: 8px;
   min-width: 8px;

@@ -1,4 +1,4 @@
-Deze oefening werd opgesteld als herhalingsoefening rond Python, pandemieen en netwerken.
+Deze oefening werd opgesteld als herhalingsoefening rond Python, pandemieën en netwerken.
 
 Meer informatie: [www.robbewulgaert.be](www.robbewulgaert.be)
 

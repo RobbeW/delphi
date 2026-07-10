@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "100\n3\n3\n20\n1\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=3\nRonde 2: gelijk=1, ongelijk=5\nRonde 3: gelijk=1, ongelijk=7\nHet ongelijke netwerk verspreidt sneller.\n"
+        - stdin: "3\n3\n2\n4\n3\n3\n3\n"
+          stdout: "Netwerk A: 10 contacten\nNetwerk B: 8 contacten\nNetwerk A heeft meer contacten.\n"
     -
       testcases:
-        - stdin: "50\n5\n2\n30\n2\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=4\nRonde 2: gelijk=1, ongelijk=7\nRonde 3: gelijk=1, ongelijk=11\nRonde 4: gelijk=1, ongelijk=16\nRonde 5: gelijk=1, ongelijk=22\nHet ongelijke netwerk verspreidt sneller.\n"
+        - stdin: "2\n1\n5\n2\n1\n"
+          stdout: "Netwerk A: 3 contacten\nNetwerk B: 6 contacten\nNetwerk B heeft meer contacten.\n"
     -
       testcases:
-        - stdin: "20\n4\n5\n5\n5\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=1\nRonde 2: gelijk=1, ongelijk=1\nRonde 3: gelijk=1, ongelijk=1\nRonde 4: gelijk=1, ongelijk=1\nBeide netwerken verspreiden even snel.\n"
+        - stdin: "1\n4\n4\n"
+          stdout: "Netwerk A: 4 contacten\nNetwerk B: 4 contacten\nBeide netwerken hebben evenveel contacten.\n"
     -
       testcases:
-        - stdin: "200\n6\n1\n100\n1\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=11\nRonde 2: gelijk=1, ongelijk=22\nRonde 3: gelijk=1, ongelijk=34\nRonde 4: gelijk=1, ongelijk=47\nRonde 5: gelijk=1, ongelijk=61\nRonde 6: gelijk=1, ongelijk=77\nHet ongelijke netwerk verspreidt sneller.\n"
+        - stdin: "0\n"
+          stdout: "Netwerk A: 0 contacten\nNetwerk B: 0 contacten\nBeide netwerken hebben evenveel contacten.\n"
     -
       testcases:
-        - stdin: "30\n2\n9\n1\n1\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=1\nRonde 2: gelijk=1, ongelijk=1\nBeide netwerken verspreiden even snel.\n"
+        - stdin: "4\n1\n1\n1\n1\n1\n1\n1\n1\n"
+          stdout: "Netwerk A: 4 contacten\nNetwerk B: 4 contacten\nBeide netwerken hebben evenveel contacten.\n"
     -
       testcases:
-        - stdin: "1000\n4\n4\n80\n2\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=9\nRonde 2: gelijk=1, ongelijk=18\nRonde 3: gelijk=1, ongelijk=29\nRonde 4: gelijk=1, ongelijk=42\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "10\n10\n10\n10\n10\n"
-          stdout: "Ronde 1: gelijk=2, ongelijk=2\nRonde 2: gelijk=4, ongelijk=4\nRonde 3: gelijk=8, ongelijk=8\nRonde 4: gelijk=10, ongelijk=10\nRonde 5: gelijk=10, ongelijk=10\nRonde 6: gelijk=10, ongelijk=10\nRonde 7: gelijk=10, ongelijk=10\nRonde 8: gelijk=10, ongelijk=10\nRonde 9: gelijk=10, ongelijk=10\nRonde 10: gelijk=10, ongelijk=10\nBeide netwerken verspreiden even snel.\n"
-    -
-      testcases:
-        - stdin: "80\n3\n0\n50\n5\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=6\nRonde 2: gelijk=1, ongelijk=13\nRonde 3: gelijk=1, ongelijk=24\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "60\n5\n6\n12\n1\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=2\nRonde 2: gelijk=1, ongelijk=3\nRonde 3: gelijk=1, ongelijk=4\nRonde 4: gelijk=1, ongelijk=5\nRonde 5: gelijk=1, ongelijk=6\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "120\n4\n2\n25\n4\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=3\nRonde 2: gelijk=1, ongelijk=6\nRonde 3: gelijk=1, ongelijk=10\nRonde 4: gelijk=1, ongelijk=16\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "40\n6\n3\n3\n20\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=1\nRonde 2: gelijk=1, ongelijk=1\nRonde 3: gelijk=1, ongelijk=1\nRonde 4: gelijk=1, ongelijk=1\nRonde 5: gelijk=1, ongelijk=1\nRonde 6: gelijk=1, ongelijk=1\nBeide netwerken verspreiden even snel.\n"
-    -
-      testcases:
-        - stdin: "500\n5\n5\n200\n0\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=21\nRonde 2: gelijk=1, ongelijk=41\nRonde 3: gelijk=1, ongelijk=61\nRonde 4: gelijk=1, ongelijk=81\nRonde 5: gelijk=1, ongelijk=101\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "70\n7\n1\n15\n1\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=2\nRonde 2: gelijk=1, ongelijk=3\nRonde 3: gelijk=1, ongelijk=4\nRonde 4: gelijk=1, ongelijk=5\nRonde 5: gelijk=1, ongelijk=6\nRonde 6: gelijk=1, ongelijk=8\nRonde 7: gelijk=1, ongelijk=10\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "90\n2\n10\n100\n10\n"
-          stdout: "Ronde 1: gelijk=2, ongelijk=11\nRonde 2: gelijk=4, ongelijk=31\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "25\n3\n4\n40\n4\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=5\nRonde 2: gelijk=1, ongelijk=10\nRonde 3: gelijk=1, ongelijk=17\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "300\n8\n2\n60\n3\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=7\nRonde 2: gelijk=1, ongelijk=14\nRonde 3: gelijk=1, ongelijk=23\nRonde 4: gelijk=1, ongelijk=35\nRonde 5: gelijk=1, ongelijk=51\nRonde 6: gelijk=1, ongelijk=72\nRonde 7: gelijk=1, ongelijk=99\nRonde 8: gelijk=1, ongelijk=134\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "15\n5\n1\n100\n1\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=11\nRonde 2: gelijk=1, ongelijk=15\nRonde 3: gelijk=1, ongelijk=15\nRonde 4: gelijk=1, ongelijk=15\nRonde 5: gelijk=1, ongelijk=15\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "100\n1\n5\n60\n0\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=7\nHet ongelijke netwerk verspreidt sneller.\n"
-    -
-      testcases:
-        - stdin: "100\n6\n0\n0\n0\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=1\nRonde 2: gelijk=1, ongelijk=1\nRonde 3: gelijk=1, ongelijk=1\nRonde 4: gelijk=1, ongelijk=1\nRonde 5: gelijk=1, ongelijk=1\nRonde 6: gelijk=1, ongelijk=1\nBeide netwerken verspreiden even snel.\n"
-    -
-      testcases:
-        - stdin: "1000\n10\n1\n500\n1\n"
-          stdout: "Ronde 1: gelijk=1, ongelijk=51\nRonde 2: gelijk=1, ongelijk=106\nRonde 3: gelijk=1, ongelijk=166\nRonde 4: gelijk=1, ongelijk=232\nRonde 5: gelijk=1, ongelijk=305\nRonde 6: gelijk=1, ongelijk=385\nRonde 7: gelijk=1, ongelijk=473\nRonde 8: gelijk=1, ongelijk=570\nRonde 9: gelijk=1, ongelijk=676\nRonde 10: gelijk=1, ongelijk=793\nHet ongelijke netwerk verspreidt sneller.\n"
+        - stdin: "3\n10\n0\n0\n10\n5\n5\n"
+          stdout: "Netwerk A: 15 contacten\nNetwerk B: 15 contacten\nBeide netwerken hebben evenveel contacten.\n"

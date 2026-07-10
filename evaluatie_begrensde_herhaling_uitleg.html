@@ -1,0 +1,1823 @@
+<!--
+  Project Delphi - standalone explainer demo
+  Copyright (c) 2026 Robbe Wulgaert
+  Citeer/vermeld als: Robbe Wulgaert, AI in de Klas, robbewulgaert.be
+-->
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Delphi - Begrensde Herhaling Uitleg</title>
+  <meta name="description" content="Standalone demo voor stap-voor-stap uitleg bij evaluatieoefeningen over begrensde herhaling.">
+  <meta name="author" content="Robbe Wulgaert, AI in de Klas, robbewulgaert.be">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --brand-purple: #5200ff;
+      --brand-purple-dark: #3700b3;
+      --brand-aqua: #3dffd0;
+      --bg: #f3f5f8;
+      --panel: #ffffff;
+      --soft: #f7f3ff;
+      --ink: #23272e;
+      --muted: #625b70;
+      --line: #e2ddea;
+      --code-bg: #161820;
+      --good: #0a6d57;
+      --warn: #8a5c00;
+      --bad: #a1142b;
+      --shadow: 0 10px 26px rgba(26, 34, 76, 0.06);
+      --strong-shadow: 0 16px 30px rgba(82, 0, 255, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--bg);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    code,
+    pre {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: -999px;
+      z-index: 100;
+      border-radius: 8px;
+      background: var(--brand-purple);
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 900;
+    }
+
+    .skip-link:focus {
+      left: 12px;
+    }
+
+    .learning-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 14px;
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(82, 0, 255, 0.12);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .exercise-progress {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 1 auto;
+      max-width: min(42vw, 620px);
+      overflow-x: auto;
+      padding: 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(82, 0, 255, 0.45) transparent;
+    }
+
+    .exercise-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--brand-purple);
+      color: #fff;
+      font-weight: 900;
+      opacity: 0.72;
+      box-shadow: var(--shadow);
+    }
+
+    .exercise-btn.current {
+      background: #fff;
+      color: var(--brand-purple);
+      border: 2px solid var(--brand-purple);
+      opacity: 1;
+      box-shadow: 0 0 0 3px #ece6fa, var(--shadow);
+      transform: scale(1.08);
+    }
+
+    .opdracht {
+      flex: 1 1 260px;
+      min-width: 220px;
+      max-width: 44rem;
+      line-height: 1.25;
+    }
+
+    .opdracht strong {
+      display: block;
+      color: #1a224c;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .opdracht span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-btn {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(82, 0, 255, 0.18);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: #fff;
+      color: var(--brand-purple-dark);
+      font-weight: 900;
+      line-height: 1;
+      white-space: nowrap;
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .brand-btn:hover,
+    .brand-btn:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(82, 0, 255, 0.45);
+      outline: none;
+      box-shadow: 0 14px 30px rgba(82, 0, 255, 0.12);
+    }
+
+    .brand-btn.primary {
+      border-color: var(--brand-purple);
+      background: var(--brand-purple);
+      color: #fff;
+      box-shadow: var(--strong-shadow);
+    }
+
+    .brand-btn.primary:hover,
+    .brand-btn.primary:focus-visible {
+      background: var(--brand-purple-dark);
+      border-color: var(--brand-purple-dark);
+    }
+
+    .brand-btn:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      transform: none;
+    }
+
+    .status-pill {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(82, 0, 255, 0.16);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: #fff;
+      color: var(--brand-purple-dark);
+      font-size: 0.84rem;
+      font-weight: 900;
+      box-shadow: var(--shadow);
+      white-space: nowrap;
+    }
+
+    .app-shell {
+      display: grid;
+      grid-template-columns: minmax(240px, 0.78fr) minmax(360px, 1.18fr) minmax(280px, 0.92fr);
+      gap: 14px;
+      padding: 14px;
+      min-height: calc(100vh - 67px);
+    }
+
+    .panel {
+      min-width: 0;
+      min-height: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 14px;
+      background: #fff;
+    }
+
+    .panel-title {
+      color: var(--brand-purple);
+      font-weight: 900;
+    }
+
+    .panel-subtitle {
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .panel-body {
+      padding: 14px;
+      overflow: auto;
+    }
+
+    .exercise-panel .panel-body,
+    .coach-panel .panel-body {
+      max-height: calc(100vh - 138px);
+    }
+
+    .section-label {
+      margin: 0 0 8px;
+      color: #3f4351;
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .summary-list {
+      margin: 0 0 16px;
+      padding-left: 1.15rem;
+      color: #2e3340;
+    }
+
+    .summary-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .concepts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .concept-chip {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(82, 0, 255, 0.18);
+      background: var(--soft);
+      color: var(--brand-purple-dark);
+      padding: 6px 10px;
+      font-size: 0.82rem;
+      font-weight: 900;
+    }
+
+    .note-box {
+      border-left: 5px solid var(--brand-purple);
+      border-radius: 8px;
+      background: #fbfbff;
+      padding: 12px;
+      color: #3f4351;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .note-box strong {
+      display: block;
+      color: var(--brand-purple-dark);
+      margin-bottom: 4px;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .step-jump {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      align-items: center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .step-jump.current {
+      border-color: rgba(82, 0, 255, 0.55);
+      background: var(--soft);
+      box-shadow: 0 0 0 3px rgba(82, 0, 255, 0.07);
+    }
+
+    .step-number {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--brand-purple);
+      color: #fff;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .step-jump span:last-child {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .code-panel {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .code-panel .panel-body {
+      display: block;
+      min-height: 0;
+      max-height: calc(100vh - 138px);
+    }
+
+    .step-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .step-card h2 {
+      margin: 0 0 8px;
+      color: var(--brand-purple-dark);
+      font-size: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .step-card p {
+      margin: 0;
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .code-wrap {
+      min-height: 104px;
+      border: 1px solid #161820;
+      border-radius: 8px;
+      background: var(--code-bg);
+      overflow: auto;
+      margin-bottom: 12px;
+    }
+
+    .code-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #f8f8f2;
+      font-size: 0.93rem;
+      line-height: 1.48;
+    }
+
+    .code-table tr {
+      transition: background 140ms ease;
+    }
+
+    .code-table tr.is-active {
+      background: rgba(61, 255, 208, 0.18);
+    }
+
+    .code-table tr.is-active .line-no {
+      color: var(--brand-aqua);
+    }
+
+    .line-no {
+      width: 52px;
+      user-select: none;
+      color: #8b92a8;
+      text-align: right;
+      padding: 0 12px;
+      border-right: 1px solid rgba(255, 255, 255, 0.12);
+      vertical-align: top;
+    }
+
+    .line-code {
+      white-space: pre-wrap;
+      word-break: break-word;
+      padding: 0 14px;
+      vertical-align: top;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .control-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      background: rgba(22, 24, 32, 0.46);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-box {
+      width: min(94vw, 860px);
+      max-height: min(86vh, 760px);
+      overflow: auto;
+      position: relative;
+      border: 1px solid rgba(82, 0, 255, 0.16);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 0 22px 70px rgba(35, 39, 46, 0.22);
+      padding: 18px;
+    }
+
+    .modal-box.wide {
+      width: min(96vw, 1040px);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      border-radius: 999px;
+      background: #f2f0fd;
+      color: var(--brand-purple-dark);
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+
+    .modal-box h2 {
+      margin: 0 42px 8px 0;
+      color: var(--brand-purple-dark);
+      font-size: 1.4rem;
+      line-height: 1.2;
+    }
+
+    .modal-box p {
+      margin: 0 0 12px;
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 1.1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .modal-pre {
+      margin: 0;
+      max-height: 420px;
+      overflow: auto;
+      border-radius: 8px;
+      background: var(--code-bg);
+      color: #fff;
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      white-space: pre;
+    }
+
+    .kv-table,
+    .trace-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+
+    .kv-table th,
+    .kv-table td,
+    .trace-table th,
+    .trace-table td {
+      border-bottom: 1px solid #e6eaf3;
+      padding: 7px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .kv-table th,
+    .trace-table th {
+      color: #555f76;
+      font-size: 0.76rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .kv-table td:first-child {
+      color: var(--brand-purple-dark);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .kv-table code,
+    .trace-table code {
+      border-radius: 5px;
+      background: #ede9fe;
+      padding: 2px 5px;
+      color: #27223a;
+    }
+
+    .indicator {
+      display: grid;
+      gap: 8px;
+      border: 1px solid rgba(82, 0, 255, 0.14);
+      border-radius: 8px;
+      background: #fbfbff;
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+
+    .indicator-title {
+      color: var(--brand-purple-dark);
+      font-weight: 900;
+    }
+
+    .indicator-row {
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .output-box {
+      min-height: 110px;
+      margin: 0 0 14px;
+      border-radius: 8px;
+      border: 1px solid #161820;
+      background: #161820;
+      color: #fff;
+      padding: 12px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .trace-wrap {
+      overflow: auto;
+      border: 1px solid #e6eaf3;
+      border-radius: 8px;
+      background: #fbfcff;
+      margin-bottom: 14px;
+    }
+
+    .trace-table th {
+      background: #f0f4ff;
+    }
+
+    .mistakes {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .mistake {
+      border: 1px solid #e6eaf3;
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .mistake strong {
+      display: block;
+      color: var(--bad);
+      margin-bottom: 4px;
+    }
+
+    .mistake span {
+      color: #3f4351;
+      font-weight: 700;
+    }
+
+    .inputs {
+      display: grid;
+      gap: 8px;
+      margin: 0 0 14px;
+    }
+
+    .input-pill {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border: 1px solid #e6eaf3;
+      border-radius: 8px;
+      background: #fbfcff;
+      padding: 8px 10px;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .input-pill code {
+      color: var(--brand-purple-dark);
+    }
+
+    @media (max-width: 1180px) {
+      .app-shell {
+        grid-template-columns: minmax(280px, 0.9fr) minmax(420px, 1.1fr);
+      }
+
+      .coach-panel {
+        grid-column: 1 / -1;
+      }
+
+      .coach-panel .panel-body {
+        max-height: none;
+        display: grid;
+        grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1.2fr);
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .learning-header {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .exercise-progress,
+      .opdracht,
+      .toolbar {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .toolbar {
+        justify-content: flex-start;
+      }
+
+      .app-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .exercise-panel .panel-body,
+      .code-panel .panel-body,
+      .coach-panel .panel-body {
+        max-height: none;
+      }
+
+      .coach-panel .panel-body {
+        display: block;
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .toolbar,
+      .control-group,
+      .controls {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .brand-btn,
+      .status-pill {
+        width: 100%;
+      }
+
+      .opdracht span {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Spring naar uitleg</a>
+
+  <header class="learning-header">
+    <nav class="exercise-progress" id="exercise-progress" aria-label="Kies een oefening"></nav>
+
+    <div class="opdracht">
+      <strong id="exercise-title">Evaluatie begrensde herhaling</strong>
+      <span id="exercise-theme">For-lussen, range(), tellers, sommen en enkele klassieke programmeerpatronen.</span>
+    </div>
+
+    <div class="toolbar">
+      <span class="status-pill" id="step-status">Stap 1</span>
+      <button class="brand-btn" id="reset-btn" type="button">Reset uitleg</button>
+      <a class="brand-btn primary" href="platform.html">Naar Delphi</a>
+    </div>
+  </header>
+
+  <main id="main" class="app-shell">
+    <section class="panel exercise-panel" aria-labelledby="assignment-heading">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title" id="assignment-heading">Oefening</div>
+          <div class="panel-subtitle" id="pattern-label">Patroon</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <p class="section-label">Wat moet je programma doen?</p>
+        <ul class="summary-list" id="summary-list"></ul>
+
+        <p class="section-label">Welke concepten heb je nodig?</p>
+        <div class="concepts" id="concepts"></div>
+
+        <div class="note-box">
+          <strong>Belangrijkste concept</strong>
+          <span id="core-idea"></span>
+        </div>
+
+        <div class="note-box">
+          <strong>Wanneer stopt de lus?</strong>
+          <span id="stop-condition"></span>
+        </div>
+
+        <p class="section-label">Denkstappen</p>
+        <div class="step-list" id="step-list"></div>
+      </div>
+    </section>
+
+    <section class="panel code-panel" aria-labelledby="code-heading">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title" id="code-heading">Code en uitleg</div>
+          <div class="panel-subtitle">Je ziet alleen het fragment dat bij deze stap hoort.</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <article class="step-card" aria-live="polite">
+          <h2 id="step-title">Stap</h2>
+          <p id="step-explanation"></p>
+        </article>
+
+        <p class="section-label">Codefragment bij deze stap</p>
+        <div class="code-wrap" aria-label="Codefragment bij deze stap">
+          <table class="code-table">
+            <tbody id="code-lines"></tbody>
+          </table>
+        </div>
+
+        <div class="controls">
+          <div class="control-group">
+            <button class="brand-btn" id="prev-step" type="button">Vorige stap</button>
+            <button class="brand-btn primary" id="next-step" type="button">Volgende stap</button>
+          </div>
+          <div class="control-group">
+            <button class="brand-btn" id="step-modal-btn" type="button">Open stapkaart</button>
+            <button class="brand-btn" id="solution-modal-btn" type="button">Open sleutel</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <aside class="panel coach-panel" aria-labelledby="coach-heading">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title" id="coach-heading">Wat verandert er?</div>
+          <div class="panel-subtitle">Variabelen, uitvoer en voorbeeldtrace.</div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div>
+          <p class="section-label">Voorbeeldinvoer</p>
+          <div class="inputs" id="inputs-list"></div>
+
+          <div class="indicator" id="indicator"></div>
+
+          <p class="section-label">Variabelen op dit moment</p>
+          <table class="kv-table">
+            <thead>
+              <tr>
+                <th>Naam</th>
+                <th>Waarde</th>
+                <th>Waarom?</th>
+              </tr>
+            </thead>
+            <tbody id="variables-body"></tbody>
+          </table>
+        </div>
+
+        <div>
+          <p class="section-label">Uitvoer</p>
+          <pre class="output-box" id="output-box"></pre>
+
+          <p class="section-label" id="trace-title">Voorbeeldtrace</p>
+          <div class="trace-wrap">
+            <table class="trace-table">
+              <thead id="trace-head"></thead>
+              <tbody id="trace-body"></tbody>
+            </table>
+          </div>
+
+          <p class="section-label">Veelgemaakte fouten</p>
+          <div class="mistakes" id="mistakes"></div>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <div class="modal" id="step-modal" aria-hidden="true" role="dialog" aria-labelledby="step-modal-title">
+    <div class="modal-box">
+      <button class="modal-close" id="close-step-modal" type="button" aria-label="Sluit stapkaart">x</button>
+      <h2 id="step-modal-title">Stapkaart</h2>
+      <p id="step-modal-explanation"></p>
+      <div class="modal-grid">
+        <div>
+          <p class="section-label">Codefragment</p>
+          <pre class="modal-pre"><code id="step-modal-code"></code></pre>
+        </div>
+        <div>
+          <p class="section-label">Variabelen</p>
+          <table class="kv-table">
+            <thead>
+              <tr>
+                <th>Naam</th>
+                <th>Waarde</th>
+                <th>Waarom?</th>
+              </tr>
+            </thead>
+            <tbody id="step-modal-variables"></tbody>
+          </table>
+          <p class="section-label">Uitvoer</p>
+          <pre class="output-box" id="step-modal-output"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="solution-modal" aria-hidden="true" role="dialog" aria-labelledby="solution-modal-title">
+    <div class="modal-box wide">
+      <button class="modal-close" id="close-solution-modal" type="button" aria-label="Sluit sleutel">x</button>
+      <h2 id="solution-modal-title">Volledige oplossingssleutel</h2>
+      <p>Je hebt de denkstappen doorlopen. Hier staat de oplossing nog eens als geheel.</p>
+      <pre class="modal-pre"><code id="solution-modal-code"></code></pre>
+    </div>
+  </div>
+
+  <script>
+    "use strict";
+
+    const EXERCISES = [
+      {
+        id: 1,
+        title: "Schaapjes tellen",
+        theme: "Een opgegeven aantal schaapjes een voor een tellen.",
+        pattern: "Vast aantal herhalingen",
+        summary: [
+          "Vraag het aantal schaapjes.",
+          "Tel van 1 tot en met dat aantal.",
+          "Gebruik enkelvoud bij 1 schaap.",
+          "Gebruik meervoud bij meerdere schapen."
+        ],
+        concepts: ["int(input())", "for", "range()", "if", "else", "print() met komma's"],
+        core: "Het aantal herhalingen is gekend zodra de gebruiker een getal invoert. Daarom past een for-lus hier goed.",
+        stop: "De for-lus stopt na aantal herhalingen.",
+        inputs: [["aantal", "5"]],
+        code: [
+          "aantal = int(input(\"Geef het aantal schapen in: \"))",
+          "",
+          "for i in range(aantal):",
+          "    if i == 0:",
+          "        print(\"1 schaap\")",
+          "    else:",
+          "        print(i + 1, \"schapen\")"
+        ],
+        steps: [
+          {
+            title: "Vraag het aantal schapen",
+            explanation: "Het aantal schapen is een geheel getal. Daarom zetten we de tekst uit input() om met int().",
+            lines: [1],
+            variables: [["aantal", "5", "De gebruiker wil vijf regels laten afdrukken."]],
+            indicator: ["Invoer", "int(input()) maakt van de invoer een geheel getal."],
+            output: ""
+          },
+          {
+            title: "Herhaal exact aantal keer",
+            explanation: "range(aantal) zorgt ervoor dat de lus precies even vaak loopt als het ingevoerde aantal.",
+            lines: [3],
+            variables: [["i", "0 tot 4", "range(5) geeft vijf waarden."], ["aantal", "5", "Bepaalt het aantal herhalingen."]],
+            indicator: ["Lus", "Een for-lus past wanneer het aantal herhalingen vooraf vastligt."],
+            output: ""
+          },
+          {
+            title: "Behandel het eerste schaap apart",
+            explanation: "Bij het eerste dier gebruiken we enkelvoud. Omdat i bij 0 start, is i == 0 het eerste schaap.",
+            lines: [4, 5],
+            variables: [["i", "0", "Eerste lusdoorgang."], ["i == 0", "True", "Daarom printen we 1 schaap."]],
+            indicator: ["Keuze", "De if-tak zorgt voor het enkelvoud."],
+            output: "1 schaap"
+          },
+          {
+            title: "Druk daarna het meervoud af",
+            explanation: "Vanaf de tweede herhaling gebruiken we schapen. Omdat i bij 0 start, tonen we i + 1.",
+            lines: [6, 7],
+            variables: [["i + 1", "2 tot 5", "Menselijke telling vanaf 1."], ["woord", "schapen", "Meervoud vanaf 2."]],
+            indicator: ["Uitvoer", "print() met komma's combineert het getal en de tekst."],
+            output: "1 schaap\n2 schapen\n3 schapen\n4 schapen\n5 schapen"
+          }
+        ],
+        traceTitle: "Telling",
+        traceColumns: ["i", "afdruk"],
+        traceRows: [["0", "1 schaap"], ["1", "2 schapen"], ["2", "3 schapen"], ["3", "4 schapen"], ["4", "5 schapen"]],
+        mistakes: [
+          ["print(i, 'schapen') gebruiken.", "Gebruik i + 1, want range(aantal) begint bij 0."],
+          ["Altijd schapen afdrukken.", "Gebruik if i == 0 om 1 schaap apart te behandelen."],
+          ["input() niet omzetten naar int().", "Gebruik int(input(...)), want range() verwacht een geheel getal."]
+        ]
+      },
+      {
+        id: 2,
+        title: "Legende van het schaakspel",
+        theme: "Rijstkorrels op een schaakbord waarbij elk veld het dubbele krijgt.",
+        pattern: "Machten gebruiken in een for-lus",
+        summary: [
+          "Druk voor elk veld van een schaakbord het aantal rijstkorrels af.",
+          "Een schaakbord heeft 64 velden.",
+          "Op veld 1 ligt 1 rijstkorrel.",
+          "Op elk volgend veld ligt het dubbele.",
+          "Er is geen invoer nodig."
+        ],
+        concepts: ["for", "range(64)", "if", "else", "macht met **", "print() met komma's"],
+        core: "Het aantal rijstkorrels verdubbelt op elk veld. Dat kan je compact berekenen met machten van 2.",
+        stop: "De for-lus stopt na 64 velden.",
+        inputs: [["invoer", "geen"]],
+        code: [
+          "for i in range(64):",
+          "    if i == 0:",
+          "        print(\"Op veld 1 ligt 1 rijstkorrel.\")",
+          "    else:",
+          "        print(\"Op veld\", i + 1, \"liggen\", 2 ** i, \"rijstkorrels.\")"
+        ],
+        steps: [
+          {
+            title: "Herhaal voor 64 velden",
+            explanation: "Een schaakbord heeft 8 rijen en 8 kolommen. Dat zijn 64 velden.",
+            lines: [1],
+            variables: [["i", "0 tot 63", "De lus overloopt alle velden."], ["veldnummer", "i + 1", "Voor mensen tellen we vanaf 1."]],
+            indicator: ["Lus", "range(64) levert 64 herhalingen."],
+            output: ""
+          },
+          {
+            title: "Behandel veld 1 apart",
+            explanation: "Op veld 1 ligt precies 1 rijstkorrel. Dat is enkelvoud, dus deze zin behandelen we apart.",
+            lines: [2, 3],
+            variables: [["i", "0", "Eerste veld."], ["2 ** i", "1", "2 tot de macht 0 is 1."]],
+            indicator: ["Keuze", "De eerste zin gebruikt rijstkorrel in enkelvoud."],
+            output: "Op veld 1 ligt 1 rijstkorrel."
+          },
+          {
+            title: "Bereken de andere velden met machten",
+            explanation: "Het veldnummer is i + 1. Het aantal rijstkorrels is 2 ** i: 1, 2, 4, 8, 16, enzovoort.",
+            lines: [4, 5],
+            variables: [["i", "1", "Tweede veld."], ["i + 1", "2", "Veldnummer."], ["2 ** i", "2", "Aantal rijstkorrels."]],
+            indicator: ["Formule", "2 ** i verdubbelt telkens wanneer i met 1 stijgt."],
+            output: "Op veld 1 ligt 1 rijstkorrel.\nOp veld 2 liggen 2 rijstkorrels.\nOp veld 3 liggen 4 rijstkorrels.\nOp veld 4 liggen 8 rijstkorrels.\nOp veld 5 liggen 16 rijstkorrels.\nOp veld 6 liggen 32 rijstkorrels."
+          }
+        ],
+        traceTitle: "Eerste velden",
+        traceColumns: ["i", "veld", "2 ** i"],
+        traceRows: [["0", "1", "1"], ["1", "2", "2"], ["2", "3", "4"], ["3", "4", "8"], ["4", "5", "16"], ["5", "6", "32"]],
+        mistakes: [
+          ["range(64) verwarren met veldnummers 1 tot en met 64.", "range(64) geeft i van 0 tot en met 63. Gebruik i + 1 als veldnummer."],
+          ["2 * i gebruiken.", "Gebruik 2 ** i, want het aantal verdubbelt telkens."],
+          ["Invoer vragen.", "Deze oefening vraagt geen invoer."]
+        ]
+      },
+      {
+        id: 3,
+        title: "Kubussen",
+        theme: "Het aantal zichtbare vierkanten op de zijvlakken van kubussen berekenen.",
+        pattern: "Herhalen van startwaarde tot eindwaarde",
+        summary: [
+          "Vraag een getal n.",
+          "Bereken voor elke zijde van 2 tot en met n het aantal vierkanten op de zijvlakken.",
+          "Gebruik de formule 6 * zijde kwadraat.",
+          "Druk het resultaat per kubus af."
+        ],
+        concepts: ["int(input())", "for", "range(2, n + 1)", "macht met **", "rekenen", "print() met komma's"],
+        core: "Een kubus heeft 6 zijvlakken. Elk zijvlak met zijde i bestaat uit i ** 2 vierkanten. Samen zijn dat 6 * i ** 2 vierkanten.",
+        stop: "De for-lus stopt nadat zijde n verwerkt is.",
+        inputs: [["n", "5"]],
+        code: [
+          "n = int(input(\"Geef een getal in: \"))",
+          "",
+          "for i in range(2, n + 1):",
+          "    print(\"Een kubus met zijde\", i, \"heeft\", 6 * i ** 2, \"vierkanten.\")"
+        ],
+        steps: [
+          {
+            title: "Vraag de maximale zijde",
+            explanation: "n is een geheel getal. Daarom gebruiken we int(input()).",
+            lines: [1],
+            variables: [["n", "5", "We rekenen tot en met zijde 5."]],
+            indicator: ["Invoer", "int() maakt van tekst een geheel getal."],
+            output: ""
+          },
+          {
+            title: "Herhaal van zijde 2 tot en met n",
+            explanation: "range(2, n + 1) start bij 2 en stopt net voor n + 1. Daardoor telt n nog mee.",
+            lines: [3],
+            variables: [["i", "2, 3, 4, 5", "Alle zijdes die verwerkt worden."], ["n + 1", "6", "De stopwaarde zelf telt niet mee."]],
+            indicator: ["Bereik", "Gebruik n + 1 wanneer n zelf nog moet meetellen."],
+            output: ""
+          },
+          {
+            title: "Gebruik de kubusformule",
+            explanation: "Een kubus heeft 6 zijvlakken. Elk zijvlak bevat i ** 2 vierkanten.",
+            lines: [4],
+            variables: [["i", "2", "Eerste zijde."], ["6 * i ** 2", "24", "6 * 2 * 2."]],
+            indicator: ["Formule", "** berekent een macht. i ** 2 betekent i kwadraat."],
+            output: "Een kubus met zijde 2 heeft 24 vierkanten."
+          },
+          {
+            title: "Druk elke kubus af",
+            explanation: "De print-regel staat in de lus. Daardoor krijgt elke zijde een eigen uitvoerregel.",
+            lines: [4],
+            variables: [["i", "5", "Laatste zijde in dit voorbeeld."], ["6 * i ** 2", "150", "Aantal vierkanten voor zijde 5."]],
+            indicator: ["Uitvoer", "print() met komma's combineert de tekst, de zijde en het resultaat."],
+            output: "Een kubus met zijde 2 heeft 24 vierkanten.\nEen kubus met zijde 3 heeft 54 vierkanten.\nEen kubus met zijde 4 heeft 96 vierkanten.\nEen kubus met zijde 5 heeft 150 vierkanten."
+          }
+        ],
+        traceTitle: "Kubussen tot en met n",
+        traceColumns: ["zijde", "berekening", "vierkanten"],
+        traceRows: [["2", "6 * 2 ** 2", "24"], ["3", "6 * 3 ** 2", "54"], ["4", "6 * 4 ** 2", "96"], ["5", "6 * 5 ** 2", "150"]],
+        mistakes: [
+          ["range(2, n) gebruiken.", "Gebruik range(2, n + 1), want n moet meetellen."],
+          ["Alleen i ** 2 berekenen.", "Vermenigvuldig met 6, want een kubus heeft 6 zijvlakken."],
+          ["6 * i * 2 schrijven.", "Gebruik 6 * i ** 2. Het kwadraat is nodig."]
+        ]
+      },
+      {
+        id: 4,
+        title: "Griekse vierkanten",
+        theme: "Steeds kleinere vierkanten berekenen op basis van oppervlakte en zijde.",
+        pattern: "Vierkantswortel en herhaling",
+        summary: [
+          "Vraag de oppervlakte van het grootste vierkant.",
+          "Vraag het aantal iteraties.",
+          "Bereken de zijde van het grootste vierkant.",
+          "Bereken telkens de oppervlakte van het volgende kleinere vierkant.",
+          "Bereken telkens de zijde met de vierkantswortel.",
+          "Rond alleen af bij het afdrukken."
+        ],
+        concepts: ["import math", "math.sqrt()", "float(input())", "int(input())", "for", "range(n - 1)", "round()"],
+        core: "Elk kleiner vierkant heeft een oppervlakte die vier keer kleiner is. De zijde bereken je door de wortel van de oppervlakte te nemen.",
+        stop: "De for-lus verwerkt n - 1 kleinere vierkanten, omdat het grootste vierkant al apart verwerkt is.",
+        inputs: [["oppervlakte", "144"], ["iteraties", "4"]],
+        code: [
+          "import math",
+          "",
+          "# De oppervlakte van het grootste vierkant",
+          "oppervlakte = float(input(\"Geef de grootste oppervlakte in (in m2): \"))",
+          "n = int(input(\"Geef het aantal iteraties in: \"))",
+          "",
+          "# Bereken de lengte van de zijde van het grootste vierkant",
+          "zijde = math.sqrt(oppervlakte)",
+          "print(\"De lengte van de zijde van vierkant 1 is\", round(zijde, 2), \"m.\")",
+          "",
+          "# Bereken de oppervlakte en de lengte van de zijde van elk kleiner vierkant",
+          "for i in range(n - 1):",
+          "    oppervlakte /= 4",
+          "    zijde = math.sqrt(oppervlakte)",
+          "    print(\"De oppervlakte van vierkant\", i + 2, \"is\", round(oppervlakte, 2), \"m2.\")",
+          "    print(\"De lengte van de zijde van vierkant\", i + 2, \"is\", round(zijde, 2), \"m.\")"
+        ],
+        steps: [
+          {
+            title: "Importeer math",
+            explanation: "math.sqrt() is nodig om de vierkantswortel te berekenen.",
+            lines: [1],
+            variables: [["math", "module", "Nodig voor math.sqrt()."]],
+            indicator: ["Module", "import math laadt de wiskundige functies."],
+            output: ""
+          },
+          {
+            title: "Vraag oppervlakte en iteraties",
+            explanation: "De oppervlakte kan een kommagetal zijn. Het aantal iteraties is een geheel getal.",
+            lines: [4, 5],
+            variables: [["oppervlakte", "144.0", "Grootste oppervlakte."], ["n", "4", "Aantal vierkanten dat getoond wordt."]],
+            indicator: ["Invoer", "float() voor een oppervlakte, int() voor een aantal."],
+            output: ""
+          },
+          {
+            title: "Bereken de eerste zijde",
+            explanation: "De zijde van een vierkant is de vierkantswortel van de oppervlakte.",
+            lines: [8],
+            variables: [["oppervlakte", "144.0", "Startoppervlakte."], ["zijde", "12.0", "math.sqrt(144)."]],
+            indicator: ["Formule", "math.sqrt(oppervlakte) berekent de zijde."],
+            output: ""
+          },
+          {
+            title: "Druk vierkant 1 af",
+            explanation: "Het grootste vierkant is al bekend, dus dat drukken we eerst apart af.",
+            lines: [9],
+            variables: [["round(zijde, 2)", "12.0", "Afgerond bij het afdrukken."]],
+            indicator: ["Uitvoer", "round() staat in print(), zodat de berekening zelf nauwkeurig blijft."],
+            output: "De lengte van de zijde van vierkant 1 is 12.0 m."
+          },
+          {
+            title: "Herhaal voor de kleinere vierkanten",
+            explanation: "Vierkant 1 is al verwerkt. Daarom zijn er nog n - 1 kleinere vierkanten over.",
+            lines: [12],
+            variables: [["range(n - 1)", "range(3)", "Nog drie kleinere vierkanten."], ["i", "0, 1, 2", "Teller van de lus."]],
+            indicator: ["Lus", "De eerste herhaling hoort bij vierkant 2."],
+            output: ""
+          },
+          {
+            title: "Deel de oppervlakte door 4",
+            explanation: "Elk nieuw vierkant heeft een vierde van de vorige oppervlakte.",
+            lines: [13],
+            variables: [["oppervlakte", "36.0", "144.0 / 4."], ["i + 2", "2", "Nummer van het kleinere vierkant."]],
+            indicator: ["Veranderende variabele", "oppervlakte wordt telkens aangepast."],
+            output: ""
+          },
+          {
+            title: "Bereken en toon de kleinere vierkanten",
+            explanation: "Na het delen berekenen we opnieuw de zijde en drukken we oppervlakte en zijde af.",
+            lines: [14, 15, 16],
+            variables: [["zijde", "6.0", "math.sqrt(36.0)."], ["round(oppervlakte, 2)", "36.0", "Afdrukwaarde."]],
+            indicator: ["Uitvoer", "i + 2 geeft het juiste vierkantnummer."],
+            output: "De lengte van de zijde van vierkant 1 is 12.0 m.\nDe oppervlakte van vierkant 2 is 36.0 m2.\nDe lengte van de zijde van vierkant 2 is 6.0 m.\nDe oppervlakte van vierkant 3 is 9.0 m2.\nDe lengte van de zijde van vierkant 3 is 3.0 m.\nDe oppervlakte van vierkant 4 is 2.25 m2.\nDe lengte van de zijde van vierkant 4 is 1.5 m."
+          }
+        ],
+        traceTitle: "Vierkanten",
+        traceColumns: ["vierkant", "oppervlakte", "zijde"],
+        traceRows: [["1", "144.0", "12.0"], ["2", "36.0", "6.0"], ["3", "9.0", "3.0"], ["4", "2.25", "1.5"]],
+        mistakes: [
+          ["math.sqrt() gebruiken zonder import math.", "Zet import math bovenaan het programma."],
+          ["Afronden en daarna verder rekenen met afgeronde waarden.", "Gebruik round() alleen in print()."],
+          ["range(n) gebruiken nadat vierkant 1 al afgedrukt is.", "Gebruik range(n - 1), want het eerste vierkant is al verwerkt."],
+          ["i + 1 gebruiken voor de kleinere vierkanten.", "Gebruik i + 2, want vierkant 1 is al afgedrukt."]
+        ]
+      },
+      {
+        id: 5,
+        title: "Simulatie dobbelsteenworpen",
+        theme: "Worpen met twee dobbelstenen simuleren en het gemiddelde berekenen.",
+        pattern: "Somvariabele en gemiddelde",
+        summary: [
+          "Vraag het aantal worpen.",
+          "Simuleer per worp twee dobbelstenen.",
+          "Bereken telkens de som van beide dobbelstenen.",
+          "Tel alle worpsommen op.",
+          "Bereken het gemiddelde.",
+          "Rond het gemiddelde af op twee decimalen."
+        ],
+        concepts: ["import random", "random.randint()", "int(input())", "for", "range()", "somvariabele", "round()"],
+        core: "Elke worp bestaat uit twee willekeurige getallen tussen 1 en 6. De totale som gebruiken we om na de lus het gemiddelde te berekenen.",
+        stop: "De for-lus stopt na n worpen.",
+        inputs: [["aantal worpen", "10"]],
+        code: [
+          "import random",
+          "",
+          "# Variabele om de som van de worpen bij te houden",
+          "som = 0",
+          "",
+          "n = int(input(\"Geef het aantal worpen in: \"))",
+          "",
+          "# Simuleer n worpen",
+          "for _ in range(n):",
+          "    # Genereer twee willekeurige getallen tussen 1 en 6",
+          "    worp1 = random.randint(1, 6)",
+          "    worp2 = random.randint(1, 6)",
+          "",
+          "    # Voeg de resultaten van de worpen toe aan de som",
+          "    som += worp1 + worp2",
+          "",
+          "# Bereken het gemiddelde",
+          "gemiddelde = round(som / n, 2)",
+          "",
+          "# Print het gemiddelde van de worpen naar het scherm",
+          "print(\"Het gemiddelde bij\", n, \"worpen is\", gemiddelde)"
+        ],
+        steps: [
+          {
+            title: "Importeer random",
+            explanation: "random.randint() is nodig om willekeurige dobbelsteenworpen te simuleren.",
+            lines: [1],
+            variables: [["random", "module", "Nodig voor random.randint()."]],
+            indicator: ["Module", "import random laadt functies voor toeval."],
+            output: ""
+          },
+          {
+            title: "Start de som en vraag n",
+            explanation: "som begint op 0. n is het aantal worpen en moet een geheel getal zijn.",
+            lines: [4, 6],
+            variables: [["som", "0", "Nog geen worpen verwerkt."], ["n", "10", "Aantal herhalingen."]],
+            indicator: ["Startwaarden", "Initialiseer de som voor de lus begint."],
+            output: ""
+          },
+          {
+            title: "Herhaal n keer",
+            explanation: "Elke herhaling stelt een worp met twee dobbelstenen voor. De underscore gebruiken we omdat we de teller zelf niet nodig hebben.",
+            lines: [9],
+            variables: [["_", "0 tot 9", "Teller die we niet apart gebruiken."], ["n", "10", "Tien worpen."]],
+            indicator: ["Lus", "for _ in range(n) voert de simulatie n keer uit."],
+            output: ""
+          },
+          {
+            title: "Simuleer twee dobbelstenen",
+            explanation: "random.randint(1, 6) geeft een geheel getal van 1 tot en met 6. Beide grenzen tellen mee.",
+            lines: [11, 12],
+            variables: [["worp1", "4", "Voorbeeldwaarde."], ["worp2", "3", "Voorbeeldwaarde."], ["worp1 + worp2", "7", "Som van deze worp."]],
+            indicator: ["Toeval", "De waarden kunnen per uitvoering verschillen."],
+            output: ""
+          },
+          {
+            title: "Tel elke worpsom bij som",
+            explanation: "som += worp1 + worp2 houdt de totale score over alle worpen bij.",
+            lines: [15],
+            variables: [["som", "7", "Na een voorbeeldworp van 4 en 3."], ["worp1 + worp2", "7", "Wordt toegevoegd aan som."]],
+            indicator: ["Somvariabele", "De totale som groeit in de lus."],
+            output: ""
+          },
+          {
+            title: "Bereken het gemiddelde na de lus",
+            explanation: "Pas na alle worpen kennen we de volledige som. Die delen we door n en ronden we af op twee decimalen.",
+            lines: [18],
+            variables: [["som", "64", "Voorbeeldsom na 10 worpen."], ["gemiddelde", "6.4", "round(64 / 10, 2)."]],
+            indicator: ["Gemiddelde", "Gemiddelde is totale som gedeeld door aantal."],
+            output: ""
+          },
+          {
+            title: "Toon het gemiddelde",
+            explanation: "De uitvoer kan verschillen, omdat de worpen willekeurig zijn.",
+            lines: [21],
+            variables: [["n", "10", "Aantal worpen."], ["gemiddelde", "6.4", "Mogelijk resultaat."]],
+            indicator: ["Uitvoer", "Bij veel worpen ligt het gemiddelde meestal dicht bij 7."],
+            output: "Het gemiddelde bij 10 worpen is 6.4"
+          }
+        ],
+        traceTitle: "Mogelijke worpen",
+        traceColumns: ["worp", "dobbelstenen", "worpsom", "som"],
+        traceRows: [["1", "4 en 3", "7", "7"], ["2", "6 en 1", "7", "14"], ["3", "2 en 5", "7", "21"], ["...", "willekeurig", "...", "..."], ["10", "voorbeeld", "6", "64"]],
+        mistakes: [
+          ["random.randint() gebruiken zonder import random.", "Zet import random bovenaan het programma."],
+          ["Slechts een dobbelsteen simuleren.", "Gebruik twee keer random.randint(1, 6)."],
+          ["Het gemiddelde binnen de lus berekenen en afdrukken.", "Bereken en print het gemiddelde pas na de lus."],
+          ["som niet initialiseren.", "Zet som = 0 voor de lus."]
+        ]
+      },
+      {
+        id: 6,
+        title: "Zoek een deler!",
+        theme: "Drie willekeurige deelbaarheidsoefeningen met puntentelling.",
+        pattern: "Deelbaarheid controleren met restdeling",
+        summary: [
+          "Genereer drie keer een willekeurig getal tussen 20 en 50.",
+          "Toon het getal.",
+          "Vraag de gebruiker om een deler.",
+          "Controleer met restdeling of het antwoord een deler is.",
+          "Geef twee punten voor een echte deler.",
+          "Geef een punt voor 1 of het getal zelf.",
+          "Toon op het einde de totaalscore."
+        ],
+        concepts: ["import random", "random.randint()", "int(input())", "for", "range(3)", "if", "else", "and", "%", "score"],
+        core: "Een getal is deelbaar door een deler als de rest van de deling gelijk is aan 0.",
+        stop: "De for-lus stopt na drie oefeningen.",
+        inputs: [["mogelijk getal", "48"], ["antwoord", "6"]],
+        code: [
+          "import random",
+          "",
+          "# Initialiseer de teller voor correcte antwoorden",
+          "score = 0",
+          "",
+          "for i in range(3):",
+          "    # Genereer een willekeurig getal tussen 20 en 50",
+          "    getal = random.randint(20, 50)",
+          "    print(\"Het getal is\", getal)",
+          "",
+          "    # Vraag de gebruiker naar een deler van het getal",
+          "    deler = int(input(\"Geef een deler in: \"))",
+          "",
+          "    # Controleer of het antwoord correct is",
+          "    if getal % deler == 0:",
+          "        print(\"Juist!\")",
+          "",
+          "        if deler != 1 and deler != getal:",
+          "            score = score + 2",
+          "        else:",
+          "            score = score + 1",
+          "    else:",
+          "        print(\"Dit is geen deler!\")",
+          "",
+          "# Print de totaalscore van de gebruiker",
+          "print(\"Score:\", score)"
+        ],
+        steps: [
+          {
+            title: "Importeer random en start de score",
+            explanation: "random.randint() genereert willekeurige getallen. score begint op 0 en groeit doorheen de drie oefeningen.",
+            lines: [1, 4],
+            variables: [["score", "0", "Nog geen punten."], ["random", "module", "Nodig voor willekeurige getallen."]],
+            indicator: ["Startwaarden", "De score moet voor de lus worden aangemaakt."],
+            output: ""
+          },
+          {
+            title: "Maak drie oefeningen",
+            explanation: "range(3) zorgt voor drie herhalingen. Elke herhaling is een nieuwe deelbaarheidsvraag.",
+            lines: [6],
+            variables: [["i", "0, 1, 2", "Drie rondes."], ["score", "0", "Blijft bewaard doorheen de rondes."]],
+            indicator: ["Lus", "De for-lus stopt na drie oefeningen."],
+            output: ""
+          },
+          {
+            title: "Genereer en toon het getal",
+            explanation: "random.randint(20, 50) kiest een geheel getal waarbij 20 en 50 allebei kunnen voorkomen.",
+            lines: [8, 9],
+            variables: [["getal", "48", "Mogelijke voorbeeldwaarde."], ["bereik", "20 tot 50", "Grenzen tellen mee."]],
+            indicator: ["Toeval", "Het getal verschilt per uitvoering."],
+            output: "Het getal is 48"
+          },
+          {
+            title: "Vraag een deler",
+            explanation: "Een deler is een geheel getal. Daarom gebruiken we int(input()).",
+            lines: [12],
+            variables: [["deler", "6", "Voorbeeldantwoord van de gebruiker."]],
+            indicator: ["Invoer", "De gebruiker probeert een deler te geven."],
+            output: "Het getal is 48"
+          },
+          {
+            title: "Controleer de rest",
+            explanation: "getal % deler geeft de rest van de deling. Als die rest 0 is, is het antwoord een deler.",
+            lines: [15, 16],
+            variables: [["48 % 6", "0", "Er blijft geen rest over."], ["getal % deler == 0", "True", "6 is een deler van 48."]],
+            indicator: ["Restdeling", "% is de juiste operator om deelbaarheid te testen."],
+            output: "Het getal is 48\nJuist!"
+          },
+          {
+            title: "Geef punten voor echte delers",
+            explanation: "Een echte deler is verschillend van 1 en verschillend van het getal zelf. Dan krijgt de gebruiker twee punten.",
+            lines: [18, 19, 20, 21],
+            variables: [["deler != 1", "True", "6 is niet 1."], ["deler != getal", "True", "6 is niet 48."], ["score", "2", "Echte deler: twee punten."]],
+            indicator: ["Punten", "and betekent dat beide voorwaarden waar moeten zijn."],
+            output: "Het getal is 48\nJuist!"
+          },
+          {
+            title: "Geef geen punten bij een fout antwoord",
+            explanation: "Als de rest niet 0 is, is het antwoord geen deler. Dan verandert de score niet.",
+            lines: [22, 23],
+            variables: [["32 % 11", "10", "Er blijft rest over."], ["score", "2", "Blijft gelijk bij een fout antwoord."]],
+            indicator: ["Fout antwoord", "De else-tak geeft alleen feedback."],
+            output: "Het getal is 32\nDit is geen deler!"
+          },
+          {
+            title: "Toon de totaalscore",
+            explanation: "Na drie oefeningen staat de print-regel buiten de lus. Daardoor komt de totaalscore maar een keer op het scherm.",
+            lines: [26],
+            variables: [["score", "2", "Mogelijke totaalscore na drie rondes."]],
+            indicator: ["Uitvoer", "De score wordt pas na alle oefeningen afgedrukt."],
+            output: "Score: 2"
+          }
+        ],
+        traceTitle: "Mogelijke ronde",
+        traceColumns: ["getal", "deler", "rest", "punten"],
+        traceRows: [["48", "6", "0", "+2"], ["32", "11", "10", "+0"], ["36", "1", "0", "+1"]],
+        mistakes: [
+          ["getal / deler == 0 gebruiken.", "Gebruik getal % deler == 0 om de rest te controleren."],
+          ["random.randint() gebruiken zonder import random.", "Zet import random bovenaan het programma."],
+          ["Altijd twee punten geven bij een correcte deler.", "Controleer apart of de deler verschillend is van 1 en van het getal zelf."],
+          ["Score opnieuw op 0 zetten binnen de lus.", "Initialiseer score voor de lus, niet in de lus."]
+        ]
+      }
+    ];
+
+    const state = {
+      exerciseIndex: 0,
+      stepIndex: 0
+    };
+
+    const ui = {
+      progress: document.getElementById("exercise-progress"),
+      exerciseTitle: document.getElementById("exercise-title"),
+      exerciseTheme: document.getElementById("exercise-theme"),
+      stepStatus: document.getElementById("step-status"),
+      resetBtn: document.getElementById("reset-btn"),
+      patternLabel: document.getElementById("pattern-label"),
+      summaryList: document.getElementById("summary-list"),
+      concepts: document.getElementById("concepts"),
+      coreIdea: document.getElementById("core-idea"),
+      stopCondition: document.getElementById("stop-condition"),
+      stepList: document.getElementById("step-list"),
+      stepTitle: document.getElementById("step-title"),
+      stepExplanation: document.getElementById("step-explanation"),
+      codeLines: document.getElementById("code-lines"),
+      prevStep: document.getElementById("prev-step"),
+      nextStep: document.getElementById("next-step"),
+      stepModalBtn: document.getElementById("step-modal-btn"),
+      solutionModalBtn: document.getElementById("solution-modal-btn"),
+      stepModal: document.getElementById("step-modal"),
+      closeStepModal: document.getElementById("close-step-modal"),
+      stepModalTitle: document.getElementById("step-modal-title"),
+      stepModalExplanation: document.getElementById("step-modal-explanation"),
+      stepModalCode: document.getElementById("step-modal-code"),
+      stepModalVariables: document.getElementById("step-modal-variables"),
+      stepModalOutput: document.getElementById("step-modal-output"),
+      solutionModal: document.getElementById("solution-modal"),
+      closeSolutionModal: document.getElementById("close-solution-modal"),
+      solutionModalCode: document.getElementById("solution-modal-code"),
+      inputsList: document.getElementById("inputs-list"),
+      indicator: document.getElementById("indicator"),
+      variablesBody: document.getElementById("variables-body"),
+      outputBox: document.getElementById("output-box"),
+      traceTitle: document.getElementById("trace-title"),
+      traceHead: document.getElementById("trace-head"),
+      traceBody: document.getElementById("trace-body"),
+      mistakes: document.getElementById("mistakes")
+    };
+
+    function currentExercise() {
+      return EXERCISES[state.exerciseIndex];
+    }
+
+    function currentStep() {
+      return currentExercise().steps[state.stepIndex];
+    }
+
+    function createElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) {
+        element.className = className;
+      }
+      if (typeof text === "string") {
+        element.textContent = text;
+      }
+      return element;
+    }
+
+    function clearNode(node) {
+      while (node.firstChild) {
+        node.removeChild(node.firstChild);
+      }
+    }
+
+    function renderProgress() {
+      clearNode(ui.progress);
+      EXERCISES.forEach((exercise, index) => {
+        const button = createElement("button", "exercise-btn", String(exercise.id));
+        button.type = "button";
+        button.title = exercise.title;
+        button.setAttribute("aria-label", "Open oefening " + exercise.id + ": " + exercise.title);
+        if (index === state.exerciseIndex) {
+          button.classList.add("current");
+          button.setAttribute("aria-current", "true");
+        }
+        button.addEventListener("click", () => {
+          state.exerciseIndex = index;
+          state.stepIndex = 0;
+          closeAllModals();
+          render();
+          scrollCodePanelTop();
+        });
+        ui.progress.appendChild(button);
+      });
+    }
+
+    function renderSummary(exercise) {
+      clearNode(ui.summaryList);
+      exercise.summary.forEach((item) => {
+        ui.summaryList.appendChild(createElement("li", "", item));
+      });
+
+      clearNode(ui.concepts);
+      exercise.concepts.forEach((concept) => {
+        ui.concepts.appendChild(createElement("span", "concept-chip", concept));
+      });
+    }
+
+    function renderStepList(exercise) {
+      clearNode(ui.stepList);
+      exercise.steps.forEach((step, index) => {
+        const button = createElement("button", "step-jump", "");
+        button.type = "button";
+        if (index === state.stepIndex) {
+          button.classList.add("current");
+        }
+        const number = createElement("span", "step-number", String(index + 1));
+        const label = createElement("span", "", step.title);
+        button.append(number, label);
+        button.addEventListener("click", () => {
+          state.stepIndex = index;
+          closeAllModals();
+          render();
+          scrollCodePanelTop();
+        });
+        ui.stepList.appendChild(button);
+      });
+    }
+
+    function getStepLineNumbers(step) {
+      const numbers = Array.isArray(step.lines) ? step.lines : [];
+      return [...new Set(numbers)]
+        .filter((lineNumber) => Number.isInteger(lineNumber) && lineNumber > 0)
+        .sort((a, b) => a - b);
+    }
+
+    function getStepCodeText(exercise, step) {
+      const lineNumbers = getStepLineNumbers(step);
+      return lineNumbers
+        .map((lineNumber) => {
+          const code = exercise.code[lineNumber - 1] || "";
+          return String(lineNumber).padStart(2, " ") + "  " + code;
+        })
+        .join("\n");
+    }
+
+    function renderCode(exercise, step) {
+      clearNode(ui.codeLines);
+      const lineNumbers = getStepLineNumbers(step);
+      lineNumbers.forEach((lineNumber) => {
+        const line = exercise.code[lineNumber - 1] || "";
+        const row = document.createElement("tr");
+        row.classList.add("is-active");
+        const numberCell = createElement("td", "line-no", String(lineNumber));
+        const codeCell = createElement("td", "line-code", line || " ");
+        row.append(numberCell, codeCell);
+        ui.codeLines.appendChild(row);
+      });
+    }
+
+    function renderInputs(exercise) {
+      clearNode(ui.inputsList);
+      exercise.inputs.forEach(([label, value]) => {
+        const row = createElement("div", "input-pill", "");
+        const name = createElement("span", "", label);
+        const code = createElement("code", "", value);
+        row.append(name, code);
+        ui.inputsList.appendChild(row);
+      });
+    }
+
+    function renderIndicator(step) {
+      clearNode(ui.indicator);
+      const indicator = step.indicator || ["Denkstap", "Bekijk wat deze regel doet.", "good"];
+      const title = createElement("div", "indicator-title", indicator[0]);
+      const row = createElement("div", "indicator-row", "");
+      row.appendChild(createElement("span", "", indicator[1]));
+      ui.indicator.append(title, row);
+    }
+
+    function renderVariableRows(tbody, variables) {
+      clearNode(tbody);
+      if (!variables.length) {
+        const row = document.createElement("tr");
+        const cell = createElement("td", "", "Nog geen variabelen.");
+        cell.colSpan = 3;
+        row.appendChild(cell);
+        tbody.appendChild(row);
+        return;
+      }
+
+      variables.forEach(([name, value, note]) => {
+        const row = document.createElement("tr");
+        const nameCell = createElement("td", "", name);
+        const valueCell = document.createElement("td");
+        valueCell.appendChild(createElement("code", "", value));
+        const noteCell = createElement("td", "", note);
+        row.append(nameCell, valueCell, noteCell);
+        tbody.appendChild(row);
+      });
+    }
+
+    function renderVariables(step) {
+      renderVariableRows(ui.variablesBody, step.variables || []);
+    }
+
+    function renderTrace(exercise) {
+      ui.traceTitle.textContent = exercise.traceTitle || "Voorbeeldtrace";
+      clearNode(ui.traceHead);
+      clearNode(ui.traceBody);
+
+      const headRow = document.createElement("tr");
+      exercise.traceColumns.forEach((column) => {
+        headRow.appendChild(createElement("th", "", column));
+      });
+      ui.traceHead.appendChild(headRow);
+
+      exercise.traceRows.forEach((values) => {
+        const row = document.createElement("tr");
+        values.forEach((value) => {
+          row.appendChild(createElement("td", "", value));
+        });
+        ui.traceBody.appendChild(row);
+      });
+    }
+
+    function renderMistakes(exercise) {
+      clearNode(ui.mistakes);
+      exercise.mistakes.forEach(([mistake, correction]) => {
+        const item = createElement("div", "mistake", "");
+        item.appendChild(createElement("strong", "", mistake));
+        item.appendChild(createElement("span", "", correction));
+        ui.mistakes.appendChild(item);
+      });
+    }
+
+    function renderSolutionButton(exercise) {
+      const canOpen = state.stepIndex === exercise.steps.length - 1;
+      ui.solutionModalBtn.disabled = !canOpen;
+      ui.solutionModalBtn.textContent = canOpen ? "Open sleutel" : "Sleutel na laatste stap";
+      ui.solutionModalBtn.title = canOpen
+        ? "Open de volledige oplossingssleutel in een apart venster."
+        : "Doorloop eerst alle denkstappen.";
+    }
+
+    function scrollCodePanelTop() {
+      const body = document.querySelector(".code-panel .panel-body");
+      if (body) {
+        body.scrollTop = 0;
+      }
+    }
+
+    function openModal(modal) {
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeModal(modal) {
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function closeAllModals() {
+      closeModal(ui.stepModal);
+      closeModal(ui.solutionModal);
+    }
+
+    function openStepModal() {
+      const exercise = currentExercise();
+      const step = currentStep();
+      ui.stepModalTitle.textContent = "Stap " + (state.stepIndex + 1) + ": " + step.title;
+      ui.stepModalExplanation.textContent = step.explanation;
+      ui.stepModalCode.textContent = getStepCodeText(exercise, step);
+      renderVariableRows(ui.stepModalVariables, step.variables || []);
+      ui.stepModalOutput.textContent = step.output || "(Nog geen uitvoer op dit punt.)";
+      openModal(ui.stepModal);
+    }
+
+    function openSolutionModal() {
+      const exercise = currentExercise();
+      if (state.stepIndex !== exercise.steps.length - 1) {
+        return;
+      }
+      ui.solutionModalCode.textContent = exercise.code.join("\n");
+      openModal(ui.solutionModal);
+    }
+
+    function render() {
+      const exercise = currentExercise();
+      const step = currentStep();
+      const totalSteps = exercise.steps.length;
+
+      renderProgress();
+      ui.exerciseTitle.textContent = exercise.id + ". " + exercise.title;
+      ui.exerciseTheme.textContent = exercise.theme;
+      ui.stepStatus.textContent = "Stap " + (state.stepIndex + 1) + " van " + totalSteps;
+      ui.patternLabel.textContent = exercise.pattern;
+      ui.coreIdea.textContent = exercise.core;
+      ui.stopCondition.textContent = exercise.stop;
+
+      renderSummary(exercise);
+      renderStepList(exercise);
+
+      ui.stepTitle.textContent = step.title;
+      ui.stepExplanation.textContent = step.explanation;
+
+      renderCode(exercise, step);
+      renderInputs(exercise);
+      renderIndicator(step);
+      renderVariables(step);
+      ui.outputBox.textContent = step.output || "(Nog geen uitvoer op dit punt.)";
+      renderTrace(exercise);
+      renderMistakes(exercise);
+      renderSolutionButton(exercise);
+
+      ui.prevStep.disabled = state.stepIndex === 0;
+      ui.nextStep.disabled = state.stepIndex === totalSteps - 1;
+      ui.nextStep.textContent = state.stepIndex === totalSteps - 1 ? "Laatste stap" : "Volgende stap";
+    }
+
+    ui.prevStep.addEventListener("click", () => {
+      if (state.stepIndex > 0) {
+        state.stepIndex -= 1;
+        closeAllModals();
+        render();
+        scrollCodePanelTop();
+      }
+    });
+
+    ui.nextStep.addEventListener("click", () => {
+      const totalSteps = currentExercise().steps.length;
+      if (state.stepIndex < totalSteps - 1) {
+        state.stepIndex += 1;
+        closeAllModals();
+        render();
+        scrollCodePanelTop();
+      }
+    });
+
+    ui.stepModalBtn.addEventListener("click", openStepModal);
+    ui.solutionModalBtn.addEventListener("click", openSolutionModal);
+    ui.closeStepModal.addEventListener("click", () => closeModal(ui.stepModal));
+    ui.closeSolutionModal.addEventListener("click", () => closeModal(ui.solutionModal));
+    ui.stepModal.addEventListener("click", (event) => {
+      if (event.target === ui.stepModal) {
+        closeModal(ui.stepModal);
+      }
+    });
+    ui.solutionModal.addEventListener("click", (event) => {
+      if (event.target === ui.solutionModal) {
+        closeModal(ui.solutionModal);
+      }
+    });
+
+    ui.resetBtn.addEventListener("click", () => {
+      state.stepIndex = 0;
+      closeAllModals();
+      render();
+      scrollCodePanelTop();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.target instanceof HTMLInputElement || event.target instanceof HTMLTextAreaElement) {
+        return;
+      }
+      if (event.key === "Escape") {
+        closeAllModals();
+      }
+      if (event.key === "ArrowRight") {
+        ui.nextStep.click();
+      }
+      if (event.key === "ArrowLeft") {
+        ui.prevStep.click();
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>

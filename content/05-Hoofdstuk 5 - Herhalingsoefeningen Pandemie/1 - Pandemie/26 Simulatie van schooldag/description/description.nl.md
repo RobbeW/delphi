@@ -1,34 +1,37 @@
 ## Gegeven
 
-Tijdens een schooldag hebben leerlingen niet in elke les dezelfde contacten. Toch kun je een eenvoudige simulatie maken door per klas en per les het aantal besmettingen bij te werken.
+Tijdens een schooldag kunnen besmettingen in een klas toenemen.
 
-Elke les kan elke besmette leerling een vast aantal nieuwe leerlingen besmetten, zolang er nog leerlingen vatbaar zijn.
+In deze oefening simuleer je 1 klas.
 
 ## Gevraagd
 
-* Vraag het aantal klassen, het aantal lessen, de klasgrootte en het aantal startbesmettingen per klas.
-* Gebruik geneste lussen: een lus voor de klassen en een lus voor de lessen.
-* Gebruik variabelen zoals `besmet`, `vatbaar`, `nieuwe_besmettingen` en `totaal_school`.
-* Print per klas hoeveel leerlingen na alle lessen besmet zijn.
-* Print op het einde het totaal aantal besmettingen op school.
+* Vraag de klasgrootte.
+* Vraag het aantal besmette leerlingen bij de start.
+* Vraag het aantal lessen.
+* Bereken per les hoeveel nieuwe besmettingen erbij komen.
+* Print na alle lessen hoeveel leerlingen besmet zijn.
 
 #### Rekenregel
 
-Per les kan elke besmette leerling een nieuwe leerling besmetten. Daarom is `nieuwe_besmettingen = min(vatbaar, besmet)`. Daarna tel je die nieuwe besmettingen bij `besmet` en trek je ze af van `vatbaar`.
+Per les kan elke besmette leerling 1 nieuwe leerling besmetten.
+
+Gebruik:
+
+```
+nieuwe_besmettingen = min(vatbaar, besmet)
+```
 
 #### Voorbeeld
 
 Voor deze invoer:
 ```
-2
-3
 24
 2
+3
 ```
 
 moet je programma exact dit printen:
 ```
-Klas 1: 16 besmet na 3 lessen
-Klas 2: 16 besmet na 3 lessen
-Totaal op school: 32 besmettingen
+Na 3 lessen zijn er 16 besmettingen.
 ```

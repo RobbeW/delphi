@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "1\n70\nnee\nja\n"
-          stdout: "Persoon 1: score 5, risico hoog\nAantal hoog risico: 1\n"
+        - stdin: "4\n70\n45\n18\n64\n"
+          stdout: "Laag risico: 1\nMatig risico: 2\nHoog risico: 1\n"
     -
       testcases:
-        - stdin: "1\n12\nja\nnee\n"
-          stdout: "Persoon 1: score 0, risico laag\nAantal hoog risico: 0\n"
+        - stdin: "3\n65\n66\n90\n"
+          stdout: "Laag risico: 0\nMatig risico: 0\nHoog risico: 3\n"
     -
       testcases:
-        - stdin: "2\n50\nnee\nnee\n30\nja\nja\n"
-          stdout: "Persoon 1: score 2, risico matig\nPersoon 2: score 2, risico matig\nAantal hoog risico: 0\n"
+        - stdin: "3\n44\n18\n0\n"
+          stdout: "Laag risico: 3\nMatig risico: 0\nHoog risico: 0\n"
     -
       testcases:
-        - stdin: "3\n65\nja\nnee\n44\nnee\nja\n80\nnee\nnee\n"
-          stdout: "Persoon 1: score 2, risico matig\nPersoon 2: score 3, risico matig\nPersoon 3: score 3, risico matig\nAantal hoog risico: 0\n"
+        - stdin: "3\n45\n64\n50\n"
+          stdout: "Laag risico: 0\nMatig risico: 3\nHoog risico: 0\n"
     -
       testcases:
-        - stdin: "2\n45\nja\nnee\n45\nnee\nja\n"
-          stdout: "Persoon 1: score 1, risico laag\nPersoon 2: score 4, risico hoog\nAantal hoog risico: 1\n"
+        - stdin: "0\n"
+          stdout: "Laag risico: 0\nMatig risico: 0\nHoog risico: 0\n"
     -
       testcases:
-        - stdin: "4\n10\nnee\nnee\n20\nnee\nja\n30\nja\nnee\n40\nja\nja\n"
-          stdout: "Persoon 1: score 1, risico laag\nPersoon 2: score 3, risico matig\nPersoon 3: score 0, risico laag\nPersoon 4: score 2, risico matig\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "1\n65\nja\nja\n"
-          stdout: "Persoon 1: score 4, risico hoog\nAantal hoog risico: 1\n"
-    -
-      testcases:
-        - stdin: "3\n64\nnee\nja\n65\nnee\nja\n45\nnee\nnee\n"
-          stdout: "Persoon 1: score 4, risico hoog\nPersoon 2: score 5, risico hoog\nPersoon 3: score 2, risico matig\nAantal hoog risico: 2\n"
-    -
-      testcases:
-        - stdin: "2\n44\nnee\nnee\n45\nja\nnee\n"
-          stdout: "Persoon 1: score 1, risico laag\nPersoon 2: score 1, risico laag\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "5\n1\nja\nnee\n2\nja\nnee\n3\nja\nnee\n4\nja\nnee\n5\nja\nnee\n"
-          stdout: "Persoon 1: score 0, risico laag\nPersoon 2: score 0, risico laag\nPersoon 3: score 0, risico laag\nPersoon 4: score 0, risico laag\nPersoon 5: score 0, risico laag\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "1\n100\nnee\nja\n"
-          stdout: "Persoon 1: score 5, risico hoog\nAantal hoog risico: 1\n"
-    -
-      testcases:
-        - stdin: "2\n66\nja\nnee\n66\nnee\nnee\n"
-          stdout: "Persoon 1: score 2, risico matig\nPersoon 2: score 3, risico matig\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "3\n18\nnee\nnee\n46\nja\nja\n70\nja\nnee\n"
-          stdout: "Persoon 1: score 1, risico laag\nPersoon 2: score 3, risico matig\nPersoon 3: score 2, risico matig\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "4\n44\nja\nja\n45\nja\nja\n64\nnee\nnee\n65\nja\nnee\n"
-          stdout: "Persoon 1: score 2, risico matig\nPersoon 2: score 3, risico matig\nPersoon 3: score 2, risico matig\nPersoon 4: score 2, risico matig\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "2\n30\nnee\nja\n30\nja\nja\n"
-          stdout: "Persoon 1: score 3, risico matig\nPersoon 2: score 2, risico matig\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "3\n90\nja\nja\n90\nnee\nnee\n90\nnee\nja\n"
-          stdout: "Persoon 1: score 4, risico hoog\nPersoon 2: score 3, risico matig\nPersoon 3: score 5, risico hoog\nAantal hoog risico: 2\n"
-    -
-      testcases:
-        - stdin: "1\n45\nnee\nja\n"
-          stdout: "Persoon 1: score 4, risico hoog\nAantal hoog risico: 1\n"
-    -
-      testcases:
-        - stdin: "2\n64\nja\nnee\n65\nja\nnee\n"
-          stdout: "Persoon 1: score 1, risico laag\nPersoon 2: score 2, risico matig\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "3\n0\nnee\nnee\n45\nnee\nnee\n65\nnee\nnee\n"
-          stdout: "Persoon 1: score 1, risico laag\nPersoon 2: score 2, risico matig\nPersoon 3: score 3, risico matig\nAantal hoog risico: 0\n"
-    -
-      testcases:
-        - stdin: "4\n70\nnee\nja\n10\nja\nnee\n50\nnee\nja\n80\nja\nnee\n"
-          stdout: "Persoon 1: score 5, risico hoog\nPersoon 2: score 0, risico laag\nPersoon 3: score 4, risico hoog\nPersoon 4: score 2, risico matig\nAantal hoog risico: 2\n"
+        - stdin: "6\n44\n45\n64\n65\n18\n90\n"
+          stdout: "Laag risico: 2\nMatig risico: 2\nHoog risico: 2\n"

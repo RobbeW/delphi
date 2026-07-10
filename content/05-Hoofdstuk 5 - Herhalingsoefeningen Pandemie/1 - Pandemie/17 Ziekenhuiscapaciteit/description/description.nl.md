@@ -1,20 +1,38 @@
 ## Gegeven
 
-Een ziekenhuis raakt niet alleen overbelast door nieuwe opnames. Er vertrekken ook patienten omdat ze genezen. Daarom moet je per dag de bezette bedden bijwerken.
+Een ziekenhuis heeft maar een beperkt aantal bedden.
 
-Code rood start op de eerste dag waarop de capaciteit overschreden wordt.
+Je bekijkt wat er gebeurt na 1 nieuwe opnamegolf. Je berekent ook de straal van een ronde triagezone.
 
 ## Gevraagd
 
-* Vraag de capaciteit, het startaantal bezette bedden en het aantal dagen.
-* Vraag per dag het aantal nieuwe opnames en het aantal ontslagen patienten.
-* Gebruik variabelen zoals `bezet`, `opnames`, `ontslagen` en `code_rood_dag`.
-* Print per dag hoeveel bedden bezet zijn.
-* Print op het einde de eerste code-rood-dag of dat er genoeg capaciteit bleef.
+* Vraag de capaciteit van het ziekenhuis.
+* Vraag hoeveel bedden al bezet zijn.
+* Vraag hoeveel nieuwe opnames erbij komen.
+* Vraag de oppervlakte van de triagezone.
+* Bereken hoeveel bedden daarna bezet zijn.
+* Bereken de straal van de ronde triagezone.
+* Print het aantal bezette bedden.
+* Print de straal van de triagezone, afgerond op twee decimalen.
+* Print of er code rood is.
 
 #### Rekenregel
 
-Per dag wordt `bezet = bezet + opnames - ontslagen`. Controleer na die berekening of `bezet` groter is dan de capaciteit. De eerste dag waarop dat gebeurt, bewaar je als `code_rood_dag`.
+Gebruik:
+
+```
+bezet = bezet + opnames
+```
+
+Als `bezet` groter is dan de capaciteit, is het code rood.
+
+Voor een ronde triagezone gebruik je:
+
+```
+straal = round(math.sqrt(oppervlakte / math.pi), 2)
+```
+
+Daarvoor heb je `import math`, `math.sqrt()` en `math.pi` nodig.
 
 #### Voorbeeld
 
@@ -22,16 +40,13 @@ Voor deze invoer:
 ```
 60
 50
-2
 20
-5
-10
-8
+314.16
 ```
 
 moet je programma exact dit printen:
 ```
-Dag 1: 65 bedden bezet
-Dag 2: 67 bedden bezet
-Code rood op dag 1.
+Bezette bedden: 70
+Straal triagezone: 10.0
+Code rood.
 ```

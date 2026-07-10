@@ -2,81 +2,25 @@
   contexts:
     -
       testcases:
-        - stdin: "2.4\n20\n1200\n"
-          stdout: "Na 1 cycli zijn er 68 besmettingen.\nNa 2 cycli zijn er 231 besmettingen.\nNa 3 cycli zijn er 785 besmettingen.\nNa 4 cycli zijn er 1200 besmettingen.\n"
+        - stdin: "2\n10\n3\n"
+          stdout: "Na 1 cycli zijn er 30 besmettingen.\nNa 2 cycli zijn er 90 besmettingen.\nNa 3 cycli zijn er 270 besmettingen.\n"
     -
       testcases:
-        - stdin: "1.2\n10\n100\n"
-          stdout: "Na 1 cycli zijn er 22 besmettingen.\nNa 2 cycli zijn er 48 besmettingen.\nNa 3 cycli zijn er 100 besmettingen.\n"
+        - stdin: "1\n5\n4\n"
+          stdout: "Na 1 cycli zijn er 10 besmettingen.\nNa 2 cycli zijn er 20 besmettingen.\nNa 3 cycli zijn er 40 besmettingen.\nNa 4 cycli zijn er 80 besmettingen.\n"
     -
       testcases:
-        - stdin: "0.4\n2\n50\n"
-          stdout: "De epidemie dooft uit na 0 cycli met 2 besmettingen.\n"
+        - stdin: "0\n12\n3\n"
+          stdout: "Na 1 cycli zijn er 12 besmettingen.\nNa 2 cycli zijn er 12 besmettingen.\nNa 3 cycli zijn er 12 besmettingen.\n"
     -
       testcases:
-        - stdin: "0.9\n1\n100\n"
-          stdout: "De epidemie dooft uit na 0 cycli met 1 besmettingen.\n"
+        - stdin: "3\n2\n2\n"
+          stdout: "Na 1 cycli zijn er 8 besmettingen.\nNa 2 cycli zijn er 32 besmettingen.\n"
     -
       testcases:
-        - stdin: "3.1\n5\n500\n"
-          stdout: "Na 1 cycli zijn er 20 besmettingen.\nNa 2 cycli zijn er 82 besmettingen.\nNa 3 cycli zijn er 336 besmettingen.\nNa 4 cycli zijn er 500 besmettingen.\n"
+        - stdin: "1\n100\n1\n"
+          stdout: "Na 1 cycli zijn er 200 besmettingen.\n"
     -
       testcases:
-        - stdin: "1.8\n40\n900\n"
-          stdout: "Na 1 cycli zijn er 112 besmettingen.\nNa 2 cycli zijn er 313 besmettingen.\nNa 3 cycli zijn er 876 besmettingen.\nNa 4 cycli zijn er 900 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "0.75\n12\n80\n"
-          stdout: "Na 1 cycli zijn er 21 besmettingen.\nNa 2 cycli zijn er 36 besmettingen.\nNa 3 cycli zijn er 63 besmettingen.\nNa 4 cycli zijn er 80 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "2\n1\n64\n"
-          stdout: "Na 1 cycli zijn er 3 besmettingen.\nNa 2 cycli zijn er 9 besmettingen.\nNa 3 cycli zijn er 27 besmettingen.\nNa 4 cycli zijn er 64 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "1.05\n100\n120\n"
-          stdout: "Na 1 cycli zijn er 120 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "4\n3\n1000\n"
-          stdout: "Na 1 cycli zijn er 15 besmettingen.\nNa 2 cycli zijn er 75 besmettingen.\nNa 3 cycli zijn er 375 besmettingen.\nNa 4 cycli zijn er 1000 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "0.1\n5\n60\n"
-          stdout: "De epidemie dooft uit na 0 cycli met 5 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "1.5\n80\n1000\n"
-          stdout: "Na 1 cycli zijn er 200 besmettingen.\nNa 2 cycli zijn er 500 besmettingen.\nNa 3 cycli zijn er 1000 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "2.2\n200\n1000\n"
-          stdout: "Na 1 cycli zijn er 640 besmettingen.\nNa 2 cycli zijn er 1000 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "0\n7\n70\n"
-          stdout: "De epidemie dooft uit na 0 cycli met 7 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "1.01\n50\n55\n"
-          stdout: "Na 1 cycli zijn er 55 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "2.8\n30\n300\n"
-          stdout: "Na 1 cycli zijn er 114 besmettingen.\nNa 2 cycli zijn er 300 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "1\n20\n40\n"
-          stdout: "Na 1 cycli zijn er 40 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "0.5\n3\n20\n"
-          stdout: "Na 1 cycli zijn er 4 besmettingen.\nNa 2 cycli zijn er 6 besmettingen.\nNa 3 cycli zijn er 9 besmettingen.\nNa 4 cycli zijn er 13 besmettingen.\nNa 5 cycli zijn er 19 besmettingen.\nNa 6 cycli zijn er 20 besmettingen.\n"
-    -
-      testcases:
-        - stdin: "2.5\n1000\n1000\n"
-          stdout: "De volledige populatie is al besmet.\n"
-    -
-      testcases:
-        - stdin: "1.7\n15\n250\n"
-          stdout: "Na 1 cycli zijn er 40 besmettingen.\nNa 2 cycli zijn er 108 besmettingen.\nNa 3 cycli zijn er 250 besmettingen.\n"
+        - stdin: "2\n1\n5\n"
+          stdout: "Na 1 cycli zijn er 3 besmettingen.\nNa 2 cycli zijn er 9 besmettingen.\nNa 3 cycli zijn er 27 besmettingen.\nNa 4 cycli zijn er 81 besmettingen.\nNa 5 cycli zijn er 243 besmettingen.\n"

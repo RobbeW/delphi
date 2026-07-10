@@ -22,5 +22,9 @@
     "Sterftepercentage",
     "Math floor"
   ],
-  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>"
+  "contact": "Robbe W <robbe.wulgaert@sintlievenscollege.be>",
+  "internals": {
+    "token": "7NbSaFj6nJj7c3QGKqdsdvY_pPzgQyiKPs5Q2AuicQyWbVUhqm-9iaFFMjGvSAUR",
+    "_info": "These fields are used for internal bookkeeping in Dodona, please do not change them."
+  }
 }

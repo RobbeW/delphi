@@ -1,21 +1,14 @@
 r0 = float(input("R0? "))
-populatie = int(input("Populatie? "))
-prikken_per_ronde = int(input("Vaccinaties per ronde? "))
+aantal_scenarios = int(input("Aantal scenario's? "))
 
-gevaccineerd = 0
-rondes = 0
-r = round(r0, 2)
+stopt = 0
 
-print("Start: 0 gevaccineerd, R =", r)
+for scenario in range(aantal_scenarios):
+    vaccinatie = float(input("Vaccinatiepercentage? "))
+    effectieve_r = r0 * (1 - vaccinatie / 100)
+    effectieve_r = round(effectieve_r, 2)
 
-while r >= 1 and gevaccineerd < populatie:
-    rondes += 1
-    gevaccineerd += prikken_per_ronde
-    if gevaccineerd > populatie:
-        gevaccineerd = populatie
+    if effectieve_r < 1:
+        stopt += 1
 
-    r = r0 * (1 - gevaccineerd / populatie)
-    r = round(r, 2)
-    print("Ronde " + str(rondes) + ": " + str(gevaccineerd) + " gevaccineerd, R = " + str(r))
-
-print("De epidemie stopt na", rondes, "vaccinatierondes.")
+print("Scenario's waarin de epidemie stopt:", stopt)

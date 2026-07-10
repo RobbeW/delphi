@@ -92,6 +92,22 @@ function sortByOrderAndName(a, b) {
   );
 }
 
+function hasOrderPrefix(name) {
+  return /^(\d+)[\s\-_]+(.+)$/.test(name);
+}
+
+function isMetadataDirectory(name) {
+  return [
+    "description",
+    "evaluation",
+    "media",
+    "preparation",
+    "solution",
+    "starter",
+    "theory",
+  ].includes(String(name || "").trim().toLowerCase());
+}
+
 async function fileExists(filePath) {
   try {
     await fs.access(filePath);
@@ -104,6 +120,20 @@ async function fileExists(filePath) {
 async function readDirectories(dirPath) {
   const entries = await fs.readdir(dirPath, { withFileTypes: true });
   return entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name);
+}
+
+async function readJsonFile(filePath, warnings, rootDir) {
+  try {
+    const raw = await fs.readFile(filePath, "utf8");
+    return JSON.parse(raw);
+  } catch (error) {
+    warnings.push(
+      `[WARN] ${toPosixRelative(rootDir, filePath)} -> JSON kon niet gelezen worden: ${
+        error && error.message ? error.message : String(error)
+      }`
+    );
+    return null;
+  }
 }
 
 function toPosixRelative(fromDir, toPath) {
@@ -122,12 +152,16 @@ async function main() {
     throw new Error(`Content-map niet gevonden: ${contentAbs}`);
   }
 
-  const chapterNames = (await readDirectories(contentAbs)).sort(sortByOrderAndName);
+  const chapterNames = (await readDirectories(contentAbs))
+    .filter(hasOrderPrefix)
+    .sort(sortByOrderAndName);
   const chapters = [];
 
   for (const chapterName of chapterNames) {
     const chapterAbs = path.join(contentAbs, chapterName);
-    const subchapterNames = (await readDirectories(chapterAbs)).sort(sortByOrderAndName);
+    const subchapterNames = (await readDirectories(chapterAbs))
+      .filter((name) => !isMetadataDirectory(name))
+      .sort(sortByOrderAndName);
     const chapterMeta = parsePrefixedName(chapterName);
 
     const chapter = {
@@ -140,7 +174,9 @@ async function main() {
 
     for (const subchapterName of subchapterNames) {
       const subchapterAbs = path.join(chapterAbs, subchapterName);
-      const exerciseNames = (await readDirectories(subchapterAbs)).sort(sortByOrderAndName);
+      const exerciseNames = (await readDirectories(subchapterAbs))
+        .filter((name) => !isMetadataDirectory(name))
+        .sort(sortByOrderAndName);
       const subchapterMeta = parsePrefixedName(subchapterName);
 
       const subchapter = {
@@ -169,6 +205,13 @@ async function main() {
         const starterCandidates = [
           path.join(exerciseAbs, "starter", "starter.py"),
           path.join(exerciseAbs, "starter.py"),
+        ];
+        const configCandidates = [
+          path.join(exerciseAbs, "config.json"),
+          path.join(exerciseAbs, "theory", "config.json"),
+        ];
+        const theoryCandidates = [
+          path.join(exerciseAbs, "theory", "theory.json"),
         ];
 
         let resolvedDescriptionAbs = null;
@@ -199,6 +242,25 @@ async function main() {
           }
         }
 
+        let itemConfig = {};
+        for (const candidate of configCandidates) {
+          // eslint-disable-next-line no-await-in-loop
+          if (await fileExists(candidate)) {
+            // eslint-disable-next-line no-await-in-loop
+            itemConfig = (await readJsonFile(candidate, warnings, rootDir)) || {};
+            break;
+          }
+        }
+
+        let resolvedTheoryAbs = null;
+        for (const candidate of theoryCandidates) {
+          // eslint-disable-next-line no-await-in-loop
+          if (await fileExists(candidate)) {
+            resolvedTheoryAbs = candidate;
+            break;
+          }
+        }
+
         if (!hasDescription) {
           warnings.push(
             `[SKIP] ${toPosixRelative(rootDir, exerciseAbs)} ` +
@@ -219,7 +281,8 @@ async function main() {
           continue;
         }
 
-        if (!hasTests) {
+        const configuredTypeForWarning = String(itemConfig.type || "").trim().toLowerCase();
+        if (!hasTests && configuredTypeForWarning !== "theory") {
           warnings.push(
             `[THEORY] ${toPosixRelative(
               rootDir,
@@ -228,20 +291,52 @@ async function main() {
           );
         }
 
-        const itemType = hasTests ? "exercise" : "theory";
+        const configuredType = String(itemConfig.type || "").trim().toLowerCase();
+        const itemType =
+          configuredType === "theory"
+            ? "theory"
+            : hasTests
+              ? "exercise"
+              : "theory";
+        const theoryKind = String(itemConfig.theoryKind || itemConfig.kind || "").trim().toLowerCase();
 
-        subchapter.exercises.push({
+        const item = {
           id: `${chapterName}/${subchapterName}/${exerciseName}`,
-          title: normalizeTitleFromFolderName(exerciseName),
+          title:
+            typeof itemConfig.title === "string" && itemConfig.title.trim().length > 0
+              ? itemConfig.title.trim()
+              : normalizeTitleFromFolderName(exerciseName),
           order: exerciseMeta.order,
           type: itemType,
-          evaluable: hasTests,
+          evaluable: itemType === "exercise" && hasTests,
           path: toPosixRelative(rootDir, exerciseAbs),
           descriptionPath: toPosixRelative(rootDir, resolvedDescriptionAbs),
-          testsPath: hasTests ? toPosixRelative(rootDir, resolvedTestsAbs) : null,
-          testsFormat: hasTests ? path.extname(resolvedTestsAbs).toLowerCase().replace(".", "") : null,
+          testsPath: itemType === "exercise" && hasTests ? toPosixRelative(rootDir, resolvedTestsAbs) : null,
+          testsFormat:
+            itemType === "exercise" && hasTests
+              ? path.extname(resolvedTestsAbs).toLowerCase().replace(".", "")
+              : null,
           starterPath: resolvedStarterAbs ? toPosixRelative(rootDir, resolvedStarterAbs) : null,
-        });
+        };
+
+        const resolvedTheoryKind = theoryKind || (resolvedTheoryAbs ? "steps" : null);
+        if (resolvedTheoryKind) {
+          item.theoryKind = resolvedTheoryKind;
+        }
+        if (resolvedTheoryAbs) {
+          item.theoryPath = toPosixRelative(rootDir, resolvedTheoryAbs);
+        }
+        if (typeof itemConfig.videoUrl === "string" && itemConfig.videoUrl.trim().length > 0) {
+          item.videoUrl = itemConfig.videoUrl.trim();
+        }
+        if (typeof itemConfig.colabUrl === "string" && itemConfig.colabUrl.trim().length > 0) {
+          item.colabUrl = itemConfig.colabUrl.trim();
+        }
+        if (typeof itemConfig.colabLabel === "string" && itemConfig.colabLabel.trim().length > 0) {
+          item.colabLabel = itemConfig.colabLabel.trim();
+        }
+
+        subchapter.exercises.push(item);
       }
 
       if (subchapter.exercises.length > 0) {
