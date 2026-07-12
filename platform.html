@@ -11,9 +11,6 @@
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
   <link rel="apple-touch-icon" href="favicon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/codemirror@5.65.16/lib/codemirror.min.css">
   <link rel="stylesheet" href="styles.css?v=20260603-2">
   <style id="platform-language-toggle-styles">
@@ -62,9 +59,18 @@
 :root {
   --platform-brand: #5200FF;
   --platform-brand-dark: #3700B3;
-  --platform-aqua: #03ddef;
-  --platform-ink: #1A224C;
-  --platform-muted: #625b70;
+  --platform-aqua: #3DFFD0;
+  --platform-ink: #160033;
+  --platform-text: #1D1930;
+  --platform-muted: #625B70;
+  --platform-bg: #F8F7F3;
+  --platform-surface: #FFFFFF;
+  --platform-line-solid: #E2DDEA;
+  --motion-fast: 150ms;
+  --motion-medium: 260ms;
+  --motion-slow: 520ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --platform-line: rgba(82, 0, 255, 0.16);
   --platform-shadow: 0 10px 26px rgba(26, 34, 76, 0.06);
   --platform-strong-shadow: 0 16px 30px rgba(82, 0, 255, 0.22);
@@ -94,7 +100,7 @@ body > header:not(.site-header):not(.app-header):not(.topbar) {
   color: var(--platform-brand);
   font-size: 0.78rem;
   font-weight: 900;
-  letter-spacing: 0.11em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 .ai-brand,
@@ -137,7 +143,7 @@ header .app-actions .btn {
   white-space: nowrap;
   cursor: pointer;
   box-shadow: var(--platform-shadow);
-  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+  transition: transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard), color var(--motion-fast) var(--ease-standard);
 }
 .app-page .header-actions .primary-button,
 .topbar .toolbar > button.is-primary,
