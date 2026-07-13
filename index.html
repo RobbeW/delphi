@@ -813,6 +813,70 @@
       }
     }
 
+    .nav-bookmarks {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .menu-button {
+        width: 46px;
+        min-width: 46px;
+        height: 46px;
+        min-height: 46px;
+        display: inline-grid;
+        place-items: center;
+        padding: 0;
+        border-radius: 50%;
+      }
+
+      .menu-icon,
+      .menu-icon::before,
+      .menu-icon::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+      .menu-icon { position: relative; }
+      .menu-icon::before,
+      .menu-icon::after { content: ""; position: absolute; left: 0; }
+      .menu-icon::before { top: -6px; }
+      .menu-icon::after { top: 6px; }
+
+      .brand { flex: 1 1 0; }
+      .brand-mark,
+      .brand-subtitle { display: none; }
+      .nav-links { display: none; }
+      .nav-links.is-open {
+        display: grid;
+        order: 3;
+        width: 100%;
+        gap: 14px;
+        padding: 8px 0 2px;
+      }
+
+      .nav-bookmarks,
+      .nav-actions {
+        display: grid;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .nav-bookmarks a { padding: 12px; }
+      .nav-actions { justify-content: stretch; }
+      .nav-actions .language-toggle { justify-self: start; }
+    }
+
     h1, h2, h3, h4, h5, h6, button, label, th, td { letter-spacing: 0; }
 
     @media (prefers-reduced-motion: reduce) {
@@ -857,9 +921,6 @@
   outline: 3px solid rgba(61, 255, 208, 0.75);
   outline-offset: 2px;
 }
-@media (max-width: 760px) {
-  .language-toggle { order: 2; }
-}
 </style>
 </head>
 <body>
@@ -867,6 +928,9 @@
 
   <header class="site-header">
     <nav class="nav" aria-label="Hoofdnavigatie">
+      <button class="menu-button" id="menuButton" type="button" aria-label="Navigatiemenu openen" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
       <a class="brand" href="index.html" aria-label="Project Delphi startpagina">
         <span class="brand-mark">Py</span>
         <span>
@@ -875,17 +939,18 @@
         </span>
       </a>
       <div class="nav-links" id="navLinks" aria-label="Paginaonderdelen">
-        <a href="#platform">Opdracht</a>
-        <a href="#vergelijking">Leerlijn</a>
-        <a href="#pythia">Leerkrachten</a>
-      </div>
-      <div class="nav-actions">
-        <div class="language-toggle" role="group" aria-label="Taalkeuze">
-          <button type="button" class="is-active" data-language-choice="nl" aria-pressed="true">NL</button>
-          <button type="button" data-language-choice="en" aria-pressed="false">ENG</button>
+        <div class="nav-bookmarks">
+          <a href="#platform">Opdracht</a>
+          <a href="#vergelijking">Leerlijn</a>
+          <a href="#pythia">Leerkrachten</a>
         </div>
-        <a class="btn btn-primary" href="platform.html">Start leerplatform</a>
-        <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+        <div class="nav-actions">
+          <div class="language-toggle" role="group" aria-label="Taalkeuze">
+            <button type="button" class="is-active" data-language-choice="nl" aria-pressed="true">NL</button>
+            <button type="button" data-language-choice="en" aria-pressed="false">ENG</button>
+          </div>
+          <a class="btn btn-primary" href="platform.html">Start leerplatform</a>
+        </div>
       </div>
     </nav>
   </header>
@@ -1117,20 +1182,31 @@
   const navLinks = document.getElementById("navLinks");
   if (!menuButton || !navLinks) return;
 
-  const setMenuOpen = (isOpen, restoreFocus = false) => {
+  const setMenuOpen = (isOpen, restoreFocus = false, focusFirstLink = false) => {
     navLinks.classList.toggle("is-open", isOpen);
     menuButton.setAttribute("aria-expanded", String(isOpen));
+    const isEnglish = document.documentElement.lang.startsWith("en");
+    menuButton.setAttribute("aria-label", isOpen
+      ? (isEnglish ? "Close navigation menu" : "Navigatiemenu sluiten")
+      : (isEnglish ? "Open navigation menu" : "Navigatiemenu openen"));
+    if (isOpen && focusFirstLink) navLinks.querySelector("a")?.focus();
     if (!isOpen && restoreFocus) menuButton.focus();
   };
 
   menuButton.addEventListener("click", () => {
-    setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true");
+    setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true", false, true);
   });
   navLinks.addEventListener("click", (event) => {
-    if (event.target instanceof HTMLAnchorElement) setMenuOpen(false, true);
+    if (event.target instanceof HTMLAnchorElement) setMenuOpen(false, false);
   });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") setMenuOpen(false, true);
+    if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") setMenuOpen(false, true);
+  });
+  document.addEventListener("click", (event) => {
+    if (menuButton.getAttribute("aria-expanded") === "true" && !menuButton.contains(event.target) && !navLinks.contains(event.target)) setMenuOpen(false);
+  });
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 761px)").matches) setMenuOpen(false);
   });
 })();
 </script>
@@ -1143,6 +1219,8 @@
   "Hoofdnavigatie": "Main navigation",
   "Paginaonderdelen": "Page sections",
   "Taalkeuze": "Language selection",
+  "Navigatiemenu openen": "Open navigation menu",
+  "Navigatiemenu sluiten": "Close navigation menu",
   "Opdracht": "Assignment",
   "Werking": "How it works",
   "Wat leer je?": "What will you learn?",
