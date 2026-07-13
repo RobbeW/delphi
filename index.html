@@ -148,6 +148,35 @@
       font-size: 0.94rem;
     }
 
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .menu-button {
+      display: none;
+      min-height: 46px;
+      border: 1px solid rgba(82, 0, 255, 0.22);
+      border-radius: 999px;
+      padding: 13px 18px;
+      background: #fff;
+      color: var(--delphi-blue-dark);
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .menu-button:hover,
+    .menu-button:focus-visible {
+      background: var(--delphi-soft);
+      border-color: rgba(82, 0, 255, 0.40);
+      outline: none;
+    }
+
     .nav-links a {
       padding: 10px 12px;
       border-radius: 999px;
@@ -712,11 +741,6 @@
 
     @media (max-width: 920px) {
       .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-links {
         flex-wrap: wrap;
       }
 
@@ -740,6 +764,36 @@
     }
 
     @media (max-width: 620px) {
+      .nav {
+        align-items: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .brand-subtitle { display: none; }
+
+      .nav-actions {
+        gap: 8px;
+      }
+
+      .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+
+      .nav-links.is-open {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a {
+        padding: 12px;
+      }
+
+      .menu-button { display: inline-flex; }
+
       .hero {
         padding-top: 48px;
       }
@@ -820,16 +874,19 @@
           <span class="brand-subtitle">Python in de Klas, volledig in de browser</span>
         </span>
       </a>
-      <div class="nav-links" aria-label="Paginaonderdelen">
+      <div class="nav-links" id="navLinks" aria-label="Paginaonderdelen">
         <a href="#platform">Opdracht</a>
         <a href="#vergelijking">Leerlijn</a>
         <a href="#pythia">Leerkrachten</a>
       </div>
-      <div class="language-toggle" role="group" aria-label="Taalkeuze">
+      <div class="nav-actions">
+        <div class="language-toggle" role="group" aria-label="Taalkeuze">
           <button type="button" class="is-active" data-language-choice="nl" aria-pressed="true">NL</button>
           <button type="button" data-language-choice="en" aria-pressed="false">ENG</button>
         </div>
-      <a class="btn btn-primary" href="platform.html">Start leerplatform</a>
+        <a class="btn btn-primary" href="platform.html">Start leerplatform</a>
+        <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="navLinks">Menu</button>
+      </div>
     </nav>
   </header>
 
@@ -1054,6 +1111,29 @@
       </div>
     </div>
   </footer>
+<script id="mobile-menu-script">
+(() => {
+  const menuButton = document.getElementById("menuButton");
+  const navLinks = document.getElementById("navLinks");
+  if (!menuButton || !navLinks) return;
+
+  const setMenuOpen = (isOpen, restoreFocus = false) => {
+    navLinks.classList.toggle("is-open", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    if (!isOpen && restoreFocus) menuButton.focus();
+  };
+
+  menuButton.addEventListener("click", () => {
+    setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true");
+  });
+  navLinks.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLAnchorElement) setMenuOpen(false, true);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") setMenuOpen(false, true);
+  });
+})();
+</script>
 <script id="language-toggle-script">
 (() => {
   const LANGUAGE_KEY = "aiindeklas:index-language";
