@@ -1,21 +1,29 @@
-Project Delphi License (Educational Use with Attribution)
-Copyright (c) 2026 Robbe Wulgaert
+Project Delphi Educational Use Licence with Attribution
 
-Permission is granted, free of charge, to use, copy, and adapt this project
-for educational use, provided that explicit attribution to Robbe Wulgaert is
-included in the used material, interface, or accompanying documentation.
+Copyright (c) 2026 Robbe Wulgaert. All rights reserved except for the
+permissions expressly granted below.
 
-Any use outside educational settings, including commercial use, paid
-distribution, sublicensing, or relicensing, requires prior written permission
-from the copyright holder.
+This licence applies only to original project material created by Robbe
+Wulgaert. Permission is granted, free of charge, to use, copy and adapt that
+material for educational purposes, provided that the following attribution is
+clearly and visibly included in the material, interface or accompanying
+documentation:
 
-Third-party software components used by this project remain subject to their
-own licenses. See THIRD_PARTY_NOTICES.md for third-party license notices.
+    Robbe Wulgaert - AI in de Klas
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM,
-OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Where reasonably practical, the attribution must also link to the original
+project.
+
+Commercial sale, paid distribution, sublicensing, relicensing or repackaging
+of the material as a commercial product is not permitted without prior written
+permission from Robbe Wulgaert. Other uses outside educational purposes also
+require prior written permission.
+
+Third-party software, source material, images and other components remain
+subject to their own licences and copyright notices. See
+THIRD_PARTY_NOTICES.md for known third-party notices. This licence does not
+replace or restrict those third-party terms.
+
+THE MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED. TO THE EXTENT PERMITTED BY LAW, THE AUTHOR IS NOT LIABLE FOR CLAIMS,
+DAMAGES OR OTHER LIABILITY ARISING FROM ITS USE.
