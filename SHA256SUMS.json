@@ -5,9 +5,9 @@
     "sha256": "B71903DE53E475198CEEFB0E6E27BD087965F9072BF8ACF51CE6E4FD317F1855"
   },
   {
-    "path": "bordboek/assets/index-bsa1UhW1.js",
-    "bytes": 274415,
-    "sha256": "D0D46B05D4A95854E11F84D55F31F7701D4BFA4EEFFE0853A1E6D89620DD6040"
+    "path": "bordboek/assets/index-DA1etjdZ.js",
+    "bytes": 274889,
+    "sha256": "3F5A14899C26B88422680BED93E5F3D7BFD6FE6B4178E3BF2915151D8DE36E1D"
   },
   {
     "path": "bordboek/assets/runtime.worker-CF0VKO9t.js",
@@ -16,8 +16,8 @@
   },
   {
     "path": "bordboek/course/pidk-2026-08-17-r3/owner-editor-anchor-catalog.json",
-    "bytes": 54120,
-    "sha256": "6C817A7BE476D8AC6B4A2DC8A733C87D2E14131ECBF1FE3F35BE060A9D475DB2"
+    "bytes": 52327,
+    "sha256": "AF6E0A5E89CE35CDE92E485D82DB531AC91C13F7C65B160F605DCC65223F6392"
   },
   {
     "path": "bordboek/course/pidk-2026-08-17-r3/snippet-manifest.json",
@@ -37,7 +37,7 @@
   {
     "path": "bordboek/index.html",
     "bytes": 566,
-    "sha256": "5C0DA35F5E78D38079703FC5479B6357F6A9A73E178B01189EE14E646C1CD268"
+    "sha256": "00C579707F534CB8017C86DDDD3B9AD3C7CB5C3DF099201863A31423FE357382"
   },
   {
     "path": "bordboek/vendor/pdfjs/LICENSE",
