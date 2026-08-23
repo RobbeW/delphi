@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "courseRevisionId": "pidk-2026-08-17-r3",
+  "copyMode": "byte-for-byte",
+  "assets": [
+    {
+      "id": "course-pdf-r3",
+      "sourcePath": "source_materials/G_corrected_syllabus_pdf.pdf",
+      "destinationPath": "public/course/pidk-2026-08-17-r3/syllabus.pdf",
+      "bytes": 776114,
+      "sha256": "AEDF8170AAC47E7FB453D8232AEDCF4540E0F372876D143F844F28B102066199",
+      "version": "pidk-2026-08-17-r3",
+      "license": "LicenseRef-Project-Owned-Course-Material"
+    },
+    {
+      "id": "snippet-manifest-schema-1.2.0",
+      "sourcePath": "specifications/snippet-manifest.schema.json",
+      "destinationPath": "public/course/pidk-2026-08-17-r3/snippet-manifest.schema.json",
+      "bytes": 15484,
+      "sha256": "55D8238EA6FE0264F73E2AD456D154A2A061718D5B221E25FD6F387E05F71377",
+      "version": "1.2.0",
+      "license": "LicenseRef-Project-Owned-Contract"
+    },
+    {
+      "id": "vertical-slice-manifest-r3",
+      "sourcePath": "tests/fixtures/task403_vertical_slice_manifest.json",
+      "destinationPath": "public/course/pidk-2026-08-17-r3/snippet-manifest.json",
+      "bytes": 41689,
+      "sha256": "F30812633EE4841D662245CAA3EF101F3906BDFB237A2BCB1334AC41BEBB27BE",
+      "version": "0.3.0",
+      "license": "LicenseRef-Project-Owned-Contract"
+    },
+    {
+      "id": "pdfjs-module",
+      "sourcePath": "source_materials/D_reference_bordboek/vendor/pdfjs/pdf.min.mjs",
+      "destinationPath": "public/vendor/pdfjs/pdf.min.mjs",
+      "bytes": 430304,
+      "sha256": "2221020EA508479DCC1221F36F2731656339230097C69BA1F78802832C0AD685",
+      "version": "5.6.205+ada343803",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "pdfjs-worker",
+      "sourcePath": "source_materials/D_reference_bordboek/vendor/pdfjs/pdf.worker.min.mjs",
+      "destinationPath": "public/vendor/pdfjs/pdf.worker.min.mjs",
+      "bytes": 1244253,
+      "sha256": "51A2FD1EA47F1A9B0814E65E0C336C739C54957795EE774E8F93CB81E8028DD1",
+      "version": "5.6.205+ada343803",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "pdfjs-license",
+      "sourcePath": "source_materials/D_reference_bordboek/vendor/pdfjs/LICENSE",
+      "destinationPath": "public/vendor/pdfjs/LICENSE",
+      "bytes": 10174,
+      "sha256": "0D542E0C8804E39AA7F37EB00DA5A762149DC682D7829451287E11B938E94594",
+      "version": "5.6.205+ada343803",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "pyodide-module",
+      "sourcePath": "apps/bordboek/node_modules/pyodide/pyodide.mjs",
+      "destinationPath": "public/vendor/pyodide/pyodide.mjs",
+      "bytes": 17616,
+      "sha256": "31AFA960FDF68333DE6F3F0513BAD154495C8FC635A66B7E58AB9CF356A76501",
+      "version": "0.29.0",
+      "license": "MPL-2.0"
+    },
+    {
+      "id": "pyodide-lock",
+      "sourcePath": "apps/bordboek/node_modules/pyodide/pyodide-lock.json",
+      "destinationPath": "public/vendor/pyodide/pyodide-lock.json",
+      "bytes": 114535,
+      "sha256": "701557726114E9A968D2088153414B2F126B8631AA734ED98EAF1797D4E4D087",
+      "version": "0.29.0",
+      "license": "MPL-2.0"
+    },
+    {
+      "id": "pyodide-asm-loader",
+      "sourcePath": "apps/bordboek/node_modules/pyodide/pyodide.asm.js",
+      "destinationPath": "public/vendor/pyodide/pyodide.asm.js",
+      "bytes": 1074248,
+      "sha256": "F1E70077BD701757B2798FC57F540FE39CF23D36EE5CD7C1A9B3A6F35CF500A7",
+      "version": "0.29.0",
+      "license": "MPL-2.0"
+    },
+    {
+      "id": "pyodide-wasm",
+      "sourcePath": "apps/bordboek/node_modules/pyodide/pyodide.asm.wasm",
+      "destinationPath": "public/vendor/pyodide/pyodide.asm.wasm",
+      "bytes": 8647609,
+      "sha256": "615172C6B2F5EFE53E41D0201A98EB37C1F3AA7675D11CB06B6079B3A6B2BEF5",
+      "version": "0.29.0",
+      "license": "MPL-2.0"
+    },
+    {
+      "id": "pyodide-standard-library",
+      "sourcePath": "apps/bordboek/node_modules/pyodide/python_stdlib.zip",
+      "destinationPath": "public/vendor/pyodide/python_stdlib.zip",
+      "bytes": 2423414,
+      "sha256": "E389FBDC394A00D31FF0624386C9E3E52E04727130AC73597A99C477AFE4F1CA",
+      "version": "0.29.0",
+      "license": "MPL-2.0"
+    }
+  ],
+  "packageEvidence": [
+    {
+      "name": "pyodide",
+      "version": "0.29.0",
+      "metadataPath": "apps/bordboek/node_modules/pyodide/package.json",
+      "metadataBytes": 3010,
+      "metadataSha256": "3E7A3C89258B365CED5CAD6B4B781E76FBD85195BEDAE0C0622ED18B89DE6410",
+      "declaredLicense": "MPL-2.0",
+      "repository": "https://github.com/pyodide/pyodide"
+    }
+  ]
+}

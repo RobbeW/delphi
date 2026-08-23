@@ -1,0 +1,1793 @@
+{
+  "version": 1,
+  "sourcePdf": "course/pidk-2026-08-17-r3/syllabus.pdf",
+  "sourcePdfSha256": "AEDF8170AAC47E7FB453D8232AEDCF4540E0F372876D143F844F28B102066199",
+  "rows": [
+    {
+      "page": 6,
+      "anchor": "Oefening 2.1 · Variabelen lezen",
+      "code": "a = 7\nb = a",
+      "id": "owner-p6-001",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.35691,
+        "width": 0.277786,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "0A5A28E9F111D3DB534E65ABB5D858E47F190E8BA9E20CAF1FBC3C8D247FC429",
+      "occurrence": 1
+    },
+    {
+      "page": 6,
+      "anchor": "Oefening 2.2",
+      "code": "leeftijd = 16\nleeftijd = leeftijd + 1",
+      "id": "owner-p6-002",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.522841,
+        "width": 0.129812,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "2B1EDE2ED1BB9A3300ACC402822AD3DCB66580EA031D19FC2CC90C24B15FDECD",
+      "occurrence": 1
+    },
+    {
+      "page": 7,
+      "anchor": "# Fragment 1",
+      "code": "basis = 6\nhoogte = 8\noppervlakte = basis * Hoogte / 2",
+      "id": "owner-p7-003",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.28812,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "BCE1F03B4BF44D1F335E70B962F1947E395FFE09289ED16AA518FA5D3F0EE854",
+      "occurrence": 1
+    },
+    {
+      "page": 7,
+      "anchor": "# Fragment 2",
+      "code": "aantal_munten = 20\nbedrag = 40\n1munt = bedrag / aantal_munten",
+      "id": "owner-p7-004",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.434963,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "908B00FF7AE551E7BF49C4F9111A6E78B8F3261AADC952E3F68CDD0677D29CB1",
+      "occurrence": 1
+    },
+    {
+      "page": 8,
+      "anchor": "Gegeven volgende code:",
+      "code": "zijde = float(input(\"Geef de zijde in: \"))\nomtrek = 3 * zijde\nprint(\"De omtrek is\", omtrek)",
+      "id": "owner-p8-005",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.356483,
+        "width": 0.217918,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "ADFEE3F59EA135EAF8EC935EC90532F0A829040A8B35F9E55084EC610DA21578",
+      "occurrence": 1
+    },
+    {
+      "page": 9,
+      "anchor": "Oefening 2.6",
+      "code": "a = 2\nb = 1.2\nprint(\"De som is\", a + b)\nprint(\"Het product van\", a, \"en\", b, \"is\", a * b)\nc = round(b ** a, 1)\nprint(c)",
+      "id": "owner-p9-006",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.174577,
+        "width": 0.129812,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "66331D3C89F9380B58BD1546AC8B28AF1DF965C860AED33DA0DC67E447539800",
+      "occurrence": 1
+    },
+    {
+      "page": 9,
+      "anchor": "Oefening 2.7",
+      "code": "voornaam = \"Darth\"\nfamilienaam = \"Vader\"\nnaam = voornaam + familienaam\nprint(naam)",
+      "id": "owner-p9-007",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.736531,
+        "width": 0.129863,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "0ED31FEC69F43F6A98F5F78EC695E80AFFF11D8476DF95D8FFF645776CF2C0FE",
+      "occurrence": 1
+    },
+    {
+      "page": 10,
+      "anchor": "TypeError",
+      "code": "leeftijd = 16\nprint(\"Hallo, ik ben \" + leeftijd + \".\")",
+      "id": "owner-p10-008",
+      "rect": {
+        "x": 0.123268,
+        "y": 0.100746,
+        "width": 0.106557,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "8B3A5E8CB783FEE04E7CF4C3D28A8BAA8177622C5774FB8F4C5B6CEA42058AA0",
+      "occurrence": 1
+    },
+    {
+      "page": 10,
+      "anchor": "Code 2.5 – Expliciete Omzetting",
+      "code": "leeftijd = 16\nprint(\"Hallo, ik ben \" + str(leeftijd) + \".\")",
+      "id": "owner-p10-009",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.218334,
+        "width": 0.264078,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "4B1BEA9BAC1AE019920868CE3A993E2B592A4BF09BB8CADC41FFECD0169E2923",
+      "occurrence": 1
+    },
+    {
+      "page": 10,
+      "anchor": "Oefening 2.9",
+      "code": "getal = 7\ngetal = 9\nprint(getal)\n\nS = 1000\nS = S + 100\nS = S + 200\nS = S - 50\nprint(S)",
+      "id": "owner-p10-010",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.526832,
+        "width": 0.129863,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "C5C5F63530FD20203D43553A1A12EF4B89623B24F93A3E451B4B418B6940EA51",
+      "occurrence": 1
+    },
+    {
+      "page": 11,
+      "anchor": "Oefening 2.10",
+      "code": "getal = int(input(\"Geef een getal in: \"))\nis_negatief = getal < 0\nprint(is_negatief)",
+      "id": "owner-p11-011",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.100461,
+        "width": 0.140144,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "728589D6BFC94E936B0555BC4239809DBB559D770998682A5E5A231B5A3B2E5C",
+      "occurrence": 1
+    },
+    {
+      "page": 11,
+      "anchor": "tekst = 'Hallo\"",
+      "code": "tekst = 'Hallo\"\nprint(tekst)",
+      "id": "owner-p11-012",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.400043,
+        "width": 0.172266,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "489C41530A3AF3D7452DFDE42BEC2B85F18AD069FBD3C5B2BED69063B0326FD3",
+      "occurrence": 1
+    },
+    {
+      "page": 11,
+      "anchor": "tekst = \"Er is een doos\"",
+      "code": "tekst = \"Er is een doos\"\nprint(text)",
+      "id": "owner-p11-013",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.473304,
+        "width": 0.259523,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "ABDDE9D0284267A9C9C57287525F06D0AC0F69132AD1CC3805968795D52A59D3",
+      "occurrence": 1
+    },
+    {
+      "page": 11,
+      "anchor": "leeftijd = input(int(\"Geef je leeftijd in: \"))",
+      "code": "leeftijd = input(int(\"Geef je leeftijd in: \"))",
+      "id": "owner-p11-014",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.546446,
+        "width": 0.472738,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E0415E88889B262E58CCB0CAA4001A6F3E93BF16D2A435C6E43DFCCBD11F8D3B",
+      "occurrence": 1
+    },
+    {
+      "page": 11,
+      "anchor": "snelheid = float(input(\"Voer de snelheid in: \")",
+      "code": "snelheid = float(input(\"Voer de snelheid in: \")",
+      "id": "owner-p11-015",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.604884,
+        "width": 0.482413,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "19DB882B3D59891B9AFD34A308D2D6D190B8F28063558F810CB100147D164A64",
+      "occurrence": 1
+    },
+    {
+      "page": 11,
+      "anchor": "postcode = int(input(\"Voer je postcode in: \"))",
+      "code": "postcode = int(input(\"Voer je postcode in: \"))\nprint(\"Je postcode is\", postcode + \".\")",
+      "id": "owner-p11-016",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.663464,
+        "width": 0.472512,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E9D9C8FEA8E1D6CE4F874D5D20C07AF08BD5BCA11C0EEC4309C3027392EF2E0E",
+      "occurrence": 1
+    },
+    {
+      "page": 12,
+      "anchor": "lengte = 5",
+      "code": "lengte = 5\nbreedte = 7\nomtrek = 2 * lengte + breedte",
+      "id": "owner-p12-017",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.154711,
+        "width": 0.123712,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "46B91FC8017046600536020591B52E66C2E920FCFBA815001C66FE32FA790F3A",
+      "occurrence": 1
+    },
+    {
+      "page": 12,
+      "anchor": "inkoop = float(input(\"Geef de inkoopprijs in: \"))",
+      "code": "inkoop = float(input(\"Geef de inkoopprijs in: \"))\nverkoop = 0.2 * inkoop",
+      "id": "owner-p12-018",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.27686,
+        "width": 0.501764,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E3BB3105957E895370303D6C180D73B2995322571BD83DC3B674118D2F7A2DC8",
+      "occurrence": 1
+    },
+    {
+      "page": 12,
+      "anchor": "print(round(7.2357, 3))",
+      "code": "print(round(7.2357, 3))",
+      "id": "owner-p12-019",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.497107,
+        "width": 0.249847,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "768EB0DADC6428276D965D0506C46EC20C6CCF5686DBC3006BDADD79B23DC760",
+      "occurrence": 1
+    },
+    {
+      "page": 12,
+      "anchor": "print(round(7.2357, 2))",
+      "code": "print(round(7.2357, 2))",
+      "id": "owner-p12-020",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.553288,
+        "width": 0.249847,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E3D8C8BEDFFF27D7656ADF4E24CFBCBB6FED648256B33E0C63DBE819506CB975",
+      "occurrence": 1
+    },
+    {
+      "page": 12,
+      "anchor": "print(round(7.2357))",
+      "code": "print(round(7.2357))",
+      "id": "owner-p12-021",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.612011,
+        "width": 0.220644,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "82C5F87011F9FC42EDDB61C5AB69C575A92BA7CC45E29E37304D25496AB3A089",
+      "occurrence": 1
+    },
+    {
+      "page": 12,
+      "anchor": "print(round(7.9357))",
+      "code": "print(round(7.9357))",
+      "id": "owner-p12-022",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.670733,
+        "width": 0.220644,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "8D5F04B8871B30B3179A381F6BEEF3DC2C15C10345D5D405DEB421FBF6C72A91",
+      "occurrence": 1
+    },
+    {
+      "page": 13,
+      "anchor": "Oefening 2.14",
+      "code": "# Los de oefening hieronder op:",
+      "id": "owner-p13-023",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.100461,
+        "width": 0.140144,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E0B6D46B38D9C42302A75932CF5D9A7E8D22CFE0F5DC4CCCD4378C513A8ED9D7",
+      "occurrence": 1
+    },
+    {
+      "page": 15,
+      "anchor": "y = x + 1",
+      "code": "y = x + 1\nx = 7\nprint(y)",
+      "id": "owner-p15-024",
+      "rect": {
+        "x": 0.138386,
+        "y": 0.191484,
+        "width": 0.114036,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "9E5F09800A233CAFB16DB182A7BA6E6ABE0AC5DC4C808CE222398CEA9F0A4000",
+      "occurrence": 1
+    },
+    {
+      "page": 15,
+      "anchor": "y = y - 1",
+      "code": "y = y - 1\ny = 2 * x\nx = x + 3 * y\nx = 7",
+      "id": "owner-p15-025",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.581509,
+        "width": 0.114029,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "BB2BDC2DF1512E5E45B4D693C2B357624F2DEFA163BCB98856D1701AA6C4D33E",
+      "occurrence": 1
+    },
+    {
+      "page": 17,
+      "anchor": "print(27 % 7)",
+      "code": "print(27 % 7)",
+      "id": "owner-p17-026",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.156278,
+        "width": 0.152731,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "7933E693AA274F0E34B7AAE18BF792DE2437749D5C1827D4B9570DEDE31E8036",
+      "occurrence": 1
+    },
+    {
+      "page": 17,
+      "anchor": "print(83 // 5)",
+      "code": "print(83 // 5)",
+      "id": "owner-p17-027",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.236381,
+        "width": 0.162591,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "2A6128DD5CF3B8A2923625C97252539115FDD2D6A25C92C94D3D73EA2B464FBF",
+      "occurrence": 1
+    },
+    {
+      "page": 17,
+      "anchor": "print((134 % 100) // 10)",
+      "code": "print((134 % 100) // 10)",
+      "id": "owner-p17-028",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.316519,
+        "width": 0.259523,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "EE0F15F857DF65824008C704C45C6029733B0A900CB7FE62C1CCB8C2562783AE",
+      "occurrence": 1
+    },
+    {
+      "page": 17,
+      "anchor": "print((134 // 10) % 10)",
+      "code": "print((134 // 10) % 10)",
+      "id": "owner-p17-029",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.396622,
+        "width": 0.249847,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "D31E36BFB8E37A1679AE8143BB0FCA32232B9A5CD347ADFCFBC16CC656352261",
+      "occurrence": 1
+    },
+    {
+      "page": 18,
+      "anchor": "Oefening 3.5",
+      "code": "bedrag = 38\naantal_5 = bedrag // 5\nrest = bedrag % 5\naantal_1 = rest // 1\nprint(aantal_5, \"biljetten van 5 en\", aantal_1, \"munten van 1\")",
+      "id": "owner-p18-030",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.239286,
+        "width": 0.139465,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "82137EBB5F20B385F36762AB1A2B320F21E7D1AC76887D76895549DCB7E15A6E",
+      "occurrence": 1
+    },
+    {
+      "page": 18,
+      "anchor": "Oefening 3.6",
+      "code": "# Los de oefening hieronder op:",
+      "id": "owner-p18-031",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.669505,
+        "width": 0.139465,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E0B6D46B38D9C42302A75932CF5D9A7E8D22CFE0F5DC4CCCD4378C513A8ED9D7",
+      "occurrence": 1
+    },
+    {
+      "page": 19,
+      "anchor": "import math",
+      "code": "import math\n\ngetal = math.sqrt(16)\nprint(getal)",
+      "id": "owner-p19-032",
+      "rect": {
+        "x": 0.120648,
+        "y": 0.236951,
+        "width": 0.133387,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "FD8AD5FBD657930199EA740FA786020CC8B10FAAA348136EDA5FAD0A01A6C5A5",
+      "occurrence": 1
+    },
+    {
+      "page": 19,
+      "anchor": "Oefening 3.7",
+      "code": "import math\ngetal = math.pi\nprint(getal)\nprint(math.floor(getal))\nprint(math.ceil(getal))",
+      "id": "owner-p19-033",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.353775,
+        "width": 0.139465,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "F578B253049D0CD0C0961BA268FBCDD57E096FA29BF5C56A3DD02DDEBFECA051",
+      "occurrence": 1
+    },
+    {
+      "page": 20,
+      "anchor": "# Fragment 1",
+      "code": "# Fragment 1\nimport.math\nprint(round(math.pi, 3))",
+      "id": "owner-p20-034",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.156278,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "455F1EE037ADAC61D21BFBBDA23F9BB00598C1135CFAE5F8164BA49241A2B547",
+      "occurrence": 1
+    },
+    {
+      "page": 20,
+      "anchor": "# Fragment 2",
+      "code": "# Fragment 2\ngetal = math.sqrt(225)\nprint(getal)",
+      "id": "owner-p20-035",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.271159,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "65A611CC69AAE90C67A19C75210DF57CCD38320CC7F441BAFD5AD93FB27C1E0E",
+      "occurrence": 1
+    },
+    {
+      "page": 20,
+      "anchor": "# Fragment 3",
+      "code": "# Fragment 3\nzijde = 8\noppervlakte = zijde * 2\nprint(\"De oppervlakte van het vierkant is\", oppervlakte)",
+      "id": "owner-p20-036",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.386075,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "9C421649F097766895093D2E9A4A308D942A1F8624D71D02DCF7D064F464B0C2",
+      "occurrence": 1
+    },
+    {
+      "page": 20,
+      "anchor": "# Fragment 4",
+      "code": "# Fragment 4\noppervlakte = 144\nzijde = oppervlakte / 2\nprint(\"De zijde van het vierkant is\", zijde)",
+      "id": "owner-p20-037",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.515517,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "4D6C2F59A1F790DD2E026DE2D608A40B610CC931AAE8FC07184AE0D77FD4A9A8",
+      "occurrence": 1
+    },
+    {
+      "page": 20,
+      "anchor": "# Fragment 5",
+      "code": "# Fragment 5\nimport math\ngetal = math.sqrt(225)\nprint(\"De vierkantswortel van 225 is\", getal + \".\")",
+      "id": "owner-p20-038",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.644935,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "ABCBF05524DF1463F07D1B6A5D58B5F4B46206CB1E3DA4C7C66250AD6E1928B6",
+      "occurrence": 1
+    },
+    {
+      "page": 20,
+      "anchor": "# Fragment 6",
+      "code": "# Fragment 6\ngetal 1 = math.sqrt(144)\nprint(getal 1)",
+      "id": "owner-p20-039",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.774532,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "276E1D296305D78CD1636077F1851F564567DB3A54E09679DFB49CD9B1F8CFBB",
+      "occurrence": 1
+    },
+    {
+      "page": 21,
+      "anchor": "Oefening 3.11",
+      "code": "import math\nx = math.pi\ny = 2\nresultaat = ...",
+      "id": "owner-p21-040",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.403661,
+        "width": 0.150703,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "14FF5880067083407EF6146338B452FC16D90E2DE70740DB618F7221C40BED10",
+      "occurrence": 1
+    },
+    {
+      "page": 23,
+      "anchor": "Code 4.1",
+      "code": "temperatuur = float(input(\"Geef de temperatuur in: \"))\nif temperatuur < 0:\n    print(\"Het vriest.\")",
+      "id": "owner-p23-041",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.101031,
+        "width": 0.095435,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "EE2A1BB157F6C389308D0363217C8C337999556F3FE854F127E557D342B87E48",
+      "occurrence": 1
+    },
+    {
+      "page": 23,
+      "anchor": "Code 4.2",
+      "code": "temperatuur = float(input(\"Geef de temperatuur in: \"))\nis_vriesweer = temperatuur < 0\nif is_vriesweer:\n    print(\"Het vriest.\")",
+      "id": "owner-p23-042",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.682476,
+        "width": 0.095435,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "C40696079846AA8544EE94029299E9E46764A2727E9510C567C87768FB43B2D5",
+      "occurrence": 1
+    },
+    {
+      "page": 23,
+      "anchor": "Toekennen is niet vergelijken",
+      "code": "naam = input(\"Geef je naam in: \" )\nif naam = \"Voldemort\":\n    print(\"Je naam mag niet gezegd worden.\")",
+      "id": "owner-p23-043",
+      "rect": {
+        "x": 0.123268,
+        "y": 0.798247,
+        "width": 0.262566,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "B068DE839B514E1658635676D928BE87AD09082E293C035A1EC347E18B4555BD",
+      "occurrence": 1
+    },
+    {
+      "page": 25,
+      "anchor": "# Fragment 1",
+      "code": "# Fragment 1\nleeftijd = 17\nif leeftijd >= 18:\n    print(\"Hoera, u wordt gezien als een volwassene!\")",
+      "id": "owner-p25-044",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.156278,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "D437EE2EDB5858871667B34D6CAD2EE652A3408BCD488CCABB3B5CEECACA2BB4",
+      "occurrence": 1
+    },
+    {
+      "page": 25,
+      "anchor": "# Fragment 2",
+      "code": "# Fragment 2\nimport math\ngok = 3.14\nif gok != math.pi:\n    print(\"Je hebt het getal niet geraden.\")",
+      "id": "owner-p25-045",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.294391,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "B807AE0D9A40AC610FF22273ED80254A5629B4E66B867DC079E249EB2254A28E",
+      "occurrence": 1
+    },
+    {
+      "page": 25,
+      "anchor": "# Fragment 3",
+      "code": "# Fragment 3\ngetal = 57\nif getal < 58:\n    b = getal % 5\nprint(b)",
+      "id": "owner-p25-046",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.43254,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "DF45967D5857E8DBA735B24861D24DB146F0DE4155B2A7B7EC1E3A7CB28498A2",
+      "occurrence": 1
+    },
+    {
+      "page": 25,
+      "anchor": "# Fragment 4",
+      "code": "# Fragment 4\ngetal = 58\nif getal < 58:\n    b = getal % 5\nelse:\n    b = getal // 10\nprint(b)",
+      "id": "owner-p25-047",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.570676,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "03947A00A07E780C53E06FA73E9CD02907730F068DCEC505C731DED8FBC57078",
+      "occurrence": 1
+    },
+    {
+      "page": 26,
+      "anchor": "# Fragment 1",
+      "code": "# Fragment 1\nlengte = 1.2\nif lengte > 1.0 and <= 1.9:\n    print(\"Je mag op de attractie.\")",
+      "id": "owner-p26-048",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.13946,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "335760803D5E904487CC375649A90FC82985DD381500F068C8EFEA74AD104503",
+      "occurrence": 1
+    },
+    {
+      "page": 26,
+      "anchor": "# Fragment 2",
+      "code": "# Fragment 2\ngetal = 27\nif getal => 28:\n    print(\"Het getal is groter of gelijk aan 28!\")",
+      "id": "owner-p26-049",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.315379,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "20247AFAC2E1CB0DC023EA8C0F72A40983D66FD1F3AC523A786BF5E51D272070",
+      "occurrence": 1
+    },
+    {
+      "page": 26,
+      "anchor": "# Fragment 3",
+      "code": "# Fragment 3\ngetal = 27\nif getal > 30:\n    b = getal + 2\n    print(b)\nelse getal <= 30:\n    print(getal)",
+      "id": "owner-p26-050",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.506086,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "37A29C4DB2B014A572077F59249F6C14F4472C740F98CFC8630C7DBA1B96D114",
+      "occurrence": 1
+    },
+    {
+      "page": 26,
+      "anchor": "# Fragment 4",
+      "code": "# Fragment 4\nleeftijd = 17\nif leeftijd >= 18:\n    print(\"Hoera, u wordt gezien als een volwassene!\")\nelse:\n    print(\"U bent nog niet volwassen...\")",
+      "id": "owner-p26-051",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.725929,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "A39D3B6BC8AAF20C35C366A70183BC2AC3842B3BEB62E97F22A9118DE316F5C9",
+      "occurrence": 1
+    },
+    {
+      "page": 27,
+      "anchor": "Oefening 4.5",
+      "code": "# Los de oefening hieronder op:",
+      "id": "owner-p27-052",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.275774,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E0B6D46B38D9C42302A75932CF5D9A7E8D22CFE0F5DC4CCCD4378C513A8ED9D7",
+      "occurrence": 1
+    },
+    {
+      "page": 28,
+      "anchor": "Oefening 4.6",
+      "code": "a = float(input(\"Geef de lengte van de eerste zijde in:\"))\nb = float(input(\"Geef de lengte van de tweede zijde in:\"))\nc = float(input(\"Geef de lengte van de derde zijde in:\"))",
+      "id": "owner-p28-053",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.082621,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "CDD1593B59E41E81A2705553F0AD4CDB53DD4F363A8E51A7E32AB5E2CB9582DE",
+      "occurrence": 1
+    },
+    {
+      "page": 29,
+      "anchor": "Code 4.4",
+      "code": "a = int(input(\"Geef a in: \"))\nb = int(input(\"Geef b in: \"))\nif a == b:\n    print(\"a en b zijn gelijk\")\nelse:\n    if a < b:\n        print(\"a is het kleinst\")\n    else:\n        print(\"b is het kleinst\")",
+      "id": "owner-p29-054",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.101031,
+        "width": 0.095435,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "27100BC571CDFD95B3EFF85F3CBEF6EA44E5DCC8B693E4C241D333EEDDE4E1F2",
+      "occurrence": 1
+    },
+    {
+      "page": 29,
+      "anchor": "Code 4.5",
+      "code": "temperatuur = float(input(\"Geef de temperatuur in: \"))\nif temperatuur < 0:\n    print(\"Het vriest.\")\nelif temperatuur < 4:\n    print(\"Lichte dooi.\")\nelse:\n    print(\"Het dooit.\")",
+      "id": "owner-p29-055",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.260381,
+        "width": 0.095435,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "11005A15E367EF871C51F24BBC0EF21FACE35E3DE43F9E099BBD0CD2080DE724",
+      "occurrence": 1
+    },
+    {
+      "page": 31,
+      "anchor": "# Fragment 1",
+      "code": "# Fragment 1\ngetal = 101\nif getal > 100:\n    print(\"optie A\")\nif getal > 50:\n    print(\"optie B\")\nelse:\n    print(getal)",
+      "id": "owner-p31-056",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.156278,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "E59F983DF27C37CA00474045B23BF39B57ED61A79FB3F02E9C7D6A1AD71AAC63",
+      "occurrence": 1
+    },
+    {
+      "page": 31,
+      "anchor": "# Fragment 2",
+      "code": "# Fragment 2\ngetal = 101\nif getal > 100:\n    print(\"optie A\")\nelif getal > 50:\n    print(\"optie B\")\nelse:\n    print(getal)",
+      "id": "owner-p31-057",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.346878,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "901FEA92BDE654890E7A0BE0AA9548AFF50D01E641588C750D589E7F0153D240",
+      "occurrence": 1
+    },
+    {
+      "page": 31,
+      "anchor": "# Fragment 3",
+      "code": "# Fragment 3\ngetal = 101\nif getal > 101:\n    print(\"optie A\")\nelif getal < 50:\n    print(\"optie B\")\nelse:\n    print(getal)",
+      "id": "owner-p31-058",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.552147,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "AA3F41801CB8C5FA8B0F6A36BDF8A6DC5CC41ACD39A887EC6ED5067FC1EC00F2",
+      "occurrence": 1
+    },
+    {
+      "page": 32,
+      "anchor": "Oefening 4.9",
+      "code": "v = int(input(\"Geef een getal in: \"))\n\nif (v > 1 and v <= 2) or (v >= 4 and v <= 6):\n    if (v > 2 and v < 4) or (v > 5 and v <= 9):\n        print(\"Luke, I am your father!\")\n    else:\n        if v >= 3 and v <= 4:\n            print(\"May the force be with you!\")\nelse:\n    print(\"Hhhrrrrrrrrrrraaaaaaaaaaaaaeeeerrrrrrr\")",
+      "id": "owner-p32-059",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.082621,
+        "width": 0.139465,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "DEDA7A573FA36C863696BA10224DAE7FC8572BC5815FDAA18A19432DFB10065B",
+      "occurrence": 1
+    },
+    {
+      "page": 34,
+      "anchor": "Code 5.1",
+      "code": "print(\"In 2024 ben ik 16 jaar.\")\nprint(\"In 2025 ben ik 17 jaar.\")\nprint(\"In 2026 ben ik 18 jaar.\")",
+      "id": "owner-p34-060",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.124976,
+        "width": 0.095485,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "30277C20DEC72D10473603D0BDC17E3C08AF0A90E34906A375745592514380FE",
+      "occurrence": 1
+    },
+    {
+      "page": 34,
+      "anchor": "Code 5.2",
+      "code": "startjaar = int(input(\"Geef het startjaar in: \"))\nstartleeftijd = int(input(\"Geef de startleeftijd in: \"))\nfor i in range(3):\n    print(\"In\", startjaar + i, \"ben ik\", startleeftijd + i, \"jaar.\")",
+      "id": "owner-p34-061",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.622755,
+        "width": 0.095485,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "04BCAD5C11A3DAE41F66B75781FFBA486518696EE0E80E9D38601EC88F289987",
+      "occurrence": 1
+    },
+    {
+      "page": 35,
+      "anchor": "Code 5.3",
+      "code": "som = 0\nfor i in range(10):\n    som = som + i ** 2\nprint(som)",
+      "id": "owner-p35-062",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.071361,
+        "width": 0.095435,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "196AB6ED63780D1DB0E24ED044E38ECD9C17A979EAE6776CF83F050C1926FD10",
+      "occurrence": 1
+    },
+    {
+      "page": 35,
+      "anchor": "Code 5.4",
+      "code": "for x in range(2):\n    for y in range(3):\n        print(x + y)",
+      "id": "owner-p35-063",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.443712,
+        "width": 0.095435,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "33A36C8FA85CB6F0DC87B69D3A05623D893D365846464C06806999C8ACD86705",
+      "occurrence": 1
+    },
+    {
+      "page": 35,
+      "anchor": "Oefening 5.1",
+      "code": "# Voer hieronder de code in:",
+      "id": "owner-p35-064",
+      "rect": {
+        "x": 0.115205,
+        "y": 0.566028,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "416FA5C2AF96F32235F0023F1BE874BBDB769712B81133E4EB44DA0623624968",
+      "occurrence": 1
+    },
+    {
+      "page": 37,
+      "anchor": "# Fragment 1",
+      "code": "# Fragment 1\nfor i in range(2, 9, 2):\n    print(i)",
+      "id": "owner-p37-065",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.156278,
+        "width": 0.143056,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "6DE7AD2D0260F7C5082A8B63922E97CCB5CD5087086E25E4425053E9C91C7BC8",
+      "occurrence": 1
+    },
+    {
+      "page": 37,
+      "anchor": "# Fragment 2",
+      "code": "# Fragment 2\nfor i in range(0, 7, -1):\n    print(i)",
+      "id": "owner-p37-066",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.265172,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "D9CE3B1ADB9AD277010E6C05D3D72EF98CB7106CD39D08852A68845B199DC70B",
+      "occurrence": 1
+    },
+    {
+      "page": 37,
+      "anchor": "# Fragment 3",
+      "code": "# Fragment 3\nfor cijfer in range(10, 0, -2):\n    print(cijfer)",
+      "id": "owner-p37-067",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.374102,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "2AE62EE87DE40DC005530A45E0715D5A54BB956F92C7556F0DC32997DBEFFB88",
+      "occurrence": 1
+    },
+    {
+      "page": 37,
+      "anchor": "# Fragment 4",
+      "code": "# Fragment 4\nfor i in range(0, 5):\n    print(i)",
+      "id": "owner-p37-068",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.477152,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "70AB7305D29C43659B280EC7B8183A42BF31E7E6DB8C691BBE2F171F447DD835",
+      "occurrence": 1
+    },
+    {
+      "page": 37,
+      "anchor": "# Fragment 5",
+      "code": "# Fragment 5\nteller = 0\nfor i in range(1, 4, 1):\n    teller = teller + i\nprint(teller)",
+      "id": "owner-p37-069",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.58607,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "19ADDF5C97722542EB76DEDDBFF6BB9F47C68C03C580EFA9F434B485191C3AB4",
+      "occurrence": 1
+    },
+    {
+      "page": 37,
+      "anchor": "# Fragment 6",
+      "code": "# Fragment 6\nfor a in range(1, 3):\n    som = 0\n    for b in range(3, 5):\n        som = som + a + b\n    print(som)",
+      "id": "owner-p37-070",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.724218,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "B8FF5B47FB5BCF00D8934921C1D8FEE540EC540627ED9FB55B89786D0FFFDDA9",
+      "occurrence": 1
+    },
+    {
+      "page": 38,
+      "anchor": "Oefening 5.4",
+      "code": "# Los hieronder de oefening op:",
+      "id": "owner-p38-071",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.082621,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "65D9E288E87F59D82EE8EF29B66722D55A48014C6A71A12FF0F259EFDA50214B",
+      "occurrence": 1
+    },
+    {
+      "page": 38,
+      "anchor": "Oefening 5.5",
+      "code": "n = int(input(\"n = \"))\nx = int(input(\"x = \"))\n\nproduct = 0\nfor i in range(n):\n    product = product + x\nprint(product)",
+      "id": "owner-p38-072",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.401238,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "293E2B2240160DDA1A64B76A0D4822B20C4521E59D63A984D8DD2CDC74A47100",
+      "occurrence": 1
+    },
+    {
+      "page": 39,
+      "anchor": "Oefening 5.6",
+      "code": "for i in range(1, 101):\n    for j in range(1, 101):\n        for k in range(1, 101):\n            if i < j and j < k and i + j + k == 100:\n                print(i, \"|\", j, \"|\", k)",
+      "id": "owner-p39-073",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.082621,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "24BB07230E9F3FB6B1BA50BF227DA8127B24BD87B9AAF92281DFEEC54CCBB361",
+      "occurrence": 1
+    },
+    {
+      "page": 40,
+      "anchor": "Oefening 5.7",
+      "code": "for i in range(5):\n    print(\"X\" * (i + 1))",
+      "id": "owner-p40-074",
+      "rect": {
+        "x": 0.118229,
+        "y": 0.186977,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "B39CE6A0E980C7EE8D1346F086D9DA9826BA08FE7DAEA7C2B608EE8FC87D4758",
+      "occurrence": 1
+    },
+    {
+      "page": 40,
+      "anchor": "Oefening 5.8",
+      "code": "for i in range(5):\n    print(\" \" * (4 - i) + \"X\" * (i + 1))",
+      "id": "owner-p40-075",
+      "rect": {
+        "x": 0.118229,
+        "y": 0.411642,
+        "width": 0.139441,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "A4B7D552E34B12153F6CE2CF090ACFC1634E15E3894151D41860D5C12F4964B5",
+      "occurrence": 1
+    },
+    {
+      "page": 41,
+      "anchor": "Oefening 5.10",
+      "code": "for i in range(...):\n    aantal_1 = ...\n    aantal_2 = ...\n    if i == ...:\n        ...\n    else:\n        ...",
+      "id": "owner-p41-076",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.082621,
+        "width": 0.150703,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "D9515379F0E7FCFFCF0E5278D327465A6EB0EDACF60BDAE88E34EA426265B306",
+      "occurrence": 1
+    },
+    {
+      "page": 42,
+      "anchor": "Oefening 5.11",
+      "code": "for i in range(...):\n    ...",
+      "id": "owner-p42-077",
+      "rect": {
+        "x": 0.124074,
+        "y": 0.082621,
+        "width": 0.150703,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "444AF0A46DDE3CB921D0358670BE17C7B31B0490680CA5A6A0176EF330393B51",
+      "occurrence": 1
+    },
+    {
+      "page": 44,
+      "anchor": "Voorbeeld",
+      "code": "import random\n\nfor i in range(5):\n    worp = random.randint(1, 6)\n    print(\"Worp\", i + 1, \"=\", worp)",
+      "id": "owner-p44-078",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.300753,
+        "width": 0.105351,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "46D31081D31C2213A98B1EC06417F24CAEA2EB2BE8D19BFBA4CB4A872FD1FFF6",
+      "occurrence": 1
+    },
+    {
+      "page": 45,
+      "anchor": "Voorbeeld – een item opvragen uit een lijst",
+      "code": "temperaturen = [17, 19, 22]\nprint(\"Eerste meting:\", temperaturen[0])",
+      "id": "owner-p45-079",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.351494,
+        "width": 0.357758,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "6FC4AA50F92F9F4BF3B88914E09676F68C9D3BF95446EF24E4B7E474D7654AEE",
+      "occurrence": 1
+    },
+    {
+      "page": 45,
+      "anchor": "Voorbeeld – een lijst opbouwen en doorlopen",
+      "code": "temperaturen = [17, 19, 22]\nprint(\"Eerste meting:\", temperaturen[0])\n\ntemperaturen.append(24)\nprint(\"Aantal metingen:\", len(temperaturen))\n\nfor temperatuur in temperaturen:\n    print(temperatuur)",
+      "id": "owner-p45-080",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.470793,
+        "width": 0.376933,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "0F8FA80D302B84CBA9F8D40878693F1B5DE645743D5C627284383860B2B2859E",
+      "occurrence": 1
+    },
+    {
+      "page": 46,
+      "anchor": "Voorbeeld – de waarde op rangnummer 5 berekenen",
+      "code": "vorige = 1\nhuidige = 1\n\nfor rangnummer in range(2, 6):\n    volgende = vorige + huidige\n    vorige = huidige\n    huidige = volgende\n\nprint(huidige)",
+      "id": "owner-p46-081",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.387127,
+        "width": 0.433944,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "1EE8959D1D77B1D551DE52A18095EF265D329F7401F90218C887F512E04FC52C",
+      "occurrence": 1
+    },
+    {
+      "page": 47,
+      "anchor": "Voorbeeld – Elk teken afzonderlijk weergeven",
+      "code": "woord = \"Python\"\n\nfor teken in woord:\n    print(teken)",
+      "id": "owner-p47-082",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.225888,
+        "width": 0.378015,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "B58442A36AFD744304C7239909CD934881FE4A19FD6C5AF096988AA5549F62AD",
+      "occurrence": 1
+    },
+    {
+      "page": 47,
+      "anchor": "Voorbeeld – Een nieuwe string opbouwen",
+      "code": "woord = \"kat\"\nnieuw = \"\"\n\nfor teken in woord:\n    nieuw = nieuw + \"[\" + teken + \"]\"\n\nprint(nieuw)",
+      "id": "owner-p47-083",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.402948,
+        "width": 0.347487,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "2B216B1052259DA1050D2B94E09BA05BF2B4D30A7C811F4A6730238F69BD147F",
+      "occurrence": 1
+    },
+    {
+      "page": 47,
+      "anchor": "Voorbeeld – Tekens met hun index weergeven",
+      "code": "woord = \"Python\"\n\nfor i in range(len(woord)):\n    print(i, woord[i])",
+      "id": "owner-p47-084",
+      "rect": {
+        "x": 0.10553,
+        "y": 0.623183,
+        "width": 0.383141,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "940B216AB465F84EDF66633047C781922C0F87D057D19F147D4ADAB3E7A876D5",
+      "occurrence": 1
+    },
+    {
+      "page": 49,
+      "anchor": "dikte = 0.01",
+      "code": "dikte = 0.01\nwhile dikte < 384400 * 10 ** 5:\n    dikte = dikte * 2\n    print(dikte)",
+      "id": "owner-p49-085",
+      "rect": {
+        "x": 0.120648,
+        "y": 0.313099,
+        "width": 0.143056,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "40DCAFFD6025063633B7130C14B6FBACB4D617013AB40BFD66F304E8814DCC4B",
+      "occurrence": 1
+    },
+    {
+      "page": 49,
+      "anchor": "dikte = 0.01",
+      "code": "dikte = 0.01\nafstand_cm = 384400 * 100000\naantal = 0\n\nwhile dikte < afstand_cm:\n    dikte = dikte * 2\n    aantal = aantal + 1\n\nprint(aantal)",
+      "id": "owner-p49-086",
+      "rect": {
+        "x": 0.120648,
+        "y": 0.470026,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "04068CFE4AA1E958A4154D5896C69C87FDF2DB904885D9F7B1EDEE01165B72FD",
+      "occurrence": 2
+    },
+    {
+      "page": 51,
+      "anchor": "for i in range(1, 10, 2):",
+      "code": "for i in range(1, 10, 2):\n    print(10 - i)",
+      "id": "owner-p51-087",
+      "rect": {
+        "x": 0.133347,
+        "y": 0.153998,
+        "width": 0.269198,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "5C2EA8C1D698D1F5DB3A9107757967EFE2853F1CE9FE5F62EC33E734F960770A",
+      "occurrence": 1
+    },
+    {
+      "page": 51,
+      "anchor": "product = 1",
+      "code": "product = 1\nfor i in range(1, 5):\n    product = product * i\nprint(product)",
+      "id": "owner-p51-088",
+      "rect": {
+        "x": 0.133347,
+        "y": 0.366833,
+        "width": 0.133387,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "EE34294F359D111BB888EDF4A3A56468279841988D7FF6E7E310FF8BA3D8BA8E",
+      "occurrence": 1
+    },
+    {
+      "page": 52,
+      "anchor": "# Fragment 1",
+      "code": "# Fragment 1\nuitkomst = 100\nwhile uitkomst != 16:\n    uitkomst *= 0.4\nprint(uitkomst)",
+      "id": "owner-p52-089",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.13946,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "ECBF2E030EEF9A1F1F0BB8DFF5F2261B93D0B8F9FB4726DAD909A47D893D6855",
+      "occurrence": 1
+    },
+    {
+      "page": 52,
+      "anchor": "# Fragment 2",
+      "code": "# Fragment 2\nuitkomst = 100\nwhile uitkomst < 120:\n    uitkomst *= 1.2\nprint(uitkomst)",
+      "id": "owner-p52-090",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.292111,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "9DA1CE6199527F22D04D5A4E2337C8DF39100D7B8FA49AAB37B024BDE7803177",
+      "occurrence": 1
+    },
+    {
+      "page": 52,
+      "anchor": "# Fragment 3",
+      "code": "# Fragment 3\nuitkomst = 100\nwhile uitkomst <= 120:\n    uitkomst *= 1.2\nprint(uitkomst)",
+      "id": "owner-p52-091",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.424273,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "6C68AFD8B16F1BBA4C9A0F51AFE2DB5A004151B5891AF90971E79F14272D3753",
+      "occurrence": 1
+    },
+    {
+      "page": 53,
+      "anchor": "# Fragment 1",
+      "code": "# Fragment 1\neindnummer = 4\nteller = 2\nwhile teller <= eindnummer:\n    teller = teller + 1\n    print(teller)",
+      "id": "owner-p53-092",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.13946,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "49DAA379EB121868524E2DC5C21A2952BB14456C092A142A6BF6039B78CA69C5",
+      "occurrence": 1
+    },
+    {
+      "page": 53,
+      "anchor": "# Fragment 2",
+      "code": "# Fragment 2\neindnummer = 4\nteller = 2\nwhile teller <= eindnummer:\n    print(teller)\n    teller = teller + 1",
+      "id": "owner-p53-093",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.312671,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "26EADA5DB7C910AE3780BEA98DFF0AA029B8E1D48AC39E0AFFC798BD3C71B7F3",
+      "occurrence": 1
+    },
+    {
+      "page": 53,
+      "anchor": "# Fragment 3",
+      "code": "# Fragment 3\neindnummer = 4\nteller = 2\nwhile teller <= eindnummer:\n    teller += 1\n    if teller == 4:\n        teller = teller + eindnummer\n    print(teller)",
+      "id": "owner-p53-094",
+      "rect": {
+        "x": 0.139192,
+        "y": 0.480003,
+        "width": 0.143063,
+        "height": 0.028506
+      },
+      "evidence": "anchor_text",
+      "pageSize": {
+        "width": 595.32,
+        "height": 841.92
+      },
+      "starterCodeSha256": "76B4E52AC3D11F7F7F622DB70D2CA974E855B2C828E10F76DD768A6D80088C6F",
+      "occurrence": 1
+    }
+  ]
+}

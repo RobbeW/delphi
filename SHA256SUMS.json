@@ -1,0 +1,97 @@
+[
+  {
+    "path": "bordboek/assets/index-BgEaloOU.css",
+    "bytes": 16615,
+    "sha256": "B71903DE53E475198CEEFB0E6E27BD087965F9072BF8ACF51CE6E4FD317F1855"
+  },
+  {
+    "path": "bordboek/assets/index-bsa1UhW1.js",
+    "bytes": 274415,
+    "sha256": "D0D46B05D4A95854E11F84D55F31F7701D4BFA4EEFFE0853A1E6D89620DD6040"
+  },
+  {
+    "path": "bordboek/assets/runtime.worker-CF0VKO9t.js",
+    "bytes": 10565,
+    "sha256": "E0B15BD1E047C7401BB6C94DF7F7D06C8860E62EBC7B13793EC7EA1C541B7253"
+  },
+  {
+    "path": "bordboek/course/pidk-2026-08-17-r3/owner-editor-anchor-catalog.json",
+    "bytes": 54120,
+    "sha256": "6C817A7BE476D8AC6B4A2DC8A733C87D2E14131ECBF1FE3F35BE060A9D475DB2"
+  },
+  {
+    "path": "bordboek/course/pidk-2026-08-17-r3/snippet-manifest.json",
+    "bytes": 41689,
+    "sha256": "F30812633EE4841D662245CAA3EF101F3906BDFB237A2BCB1334AC41BEBB27BE"
+  },
+  {
+    "path": "bordboek/course/pidk-2026-08-17-r3/snippet-manifest.schema.json",
+    "bytes": 15484,
+    "sha256": "55D8238EA6FE0264F73E2AD456D154A2A061718D5B221E25FD6F387E05F71377"
+  },
+  {
+    "path": "bordboek/course/pidk-2026-08-17-r3/syllabus.pdf",
+    "bytes": 776114,
+    "sha256": "AEDF8170AAC47E7FB453D8232AEDCF4540E0F372876D143F844F28B102066199"
+  },
+  {
+    "path": "bordboek/index.html",
+    "bytes": 566,
+    "sha256": "5C0DA35F5E78D38079703FC5479B6357F6A9A73E178B01189EE14E646C1CD268"
+  },
+  {
+    "path": "bordboek/vendor/pdfjs/LICENSE",
+    "bytes": 10174,
+    "sha256": "0D542E0C8804E39AA7F37EB00DA5A762149DC682D7829451287E11B938E94594"
+  },
+  {
+    "path": "bordboek/vendor/pdfjs/pdf.min.mjs",
+    "bytes": 430304,
+    "sha256": "2221020EA508479DCC1221F36F2731656339230097C69BA1F78802832C0AD685"
+  },
+  {
+    "path": "bordboek/vendor/pdfjs/pdf.worker.min.mjs",
+    "bytes": 1244253,
+    "sha256": "51A2FD1EA47F1A9B0814E65E0C336C739C54957795EE774E8F93CB81E8028DD1"
+  },
+  {
+    "path": "bordboek/vendor/provenance.json",
+    "bytes": 4511,
+    "sha256": "C90228BE0F1CCA2030019E9CE6FB7FC71A412A7039A4C5E89E71C9BF83C59AE0"
+  },
+  {
+    "path": "bordboek/vendor/pyodide/pyodide-lock.json",
+    "bytes": 114535,
+    "sha256": "701557726114E9A968D2088153414B2F126B8631AA734ED98EAF1797D4E4D087"
+  },
+  {
+    "path": "bordboek/vendor/pyodide/pyodide.asm.js",
+    "bytes": 1074248,
+    "sha256": "F1E70077BD701757B2798FC57F540FE39CF23D36EE5CD7C1A9B3A6F35CF500A7"
+  },
+  {
+    "path": "bordboek/vendor/pyodide/pyodide.asm.wasm",
+    "bytes": 8647609,
+    "sha256": "615172C6B2F5EFE53E41D0201A98EB37C1F3AA7675D11CB06B6079B3A6B2BEF5"
+  },
+  {
+    "path": "bordboek/vendor/pyodide/pyodide.mjs",
+    "bytes": 17616,
+    "sha256": "31AFA960FDF68333DE6F3F0513BAD154495C8FC635A66B7E58AB9CF356A76501"
+  },
+  {
+    "path": "bordboek/vendor/pyodide/python_stdlib.zip",
+    "bytes": 2423414,
+    "sha256": "E389FBDC394A00D31FF0624386C9E3E52E04727130AC73597A99C477AFE4F1CA"
+  },
+  {
+    "path": "index.html",
+    "bytes": 54957,
+    "sha256": "3AC3BA21EA0F1428ED4153CE70D7435EED0271696B1019966C1745CFE5C34191"
+  },
+  {
+    "path": "syllabus_python_in_de_klas.pdf",
+    "bytes": 776114,
+    "sha256": "AEDF8170AAC47E7FB453D8232AEDCF4540E0F372876D143F844F28B102066199"
+  }
+]

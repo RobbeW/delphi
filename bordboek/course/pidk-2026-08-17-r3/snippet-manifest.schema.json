@@ -1,0 +1,363 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:python-in-de-klas:snippet-manifest:1.2.0",
+  "title": "Python in de Klas bordboek snippet manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "manifestRevision", "course", "coordinateSpace", "sourceNormalization", "sources", "pages", "chapters", "snippets"],
+  "properties": {
+    "schemaVersion": { "const": "1.2.0" },
+    "manifestRevision": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "course": { "$ref": "#/$defs/course" },
+    "coordinateSpace": { "$ref": "#/$defs/coordinateSpace" },
+    "sourceNormalization": { "$ref": "#/$defs/sourceNormalization" },
+    "sources": { "$ref": "#/$defs/sources" },
+    "pages": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/page" } },
+    "chapters": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/chapter" } },
+    "snippets": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/snippet" } }
+  },
+  "$defs": {
+    "stableId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]{2,79}$" },
+    "fragmentId": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]{0,39}$" },
+    "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+    "course": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["courseId", "courseRevisionId", "title", "language"],
+      "properties": {
+        "courseId": { "const": "python-in-de-klas" },
+        "courseRevisionId": { "$ref": "#/$defs/stableId" },
+        "title": { "type": "string", "minLength": 1 },
+        "language": { "const": "nl-BE" }
+      }
+    },
+    "coordinateSpace": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "origin", "xAxis", "yAxis", "referenceBox"],
+      "properties": {
+        "unit": { "const": "page_fraction" },
+        "origin": { "const": "top_left" },
+        "xAxis": { "const": "right" },
+        "yAxis": { "const": "down" },
+        "referenceBox": { "const": "rotated_crop_box" }
+      }
+    },
+    "sourceNormalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "encoding", "lineEndings", "terminalNewline", "trailingWhitespace", "paragraphJoin", "nonCodeExclusions"],
+      "properties": {
+        "id": { "const": "word-code-v1" },
+        "encoding": { "const": "utf-8" },
+        "lineEndings": { "const": "lf" },
+        "terminalNewline": { "const": "absent" },
+        "trailingWhitespace": { "const": "preserve" },
+        "paragraphJoin": { "const": "single_lf" },
+        "nonCodeExclusions": { "const": "reviewed_line_slices_only" }
+      }
+    },
+    "sources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["docx", "pdf"],
+      "properties": {
+        "docx": { "$ref": "#/$defs/sourceFile" },
+        "pdf": {
+          "allOf": [
+            { "$ref": "#/$defs/sourceFile" },
+            { "type": "object", "required": ["pageCount"], "properties": { "pageCount": { "type": "integer", "minimum": 1 } } }
+          ]
+        }
+      }
+    },
+    "sourceFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "bytes"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "pageCount": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "chapter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "startPageNumber", "endPageNumber"],
+      "properties": {
+        "id": { "$ref": "#/$defs/stableId" },
+        "title": { "type": "string", "minLength": 1 },
+        "startPageNumber": { "type": "integer", "minimum": 1 },
+        "endPageNumber": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "pageNumber"],
+      "properties": {
+        "id": { "$ref": "#/$defs/stableId" },
+        "pageNumber": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "normalizedRect": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0, "maximum": 1 },
+        "y": { "type": "number", "minimum": 0, "maximum": 1 },
+        "width": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 },
+        "height": { "type": "number", "exclusiveMinimum": 0, "maximum": 1 }
+      }
+    },
+    "snippet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "role", "source", "hotspot", "fragments", "actions", "runPolicy", "revealPolicy", "reviewStatus"],
+      "properties": {
+        "id": { "$ref": "#/$defs/stableId" },
+        "title": { "type": "string", "minLength": 1 },
+        "role": { "enum": ["demonstration", "prediction", "debugging", "completion", "unsafe_analysis", "reference"] },
+        "source": { "$ref": "#/$defs/snippetSource" },
+        "hotspot": { "$ref": "#/$defs/hotspot" },
+        "sharedPrelude": { "$ref": "#/$defs/sharedPrelude" },
+        "fragments": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/fragment" } },
+        "actions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["open", "edit", "run", "run_all", "reset", "diagnose", "trace", "reveal", "seed"] }
+        },
+        "runPolicy": { "$ref": "#/$defs/runPolicy" },
+        "runAllPolicy": { "$ref": "#/$defs/runAllPolicy" },
+        "revealPolicy": { "$ref": "#/$defs/revealPolicy" },
+        "reviewStatus": { "const": "reviewed" }
+      }
+    },
+    "snippetSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pageId", "pageIndex", "pageNumber", "heading", "wordLocator"],
+      "properties": {
+        "pageId": { "$ref": "#/$defs/stableId" },
+        "pageIndex": { "type": "integer", "minimum": 0 },
+        "pageNumber": { "type": "integer", "minimum": 1 },
+        "heading": { "type": "string", "minLength": 1 },
+        "visibleExerciseId": { "type": "string", "pattern": "^[1-9][0-9]*\\.[1-9][0-9]*$" },
+        "visibleCodeId": { "type": "string", "pattern": "^[1-9][0-9]*\\.[1-9][0-9]*$" },
+        "wordLocator": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hotspot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rect", "buttonDock", "accessibleLabel", "geometryReview"],
+      "properties": {
+        "rect": { "$ref": "#/$defs/normalizedRect" },
+        "buttonDock": { "enum": ["right_external_gutter_top", "left_external_gutter_top", "fixed_component_rail"] },
+        "accessibleLabel": { "type": "string", "minLength": 1 },
+        "geometryReview": { "enum": ["reviewed", "pending"] }
+      }
+    },
+    "wordParagraphSlice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["paragraphIndex", "startLine", "endLine"],
+      "properties": {
+        "paragraphIndex": { "type": "integer", "minimum": 0 },
+        "startLine": { "type": "integer", "minimum": 1 },
+        "endLine": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "sourceProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceKind", "normalizationId", "wordParagraphSlices", "joinWith", "derivation"],
+      "properties": {
+        "sourceKind": { "const": "docx_body_paragraphs_zero_based" },
+        "normalizationId": { "const": "word-code-v1" },
+        "wordParagraphSlices": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/wordParagraphSlice" } },
+        "joinWith": { "const": "\n" },
+        "derivation": { "enum": ["exact_lines", "joined_paragraphs", "response_rules_removed", "table_column_lines"] }
+      }
+    },
+    "sharedPrelude": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "language", "code", "sourceTextSha256", "sourceProvenance", "editable"],
+      "properties": {
+        "id": { "$ref": "#/$defs/fragmentId" },
+        "language": { "const": "python" },
+        "code": { "type": "string", "minLength": 1 },
+        "sourceTextSha256": { "$ref": "#/$defs/sha256" },
+        "sourceProvenance": { "$ref": "#/$defs/sourceProvenance" },
+        "editable": { "const": false }
+      }
+    },
+    "fragment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "label", "language", "starterCode", "sourceTextSha256", "sourceProvenance", "editable", "execution", "safetyClass", "outputPresentation", "editGuards", "expectedResult"],
+      "properties": {
+        "id": { "$ref": "#/$defs/fragmentId" },
+        "label": { "type": "string", "minLength": 1 },
+        "language": { "const": "python" },
+        "starterCode": { "type": "string", "minLength": 1 },
+        "sourceTextSha256": { "$ref": "#/$defs/sha256" },
+        "sourceProvenance": { "$ref": "#/$defs/sourceProvenance" },
+        "editable": { "type": "boolean" },
+        "execution": { "enum": ["enabled", "blocked_until_valid", "blocked_source", "reference_only"] },
+        "safetyClass": { "enum": ["standard", "placeholder_gated", "unsafe_source", "high_output", "nondeterministic"] },
+        "outputPresentation": { "enum": ["standard", "collapsed", "hidden_until_run_or_reveal", "diagnostic_only"] },
+        "editGuards": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/editGuard" } },
+        "expectedResult": { "$ref": "#/$defs/expectedResult" }
+      }
+    },
+    "editGuard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind"],
+      "properties": {
+        "id": { "$ref": "#/$defs/fragmentId" },
+        "kind": { "enum": ["literal_absent", "required_call", "bounded_integer_range_argument"] },
+        "literal": { "type": "string", "minLength": 1 },
+        "function": { "type": "string", "pattern": "^[a-zA-Z_][a-zA-Z0-9_]*$" },
+        "minOccurrences": { "type": "integer", "minimum": 1 },
+        "argumentIndex": { "type": "integer", "minimum": 0 },
+        "minimum": { "type": "integer" },
+        "maximum": { "type": "integer" }
+      }
+    },
+    "expectedResult": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind"],
+      "properties": {
+        "kind": { "enum": ["exact_stdout", "expected_error", "invariant", "target_stdout", "none"] },
+        "stdout": { "type": "string" },
+        "fixtureId": { "$ref": "#/$defs/fragmentId" },
+        "error": { "$ref": "#/$defs/expectedError" },
+        "invariant": { "$ref": "#/$defs/resultInvariant" },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    },
+    "expectedError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "messageContains", "line"],
+      "properties": {
+        "type": { "type": "string", "minLength": 1 },
+        "messageContains": { "type": "string", "minLength": 1 },
+        "line": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "resultInvariant": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "description", "assertions"],
+      "properties": {
+        "id": { "$ref": "#/$defs/fragmentId" },
+        "description": { "type": "string", "minLength": 1 },
+        "assertions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/invariantAssertion" } }
+      }
+    },
+    "invariantAssertion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["operator"],
+      "properties": {
+        "operator": { "enum": ["line_count_equals", "first_line_equals", "last_line_equals", "all_lines_match", "indexed_integer_range"] },
+        "integer": { "type": "integer" },
+        "text": { "type": "string" },
+        "pattern": { "type": "string", "minLength": 1 },
+        "prefix": { "type": "string" },
+        "separator": { "type": "string" },
+        "indexStart": { "type": "integer" },
+        "indexEnd": { "type": "integer" },
+        "valueMin": { "type": "integer" },
+        "valueMax": { "type": "integer" }
+      }
+    },
+    "runPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["autoRun", "freshGlobals", "timeoutMs", "standardLibrary", "input", "output", "randomness"],
+      "properties": {
+        "autoRun": { "const": false },
+        "freshGlobals": { "const": true },
+        "timeoutMs": { "type": "integer", "minimum": 1000, "maximum": 10000 },
+        "standardLibrary": { "type": "array", "uniqueItems": true, "items": { "type": "string", "pattern": "^[a-zA-Z_][a-zA-Z0-9_.]*$" } },
+        "input": { "$ref": "#/$defs/inputPolicy" },
+        "output": { "$ref": "#/$defs/outputPolicy" },
+        "randomness": { "enum": ["none", "natural", "teacher_seed_optional"] }
+      }
+    },
+    "runAllPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["fragmentOrder", "requireAllFragmentsRunnable", "requireAllEditGuardsPass", "freshGlobalsPerFragment", "stopOnFailure"],
+      "properties": {
+        "fragmentOrder": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "$ref": "#/$defs/fragmentId" } },
+        "requireAllFragmentsRunnable": { "const": true },
+        "requireAllEditGuardsPass": { "const": true },
+        "freshGlobalsPerFragment": { "const": true },
+        "stopOnFailure": { "const": true }
+      }
+    },
+    "inputPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "fixtures"],
+      "properties": {
+        "mode": { "enum": ["none", "queued"] },
+        "defaultFixtureId": { "$ref": "#/$defs/fragmentId" },
+        "fixtures": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "label", "lines"],
+            "properties": {
+              "id": { "$ref": "#/$defs/fragmentId" },
+              "label": { "type": "string", "minLength": 1 },
+              "lines": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    "outputPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxLines", "maxBytes"],
+      "properties": {
+        "maxLines": { "type": "integer", "minimum": 1, "maximum": 5000 },
+        "maxBytes": { "type": "integer", "minimum": 1024, "maximum": 1048576 }
+      }
+    },
+    "revealPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "levels"],
+      "properties": {
+        "mode": { "enum": ["none", "teacher_controlled", "prediction", "correction", "invariants"] },
+        "levels": { "type": "array", "items": { "$ref": "#/$defs/revealLevel" } }
+      }
+    },
+    "revealLevel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "fragmentId", "kind", "label", "content"],
+      "properties": {
+        "id": { "$ref": "#/$defs/fragmentId" },
+        "fragmentId": { "$ref": "#/$defs/fragmentId" },
+        "kind": { "enum": ["hint", "diagnosis", "expected_result", "invariant", "target"] },
+        "label": { "type": "string", "minLength": 1 },
+        "content": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

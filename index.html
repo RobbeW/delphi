@@ -2,6 +2,7 @@
   Project Delphi - landing page
   Copyright (c) 2026 Robbe Wulgaert
   Citeer/vermeld als: Robbe Wulgaert, AI in de Klas, robbewulgaert.be
+  Staged from robbew/delphi index.html blob 4e5a6af8221e06a8863ac86372aefe18d5b35c43
 -->
 <!doctype html>
 <html lang="nl-BE">
@@ -9,7 +10,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Project Delphi - Python in de Klas</title>
-  <meta name="description" content="Project Delphi is een browseromgeving voor Python, computationeel denken en automatische feedback in de klas.">
+  <meta name="description" content="Project Delphi is een browseromgeving voor Python en automatische feedback, met een bordboek voor klassikaal gebruik.">
   <meta name="author" content="Robbe Wulgaert, AI in de Klas, robbewulgaert.be">
   <meta name="copyright" content="Copyright (c) 2026 Robbe Wulgaert">
   <meta name="robots" content="index, follow">
@@ -18,11 +19,11 @@
   <meta property="og:locale" content="nl_BE">
   <meta property="og:site_name" content="AI in de Klas">
   <meta property="og:title" content="Project Delphi - Python in de Klas">
-  <meta property="og:description" content="Oefen Python, computationeel denken en automatische feedback in een browseromgeving voor de klas.">
+  <meta property="og:description" content="Oefen Python en computationeel denken in het leerplatform, met een bordboek voor klassikaal gebruik.">
   <meta property="og:url" content="https://robbew.github.io/delphi/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Project Delphi - Python in de Klas">
-  <meta name="twitter:description" content="Oefen Python, computationeel denken en automatische feedback in een browseromgeving voor de klas.">
+  <meta name="twitter:description" content="Oefen Python en computationeel denken in het leerplatform, met een bordboek voor klassikaal gebruik.">
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" type="image/png" href="favicon.png">
@@ -264,7 +265,7 @@
       margin: 0;
       color: var(--delphi-blue-dark);
       font-size: clamp(2.6rem, 7vw, 5.6rem);
-      line-height: 0.94;
+      line-height: 1;
       letter-spacing: 0;
     }
 
@@ -367,7 +368,7 @@
       margin: 0;
       color: var(--delphi-blue-dark);
       font-size: clamp(2rem, 4vw, 3.35rem);
-      line-height: 1.03;
+      line-height: 1.1;
       letter-spacing: 0;
     }
 
@@ -376,6 +377,11 @@
       margin: 0;
       color: var(--delphi-muted);
       font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    .section h2 + .section-lede {
+      margin-top: 12px;
     }
 
     .grid {
@@ -983,7 +989,7 @@
         <div class="nav-bookmarks">
           <a href="#platform">Opdracht</a>
           <a href="#vergelijking">Leerlijn</a>
-          <a href="#pythia">Leerkrachten</a>
+          <a href="#bordboek">Bordboek</a>
         </div>
         <div class="nav-actions">
           <div class="language-toggle" role="group" aria-label="Taalkeuze">
@@ -1007,7 +1013,7 @@
         </p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="platform.html">Start leerplatform</a>
-          <a class="btn btn-secondary" href="pythia/index.html">Open Pythia oefeningmaker</a>
+          <a class="btn btn-secondary" href="bordboek/">Start bordboek</a>
         </div>
       </div>
 
@@ -1029,7 +1035,7 @@
         </div>
         <p class="hero-note">
           Leerlingen oefenen met datatypes, variabelen, voorwaarden, lussen en invoer. De opdrachten
-          koppelen Python aan computationeel denken, wiskundige redeneringen en kleine herkenbare situaties.
+          koppelen Python aan computationeel denken, wiskundige opdrachten en uitdagende puzzels.
         </p>
       </aside>
     </section>
@@ -1149,26 +1155,30 @@
       </div>
     </section>
 
-    <section id="pythia" class="section" aria-labelledby="pythia-title">
+    <section id="bordboek" class="section" aria-labelledby="bordboek-title">
       <div class="split">
         <div>
-          <h2 id="pythia-title">Pythia voor lesgevers</h2>
+          <h2 id="bordboek-title">Leerplatform en bordboek</h2>
           <p class="section-lede">
-            Pythia is het hulpstuk voor wie zelf oefeningen wil maken. Je vult de oefening, startcode,
-            oplossing en testcases in; Pythia zet dat om naar een map die in deze structuur past.
+            Gebruik het leerplatform voor de oefeningen. Het bordboek is bedoeld voor klassikaal gebruik op het
+            smartboard en toont dezelfde syllabus naast de Python-editor.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="pythia/index.html">Maak een oefening met Pythia</a>
-            <a class="btn btn-secondary" href="tools/build-catalog.mjs">Bekijk catalogusbuilder</a>
+            <a class="btn btn-primary" href="platform.html">Start leerplatform</a>
+            <a class="btn btn-secondary" href="bordboek/">Start bordboek</a>
           </div>
         </div>
         <aside class="callout">
-          <h3>Voor GitHub Pages</h3>
+          <h3>Bordboekprototype voor de klas</h3>
           <p>
-            Host je de repository via GitHub Pages, dan open je Delphi rechtstreeks in de browser.
-            Pas je oefeningen aan, bouw dan de catalogus opnieuw zodat de leeromgeving weet wat er bestaat.
+            Het bordboek is de versie voor het smartboard: je ziet dezelfde syllabuspagina als de leerlingen
+            op papier, kunt erop schrijven en opent de Python-editor ernaast. Pagina’s, aantekeningen en code
+            worden per klas bewaard op dit toestel wanneer je op Opslaan klikt.
           </p>
-          <a class="btn btn-secondary" href="README.md">Lees de technische uitleg</a>
+          <p>
+            Dit is een functioneel prototype. Automatisch bewaren op de achtergrond gebeurt nog niet.
+            Touch, stylus en smartboardgebruik worden nog getest; gebruik voorlopig alleen vertrouwde lescode.
+          </p>
         </aside>
       </div>
     </section>
@@ -1178,29 +1188,33 @@
         <div>
           <h2 id="gebruik-title">Aan de slag</h2>
           <p class="section-lede">
-            Deze pagina is de voordeur. De eigenlijke leeromgeving staat apart, zodat leerlingen snel
-            kunnen starten en jij tegelijk een duidelijke projectpagina hebt voor GitHub Pages.
+            In de klas ga je aan de slag met het bordboek en de leeromgeving. In het bordboek vind je
+            de PDF, maak je samen met jouw leerlingen annotaties en kan je voorbeeldcode uitvoeren.
+            In de leeromgeving vind je honderden oefeningen om de leerstof in te oefenen en te evalueren.
           </p>
         </div>
       </div>
       <ol class="steps">
         <li>
           <span class="step-number">1</span>
-          <span><strong>Open de leeromgeving.</strong> Klik op <code>Start leerplatform</code> en kies een hoofdstuk of oefening via het menu.</span>
+          <span><strong>Start met het bordboek.</strong> Projecteer de syllabus, kies een klas en navigeer samen naar de juiste pagina.</span>
         </li>
         <li>
           <span class="step-number">2</span>
-          <span><strong>Schrijf en test Python-code.</strong> Voer code uit, gebruik <code>input()</code> waar nodig en bekijk de testcasefeedback.</span>
+          <span><strong>Annoteer en voer voorbeeldcode uit.</strong> Schrijf op de PDF, markeer belangrijke begrippen en open codevoorbeelden in de editor om ze samen uit te voeren.</span>
         </li>
         <li>
           <span class="step-number">3</span>
-          <span><strong>Bewaar bewijs van leren.</strong> Gebruik de PDF-export om code, feedback en rubriek te verzamelen.</span>
+          <span><strong>Laat leerlingen oefenen.</strong> Open daarna het leerplatform en laat leerlingen zelfstandig werken aan oefeningen die bij de besproken leerstof passen.</span>
         </li>
         <li>
           <span class="step-number">4</span>
-          <span><strong>Breid de inhoud uit.</strong> Maak nieuwe oefeningen met Pythia of voeg bestaande Dodona-achtige content toe en bouw daarna de catalogus opnieuw.</span>
+          <span><strong>Evalueer en stuur bij.</strong> Gebruik de automatische feedback en PDF-export om resultaten te bespreken, te evalueren en de volgende lesstap te bepalen.</span>
         </li>
       </ol>
+      <div class="hero-actions">
+        <a class="btn btn-secondary" href="syllabus_python_in_de_klas.pdf" download="syllabus_python_in_de_klas.pdf">Download syllabus</a>
+      </div>
     </section>
 
     <section id="privacy-license" class="section" aria-labelledby="privacy-license-title">
@@ -1235,6 +1249,7 @@
         Robbe Wulgaert, AI in de Klas, robbewulgaert.be
       </div>
       <div class="footer-links">
+        <a href="#bordboek">Bordboek</a>
         <a href="#privacy-license">Privacy</a>
         <a href="LICENSE">Licentie</a>
         <a href="THIRD_PARTY_NOTICES.md">Third-party notices</a>
@@ -1299,7 +1314,6 @@
   "Onderdelen": "Components",
   "Familie": "Family",
   "Voor leerkrachten": "For teachers",
-  "Leerkrachten": "Teachers",
   "Leerlijn": "Learning path",
   "Benodigdheden": "Materials",
   "Privacy": "Privacy",
@@ -1307,7 +1321,14 @@
   "Gebruik": "Use",
   "README": "README",
   "Platform": "Platform",
-  "Pythia": "Pythia",
+  "Bordboek": "Board book",
+  "Start bordboek": "Start board book",
+  "Download syllabus": "Download syllabus",
+  "Leerplatform en bordboek": "Learning platform and board book",
+  "Gebruik het leerplatform voor de oefeningen. Het bordboek is bedoeld voor klassikaal gebruik op het smartboard en toont dezelfde syllabus naast de Python-editor.": "Use the learning platform for the exercises. The board book is intended for whole-class use on the smartboard and shows the same syllabus alongside the Python editor.",
+  "Bordboekprototype voor de klas": "Board book prototype for the classroom",
+  "Het bordboek is de versie voor het smartboard: je ziet dezelfde syllabuspagina als de leerlingen op papier, kunt erop schrijven en opent de Python-editor ernaast. Pagina’s, aantekeningen en code worden per klas bewaard op dit toestel wanneer je op Opslaan klikt.": "The board book is the smartboard version: you see the same syllabus page as the students have on paper, can write on it and open the Python editor alongside it. Pages, annotations and code are stored per class on this device when you press Save.",
+  "Dit is een functioneel prototype. Automatisch bewaren op de achtergrond gebeurt nog niet. Touch, stylus en smartboardgebruik worden nog getest; gebruik voorlopig alleen vertrouwde lescode.": "This is a functional prototype. Automatic background saving is not available yet. Touch, stylus and smartboard use are still being tested; for now, only run trusted lesson code.",
   "Start leerplatform": "Start learning platform",
   "Start platform": "Start platform",
   "Menu": "Menu",
@@ -1315,8 +1336,6 @@
   "Lees README": "Read README",
   "Leerplatform": "Learning platform",
   "Onderzoeksplatform": "Research platform",
-  "Oefeningmaker": "Exercise builder",
-  "Open oefeningmaker": "Open exercise builder",
   "Plaats in de leerlijn": "Place in the learning path",
   "Van platformen naar projecten.": "From platforms to projects.",
   "De platformen bouwen het computationeel denken op. De projecten gebruiken dat denken in een vakoverschrijdende opdracht waarin leerlingen bouwen, meten, testen en besluiten.": "The platforms build computational thinking. The projects use that thinking in a cross-curricular assignment in which students build, measure, test and conclude.",
@@ -1359,12 +1378,11 @@
   "Contact": "Contact",
   "Python in de Klas, volledig in de browser": "Python in the Classroom, fully in the browser",
   "Delphi is de Python-tegenhanger van JS in de Klas: een eenvoudige browseromgeving waarin leerlingen code schrijven, uitvoeren, testen en bijsturen. Geen account nodig, geen installatie op leerlingentoestellen, wel genoeg structuur om er in de klas echt mee te werken.": "Delphi is the Python counterpart to JS in de Klas: a simple browser environment where students write, run, test and improve code. No account required, no installation on student devices, but enough structure to use it seriously in class.",
-  "Open Pythia oefeningmaker": "Open Pythia exercise builder",
   "Python stap voor stap": "Python step by step",
   "hoofdstukken: sequentie, selectie en herhalingen": "chapters: sequence, selection and loops",
   "opdrachten en theoriebouwstenen": "assignments and theory building blocks",
   "oefeningen met automatische feedback": "exercises with automatic feedback",
-  "Leerlingen oefenen met datatypes, variabelen, voorwaarden, lussen en invoer. De opdrachten koppelen Python aan computationeel denken, wiskundige redeneringen en kleine herkenbare situaties.": "Students practise data types, variables, conditions, loops and input. The assignments connect Python to computational thinking, mathematical reasoning and small recognisable situations.",
+  "Leerlingen oefenen met datatypes, variabelen, voorwaarden, lussen en invoer. De opdrachten koppelen Python aan computationeel denken, wiskundige opdrachten en uitdagende puzzels.": "Students practise data types, variables, conditions, loops and input. The assignments connect Python to computational thinking, mathematical exercises and challenging puzzles.",
   "Wat zit er in Delphi?": "What is included in Delphi?",
   "De basis is herkenbaar: leerlingen krijgen links hun code, rechts de opdracht, onderaan directe feedback. Via het menu ga je stap voor stap doorheen de cursus.": "The setup is familiar: students see their code on the left, the assignment on the right and direct feedback at the bottom. The menu guides them step by step through the course.",
   "Pythonruntime in de browser": "Python runtime in the browser",
@@ -1379,29 +1397,20 @@
   "Code, pogingen, werktijd en evaluatiestatus worden lokaal bewaard zonder account of cloud.": "Code, attempts, working time and evaluation status are stored locally without an account or cloud.",
   "Leerlingen kunnen een reeks exporteren als rapport met code, feedback en rubriek voor de leerkracht.": "Students can export a series as a report with code, feedback and a rubric for the teacher.",
   "Een ingebouwd Python-formularium helpt leerlingen zonder dat ze de opdracht moeten verlaten.": "A built-in Python reference sheet helps students without leaving the assignment.",
-  "Pythia voor lesgevers": "Pythia for teachers",
-  "Pythia is het hulpstuk voor wie zelf oefeningen wil maken. Je vult de oefening, startcode, oplossing en testcases in; Pythia zet dat om naar een map die in deze structuur past.": "Pythia is the helper tool for creating your own exercises. You enter the assignment, starter code, solution and test cases; Pythia turns them into a folder that fits this structure.",
-  "Maak een oefening met Pythia": "Create an exercise with Pythia",
-  "Bekijk catalogusbuilder": "View catalogue builder",
-  "Voor GitHub Pages": "For GitHub Pages",
-  "Host je de repository via GitHub Pages, dan open je Delphi rechtstreeks in de browser. Pas je oefeningen aan, bouw dan de catalogus opnieuw zodat de leeromgeving weet wat er bestaat.": "Host the repository with GitHub Pages and Delphi opens directly in the browser. When you adapt exercises, rebuild the catalogue so the learning environment knows what exists.",
-  "Lees de technische uitleg": "Read the technical notes",
   "Aan de slag": "Getting started",
-  "Deze pagina is de voordeur. De eigenlijke leeromgeving staat apart, zodat leerlingen snel kunnen starten en jij tegelijk een duidelijke projectpagina hebt voor GitHub Pages.": "This page is the front door. The actual learning environment is separate, so students can start quickly while you still have a clear project page for GitHub Pages.",
-  "Open de leeromgeving.": "Open the learning environment.",
-  "Klik op": "Click",
-  "en kies een hoofdstuk of oefening via het menu.": "and choose a chapter or exercise from the menu.",
-  "Schrijf en test Python-code.": "Write and test Python code.",
-  "Voer code uit, gebruik": "Run code, use",
-  "waar nodig en bekijk de testcasefeedback.": "where needed and inspect the test case feedback.",
-  "Bewaar bewijs van leren.": "Save evidence of learning.",
-  "Gebruik de PDF-export om code, feedback en rubriek te verzamelen.": "Use the PDF export to collect code, feedback and the rubric.",
-  "Breid de inhoud uit.": "Extend the content.",
-  "Maak nieuwe oefeningen met Pythia of voeg bestaande Dodona-achtige content toe en bouw daarna de catalogus opnieuw.": "Create new exercises with Pythia or add existing Dodona-like content, then rebuild the catalogue."
+  "In de klas ga je aan de slag met het bordboek en de leeromgeving. In het bordboek vind je de PDF, maak je samen met jouw leerlingen annotaties en kan je voorbeeldcode uitvoeren. In de leeromgeving vind je honderden oefeningen om de leerstof in te oefenen en te evalueren.": "In class, you work with the board book and the learning environment. The board book contains the PDF, lets you make annotations together with your students and run example code. The learning environment contains hundreds of exercises for practising and assessing the subject matter.",
+  "Start met het bordboek.": "Start with the board book.",
+  "Projecteer de syllabus, kies een klas en navigeer samen naar de juiste pagina.": "Project the syllabus, choose a class and navigate together to the right page.",
+  "Annoteer en voer voorbeeldcode uit.": "Annotate and run example code.",
+  "Schrijf op de PDF, markeer belangrijke begrippen en open codevoorbeelden in de editor om ze samen uit te voeren.": "Write on the PDF, highlight important concepts and open code examples in the editor to run them together.",
+  "Laat leerlingen oefenen.": "Let students practise.",
+  "Open daarna het leerplatform en laat leerlingen zelfstandig werken aan oefeningen die bij de besproken leerstof passen.": "Then open the learning platform and let students work independently on exercises that match the material discussed.",
+  "Evalueer en stuur bij.": "Assess and adjust.",
+  "Gebruik de automatische feedback en PDF-export om resultaten te bespreken, te evalueren en de volgende lesstap te bepalen.": "Use the automatic feedback and PDF export to discuss and assess results and determine the next lesson step."
 };
   const META = {
   "title": "Project Delphi - Python in the Classroom",
-  "description": "Project Delphi is a browser environment for Python, computational thinking and automatic feedback in class."
+  "description": "Project Delphi is a browser environment for Python and automatic feedback, with a board book for whole-class use."
 };
   const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION"]);
   const TEXT_NODES = [];

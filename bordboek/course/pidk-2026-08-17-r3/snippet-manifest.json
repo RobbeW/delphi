@@ -1,0 +1,811 @@
+{
+  "schemaVersion": "1.2.0",
+  "manifestRevision": "0.3.0",
+  "course": {
+    "courseId": "python-in-de-klas",
+    "courseRevisionId": "pidk-2026-08-17-r3",
+    "title": "Python in de Klas",
+    "language": "nl-BE"
+  },
+  "coordinateSpace": {
+    "unit": "page_fraction",
+    "origin": "top_left",
+    "xAxis": "right",
+    "yAxis": "down",
+    "referenceBox": "rotated_crop_box"
+  },
+  "sourceNormalization": {
+    "id": "word-code-v1",
+    "encoding": "utf-8",
+    "lineEndings": "lf",
+    "terminalNewline": "absent",
+    "trailingWhitespace": "preserve",
+    "paragraphJoin": "single_lf",
+    "nonCodeExclusions": "reviewed_line_slices_only"
+  },
+  "sources": {
+    "docx": {
+      "path": "source_materials/E_updated_syllabus_word.docx",
+      "sha256": "502CCB39E8A8B2F8C3B2B2D983A70F0CB6D87729DC1B3CF17366782D9825E681",
+      "bytes": 127388
+    },
+    "pdf": {
+      "path": "source_materials/G_corrected_syllabus_pdf.pdf",
+      "sha256": "AEDF8170AAC47E7FB453D8232AEDCF4540E0F372876D143F844F28B102066199",
+      "bytes": 776114,
+      "pageCount": 60
+    }
+  },
+  "pages": [
+    { "id": "pidk-page-f53712be-b922-500f-ac24-7295ab169497", "pageNumber": 1 },
+    { "id": "pidk-page-56f7b5bb-d78b-5856-a058-58bc9a9ce10f", "pageNumber": 2 },
+    { "id": "pidk-page-1e98d5cb-1bbe-545a-9fc5-87862311c0c1", "pageNumber": 3 },
+    { "id": "pidk-page-7dda654f-a8d0-5284-81cf-a6c445313221", "pageNumber": 4 },
+    { "id": "pidk-page-e725ca6c-56d1-5446-9f02-abfadc1acb74", "pageNumber": 5 },
+    { "id": "pidk-page-37120f6d-d85a-5bf5-b8fa-9eca68212829", "pageNumber": 6 },
+    { "id": "pidk-page-f7cd1355-92e0-5072-9e0f-4c96f707ae1b", "pageNumber": 7 },
+    { "id": "pidk-page-349dc3d9-ef3d-52e4-b5d8-9350417c210b", "pageNumber": 8 },
+    { "id": "pidk-page-9984dd81-0ce0-5d9c-8534-56193f38a85a", "pageNumber": 9 },
+    { "id": "pidk-page-b2587e03-fe7e-591a-ad6e-65213013f6a8", "pageNumber": 10 },
+    { "id": "pidk-page-3fa74e45-ed40-5dfa-8179-85091979ea1a", "pageNumber": 11 },
+    { "id": "pidk-page-f9fcd43a-475a-53e8-a55e-5f2d3011ecb8", "pageNumber": 12 },
+    { "id": "pidk-page-919ea4a9-8542-5093-be07-2a51d8bdb5a4", "pageNumber": 13 },
+    { "id": "pidk-page-fb78abaa-698f-5fa1-b5ef-fa7d8e2a14ed", "pageNumber": 14 },
+    { "id": "pidk-page-a50a80a4-89ce-5134-9c5a-491f1502d7ba", "pageNumber": 15 },
+    { "id": "pidk-page-4274b854-9899-5de4-bd27-4d3b68bac379", "pageNumber": 16 },
+    { "id": "pidk-page-59af9240-d452-5288-8fdd-fe7d71e9efa6", "pageNumber": 17 },
+    { "id": "pidk-page-94dc8a22-f1c0-5887-b401-5c16cc2b48f0", "pageNumber": 18 },
+    { "id": "pidk-page-8bfd8813-31f5-5645-ae2a-0e95ba17fe55", "pageNumber": 19 },
+    { "id": "pidk-page-f12efbd6-f836-5330-b0e2-dbae87f144b1", "pageNumber": 20 },
+    { "id": "pidk-page-b1280f71-420b-5908-b26b-fd77587af493", "pageNumber": 21 },
+    { "id": "pidk-page-749561e6-2341-5b89-b025-0b512970c1c5", "pageNumber": 22 },
+    { "id": "pidk-page-b8201dfc-9395-5ce2-9ba0-99cce2dc9038", "pageNumber": 23 },
+    { "id": "pidk-page-11071ae7-d5bc-59a6-aeed-84006246016a", "pageNumber": 24 },
+    { "id": "pidk-page-95515d3b-989d-5e64-b889-757831f8f6a7", "pageNumber": 25 },
+    { "id": "pidk-page-0780391d-7d45-5404-b1c8-5dd20be6d536", "pageNumber": 26 },
+    { "id": "pidk-page-a1ad40ab-f238-521f-83d2-aa4e9acebddf", "pageNumber": 27 },
+    { "id": "pidk-page-c533bc85-81ce-59d6-8c16-46d665a722ab", "pageNumber": 28 },
+    { "id": "pidk-page-e02a1839-95ac-5cc5-8c3d-fc3883efdbed", "pageNumber": 29 },
+    { "id": "pidk-page-985e3f72-6967-526d-8042-601d86f76b88", "pageNumber": 30 },
+    { "id": "pidk-page-6f89c49d-eb71-55c0-9ea8-929d1c580bd3", "pageNumber": 31 },
+    { "id": "pidk-page-e0039f1d-e5ae-598e-85bd-a99be7a6223b", "pageNumber": 32 },
+    { "id": "pidk-page-f95273b4-130e-5a1d-9dba-9f2b46923246", "pageNumber": 33 },
+    { "id": "pidk-page-4eb9f63f-d2e8-569a-86fb-3ef3810d17c6", "pageNumber": 34 },
+    { "id": "pidk-page-69e69f99-a908-598a-9e4e-d7104126462b", "pageNumber": 35 },
+    { "id": "pidk-page-ccc12532-f126-5a46-b906-ea0fe49b8514", "pageNumber": 36 },
+    { "id": "pidk-page-45f7379b-ac5b-503c-978d-980d5e196968", "pageNumber": 37 },
+    { "id": "pidk-page-47ca0d56-45d7-54a9-942e-7ea71283d3a2", "pageNumber": 38 },
+    { "id": "pidk-page-527903b3-e939-524f-aa2d-27f671b437a4", "pageNumber": 39 },
+    { "id": "pidk-page-060eb7be-2c29-5ae0-b765-184ab2e86a85", "pageNumber": 40 },
+    { "id": "pidk-page-10204cd6-c026-5e06-b062-ef393f22c9f3", "pageNumber": 41 },
+    { "id": "pidk-page-112eb6bb-a569-590a-b037-fef99604438a", "pageNumber": 42 },
+    { "id": "pidk-page-402c213b-a9d5-54b9-913d-46e90cb31c9b", "pageNumber": 43 },
+    { "id": "pidk-page-45b10bf1-04ac-5142-9b59-18cdd631c393", "pageNumber": 44 },
+    { "id": "pidk-page-f3b2af94-9b96-50f6-be92-1fae024949f7", "pageNumber": 45 },
+    { "id": "pidk-page-9b2e79a5-b77b-50e6-8870-8d23bca0f5ab", "pageNumber": 46 },
+    { "id": "pidk-page-8de1d10c-28a1-59dc-b7de-991dec96f16c", "pageNumber": 47 },
+    { "id": "pidk-page-f4a4a02b-3b65-5464-9d4b-ffdd0d493c21", "pageNumber": 48 },
+    { "id": "pidk-page-4f17527f-a3f0-55cb-8b77-2aaea58ad1a4", "pageNumber": 49 },
+    { "id": "pidk-page-5eefc8c6-8665-5ae0-b1cc-96470c56c2c0", "pageNumber": 50 },
+    { "id": "pidk-page-fdca9938-8056-5359-b8d9-611c43aeaeb9", "pageNumber": 51 },
+    { "id": "pidk-page-aa290fef-1b21-5df4-8b3a-16fb10beac03", "pageNumber": 52 },
+    { "id": "pidk-page-110f178e-13dc-5d55-b9bc-d52d68aefdf0", "pageNumber": 53 },
+    { "id": "pidk-page-b614852c-164f-57f8-b223-b23ae4295fe4", "pageNumber": 54 },
+    { "id": "pidk-page-42e22403-1e39-5177-936c-ce047e8712a2", "pageNumber": 55 },
+    { "id": "pidk-page-b22d1490-5f92-5851-a37a-d464c991e04d", "pageNumber": 56 },
+    { "id": "pidk-page-e9022d02-5829-5205-9a90-4af056cdb825", "pageNumber": 57 },
+    { "id": "pidk-page-6402f989-283f-59fb-a583-2b7186199bd9", "pageNumber": 58 },
+    { "id": "pidk-page-4c146da9-ca9d-52f4-8368-ab9fc2218d6f", "pageNumber": 59 },
+    { "id": "pidk-page-d42dbd0b-99c4-51ff-91e8-1246c23783e6", "pageNumber": 60 }
+  ],
+  "chapters": [
+    { "id": "pidk-chapter-3", "title": "De sequentie", "startPageNumber": 14, "endPageNumber": 21 },
+    { "id": "pidk-chapter-4", "title": "De selectie", "startPageNumber": 22, "endPageNumber": 32 },
+    { "id": "pidk-chapter-5", "title": "Herhalingen", "startPageNumber": 33, "endPageNumber": 53 }
+  ],
+  "snippets": [
+    {
+      "id": "pidk-c05-range-demo",
+      "title": "Code 5.2 – bereik of range",
+      "role": "demonstration",
+      "source": {
+        "pageId": "pidk-page-4eb9f63f-d2e8-569a-86fb-3ef3810d17c6",
+        "pageIndex": 33,
+        "pageNumber": 34,
+        "heading": "Code 5.2 – bereik of range",
+        "visibleCodeId": "5.2",
+        "wordLocator": "body/p683 caption; body/p684 code"
+      },
+      "hotspot": {
+        "rect": { "x": 0.114728, "y": 0.625131, "width": 0.761658, "height": 0.080340 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Open Code 5.2 – bereik of range in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "fragments": [
+        {
+          "id": "main",
+          "label": "Bereik of range",
+          "language": "python",
+          "starterCode": "startjaar = int(input(\"Geef het startjaar in: \"))\nstartleeftijd = int(input(\"Geef de startleeftijd in: \"))\nfor i in range(3):\n    print(\"In\", startjaar + i, \"ben ik\", startleeftijd + i, \"jaar.\")",
+          "sourceTextSha256": "04BCAD5C11A3DAE41F66B75781FFBA486518696EE0E80E9D38601EC88F289987",
+          "sourceProvenance": {
+            "sourceKind": "docx_body_paragraphs_zero_based",
+            "normalizationId": "word-code-v1",
+            "wordParagraphSlices": [{ "paragraphIndex": 684, "startLine": 1, "endLine": 4 }],
+            "joinWith": "\n",
+            "derivation": "exact_lines"
+          },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": {
+            "kind": "exact_stdout",
+            "fixtureId": "classroom-default",
+            "stdout": "In 2024 ben ik 16 jaar.\nIn 2025 ben ik 17 jaar.\nIn 2026 ben ik 18 jaar.\n"
+          }
+        }
+      ],
+      "actions": ["open", "edit", "run", "reset", "diagnose", "reveal"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": [],
+        "input": {
+          "mode": "queued",
+          "defaultFixtureId": "classroom-default",
+          "fixtures": [{ "id": "classroom-default", "label": "Startjaar 2024, leeftijd 16", "lines": ["2024", "16"] }]
+        },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "none"
+      },
+      "revealPolicy": {
+        "mode": "teacher_controlled",
+        "levels": [{ "id": "expected-output", "fragmentId": "main", "kind": "expected_result", "label": "Toon de verwachte uitvoer", "content": "Drie regels voor 2024–2026 met leeftijden 16–18." }]
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "pidk-c04-boolean-prediction",
+      "title": "Oefening 4.1 · Booleaanse uitdrukkingen voorspellen",
+      "role": "prediction",
+      "source": {
+        "pageId": "pidk-page-11071ae7-d5bc-59a6-aeed-84006246016a",
+        "pageIndex": 23,
+        "pageNumber": 24,
+        "heading": "Oefening 4.1 · Booleaanse uitdrukkingen voorspellen",
+        "visibleExerciseId": "4.1",
+        "wordLocator": "body/p536 heading; body/p538-p547 code and response region"
+      },
+      "hotspot": {
+        "rect": { "x": 0.118961, "y": 0.215686, "width": 0.762061, "height": 0.552535 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Open Oefening 4.1 in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "sharedPrelude": {
+        "id": "shared-prelude",
+        "language": "python",
+        "code": "a = 6\nb = 7",
+        "sourceTextSha256": "A2DDFBC651754D52487034D842D063A9AE5E74D20291221BACFCDD23034729BC",
+        "sourceProvenance": {
+          "sourceKind": "docx_body_paragraphs_zero_based",
+          "normalizationId": "word-code-v1",
+          "wordParagraphSlices": [{ "paragraphIndex": 538, "startLine": 1, "endLine": 2 }],
+          "joinWith": "\n",
+          "derivation": "exact_lines"
+        },
+        "editable": false
+      },
+      "fragments": [
+        {
+          "id": "expr-1",
+          "label": "Uitdrukking 1",
+          "language": "python",
+          "starterCode": "print(a == 6) ",
+          "sourceTextSha256": "4188E1A9459533D26EF32C24F29B6A7599351D91AE2C2608106BBD750668F8AF",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 538, "startLine": 4, "endLine": 4 }], "joinWith": "\n", "derivation": "exact_lines" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "True\n" }
+        },
+        {
+          "id": "expr-2",
+          "label": "Uitdrukking 2",
+          "language": "python",
+          "starterCode": "print(a == 7)",
+          "sourceTextSha256": "4A0486509442E236178D07ADE460E62DF2FD357EB173531DD9AE136C37CB5A28",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 540, "startLine": 2, "endLine": 2 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "False\n" }
+        },
+        {
+          "id": "expr-3",
+          "label": "Uitdrukking 3",
+          "language": "python",
+          "starterCode": "print(a == 6 and b == 7)",
+          "sourceTextSha256": "45105A84D8DA8742C63C97EA9D91AF04BC2ACC4275D9B76C9DAE74A7E9E21EF9",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 541, "startLine": 3, "endLine": 3 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "True\n" }
+        },
+        {
+          "id": "expr-4",
+          "label": "Uitdrukking 4",
+          "language": "python",
+          "starterCode": "print(a == 7 and b == 7)",
+          "sourceTextSha256": "00D4D07FD2F36A4FD6EB32211955AC05DE33AFF2E1D731877A93328643233B4E",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 542, "startLine": 3, "endLine": 3 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "False\n" }
+        },
+        {
+          "id": "expr-5",
+          "label": "Uitdrukking 5",
+          "language": "python",
+          "starterCode": "print(a == 7 or b == 7)",
+          "sourceTextSha256": "04A4B7B5185D96BDB72B154EB688D3B531C5E9E402E95FDC930DCB2169A76E9D",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 543, "startLine": 3, "endLine": 3 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "True\n" }
+        },
+        {
+          "id": "expr-6",
+          "label": "Uitdrukking 6",
+          "language": "python",
+          "starterCode": "print(not a == 6 or b == 7)",
+          "sourceTextSha256": "35CEDCAB2E2C205CD7F335E05053FC35CD2ACCDB9A6D62D63CCC4A400ED62300",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 544, "startLine": 3, "endLine": 3 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "True\n" }
+        },
+        {
+          "id": "expr-7",
+          "label": "Uitdrukking 7",
+          "language": "python",
+          "starterCode": "print(a == 7 or b == 6)",
+          "sourceTextSha256": "0560AFD1BCF9C3DC9E294C4CC97A247D55C8082E28E021882B508DCB011ECAC7",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 545, "startLine": 3, "endLine": 3 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "False\n" }
+        },
+        {
+          "id": "expr-8",
+          "label": "Uitdrukking 8",
+          "language": "python",
+          "starterCode": "print(not (a == 6 or b == 7))",
+          "sourceTextSha256": "953C506219D3E2FB048381297E2FA6CB01F4C48EBF980ED37A57D2505F1FE0EC",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 546, "startLine": 3, "endLine": 3 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": false,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "hidden_until_run_or_reveal",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "False\n" }
+        }
+      ],
+      "actions": ["open", "run", "run_all", "reset", "diagnose", "reveal"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": [],
+        "input": { "mode": "none", "fixtures": [] },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "none"
+      },
+      "runAllPolicy": {
+        "fragmentOrder": ["expr-1", "expr-2", "expr-3", "expr-4", "expr-5", "expr-6", "expr-7", "expr-8"],
+        "requireAllFragmentsRunnable": true,
+        "requireAllEditGuardsPass": true,
+        "freshGlobalsPerFragment": true,
+        "stopOnFailure": true
+      },
+      "revealPolicy": {
+        "mode": "prediction",
+        "levels": [
+          { "id": "answer-1", "fragmentId": "expr-1", "kind": "expected_result", "label": "Toon antwoord 1", "content": "True" },
+          { "id": "answer-2", "fragmentId": "expr-2", "kind": "expected_result", "label": "Toon antwoord 2", "content": "False" },
+          { "id": "answer-3", "fragmentId": "expr-3", "kind": "expected_result", "label": "Toon antwoord 3", "content": "True" },
+          { "id": "answer-4", "fragmentId": "expr-4", "kind": "expected_result", "label": "Toon antwoord 4", "content": "False" },
+          { "id": "answer-5", "fragmentId": "expr-5", "kind": "expected_result", "label": "Toon antwoord 5", "content": "True" },
+          { "id": "answer-6", "fragmentId": "expr-6", "kind": "expected_result", "label": "Toon antwoord 6", "content": "True" },
+          { "id": "answer-7", "fragmentId": "expr-7", "kind": "expected_result", "label": "Toon antwoord 7", "content": "False" },
+          { "id": "answer-8", "fragmentId": "expr-8", "kind": "expected_result", "label": "Toon antwoord 8", "content": "False" }
+        ]
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "pidk-c04-condition-debugging",
+      "title": "Oefening 4.3 · Voorwaarden debuggen",
+      "role": "debugging",
+      "source": {
+        "pageId": "pidk-page-0780391d-7d45-5404-b1c8-5dd20be6d536",
+        "pageIndex": 25,
+        "pageNumber": 26,
+        "heading": "Oefening 4.3 · Voorwaarden debuggen",
+        "visibleExerciseId": "4.3",
+        "wordLocator": "body/p569 heading; code lines selected from body/p571,p573,p575,p577"
+      },
+      "hotspot": {
+        "rect": { "x": 0.118961, "y": 0.073689, "width": 0.762061, "height": 0.847325 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Open Oefening 4.3 in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "fragments": [
+        {
+          "id": "fault-1",
+          "label": "Fragment 1",
+          "language": "python",
+          "starterCode": "# Fragment 1\nlengte = 1.2\nif lengte > 1.0 and <= 1.9:\n    print(\"Je mag op de attractie.\")",
+          "sourceTextSha256": "335760803D5E904487CC375649A90FC82985DD381500F068C8EFEA74AD104503",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 571, "startLine": 1, "endLine": 4 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": { "kind": "expected_error", "error": { "type": "SyntaxError", "messageContains": "invalid syntax", "line": 3 } }
+        },
+        {
+          "id": "fault-2",
+          "label": "Fragment 2",
+          "language": "python",
+          "starterCode": "# Fragment 2\ngetal = 27\nif getal => 28:\n    print(\"Het getal is groter of gelijk aan 28!\")",
+          "sourceTextSha256": "20247AFAC2E1CB0DC023EA8C0F72A40983D66FD1F3AC523A786BF5E51D272070",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 573, "startLine": 1, "endLine": 4 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": { "kind": "expected_error", "error": { "type": "SyntaxError", "messageContains": "invalid syntax", "line": 3 } }
+        },
+        {
+          "id": "fault-3",
+          "label": "Fragment 3",
+          "language": "python",
+          "starterCode": "# Fragment 3\ngetal = 27\nif getal > 30:\n    b = getal + 2\n    print(b)\nelse getal <= 30:\n    print(getal)",
+          "sourceTextSha256": "37A29C4DB2B014A572077F59249F6C14F4472C740F98CFC8630C7DBA1B96D114",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 575, "startLine": 1, "endLine": 7 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": { "kind": "expected_error", "error": { "type": "SyntaxError", "messageContains": "expected ':'", "line": 6 } }
+        },
+        {
+          "id": "valid-control",
+          "label": "Fragment 4",
+          "language": "python",
+          "starterCode": "# Fragment 4\nleeftijd = 17\nif leeftijd >= 18:\n    print(\"Hoera, u wordt gezien als een volwassene!\")\nelse:\n    print(\"U bent nog niet volwassen...\")",
+          "sourceTextSha256": "A39D3B6BC8AAF20C35C366A70183BC2AC3842B3BEB62E97F22A9118DE316F5C9",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 577, "startLine": 1, "endLine": 6 }], "joinWith": "\n", "derivation": "response_rules_removed" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "U bent nog niet volwassen...\n" }
+        }
+      ],
+      "actions": ["open", "edit", "run", "reset", "diagnose", "reveal"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": [],
+        "input": { "mode": "none", "fixtures": [] },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "none"
+      },
+      "revealPolicy": {
+        "mode": "correction",
+        "levels": [
+          { "id": "diagnosis-1", "fragmentId": "fault-1", "kind": "diagnosis", "label": "Toon diagnose 1", "content": "Beide vergelijkingen rond and hebben een linkeroperand nodig." },
+          { "id": "diagnosis-2", "fragmentId": "fault-2", "kind": "diagnosis", "label": "Toon diagnose 2", "content": "Python schrijft groter dan of gelijk aan als >=." },
+          { "id": "diagnosis-3", "fragmentId": "fault-3", "kind": "diagnosis", "label": "Toon diagnose 3", "content": "Regel 6 is geen geldige Python-kop: else heeft geen voorwaarde; elif heeft wel een voorwaarde en vereist een dubbele punt." },
+          { "id": "diagnosis-4", "fragmentId": "valid-control", "kind": "diagnosis", "label": "Toon diagnose 4", "content": "geen fout" }
+        ]
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "pidk-c03-composite-output",
+      "title": "Oefening 3.11 · Een samengestelde uitvoer",
+      "role": "completion",
+      "source": {
+        "pageId": "pidk-page-b1280f71-420b-5908-b26b-fd77587af493",
+        "pageIndex": 20,
+        "pageNumber": 21,
+        "heading": "Oefening 3.11 · Een samengestelde uitvoer",
+        "visibleExerciseId": "3.11",
+        "wordLocator": "body/p467 heading; body/p469 starter"
+      },
+      "hotspot": {
+        "rect": { "x": 0.118961, "y": 0.394729, "width": 0.762061, "height": 0.160942 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Open Oefening 3.11 in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "fragments": [
+        {
+          "id": "main",
+          "label": "Samengestelde uitvoer",
+          "language": "python",
+          "starterCode": "import math\nx = math.pi\ny = 2\nresultaat = ...",
+          "sourceTextSha256": "14FF5880067083407EF6146338B452FC16D90E2DE70740DB618F7221C40BED10",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 469, "startLine": 1, "endLine": 4 }], "joinWith": "\n", "derivation": "exact_lines" },
+          "editable": true,
+          "execution": "blocked_until_valid",
+          "safetyClass": "placeholder_gated",
+          "outputPresentation": "standard",
+          "editGuards": [
+            { "id": "remove-ellipsis", "kind": "literal_absent", "literal": "..." },
+            { "id": "require-print", "kind": "required_call", "function": "print", "minOccurrences": 1 }
+          ],
+          "expectedResult": { "kind": "target_stdout", "stdout": "3.14159 met 2 vermenigvuldigen is 6.283\n" }
+        }
+      ],
+      "actions": ["open", "edit", "run", "reset", "diagnose", "reveal"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": ["math"],
+        "input": { "mode": "none", "fixtures": [] },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "none"
+      },
+      "revealPolicy": {
+        "mode": "teacher_controlled",
+        "levels": [
+          { "id": "completion-hint", "fragmentId": "main", "kind": "hint", "label": "Toon een hint", "content": "Vervang de placeholder en gebruik één print()-aanroep." },
+          { "id": "target-output", "fragmentId": "main", "kind": "target", "label": "Toon de doeluitvoer", "content": "3.14159 met 2 vermenigvuldigen is 6.283" }
+        ]
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "pidk-c05-paper-folding",
+      "title": "Code 5.5 - Papier vouwen tot de maan",
+      "role": "demonstration",
+      "source": {
+        "pageId": "pidk-page-4f17527f-a3f0-55cb-8b77-2aaea58ad1a4",
+        "pageIndex": 48,
+        "pageNumber": 49,
+        "heading": "Code 5.5 - Papier vouwen tot de maan",
+        "visibleCodeId": "5.5",
+        "wordLocator": "body/p1099 caption; fragments body/p1100-p1103, p1105-p1108 and p1111"
+      },
+      "hotspot": {
+        "rect": { "x": 0.114728, "y": 0.293828, "width": 0.766311, "height": 0.489785 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Open Code 5.5 - Papier vouwen tot de maan in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "fragments": [
+        {
+          "id": "for-placeholder",
+          "label": "Begrensde herhaling met placeholder",
+          "language": "python",
+          "starterCode": "dikte = 0.01\nfor i in range(????): \n    dikte = dikte * 2\n    print(dikte) ",
+          "sourceTextSha256": "6E91253574A270ECCE1C1EC9CEB054C6C2080E20F31C16ABF0D2722218512D69",
+          "sourceProvenance": {
+            "sourceKind": "docx_body_paragraphs_zero_based",
+            "normalizationId": "word-code-v1",
+            "wordParagraphSlices": [
+              { "paragraphIndex": 1100, "startLine": 1, "endLine": 1 },
+              { "paragraphIndex": 1101, "startLine": 1, "endLine": 1 },
+              { "paragraphIndex": 1102, "startLine": 1, "endLine": 1 },
+              { "paragraphIndex": 1103, "startLine": 1, "endLine": 1 }
+            ],
+            "joinWith": "\n",
+            "derivation": "joined_paragraphs"
+          },
+          "editable": true,
+          "execution": "blocked_until_valid",
+          "safetyClass": "placeholder_gated",
+          "outputPresentation": "standard",
+          "editGuards": [
+            { "id": "remove-question-marks", "kind": "literal_absent", "literal": "????" },
+            { "id": "bounded-range", "kind": "bounded_integer_range_argument", "function": "range", "argumentIndex": 0, "minimum": 0, "maximum": 1000 }
+          ],
+          "expectedResult": { "kind": "none", "reason": "De bron geeft geen canonieke uitvoer voordat een begrensd geheel bereik is ingevuld." }
+        },
+        {
+          "id": "while-output",
+          "label": "Voorwaardelijke herhaling met uitvoer",
+          "language": "python",
+          "starterCode": "dikte = 0.01\nwhile dikte < 384400 * 10 ** 5: \n    dikte = dikte * 2\n    print(dikte) ",
+          "sourceTextSha256": "3065414163B4EF5406729DB7C1B9D862ABA17DBAB17459FE3ED80C5FFBD88482",
+          "sourceProvenance": {
+            "sourceKind": "docx_body_paragraphs_zero_based",
+            "normalizationId": "word-code-v1",
+            "wordParagraphSlices": [
+              { "paragraphIndex": 1105, "startLine": 1, "endLine": 1 },
+              { "paragraphIndex": 1106, "startLine": 1, "endLine": 1 },
+              { "paragraphIndex": 1107, "startLine": 1, "endLine": 1 },
+              { "paragraphIndex": 1108, "startLine": 1, "endLine": 1 }
+            ],
+            "joinWith": "\n",
+            "derivation": "joined_paragraphs"
+          },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "high_output",
+          "outputPresentation": "collapsed",
+          "editGuards": [],
+          "expectedResult": {
+            "kind": "invariant",
+            "invariant": {
+              "id": "fold-output-shape",
+              "description": "De lus stopt na 42 verdubbelingen; de lange uitvoer wordt samengevouwen weergegeven.",
+              "assertions": [
+                { "operator": "line_count_equals", "integer": 42 },
+                { "operator": "first_line_equals", "text": "0.02" },
+                { "operator": "last_line_equals", "text": "43980465111.04" }
+              ]
+            }
+          }
+        },
+        {
+          "id": "counter",
+          "label": "Voorwaardelijke herhaling met teller",
+          "language": "python",
+          "starterCode": "dikte = 0.01\nafstand_cm = 384400 * 100000\naantal = 0\n\nwhile dikte < afstand_cm:\n    dikte = dikte * 2\n    aantal = aantal + 1\n\nprint(aantal)",
+          "sourceTextSha256": "04068CFE4AA1E958A4154D5896C69C87FDF2DB904885D9F7B1EDEE01165B72FD",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 1111, "startLine": 1, "endLine": 9 }], "joinWith": "\n", "derivation": "exact_lines" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "42\n" }
+        }
+      ],
+      "actions": ["open", "edit", "run", "run_all", "reset", "diagnose", "reveal"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": [],
+        "input": { "mode": "none", "fixtures": [] },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "none"
+      },
+      "runAllPolicy": {
+        "fragmentOrder": ["for-placeholder", "while-output", "counter"],
+        "requireAllFragmentsRunnable": true,
+        "requireAllEditGuardsPass": true,
+        "freshGlobalsPerFragment": true,
+        "stopOnFailure": true
+      },
+      "revealPolicy": {
+        "mode": "invariants",
+        "levels": [
+          { "id": "range-hint", "fragmentId": "for-placeholder", "kind": "hint", "label": "Toon een veiligheidshint", "content": "Gebruik een letterlijk geheel getal binnen het toegelaten bereik; Run blijft geblokkeerd zolang ???? aanwezig is." },
+          { "id": "while-invariant", "fragmentId": "while-output", "kind": "invariant", "label": "Toon de uitvoervorm", "content": "42 regels; eerste regel 0.02; laatste regel 43980465111.04." },
+          { "id": "counter-result", "fragmentId": "counter", "kind": "expected_result", "label": "Toon het aantal vouwen", "content": "42" }
+        ]
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "pidk-c05-for-while-equivalence",
+      "title": "Code 5.6 – Kies voor de kortste methode",
+      "role": "demonstration",
+      "source": {
+        "pageId": "pidk-page-5eefc8c6-8665-5ae0-b1cc-96470c56c2c0",
+        "pageIndex": 49,
+        "pageNumber": 50,
+        "heading": "Code 5.6 – Kies voor de kortste methode",
+        "visibleCodeId": "5.6",
+        "wordLocator": "body/p1113 caption; table-column code body/p1116 and p1117"
+      },
+      "hotspot": {
+        "rect": { "x": 0.118558, "y": 0.074259, "width": 0.762884, "height": 0.177048 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Open Code 5.6 – Kies voor de kortste methode in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "fragments": [
+        {
+          "id": "for",
+          "label": "Begrensde herhaling",
+          "language": "python",
+          "starterCode": "som = 0\nfor i in range(10):\n    som = som + i**2\nprint(som)",
+          "sourceTextSha256": "08922854B2F254FD083DE1E18069C9FB005D0510DDDD3E4CEE5D7C95DA460418",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 1116, "startLine": 1, "endLine": 4 }], "joinWith": "\n", "derivation": "table_column_lines" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "285\n" }
+        },
+        {
+          "id": "while",
+          "label": "Voorwaardelijke herhaling",
+          "language": "python",
+          "starterCode": "som = 0\ni = 0\nwhile i < 10:\n    som = som + i**2\n    i = i + 1\nprint(som)",
+          "sourceTextSha256": "5505C9615135A99E22272AC207EB7B24A152D3215461AF51A5252AA2F57EA690",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 1117, "startLine": 1, "endLine": 6 }], "joinWith": "\n", "derivation": "table_column_lines" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "standard",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": { "kind": "exact_stdout", "stdout": "285\n" }
+        }
+      ],
+      "actions": ["open", "edit", "run", "run_all", "reset", "diagnose", "reveal"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": [],
+        "input": { "mode": "none", "fixtures": [] },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "none"
+      },
+      "runAllPolicy": {
+        "fragmentOrder": ["for", "while"],
+        "requireAllFragmentsRunnable": true,
+        "requireAllEditGuardsPass": true,
+        "freshGlobalsPerFragment": true,
+        "stopOnFailure": true
+      },
+      "revealPolicy": {
+        "mode": "teacher_controlled",
+        "levels": [
+          { "id": "for-result", "fragmentId": "for", "kind": "expected_result", "label": "Toon het resultaat van for", "content": "285" },
+          { "id": "while-result", "fragmentId": "while", "kind": "expected_result", "label": "Toon het resultaat van while", "content": "285" }
+        ]
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "pidk-c05-infinite-loop",
+      "title": "Oefening 5.14 · Een oneindige lus analyseren en herstellen",
+      "role": "unsafe_analysis",
+      "source": {
+        "pageId": "pidk-page-fdca9938-8056-5359-b8d9-611c43aeaeb9",
+        "pageIndex": 50,
+        "pageNumber": 51,
+        "heading": "Oefening 5.14 · Een oneindige lus analyseren en herstellen",
+        "visibleExerciseId": "5.14",
+        "wordLocator": "body/p1151 heading; body/p1153 intact unsafe source"
+      },
+      "hotspot": {
+        "rect": { "x": 0.118961, "y": 0.620391, "width": 0.762061, "height": 0.146261 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Analyseer Oefening 5.14 in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "fragments": [
+        {
+          "id": "unsafe-source",
+          "label": "Intacte oneindige lus",
+          "language": "python",
+          "starterCode": "i = 10\nwhile i > 0:\n    print(i)",
+          "sourceTextSha256": "6CD06A604A876EAC625A804EED53026A66A61C86B9649F7FFB8162FD161CC3A6",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 1153, "startLine": 1, "endLine": 3 }], "joinWith": "\n", "derivation": "exact_lines" },
+          "editable": true,
+          "execution": "blocked_source",
+          "safetyClass": "unsafe_source",
+          "outputPresentation": "diagnostic_only",
+          "editGuards": [],
+          "expectedResult": { "kind": "none", "reason": "De intacte bron is niet-terminerend en wordt niet uitgevoerd; er is geen bron-goedgekeurde correctie." }
+        }
+      ],
+      "actions": ["open", "edit", "reset", "diagnose", "reveal"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": [],
+        "input": { "mode": "none", "fixtures": [] },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "none"
+      },
+      "revealPolicy": {
+        "mode": "correction",
+        "levels": [{ "id": "loop-diagnosis", "fragmentId": "unsafe-source", "kind": "diagnosis", "label": "Toon waarom de lus niet stopt", "content": "i bepaalt de voorwaarde maar krijgt in de lus nooit een nieuwe waarde. Er wordt geen gecorrigeerde code onthuld." }]
+      },
+      "reviewStatus": "reviewed"
+    },
+    {
+      "id": "pidk-c05-random-dice-demo",
+      "title": "Voorbeeld — Vijf willekeurige dobbelsteenworpen",
+      "role": "demonstration",
+      "source": {
+        "pageId": "pidk-page-45b10bf1-04ac-5142-9b59-18cdd631c393",
+        "pageIndex": 43,
+        "pageNumber": 44,
+        "heading": "Voorbeeld — Vijf willekeurige dobbelsteenworpen",
+        "wordLocator": "body/p1000 caption; body/p1001 code"
+      },
+      "hotspot": {
+        "rect": { "x": 0.114728, "y": 0.303129, "width": 0.761658, "height": 0.105853 },
+        "buttonDock": "right_external_gutter_top",
+        "accessibleLabel": "Open Voorbeeld — Vijf willekeurige dobbelsteenworpen in het Python-lab",
+        "geometryReview": "reviewed"
+      },
+      "fragments": [
+        {
+          "id": "main",
+          "label": "Vijf dobbelsteenworpen",
+          "language": "python",
+          "starterCode": "import random\n\nfor i in range(5):\n    worp = random.randint(1, 6)\n    print(\"Worp\", i + 1, \"=\", worp)",
+          "sourceTextSha256": "46D31081D31C2213A98B1EC06417F24CAEA2EB2BE8D19BFBA4CB4A872FD1FFF6",
+          "sourceProvenance": { "sourceKind": "docx_body_paragraphs_zero_based", "normalizationId": "word-code-v1", "wordParagraphSlices": [{ "paragraphIndex": 1001, "startLine": 1, "endLine": 5 }], "joinWith": "\n", "derivation": "exact_lines" },
+          "editable": true,
+          "execution": "enabled",
+          "safetyClass": "nondeterministic",
+          "outputPresentation": "standard",
+          "editGuards": [],
+          "expectedResult": {
+            "kind": "invariant",
+            "invariant": {
+              "id": "five-dice-rolls",
+              "description": "Vijf genummerde worpen, elk met een waarde van 1 tot en met 6.",
+              "assertions": [
+                { "operator": "line_count_equals", "integer": 5 },
+                { "operator": "indexed_integer_range", "prefix": "Worp ", "separator": " = ", "indexStart": 1, "indexEnd": 5, "valueMin": 1, "valueMax": 6 }
+              ]
+            }
+          }
+        }
+      ],
+      "actions": ["open", "edit", "run", "reset", "diagnose", "reveal", "seed"],
+      "runPolicy": {
+        "autoRun": false,
+        "freshGlobals": true,
+        "timeoutMs": 5000,
+        "standardLibrary": ["random"],
+        "input": { "mode": "none", "fixtures": [] },
+        "output": { "maxLines": 2000, "maxBytes": 262144 },
+        "randomness": "teacher_seed_optional"
+      },
+      "revealPolicy": {
+        "mode": "invariants",
+        "levels": [{ "id": "dice-invariant", "fragmentId": "main", "kind": "invariant", "label": "Toon wat altijd waar is", "content": "Er zijn vijf regels, genummerd 1 tot en met 5; elke worp ligt tussen 1 en 6." }]
+      },
+      "reviewStatus": "reviewed"
+    }
+  ]
+}
