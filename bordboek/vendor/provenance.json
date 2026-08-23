@@ -31,6 +31,15 @@
       "license": "LicenseRef-Project-Owned-Contract"
     },
     {
+      "id": "delphi-favicon",
+      "sourcePath": "source_materials/B_python_exercises/favicon.png",
+      "destinationPath": "public/favicon.png",
+      "bytes": 2569,
+      "sha256": "FF79680366401C2095DD65FADABDAAF8BB4776E85D8FB26C3B585008062ABE15",
+      "version": "delphi-existing",
+      "license": "LicenseRef-Project-Owned-UI-Asset"
+    },
+    {
       "id": "pdfjs-module",
       "sourcePath": "source_materials/D_reference_bordboek/vendor/pdfjs/pdf.min.mjs",
       "destinationPath": "public/vendor/pdfjs/pdf.min.mjs",

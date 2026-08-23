@@ -1,13 +1,13 @@
 [
   {
-    "path": "bordboek/assets/index-BgEaloOU.css",
-    "bytes": 16615,
-    "sha256": "B71903DE53E475198CEEFB0E6E27BD087965F9072BF8ACF51CE6E4FD317F1855"
+    "path": "bordboek/assets/index-Ctd2lwCU.css",
+    "bytes": 16886,
+    "sha256": "9264599F3FE1049017E755A7A497C09E03EBF3C637F724098C7F43C2667B7017"
   },
   {
-    "path": "bordboek/assets/index-DA1etjdZ.js",
-    "bytes": 274889,
-    "sha256": "3F5A14899C26B88422680BED93E5F3D7BFD6FE6B4178E3BF2915151D8DE36E1D"
+    "path": "bordboek/assets/index-DH4oHHe2.js",
+    "bytes": 279435,
+    "sha256": "ACD9E964AF37C57FEECE632D7696268ABF9357CC81E0D86203670E81ADBB231D"
   },
   {
     "path": "bordboek/assets/runtime.worker-CF0VKO9t.js",
@@ -35,9 +35,14 @@
     "sha256": "AEDF8170AAC47E7FB453D8232AEDCF4540E0F372876D143F844F28B102066199"
   },
   {
+    "path": "bordboek/favicon.png",
+    "bytes": 2569,
+    "sha256": "FF79680366401C2095DD65FADABDAAF8BB4776E85D8FB26C3B585008062ABE15"
+  },
+  {
     "path": "bordboek/index.html",
-    "bytes": 566,
-    "sha256": "00C579707F534CB8017C86DDDD3B9AD3C7CB5C3DF099201863A31423FE357382"
+    "bytes": 661,
+    "sha256": "6A2C1AEEE100D33AAD7F71BEBE48BEAE86DA86F0C1E318D2B44C4D36C7823A3E"
   },
   {
     "path": "bordboek/vendor/pdfjs/LICENSE",
@@ -56,8 +61,8 @@
   },
   {
     "path": "bordboek/vendor/provenance.json",
-    "bytes": 4511,
-    "sha256": "C90228BE0F1CCA2030019E9CE6FB7FC71A412A7039A4C5E89E71C9BF83C59AE0"
+    "bytes": 4866,
+    "sha256": "E0EC281F695B6F4E1D82924C463D35451E0D65558ED68F159344A5A562E3AF6F"
   },
   {
     "path": "bordboek/vendor/pyodide/pyodide-lock.json",
@@ -83,6 +88,11 @@
     "path": "bordboek/vendor/pyodide/python_stdlib.zip",
     "bytes": 2423414,
     "sha256": "E389FBDC394A00D31FF0624386C9E3E52E04727130AC73597A99C477AFE4F1CA"
+  },
+  {
+    "path": "favicon.png",
+    "bytes": 2569,
+    "sha256": "FF79680366401C2095DD65FADABDAAF8BB4776E85D8FB26C3B585008062ABE15"
   },
   {
     "path": "index.html",
