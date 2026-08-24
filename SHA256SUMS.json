@@ -1,13 +1,13 @@
 [
   {
+    "path": "bordboek/assets/index-BUpEVqQ_.js",
+    "bytes": 282132,
+    "sha256": "BB95FAF7520F670A9088F9F5C8DB9E2FF1074E695BFE79B0BE6F0D2D5314CBC6"
+  },
+  {
     "path": "bordboek/assets/index-Ctd2lwCU.css",
     "bytes": 16886,
     "sha256": "9264599F3FE1049017E755A7A497C09E03EBF3C637F724098C7F43C2667B7017"
-  },
-  {
-    "path": "bordboek/assets/index-OwWe2YPF.js",
-    "bytes": 282179,
-    "sha256": "01B617BB51C8EA3A2DEEA788EBBD2D82AE58C5A3EEEA312594B9EF6B5CD00BFB"
   },
   {
     "path": "bordboek/assets/runtime.worker-CF0VKO9t.js",
@@ -42,7 +42,7 @@
   {
     "path": "bordboek/index.html",
     "bytes": 899,
-    "sha256": "72BFEE94BD02E70B2FA3FDC62623347E946B6B884E0EED6E5139039FFED77E38"
+    "sha256": "F7462CEA2187A2D91023BD23D8A42D5E06B4D69F0CD002479E19472D975FB149"
   },
   {
     "path": "bordboek/vendor/pdfjs/LICENSE",
