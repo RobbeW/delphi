@@ -5,9 +5,9 @@
     "sha256": "9264599F3FE1049017E755A7A497C09E03EBF3C637F724098C7F43C2667B7017"
   },
   {
-    "path": "bordboek/assets/index-DH4oHHe2.js",
-    "bytes": 279435,
-    "sha256": "ACD9E964AF37C57FEECE632D7696268ABF9357CC81E0D86203670E81ADBB231D"
+    "path": "bordboek/assets/index-OwWe2YPF.js",
+    "bytes": 282179,
+    "sha256": "01B617BB51C8EA3A2DEEA788EBBD2D82AE58C5A3EEEA312594B9EF6B5CD00BFB"
   },
   {
     "path": "bordboek/assets/runtime.worker-CF0VKO9t.js",
@@ -41,8 +41,8 @@
   },
   {
     "path": "bordboek/index.html",
-    "bytes": 661,
-    "sha256": "6A2C1AEEE100D33AAD7F71BEBE48BEAE86DA86F0C1E318D2B44C4D36C7823A3E"
+    "bytes": 899,
+    "sha256": "72BFEE94BD02E70B2FA3FDC62623347E946B6B884E0EED6E5139039FFED77E38"
   },
   {
     "path": "bordboek/vendor/pdfjs/LICENSE",
@@ -98,6 +98,11 @@
     "path": "index.html",
     "bytes": 54957,
     "sha256": "3AC3BA21EA0F1428ED4153CE70D7435EED0271696B1019966C1745CFE5C34191"
+  },
+  {
+    "path": "platform.html",
+    "bytes": 62021,
+    "sha256": "6467A53B52B0A82A141D0F852AEA8F61F2D90E4C83948BF0F200D098F9D44A3C"
   },
   {
     "path": "syllabus_python_in_de_klas.pdf",
