@@ -5,11 +5,13 @@
 .topbar .brand-lockup>div{min-width:0}
 .topbar .brand-lockup .eyebrow{margin-bottom:1px;font-size:10px;font-weight:900;letter-spacing:.12em}
 .topbar .brand-lockup h1{font-size:clamp(16px,1.25vw,21px);line-height:1.05}
-.mode-switcher{display:flex}
-.mode-switcher select{min-width:12.5rem;max-width:100%;padding:.55rem .75rem;border:1px solid var(--ui-border);border-radius:8px;color:var(--ui-ink);background:var(--ui-paper);font-weight:700}
+.mode-switcher{display:flex;width:fit-content;max-width:100%;justify-self:end}
+.mode-switcher select{min-width:10.75rem;max-width:100%;padding:.55rem .75rem;border:1px solid var(--ui-border);border-radius:8px;color:var(--ui-ink);background:var(--ui-paper);font-weight:700}
+.viewer-toolbar button,.viewer-toolbar select,.viewer-toolbar input{min-width:32px;min-height:32px;height:32px;padding:5px 8px;border-width:1px;border-radius:8px;font-size:11px}
+.viewer-toolbar .cluster-label{min-height:32px;font-size:11px}
 .viewer-toolbar .ink-toolbar>button{flex:0 0 auto;min-width:32px;min-height:32px;padding:5px 8px;border-width:1px;border-radius:8px;font-size:11px;white-space:nowrap}
 .viewer-toolbar .ink-toolbar>button[aria-pressed=true]{border:1px solid var(--ui-primary);color:var(--ui-paper);background:var(--ui-primary);font-weight:800;box-shadow:none}
 .viewer-toolbar .ink-toolbar>button:disabled{color:var(--ui-muted);background:var(--ui-soft-purple)}
 .ink-color-control{min-height:32px}
 .ink-color-control input{width:32px;height:32px;min-width:32px;min-height:32px;padding:3px;border-width:1px;border-radius:8px}
-@media (max-width:560px){.topbar .brand-lockup{flex-flow:row nowrap;align-items:center}.mode-switcher select{width:100%;min-width:0}}
+@media (max-width:560px){.topbar .brand-lockup{flex-flow:row nowrap;align-items:center}.mode-switcher{width:100%;justify-self:stretch}.mode-switcher select{width:auto;min-width:0;flex:1}}
