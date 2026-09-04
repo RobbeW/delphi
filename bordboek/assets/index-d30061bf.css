@@ -14,4 +14,16 @@
 .viewer-toolbar .ink-toolbar>button:disabled{color:var(--ui-muted);background:var(--ui-soft-purple)}
 .ink-color-control{min-height:32px}
 .ink-color-control input{width:32px;height:32px;min-width:32px;min-height:32px;padding:3px;border-width:1px;border-radius:8px}
+.ink-width-select{height:32px;min-height:32px;max-width:76px;padding:0 24px 0 8px;font-size:11px}
+.page-navigation .page-count{min-height:32px;display:inline-flex;align-items:center;padding:0 8px;font-size:11px}
+.viewer-toolbar .thumbnail-toggle{width:26px;min-width:26px;height:32px;padding:0;font-size:18px;line-height:1}
+.viewer-body{min-height:0;display:grid;grid-template-columns:104px minmax(0,1fr);overflow:hidden;background:var(--ui-workspace)}
+.viewer-body.thumbs-hidden{grid-template-columns:minmax(0,1fr)}
+.viewer-body.thumbs-hidden .thumbnail-rail{display:none}
+.thumbnail-rail{min-height:0;padding:8px 7px 20px;overflow-x:hidden;overflow-y:auto;border-right:1px solid var(--ui-border);background:#f8f6fb;scrollbar-width:thin}
+.thumbnail-button{width:100%;min-width:0;min-height:0;display:block;margin:0 0 8px;padding:4px;border:2px solid transparent;border-radius:9px;background:transparent}
+.thumbnail-button:hover{border-color:var(--ui-border)}
+.thumbnail-button[aria-current=page]{border-color:var(--ui-primary);background:var(--ui-soft-purple)}
+.thumbnail-button canvas{width:100%;display:block;aspect-ratio:210/297;border:1px solid var(--ui-border);background:var(--ui-paper)}
+.thumbnail-button span{display:block;margin-top:4px;color:var(--ui-muted);font-size:10px;font-weight:800}
 @media (max-width:560px){.topbar .brand-lockup{flex-flow:row nowrap;align-items:center}.mode-switcher{width:100%;justify-self:stretch}.mode-switcher select{width:auto;min-width:0;flex:1}}
