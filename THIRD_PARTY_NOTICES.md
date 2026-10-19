@@ -3,6 +3,16 @@
 Project Delphi uses third-party software components. These components remain
 under their own licenses.
 
+## Bundled frontend runtime
+
+`vendor/papyros/runtime.mjs` bundles Papyros and its frontend dependencies from
+npm. Complete contributing-package license texts are retained in
+`vendor/papyros/LICENSES.txt`, with additional source license comments in
+`vendor/papyros/runtime.mjs.LEGAL.txt`. Exact package versions and the bundle hash
+are recorded in `vendor/papyros/provenance.json`. The reproducible build and lock
+file are in `tools/papyros-runtime/`; original package sources remain available
+through the npm package URLs recorded in that lock file.
+
 ## Papyros
 
 - Component: `@dodona/papyros`

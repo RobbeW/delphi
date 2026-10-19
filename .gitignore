@@ -1,0 +1,13 @@
+
+# Local AI in de Klas installer bundle
+/harness/
+# BEGIN AI IN DE KLAS LOCAL HARNESS
+/.harness/
+/AGENTS.md
+/brand_motion.md
+/.codex/config.toml
+/.codex/agents/explorer.toml
+/.codex/agents/builder.toml
+/.codex/agents/reviewer.toml
+/.venv/
+# END AI IN DE KLAS LOCAL HARNESS

@@ -1,0 +1,16 @@
+{
+  "name": "delphi-papyros-runtime",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "dependencies": {
+    "@dodona/papyros": "4.0.7",
+    "comlink": "4.4.2",
+    "sync-message": "0.0.12"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.12"
+  }
+}

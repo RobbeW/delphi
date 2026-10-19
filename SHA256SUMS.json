@@ -111,12 +111,37 @@
   },
   {
     "path": "platform.html",
-    "bytes": 60499,
-    "sha256": "4C1B568A96AC036C5DA093965057FCCB80AACD84D501F6FE841A64BEEB3B0C38"
+    "bytes": 59128,
+    "sha256": "B31EB50127D5829430083572A0804E9667A4EF6640BEA487D31706E803346895"
   },
   {
     "path": "syllabus_python_in_de_klas.pdf",
     "bytes": 776114,
     "sha256": "AEDF8170AAC47E7FB453D8232AEDCF4540E0F372876D143F844F28B102066199"
+  },
+  {
+    "path": "app.js",
+    "bytes": 162988,
+    "sha256": "9A241218C41664F8DF1FE09035B1274A5A29BF254CA3FE3F4DDB1FA072992DFB"
+  },
+  {
+    "path": "vendor/papyros/runtime.mjs",
+    "bytes": 355853,
+    "sha256": "8BF02CAE16EFF6A98AD07FEFB1DFD7C1977BCB4A8F79B1E6A3DCEA84C079EE02"
+  },
+  {
+    "path": "vendor/papyros/runtime.mjs.LEGAL.txt",
+    "bytes": 610,
+    "sha256": "9C185A3F49CB5C792A51E5F94925BEF0CC831D4D8AB204AA84E9AF6D423609B8"
+  },
+  {
+    "path": "vendor/papyros/LICENSES.txt",
+    "bytes": 57879,
+    "sha256": "308B6B638D6017E8D438FB41E56386F3F96F2B315F0EF60FE1EF8E18D503EFB5"
+  },
+  {
+    "path": "vendor/papyros/provenance.json",
+    "bytes": 4289,
+    "sha256": "73A9A2EF77A306393DE849404D5281EB9F05F903CC81E7ECD379FB4223602D1C"
   }
 ]

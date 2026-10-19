@@ -36,6 +36,7 @@ Deze omgeving is bedoeld voor educatief gebruik.
 - Landing page: `index.html`
 - Leeromgeving: `platform.html`, `styles.css`, `app.js`
 - Runtime: Papyros (Python/JavaScript in browser)
+- Lokale Papyros-frontendbundel: `vendor/papyros/runtime.mjs`; herbouwinstructies in `tools/papyros-runtime/README.md`. De meegeleverde bundel vermijdt UNPKG-moduleverwijzingen; de workers en overige CDN-bronnen vereisen nog internettoegang.
 - Contentindex: zie `tools/build-catalog.mjs`
 
 ## Projectstructuur

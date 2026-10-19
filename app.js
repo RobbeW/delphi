@@ -55,7 +55,7 @@ const STORAGE = {
   snapshotsIndex: "pik-snapshots-index",
 };
 
-const APP_VERSION = "20260603-2";
+const APP_VERSION = "20261019-1";
 
 function readBooleanQueryParam(name, fallback = false) {
   const raw = new URLSearchParams(window.location.search).get(name);
@@ -112,12 +112,9 @@ const state = {
   loadStats: null,
 };
 
-const PAPYROS_VERSION = "4.0.7";
-const PAPYROS_MODULE_URL = `https://unpkg.com/@dodona/papyros@${PAPYROS_VERSION}/dist/frontend/state/Papyros.js?module`;
-const PAPYROS_BACKEND_MANAGER_URL = `https://unpkg.com/@dodona/papyros@${PAPYROS_VERSION}/dist/communication/BackendManager?module`;
-const PAPYROS_BACKEND_MANAGER_FALLBACK_URL = `https://unpkg.com/@dodona/papyros@${PAPYROS_VERSION}/dist/communication/BackendManager.js?module`;
-const SYNC_MESSAGE_MODULE_URL = "https://unpkg.com/sync-message@0.0.12?module";
-const COMLINK_BRIDGE_MODULE_URL = "https://esm.sh/comlink?target=es2022";
+// One local bundle keeps Papyros, its backend registry and callback bridge in
+// the same dependency graph, without UNPKG's redirecting module imports.
+const PAPYROS_MODULE_URL = `./vendor/papyros/runtime.mjs?v=${APP_VERSION}`;
 const PYTHON_WORKER_FILENAME = "papyros-python-worker.js";
 const JAVASCRIPT_WORKER_FILENAME = "papyros-javascript-worker.js";
 let papyrosModulePromise = null;
@@ -2506,44 +2503,8 @@ async function loadPapyrosModule() {
   papyrosModulePromise = (async () => {
     ensureNodeCompatGlobals();
     installCustomElementDefineGuard();
-    const [
-      papyrosModule,
-      backendManagerModule,
-      backendManagerFallbackModule,
-      syncMessageModule,
-      comlinkBridgeModule,
-    ] =
-      await Promise.all([
-      import(PAPYROS_MODULE_URL),
-      import(PAPYROS_BACKEND_MANAGER_URL),
-      import(PAPYROS_BACKEND_MANAGER_FALLBACK_URL),
-      import(SYNC_MESSAGE_MODULE_URL),
-      import(COMLINK_BRIDGE_MODULE_URL),
-    ]);
-
-    const papyros =
-      (papyrosModule && papyrosModule.papyros) ||
-      (papyrosModule && papyrosModule.default && papyrosModule.default.papyros) ||
-      (papyrosModule && papyrosModule.default) ||
-      (typeof window !== "undefined" && window.papyros ? window.papyros : null);
-    const BackendManager =
-      (backendManagerModule && backendManagerModule.BackendManager) ||
-      (backendManagerModule && backendManagerModule.default && backendManagerModule.default.BackendManager) ||
-      null;
-    const BackendManagerFallback =
-      (backendManagerFallbackModule && backendManagerFallbackModule.BackendManager) ||
-      (backendManagerFallbackModule &&
-        backendManagerFallbackModule.default &&
-        backendManagerFallbackModule.default.BackendManager) ||
-      null;
-    const makeChannel =
-      (syncMessageModule && syncMessageModule.makeChannel) ||
-      (syncMessageModule && syncMessageModule.default && syncMessageModule.default.makeChannel) ||
-      null;
-    const ComlinkProxy =
-      (comlinkBridgeModule && comlinkBridgeModule.proxy) ||
-      (comlinkBridgeModule && comlinkBridgeModule.default && comlinkBridgeModule.default.proxy) ||
-      null;
+    const { papyros, BackendManager, makeChannel, ComlinkProxy } =
+      await import(PAPYROS_MODULE_URL);
 
     if (!papyros) {
       throw new Error("Papyros module geladen, maar geen geldige export gevonden.");
@@ -2561,7 +2522,6 @@ async function loadPapyrosModule() {
     return {
       papyros,
       BackendManager,
-      BackendManagerFallback,
       makeChannel,
       ComlinkProxy,
     };
@@ -4522,12 +4482,8 @@ async function initializePapyros() {
     throw new Error("Papyros is geladen, maar launch() ontbreekt.");
   }
 
-  const extraManagers = mod.BackendManagerFallback ? [mod.BackendManagerFallback] : [];
-  patchPapyrosInputConfig(state.papyros, mod.BackendManager, mod.makeChannel, extraManagers);
+  patchPapyrosInputConfig(state.papyros, mod.BackendManager, mod.makeChannel);
   patchPapyrosBackends(mod.BackendManager);
-  if (mod.BackendManagerFallback && mod.BackendManagerFallback !== mod.BackendManager) {
-    patchPapyrosBackends(mod.BackendManagerFallback);
-  }
   patchRunnerLaunch(state.papyros, mod.BackendManager, mod.ComlinkProxy);
 
   if (!hasSharedArrayBuffer && !hasInputSw) {
