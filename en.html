@@ -1,0 +1,1509 @@
+<!--
+  Project Delphi - landing page
+  Copyright (c) 2026 Robbe Wulgaert
+  Citeer/vermeld als: Robbe Wulgaert, AI in de Klas, robbewulgaert.be
+  Staged from robbew/delphi index.html blob 4e5a6af8221e06a8863ac86372aefe18d5b35c43
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Robbe Wulgaert, AI in de Klas, robbewulgaert.be">
+  <meta name="copyright" content="Copyright (c) 2026 Robbe Wulgaert">
+  <!-- generated:favicon -->
+  <link rel="icon" type="image/png" sizes="64x64" href="./favicon.png?v=ff7968036640">
+  <link rel="shortcut icon" type="image/png" sizes="64x64" href="./favicon.png?v=ff7968036640">
+  <!-- /generated:favicon -->
+  <style>
+    .section-kicker { margin: 0 0 8px; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    :root {
+      --brand: #5200FF;
+      --brand-dark: #3700B3;
+      --accent: #3DFFD0;
+      --ink: #160033;
+      --text: #1D1930;
+      --muted: #625B70;
+      --bg: #F8F7F3;
+      --surface: #FFFFFF;
+      --line: #E2DDEA;
+      --delphi-blue: var(--brand);
+      --delphi-blue-dark: var(--brand-dark);
+      --delphi-gold: var(--accent);
+      --delphi-ink: var(--ink);
+      --delphi-muted: var(--muted);
+      --delphi-bg: var(--bg);
+      --delphi-panel: var(--surface);
+      --delphi-line: var(--line);
+      --delphi-soft: #f7f3ff;
+      --delphi-good: #00A66A;
+      --delphi-neutral: var(--muted);
+      --motion-fast: 150ms;
+      --motion-medium: 260ms;
+      --motion-slow: 520ms;
+      --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --shadow: 0 18px 55px rgba(32, 20, 54, 0.10);
+      --card-shadow: 0 10px 30px rgba(32, 20, 54, 0.08);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      line-height: 1.55;
+      background:
+        radial-gradient(circle at top left, rgba(82, 0, 255, 0.09), transparent 34rem),
+        linear-gradient(180deg, #ffffff 0%, var(--delphi-bg) 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.95em;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: -999px;
+      z-index: 100;
+      border-radius: 10px;
+      background: var(--delphi-blue);
+      color: #fff;
+      padding: 10px 14px;
+      font-weight: 900;
+    }
+
+    .skip-link:focus { left: 12px; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(226, 221, 234, 0.78);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0;
+      background: linear-gradient(135deg, var(--delphi-blue), var(--delphi-blue-dark));
+      box-shadow: 0 12px 24px rgba(82, 0, 255, 0.24);
+      flex: 0 0 auto;
+    }
+
+    .brand-title {
+      display: block;
+      font-weight: 900;
+      letter-spacing: 0;
+      line-height: 1.05;
+    }
+
+    .brand-subtitle {
+      display: block;
+      color: var(--delphi-muted);
+      font-size: 0.88rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--delphi-muted);
+      font-weight: 700;
+      font-size: 0.94rem;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .menu-button {
+      display: none;
+      min-height: 46px;
+      border: 1px solid rgba(82, 0, 255, 0.22);
+      border-radius: 999px;
+      padding: 13px 18px;
+      background: #fff;
+      color: var(--delphi-blue-dark);
+      font: inherit;
+      font-weight: 900;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .menu-button:hover,
+    .menu-button:focus-visible {
+      background: var(--delphi-soft);
+      border-color: rgba(82, 0, 255, 0.40);
+      outline: none;
+    }
+
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--delphi-blue);
+      background: var(--delphi-soft);
+      outline: none;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      border-radius: 999px;
+      padding: 13px 18px;
+      border: 1px solid transparent;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
+      white-space: nowrap;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-small {
+      min-height: 46px;
+      padding: 13px 18px;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: var(--delphi-blue);
+      box-shadow: 0 16px 30px rgba(82, 0, 255, 0.23);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background: var(--delphi-blue-dark);
+      outline: none;
+    }
+
+    .btn-secondary {
+      color: var(--delphi-blue);
+      background: #fff;
+      border-color: rgba(82, 0, 255, 0.22);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background: var(--delphi-soft);
+      border-color: rgba(82, 0, 255, 0.40);
+      outline: none;
+    }
+
+    main { overflow: hidden; }
+
+    .hero {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 70px 22px 78px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(340px, 0.94fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--delphi-blue-dark);
+      font-size: clamp(2.6rem, 7vw, 5.6rem);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      margin: 26px 0 0;
+      max-width: 720px;
+      color: var(--delphi-muted);
+      font-size: clamp(1.05rem, 1.7vw, 1.22rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .hero-card {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 16% 10%, rgba(61, 255, 208, 0.20), transparent 13rem),
+        var(--delphi-ink);
+      color: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -70px;
+      top: -70px;
+      border-radius: 50%;
+      background: rgba(61, 255, 208, 0.16);
+    }
+
+    .hero-card h2 {
+      position: relative;
+      margin: 0 0 14px;
+      font-size: 1.35rem;
+      z-index: 1;
+    }
+
+    .stats {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .stat {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.11);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.55rem;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 5px;
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 0.86rem;
+    }
+
+    .hero-note {
+      position: relative;
+      z-index: 1;
+      color: rgba(255, 255, 255, 0.82);
+      margin: 0;
+    }
+
+    .section {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 72px 22px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section h2 {
+      margin: 0;
+      color: var(--delphi-blue-dark);
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    .section-lede {
+      max-width: 780px;
+      margin: 0;
+      color: var(--delphi-muted);
+      font-size: 1.08rem;
+      line-height: 1.6;
+    }
+
+    .section h2 + .section-lede {
+      margin-top: 12px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .privacy-license-list { display: grid; gap: 14px; margin-top: 28px; }
+    .privacy-license-details { margin: 0; }
+    .privacy-license-details summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--delphi-blue);
+      cursor: pointer;
+      font-size: 1.12rem;
+      font-weight: 900;
+      list-style: none;
+    }
+    .privacy-license-details summary::-webkit-details-marker { display: none; }
+    .privacy-license-details summary::after {
+      content: "+";
+      display: grid;
+      place-items: center;
+      flex: 0 0 32px;
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: var(--delphi-soft);
+      color: var(--delphi-blue);
+      font-size: 1.35rem;
+      line-height: 1;
+    }
+    .privacy-license-details[open] summary::after { content: "−"; }
+    .privacy-license-content { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--delphi-line); }
+    .privacy-license-content p + p { margin-top: 12px; }
+
+    .card {
+      border: 1px solid var(--delphi-line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.90);
+      padding: 24px;
+      box-shadow: var(--card-shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      color: var(--delphi-blue);
+      font-size: 1.18rem;
+      letter-spacing: 0;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--delphi-muted);
+    }
+
+    .platform-table-wrap {
+      margin-top: 34px;
+      overflow-x: auto;
+      border: 1px solid var(--delphi-line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--card-shadow);
+    }
+
+    .platform-table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+    }
+
+    .platform-table th,
+    .platform-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--delphi-line);
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .platform-table th:first-child,
+    .platform-table td:first-child {
+      text-align: left;
+    }
+
+    .platform-table thead th {
+      background: var(--delphi-soft);
+      color: var(--delphi-blue-dark);
+      font-weight: 900;
+    }
+
+    .platform-table thead th:nth-child(2) {
+      background: rgba(82, 0, 255, 0.13);
+      color: var(--delphi-blue-dark);
+    }
+
+    .platform-table tbody th {
+      font-weight: 800;
+      color: var(--delphi-ink);
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .platform-table tbody td:nth-child(2) {
+      background: rgba(82, 0, 255, 0.055);
+    }
+
+    .platform-table tbody tr:last-child th,
+    .platform-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .mark {
+      display: inline-grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      margin-inline: auto;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 900;
+    }
+
+    .mark.yes {
+      background: rgba(22, 131, 74, 0.12);
+      color: var(--delphi-good);
+    }
+
+    .mark.no {
+      background: rgba(120, 113, 128, 0.13);
+      color: var(--delphi-neutral);
+    }
+
+    .mark.partial {
+      background: rgba(82, 0, 255, 0.12);
+      color: var(--delphi-blue);
+    }
+
+    .cell-note {
+      display: block;
+      margin-top: 5px;
+      color: var(--delphi-muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .comparison.platform-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .compare-card.featured {
+      background:
+        radial-gradient(circle at 92% 10%, rgba(61, 255, 208, 0.18), transparent 14rem),
+        linear-gradient(145deg, #ffffff, var(--delphi-soft));
+    }
+
+    .compare-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .family-tree {
+      margin-top: 34px;
+      border: 1px solid var(--delphi-line);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: var(--card-shadow);
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .tree-root { display: flex; justify-content: center; margin-bottom: 24px; }
+
+    .tree-node {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      transition: transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
+      border: 1px solid var(--delphi-line);
+      border-radius: 18px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: 0 10px 28px rgba(82, 0, 255, 0.08);
+    }
+
+    .tree-node strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--delphi-blue-dark);
+      font-size: 1.05rem;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .tree-node span { display: block; color: var(--delphi-muted); }
+
+    .tree-node.root {
+      width: min(560px, 100%);
+      text-align: center;
+      background: var(--delphi-blue);
+      border-color: var(--delphi-blue);
+    }
+
+    .tree-node.root strong,
+    .tree-node.root span { color: #fff; }
+
+    .tree-node:hover,
+    .tree-node:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--delphi-blue);
+      box-shadow: 0 18px 38px rgba(82, 0, 255, 0.14);
+      outline: none;
+    }
+
+    .tree-branches {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .tree-branches::before {
+      content: "";
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      width: 2px;
+      height: 24px;
+      background: var(--delphi-blue);
+      opacity: 0.32;
+    }
+
+    .tree-branch {
+      position: relative;
+      border: 1.5px dashed rgba(82, 0, 255, 0.28);
+      border-radius: 24px;
+      padding: 18px;
+      background: linear-gradient(180deg, rgba(247, 243, 255, 0.92), rgba(255, 255, 255, 0.94));
+    }
+
+    .tree-branch::before {
+      content: "";
+      position: absolute;
+      top: -17px;
+      width: 50%;
+      height: 17px;
+      border-top: 2px solid rgba(82, 0, 255, 0.32);
+    }
+
+    .tree-branch:first-child::before { right: 0; border-left: 2px solid rgba(82, 0, 255, 0.32); border-radius: 14px 0 0 0; }
+    .tree-branch:last-child::before { left: 0; border-right: 2px solid rgba(82, 0, 255, 0.32); border-radius: 0 14px 0 0; }
+
+    .branch-title {
+      display: inline-flex;
+      margin-bottom: 14px;
+      border-radius: 999px;
+      background: var(--delphi-gold);
+      color: var(--delphi-ink);
+      padding: 8px 13px;
+      font-weight: 900;
+    }
+
+    .tree-stack { display: grid; gap: 12px; }
+
+    .tree-node.current {
+      border-color: var(--delphi-blue);
+      box-shadow: 0 0 0 4px rgba(82, 0, 255, 0.08), 0 16px 32px rgba(82, 0, 255, 0.14);
+    }
+
+    .tree-node.bridge,
+    .tree-node.dodona {
+      background: var(--delphi-soft);
+      border-color: rgba(61, 255, 208, 0.72);
+    }
+
+    .delphi-dodona-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      align-items: stretch;
+    }
+
+    .logic-note {
+      margin-top: 18px;
+      border-left: 6px solid var(--delphi-blue);
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+      color: var(--delphi-muted);
+      font-weight: 700;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--delphi-line);
+      background: #fff;
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: var(--delphi-blue);
+      color: #fff !important;
+      font-weight: 900;
+    }
+
+    .steps strong {
+      display: block;
+      color: var(--delphi-blue-dark);
+      margin-bottom: 2px;
+    }
+
+    .steps span {
+      color: var(--delphi-muted);
+    }
+
+    .callout {
+      border-radius: 28px;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 92% 10%, rgba(3, 221, 239, 0.20), transparent 14rem),
+        linear-gradient(145deg, #ffffff, var(--delphi-soft));
+      border: 1px solid rgba(82, 0, 255, 0.13);
+      box-shadow: var(--card-shadow);
+    }
+
+    .callout h3 {
+      margin: 0 0 10px;
+      color: var(--delphi-blue-dark);
+      font-size: 1.35rem;
+    }
+
+    .callout p {
+      margin: 0 0 14px;
+      color: var(--delphi-muted);
+    }
+
+    .site-footer {
+      margin-top: 50px;
+      color: #efe8ff;
+      background: var(--delphi-ink);
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 36px 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      font-weight: 800;
+      color: var(--delphi-blue);
+    }
+
+    .site-footer strong {
+      color: #fff;
+    }
+
+    .site-footer a {
+      color: rgba(239, 232, 255, 0.82);
+    }
+
+    .site-footer a:hover,
+    .site-footer a:focus-visible {
+      color: #fff;
+      outline: none;
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        flex-wrap: wrap;
+      }
+
+      .hero,
+      .split {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tree-branches,
+      .delphi-dodona-pair { grid-template-columns: 1fr; }
+      .tree-branches::before,
+      .tree-branch::before { display: none; }
+
+      .comparison.platform-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .nav {
+        align-items: center;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+
+      .brand-subtitle { display: none; }
+
+      .nav-actions {
+        gap: 8px;
+      }
+
+      .nav-links {
+        display: none;
+        order: 3;
+        width: 100%;
+        padding: 8px 0 2px;
+      }
+
+      .nav-links.is-open {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links a {
+        padding: 12px;
+      }
+
+      .menu-button { display: inline-flex; }
+
+      #bordboek-title { overflow-wrap: anywhere; }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-actions,
+      .footer-inner {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+
+    .nav-bookmarks {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .menu-button {
+        width: 46px;
+        min-width: 46px;
+        height: 46px;
+        min-height: 46px;
+        display: inline-grid;
+        place-items: center;
+        padding: 0;
+        border-radius: 50%;
+      }
+
+      .menu-icon,
+      .menu-icon::before,
+      .menu-icon::after {
+        display: block;
+        width: 20px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+      }
+
+      .menu-icon { position: relative; }
+      .menu-icon::before,
+      .menu-icon::after { content: ""; position: absolute; left: 0; }
+      .menu-icon::before { top: -6px; }
+      .menu-icon::after { top: 6px; }
+
+      .brand { flex: 1 1 0; }
+      .brand-mark,
+      .brand-subtitle { display: none; }
+      .nav-links { display: none; }
+      .nav-links.is-open {
+        display: grid;
+        order: 3;
+        width: 100%;
+        gap: 14px;
+        padding: 8px 0 2px;
+      }
+
+      .nav-bookmarks,
+      .nav-actions {
+        display: grid;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .nav-bookmarks a { padding: 12px; }
+      .nav-actions { justify-content: stretch; }
+      .nav-actions .language-toggle { justify-self: start; }
+    }
+
+    h1, h2, h3, h4, h5, h6, button, label, th, td { letter-spacing: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+  <style id="language-toggle-styles">
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgba(82, 0, 255, 0.22);
+  border-radius: 999px;
+  background: #fff;
+  padding: 4px;
+  box-shadow: 0 10px 24px rgba(82, 0, 255, 0.08);
+}
+.language-toggle a {
+  min-width: 44px;
+  min-height: 36px;
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 10px;
+  background: transparent;
+  color: var(--muted, var(--delphi-muted, #625b70));
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.language-toggle a.is-active {
+  background: var(--brand, var(--brand-purple, var(--delphi-blue, #5200FF)));
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(82, 0, 255, 0.20);
+}
+.language-toggle a:focus-visible {
+  outline: 3px solid rgba(61, 255, 208, 0.75);
+  outline-offset: 2px;
+}
+</style>
+<!-- generated:seo-head -->
+<title>Project Delphi</title>
+<meta name="description" content="Project Delphi is a browser learning environment where students write, run and practise Python with automatic feedback.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://robbew.github.io/delphi/en.html">
+<link rel="alternate" hreflang="nl-BE" href="https://robbew.github.io/delphi/">
+<link rel="alternate" hreflang="en" href="https://robbew.github.io/delphi/en.html">
+<link rel="alternate" hreflang="x-default" href="https://robbew.github.io/delphi/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:title" content="Project Delphi">
+<meta property="og:description" content="Project Delphi is a browser learning environment where students write, run and practise Python with automatic feedback.">
+<meta property="og:url" content="https://robbew.github.io/delphi/en.html">
+<meta property="og:image" content="https://robbew.github.io/delphi/media/landing-social.png">
+<meta property="og:image:alt" content="Project Delphi — learning project">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Project Delphi">
+<meta name="twitter:description" content="Project Delphi is a browser learning environment where students write, run and practise Python with automatic feedback.">
+<meta name="twitter:image" content="https://robbew.github.io/delphi/media/landing-social.png">
+<meta name="twitter:image:alt" content="Project Delphi — learning project">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://robbew.github.io/delphi/en.html#webpage","url":"https://robbew.github.io/delphi/en.html","name":"Project Delphi","description":"Project Delphi is a browser learning environment where students write, run and practise Python with automatic feedback.","inLanguage":"en","about":{"@id":"https://robbew.github.io/delphi/#resource"},"mainEntity":{"@id":"https://robbew.github.io/delphi/#resource"}},{"@type":"Person","@id":"https://robbew.github.io/aiindeklas/#robbe-wulgaert","name":"Robbe Wulgaert","url":"https://robbew.github.io/aiindeklas/"},{"@type":["WebApplication","LearningResource"],"@id":"https://robbew.github.io/delphi/#resource","name":"Project Delphi","description":"Project Delphi is a browser learning environment where students write, run and practise Python with automatic feedback.","url":"https://robbew.github.io/delphi/","creator":{"@id":"https://robbew.github.io/aiindeklas/#robbe-wulgaert"},"license":"https://robbew.github.io/delphi/LICENSE","inLanguage":"en","teaches":["Variables, conditions and loops","Testing and improving Python code"],"abstract":"Course content: Exercises organized by chapter; Feedback: Test cases with exercise feedback; Classroom: Board book with syllabus and editor"}]}</script>
+<!-- /generated:seo-head -->
+<style id="seo-facts-styles">.seo-facts dl { display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; } .seo-facts dl > div { min-width: 10rem; } .seo-facts dt { font-weight: 700; } .seo-facts dd { margin: 0; } .language-toggle a { text-decoration: none; }</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="menu-icon" aria-hidden="true"></span>
+      </button>
+      <a class="brand" href="index.html" aria-label="Project Delphi home page">
+        <span>
+          <span class="brand-title">Project Delphi</span>
+          <span class="brand-subtitle">Python in the Classroom, fully in the browser</span>
+        </span>
+      </a>
+      <div class="nav-links" id="navLinks" aria-label="Page sections">
+        <div class="nav-bookmarks">
+          <a href="#platform">Assignment</a>
+          <a href="#vergelijking">Learning path</a>
+          <a href="#bordboek">Board book</a>
+        </div>
+        <div class="nav-actions">
+          <div class="language-toggle" role="group" aria-label="Language selection">
+            <a href="./" data-language-choice="nl">NL</a>
+            <a href="en.html" data-language-choice="en" class="is-active" aria-current="page">ENG</a>
+          </div>
+          <a class="btn btn-primary" href="platform.html">Start learning platform</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">Project Delphi</h1>
+        <p class="hero-copy">Project Delphi is a browser learning environment where students write, run and practise Python with automatic feedback.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="platform.html">Start learning platform</a>
+          <a class="btn btn-secondary" href="bordboek/">Start board book</a>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Project status">
+        <h2>Python step by step</h2>
+        <div class="stats">
+          <div class="stat">
+            <strong>6</strong>
+            <span>chapters: sequence, selection and loops</span>
+          </div>
+          <div class="stat">
+            <strong>242</strong>
+            <span>assignments and theory building blocks</span>
+          </div>
+          <div class="stat">
+            <strong>215</strong>
+            <span>exercises with automatic feedback</span>
+          </div>
+        </div>
+        <p class="hero-note">
+          Students practise data types, variables, conditions, loops and input. The assignments connect Python to computational thinking, mathematical exercises and challenging puzzles.
+        </p>
+      </aside>
+    </section>
+
+    <section id="platform" class="section" aria-labelledby="platform-title">
+      <div class="section-head">
+        <div>
+          <h2 id="platform-title">What is included in Delphi?</h2>
+          <p class="section-lede">
+            The setup is familiar: students see their code on the left, the assignment on the right and direct feedback at the bottom. The menu guides them step by step through the course. 
+          </p>
+        </div>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <h3>Python runtime in the browser</h3>
+          <p>Based on Papyros, with regular output and interactive <code>input()</code>questions.</p>
+        </article>
+        <article class="card">
+          <h3>Catalogue with chapters</h3>
+          <p>The exercises come from <code>content/catalog.json</code>, built from a Dodona-like folder structure.</p>
+        </article>
+        <article class="card">
+          <h3>Test cases and feedback</h3>
+          <p>YAML and JSON test files drive the test cases, with a summary and details for each test case.</p>
+        </article>
+        <article class="card">
+          <h3>Store progress locally</h3>
+          <p>Code, attempts, working time and evaluation status are stored locally without an account or cloud.</p>
+        </article>
+        <article class="card">
+          <h3>PDF export</h3>
+          <p>Students can export a series as a report with code, feedback and a rubric for the teacher.</p>
+        </article>
+        <article class="card">
+          <h3>Reference sheet</h3>
+          <p>A built-in Python reference sheet helps students without leaving the assignment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="vergelijking" class="section" aria-labelledby="vergelijking-title">
+      <div class="section-head">
+        <div>
+          <!-- generated:seo-facts -->
+<section class="seo-facts" aria-label="Project facts"><dl><div><dt>Course content</dt><dd>Exercises organized by chapter</dd></div><div><dt>Feedback</dt><dd>Test cases with exercise feedback</dd></div><div><dt>Classroom</dt><dd>Board book with syllabus and editor</dd></div></dl></section>
+<!-- /generated:seo-facts -->
+      <!-- generated:heading -->
+      <p class="section-kicker">Place in the learning path</p>
+      <h2 id="vergelijking-title">From platforms to projects.</h2>
+      <p class="section-lede">The platforms build computational thinking. The projects use that thinking in a cross-curricular assignment in which students build, measure, test and conclude.</p>
+          <!-- /generated:heading -->
+        </div>
+      </div>
+      <!-- generated:tree -->
+      <div class="family-tree" aria-label="Learning path of platforms and projects">
+        <div class="tree-root">
+          <a class="tree-node root" href="https://www.aiindeklas.be" target="_blank" rel="noopener">
+            <strong>Learning computational thinking</strong>
+            <span>from blocks to code, from code to research</span>
+          </a>
+        </div>
+        <div class="tree-branches">
+          <div class="tree-branch">
+            <div class="branch-title">Platforms</div>
+            <div class="tree-stack">
+              <a class="tree-node" href="https://robbew.github.io/Blockly/" target="_blank" rel="noopener">
+                <strong>Blockly</strong>
+                <span>visual step-by-step thinking.</span>
+              </a>
+              <a class="tree-node" href="https://robbew.github.io/jsindeklas/" target="_blank" rel="noopener">
+                <strong>JavaScript</strong>
+                <span>logic in real code.</span>
+              </a>
+              <a class="tree-node" href="https://robbew.github.io/htmlindeklas/" target="_blank" rel="noopener">
+                <strong>HTML</strong>
+                <span>structuring webpages.</span>
+              </a>
+              <div class="delphi-dodona-pair" aria-label="Dodona and Delphi">
+                <a class="tree-node dodona" href="https://dodona.be/nl/courses/2641/" target="_blank" rel="noopener">
+                  <strong>Dodona</strong>
+                  <span>Python in the Classroom with tracking.</span>
+                </a>
+                <a class="tree-node current" href="https://robbew.github.io/delphi/" target="_blank" rel="noopener" aria-current="page">
+                  <strong>Delphi</strong>
+                  <span>Practice Python in the browser.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="tree-branch">
+            <div class="branch-title">STEaM projects</div>
+            <div class="tree-stack">
+              <a class="tree-node" href="https://robbew.github.io/smartplants/" target="_blank" rel="noopener">
+                <strong>Smart Plants</strong>
+                <span>Arduino, soil moisture, calibration and data.</span>
+              </a>
+              <a class="tree-node" href="https://robbew.github.io/robothand/" target="_blank" rel="noopener">
+                <strong>Robotic hand</strong>
+                <span>Arduino, sensors, servos and movement.</span>
+              </a>
+              <a class="tree-node" href="https://robbew.github.io/projectwind/" target="_blank" rel="noopener">
+                <strong>Wind</strong>
+                <span>Micro:bit, energy, voltage and current.</span>
+              </a>
+              <a class="tree-node" href="https://robbew.github.io/slimme_vuilnisbak/" target="_blank" rel="noopener">
+                <strong>Smart bin</strong>
+                <span>AI, image recognition, data and microcontrollers.</span>
+              </a>
+              <a class="tree-node" href="https://robbew.github.io/aiindeklas/zelflerende-games/" target="_blank" rel="noopener">
+                <strong>Self-learning games</strong>
+                <span>Getting started with machine learning</span>
+              </a>
+              <a class="tree-node" href="https://robbew.github.io/projectfijnstof/" target="_blank" rel="noopener">
+                <strong>Particulate matter</strong>
+                <span>Arduino, air quality, data and poster session.</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /generated:tree -->
+    </section>
+
+    <section id="bordboek" class="section" aria-labelledby="bordboek-title">
+      <div class="split">
+        <div>
+          <h2 id="bordboek-title">Learning platform and board book</h2>
+          <p class="section-lede">
+            Use the learning platform for the exercises. The board book is intended for whole-class use on the smartboard and shows the same syllabus alongside the Python editor.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="platform.html">Start learning platform</a>
+            <a class="btn btn-secondary" href="bordboek/">Start board book</a>
+          </div>
+        </div>
+        <aside class="callout">
+          <h3>Board book prototype for the classroom</h3>
+          <p>
+            The board book is the smartboard version: you see the same syllabus page as the students have on paper, can write on it and open the Python editor alongside it. Pages, annotations and code are stored per class on this device when you press Save.
+          </p>
+          <p>
+            This is a functional prototype. Automatic background saving is not available yet. Touch, stylus and smartboard use are still being tested; for now, only run trusted lesson code.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="gebruik" class="section" aria-labelledby="gebruik-title">
+      <div class="section-head">
+        <div>
+          <h2 id="gebruik-title">Getting started</h2>
+          <p class="section-lede">
+            In class, you work with the board book and the learning environment. The board book contains the PDF, lets you make annotations together with your students and run example code. The learning environment contains hundreds of exercises for practising and assessing the subject matter.
+          </p>
+        </div>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-number">1</span>
+          <span><strong>Start with the board book.</strong> Project the syllabus, choose a class and navigate together to the right page.</span>
+        </li>
+        <li>
+          <span class="step-number">2</span>
+          <span><strong>Annotate and run example code.</strong> Write on the PDF, highlight important concepts and open code examples in the editor to run them together.</span>
+        </li>
+        <li>
+          <span class="step-number">3</span>
+          <span><strong>Let students practise.</strong> Then open the learning platform and let students work independently on exercises that match the material discussed.</span>
+        </li>
+        <li>
+          <span class="step-number">4</span>
+          <span><strong>Assess and adjust.</strong> Use the automatic feedback and PDF export to discuss and assess results and determine the next lesson step.</span>
+        </li>
+      </ol>
+      <div class="hero-actions">
+        <a class="btn btn-secondary" href="syllabus_python_in_de_klas.pdf" download="syllabus_python_in_de_klas.pdf">Download syllabus</a>
+      </div>
+    </section>
+
+    <section id="privacy-license" class="section" aria-labelledby="privacy-license-title">
+      <div class="section-head">
+        <div>
+          <h2 id="privacy-license-title">Privacy and licence</h2>
+        </div>
+      </div>
+      <div class="privacy-license-list">
+        <details class="card privacy-license-details">
+          <summary>Privacy</summary>
+          <div class="privacy-license-content">
+            <p>This project does not use its own analytics or advertising cookies. Input, progress and results are processed in the browser and may be stored locally on the device. A download or export occurs only when the user initiates it. GitHub Pages logs visitors’ IP addresses for security purposes; external services are governed by their provider’s privacy policy.</p>
+            <p><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">Read how GitHub Pages processes technical visitor data.</a></p>
+          </div>
+        </details>
+        <details class="card privacy-license-details">
+          <summary>License</summary>
+          <div class="privacy-license-content">
+            <p>Original project material by Robbe Wulgaert may be used, copied and adapted free of charge for education, provided that ‘Robbe Wulgaert – AI in de Klas’ is clearly displayed, where reasonably practical with a link to the original project. Commercial sale, paid distribution, sublicensing or repackaging as a commercial product is not permitted without prior written permission. Other uses outside education also require prior written permission. Third-party components remain subject to their own licences.</p>
+            <p><a href="LICENSE">Read the full licence terms.</a></p>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <strong>Project Delphi</strong><br>
+        Robbe Wulgaert, AI in de Klas, robbewulgaert.be
+      </div>
+      <div class="footer-links">
+        <a href="#bordboek">Board book</a>
+        <a href="#privacy-license">Privacy</a>
+        <a href="LICENSE">License</a>
+        <a href="THIRD_PARTY_NOTICES.md">Third-party notices</a>
+        <a href="https://robbewulgaert.be/contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+<script id="mobile-menu-script">
+(() => {
+  const menuButton = document.getElementById("menuButton");
+  const navLinks = document.getElementById("navLinks");
+  if (!menuButton || !navLinks) return;
+
+  const setMenuOpen = (isOpen, restoreFocus = false, focusFirstLink = false) => {
+    navLinks.classList.toggle("is-open", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    const isEnglish = document.documentElement.lang.startsWith("en");
+    menuButton.setAttribute("aria-label", isOpen
+      ? (isEnglish ? "Close navigation menu" : "Navigatiemenu sluiten")
+      : (isEnglish ? "Open navigation menu" : "Navigatiemenu openen"));
+    if (isOpen && focusFirstLink) navLinks.querySelector("a")?.focus();
+    if (!isOpen && restoreFocus) menuButton.focus();
+  };
+
+  menuButton.addEventListener("click", () => {
+    setMenuOpen(menuButton.getAttribute("aria-expanded") !== "true", false, true);
+  });
+  navLinks.addEventListener("click", (event) => {
+    if (event.target instanceof HTMLAnchorElement) setMenuOpen(false, false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") setMenuOpen(false, true);
+  });
+  document.addEventListener("click", (event) => {
+    if (menuButton.getAttribute("aria-expanded") === "true" && !menuButton.contains(event.target) && !navLinks.contains(event.target)) setMenuOpen(false);
+  });
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 761px)").matches) setMenuOpen(false);
+  });
+})();
+</script>
+<script id="language-toggle-script">
+(() => {
+  const LANGUAGE_KEY = "aiindeklas:index-language";
+  const TRANSLATIONS = {
+  "Belangrijke acties": "Key actions",
+  "Hoe werkt het?": "How does it work?",
+  "Start": "Get started",
+  "Footerlinks": "Footer links",
+  "Navigatie openen": "Open navigation",
+  "Projectopstelling": "Project setup",
+  "PDF-export": "PDF export",
+  "Formularium": "Reference sheet",
+  "Project Delphi startpagina": "Project Delphi home page",
+  "Projectstatus": "Project status",
+  // generated:translations
+  "Plaats in de leerlijn": "Place in the learning path",
+  "Van platformen naar projecten.": "From platforms to projects.",
+  "De platformen bouwen het computationeel denken op. De projecten gebruiken dat denken in een vakoverschrijdende opdracht waarin leerlingen bouwen, meten, testen en besluiten.": "The platforms build computational thinking. The projects use that thinking in a cross-curricular assignment in which students build, measure, test and conclude.",
+  "Leerlijn van platformen en projecten": "Learning path of platforms and projects",
+  "Leren computationeel denken": "Learning computational thinking",
+  "van blokken naar code, van code naar onderzoek": "from blocks to code, from code to research",
+  "Blockly": "Blockly",
+  "visueel denken in stappen.": "visual step-by-step thinking.",
+  "JavaScript": "JavaScript",
+  "logica in echte code.": "logic in real code.",
+  "HTML": "HTML",
+  "webpagina's structureren.": "structuring webpages.",
+  "Dodona": "Dodona",
+  "Python in de Klas met opvolging.": "Python in the Classroom with tracking.",
+  "Delphi": "Delphi",
+  "Python oefenen in de browser.": "Practice Python in the browser.",
+  "Smart Plants": "Smart Plants",
+  "Arduino, bodemvochtigheid, kalibratie en data.": "Arduino, soil moisture, calibration and data.",
+  "Robothand": "Robotic hand",
+  "Arduino, sensoren, servo's en beweging.": "Arduino, sensors, servos and movement.",
+  "Wind": "Wind",
+  "Micro:bit, energie, spanning en stroom.": "Micro:bit, energy, voltage and current.",
+  "Slimme vuilnisbak": "Smart bin",
+  "AI, beeldherkenning, data en microcontrollers.": "AI, image recognition, data and microcontrollers.",
+  "Zelflerende games": "Self-learning games",
+  "Aan de slag met machine learning": "Getting started with machine learning",
+  "Fijnstof": "Particulate matter",
+  "Arduino, luchtkwaliteit, data en postersessie.": "Arduino, air quality, data and poster session.",
+  "Platformen": "Platforms",
+  "STEaM-projecten": "STEaM projects",
+  "Dodona en Delphi": "Dodona and Delphi",
+  // /generated:translations
+  "Privacy en licentie": "Privacy and licence",
+  "Dit project gebruikt geen eigen analytics of advertentiecookies. Invoer, voortgang en resultaten worden in de browser verwerkt en kunnen lokaal op het toestel worden bewaard. Een download of export gebeurt alleen wanneer de gebruiker die zelf start. GitHub Pages registreert het IP-adres van bezoekers voor beveiligingsdoeleinden; externe diensten vallen onder het privacybeleid van hun aanbieder.": "This project does not use its own analytics or advertising cookies. Input, progress and results are processed in the browser and may be stored locally on the device. A download or export occurs only when the user initiates it. GitHub Pages logs visitors’ IP addresses for security purposes; external services are governed by their provider’s privacy policy.",
+  "Lees hoe GitHub Pages technische bezoekgegevens verwerkt.": "Read how GitHub Pages processes technical visitor data.",
+  "Educatief gebruik met naamsvermelding": "Educational use with attribution",
+  "Het oorspronkelijke projectmateriaal van Robbe Wulgaert mag gratis worden gebruikt, gekopieerd en aangepast voor onderwijs, op voorwaarde dat “Robbe Wulgaert – AI in de Klas” duidelijk zichtbaar wordt vermeld, waar redelijkerwijs mogelijk met een link naar het oorspronkelijke project. Commerciële verkoop, betaalde verspreiding, sublicentiëring of herverpakking als commercieel product is niet toegestaan zonder voorafgaande schriftelijke toestemming. Voor ander gebruik buiten onderwijs is ook voorafgaande schriftelijke toestemming nodig. Componenten van derden blijven onder hun eigen licenties vallen.": "Original project material by Robbe Wulgaert may be used, copied and adapted free of charge for education, provided that ‘Robbe Wulgaert – AI in de Klas’ is clearly displayed, where reasonably practical with a link to the original project. Commercial sale, paid distribution, sublicensing or repackaging as a commercial product is not permitted without prior written permission. Other uses outside education also require prior written permission. Third-party components remain subject to their own licences.",
+  "Lees de volledige licentievoorwaarden.": "Read the full licence terms.",
+  "Spring naar inhoud": "Skip to content",
+  "Spring naar hoofdinhoud": "Skip to main content",
+  "Hoofdnavigatie": "Main navigation",
+  "Paginaonderdelen": "Page sections",
+  "Taalkeuze": "Language selection",
+  "Navigatiemenu openen": "Open navigation menu",
+  "Navigatiemenu sluiten": "Close navigation menu",
+  "Opdracht": "Assignment",
+  "Werking": "How it works",
+  "Wat leer je?": "What will you learn?",
+  "Onderdelen": "Components",
+  "Familie": "Family",
+  "Voor leerkrachten": "For teachers",
+  "Leerlijn": "Learning path",
+  "Benodigdheden": "Materials",
+  "Privacy": "Privacy",
+  "Opstelling": "Setup",
+  "Gebruik": "Use",
+  "README": "README",
+  "Platform": "Platform",
+  "Bordboek": "Board book",
+  "Start bordboek": "Start board book",
+  "Download syllabus": "Download syllabus",
+  "Leerplatform en bordboek": "Learning platform and board book",
+  "Gebruik het leerplatform voor de oefeningen. Het bordboek is bedoeld voor klassikaal gebruik op het smartboard en toont dezelfde syllabus naast de Python-editor.": "Use the learning platform for the exercises. The board book is intended for whole-class use on the smartboard and shows the same syllabus alongside the Python editor.",
+  "Bordboekprototype voor de klas": "Board book prototype for the classroom",
+  "Het bordboek is de versie voor het smartboard: je ziet dezelfde syllabuspagina als de leerlingen op papier, kunt erop schrijven en opent de Python-editor ernaast. Pagina’s, aantekeningen en code worden per klas bewaard op dit toestel wanneer je op Opslaan klikt.": "The board book is the smartboard version: you see the same syllabus page as the students have on paper, can write on it and open the Python editor alongside it. Pages, annotations and code are stored per class on this device when you press Save.",
+  "Dit is een functioneel prototype. Automatisch bewaren op de achtergrond gebeurt nog niet. Touch, stylus en smartboardgebruik worden nog getest; gebruik voorlopig alleen vertrouwde lescode.": "This is a functional prototype. Automatic background saving is not available yet. Touch, stylus and smartboard use are still being tested; for now, only run trusted lesson code.",
+  "Start leerplatform": "Start learning platform",
+  "Start platform": "Start platform",
+  "Menu": "Menu",
+  "Bekijk de opdracht": "View the assignment",
+  "Lees README": "Read README",
+  "Leerplatform": "Learning platform",
+  "Onderzoeksplatform": "Research platform",
+  "Slimme Vuilnisbak": "Smart Bin",
+  "Geen installatie of leerlingenaccount.": "No installation or student account.",
+  "Lokale bibliotheken voor grafieken en PDF-export.": "Local libraries for charts and PDF export.",
+  "Geschikt voor GitHub Pages.": "Suitable for GitHub Pages.",
+  "robbewulgaert.be": "robbewulgaert.be",
+  "AI in de Klas": "AI in de Klas",
+  "Auteur: Robbe Wulgaert · AI in de Klas · robbewulgaert.be": "Author: Robbe Wulgaert · AI in de Klas · robbewulgaert.be",
+  "Auteur: Robbe Wulgaert · AI in de Klas · robbewulgaert.be · © 2026 Robbe Wulgaert.": "Author: Robbe Wulgaert · AI in de Klas · robbewulgaert.be · © 2026 Robbe Wulgaert.",
+  "Robbe Wulgaert, AI in de Klas, robbewulgaert.be": "Robbe Wulgaert, AI in de Klas, robbewulgaert.be",
+  "Licentie": "License",
+  "Third-party notices": "Third-party notices",
+  "Contact": "Contact",
+  "Python in de Klas, volledig in de browser": "Python in the Classroom, fully in the browser",
+  "Delphi is de Python-tegenhanger van JS in de Klas: een eenvoudige browseromgeving waarin leerlingen code schrijven, uitvoeren, testen en bijsturen. Geen account nodig, geen installatie op leerlingentoestellen, wel genoeg structuur om er in de klas echt mee te werken.": "Delphi is the Python counterpart to JS in de Klas: a simple browser environment where students write, run, test and improve code. No account required, no installation on student devices, but enough structure to use it seriously in class.",
+  "Python stap voor stap": "Python step by step",
+  "hoofdstukken: sequentie, selectie en herhalingen": "chapters: sequence, selection and loops",
+  "opdrachten en theoriebouwstenen": "assignments and theory building blocks",
+  "oefeningen met automatische feedback": "exercises with automatic feedback",
+  "Leerlingen oefenen met datatypes, variabelen, voorwaarden, lussen en invoer. De opdrachten koppelen Python aan computationeel denken, wiskundige opdrachten en uitdagende puzzels.": "Students practise data types, variables, conditions, loops and input. The assignments connect Python to computational thinking, mathematical exercises and challenging puzzles.",
+  "Wat zit er in Delphi?": "What is included in Delphi?",
+  "De basis is herkenbaar: leerlingen krijgen links hun code, rechts de opdracht, onderaan directe feedback. Via het menu ga je stap voor stap doorheen de cursus.": "The setup is familiar: students see their code on the left, the assignment on the right and direct feedback at the bottom. The menu guides them step by step through the course.",
+  "Pythonruntime in de browser": "Python runtime in the browser",
+  "Gebaseerd op Papyros, met gewone uitvoer en interactieve": "Based on Papyros, with regular output and interactive",
+  "-vragen.": "questions.",
+  "Catalogus met hoofdstukken": "Catalogue with chapters",
+  "De oefeningen komen uit": "The exercises come from",
+  ", opgebouwd vanuit een Dodona-achtige mappenstructuur.": ", built from a Dodona-like folder structure.",
+  "Testcases en feedback": "Test cases and feedback",
+  "YAML- en JSON-testbestanden sturen de testcases aan, met samenvatting en details per testcase.": "YAML and JSON test files drive the test cases, with a summary and details for each test case.",
+  "Voortgang lokaal bewaren": "Store progress locally",
+  "Code, pogingen, werktijd en evaluatiestatus worden lokaal bewaard zonder account of cloud.": "Code, attempts, working time and evaluation status are stored locally without an account or cloud.",
+  "Leerlingen kunnen een reeks exporteren als rapport met code, feedback en rubriek voor de leerkracht.": "Students can export a series as a report with code, feedback and a rubric for the teacher.",
+  "Een ingebouwd Python-formularium helpt leerlingen zonder dat ze de opdracht moeten verlaten.": "A built-in Python reference sheet helps students without leaving the assignment.",
+  "Aan de slag": "Getting started",
+  "In de klas ga je aan de slag met het bordboek en de leeromgeving. In het bordboek vind je de PDF, maak je samen met jouw leerlingen annotaties en kan je voorbeeldcode uitvoeren. In de leeromgeving vind je honderden oefeningen om de leerstof in te oefenen en te evalueren.": "In class, you work with the board book and the learning environment. The board book contains the PDF, lets you make annotations together with your students and run example code. The learning environment contains hundreds of exercises for practising and assessing the subject matter.",
+  "Start met het bordboek.": "Start with the board book.",
+  "Projecteer de syllabus, kies een klas en navigeer samen naar de juiste pagina.": "Project the syllabus, choose a class and navigate together to the right page.",
+  "Annoteer en voer voorbeeldcode uit.": "Annotate and run example code.",
+  "Schrijf op de PDF, markeer belangrijke begrippen en open codevoorbeelden in de editor om ze samen uit te voeren.": "Write on the PDF, highlight important concepts and open code examples in the editor to run them together.",
+  "Laat leerlingen oefenen.": "Let students practise.",
+  "Open daarna het leerplatform en laat leerlingen zelfstandig werken aan oefeningen die bij de besproken leerstof passen.": "Then open the learning platform and let students work independently on exercises that match the material discussed.",
+  "Evalueer en stuur bij.": "Assess and adjust.",
+  "Gebruik de automatische feedback en PDF-export om resultaten te bespreken, te evalueren en de volgende lesstap te bepalen.": "Use the automatic feedback and PDF export to discuss and assess results and determine the next lesson step."
+};
+  const META = {
+  "title": "Project Delphi - Python in the Classroom",
+  "description": "Project Delphi is a browser environment for Python and automatic feedback, with a board book for whole-class use."
+};
+  const SKIP_TAGS = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "INPUT", "SELECT", "OPTION"]);
+  const TEXT_NODES = [];
+  const ATTR_NODES = [];
+  let originalTitle = document.title;
+  let originalDescription = null;
+  const normalize = (value) => String(value || "").replace(/\s+/g, " ").trim();
+  function preserveOuterWhitespace(original, translated) {
+    const start = original.match(/^\s*/)?.[0] || "";
+    const end = original.match(/\s*$/)?.[0] || "";
+    return start + translated + end;
+  }
+  function collectTextNodes() {
+    if (TEXT_NODES.length) return;
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent || SKIP_TAGS.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        return normalize(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      }
+    });
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      TEXT_NODES.push({ node, original: node.nodeValue, key: normalize(node.nodeValue) });
+    }
+  }
+  function collectAttributes() {
+    if (ATTR_NODES.length) return;
+    document.querySelectorAll("[aria-label], [alt], [title], [placeholder]").forEach((element) => {
+      ["aria-label", "alt", "title", "placeholder"].forEach((attr) => {
+        if (element.hasAttribute(attr)) {
+          const original = element.getAttribute(attr);
+          ATTR_NODES.push({ element, attr, original, key: normalize(original) });
+        }
+      });
+    });
+  }
+  function setLanguage(language) {
+    const useEnglish = language === "en";
+    collectTextNodes();
+    collectAttributes();
+    TEXT_NODES.forEach((entry) => {
+      const translated = TRANSLATIONS[entry.key];
+      entry.node.nodeValue = useEnglish && translated ? preserveOuterWhitespace(entry.original, translated) : entry.original;
+    });
+    ATTR_NODES.forEach((entry) => {
+      const translated = TRANSLATIONS[entry.key];
+      entry.element.setAttribute(entry.attr, useEnglish && translated ? translated : entry.original);
+    });
+    document.documentElement.lang = useEnglish ? "en" : "nl-BE";
+    document.title = useEnglish && META.title ? META.title : originalTitle;
+    const description = document.querySelector('meta[name="description"]');
+    if (description) {
+      if (originalDescription === null) originalDescription = description.getAttribute("content") || "";
+      description.setAttribute("content", useEnglish && META.description ? META.description : originalDescription);
+    }
+    document.querySelectorAll("[data-language-choice]").forEach((button) => {
+      const isActive = button.dataset.languageChoice === (useEnglish ? "en" : "nl");
+      button.classList.toggle("is-active", isActive);
+      if (isActive) button.setAttribute("aria-current", "page"); else button.removeAttribute("aria-current");
+    });
+    try { localStorage.setItem(LANGUAGE_KEY, useEnglish ? "en" : "nl"); } catch (error) {}
+  }
+  function initLanguageToggle() {
+    try { localStorage.setItem(LANGUAGE_KEY, "en"); } catch (error) {}
+    document.dispatchEvent(new CustomEvent("landing:language-ready"));
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initLanguageToggle);
+  else initLanguageToggle();
+})();
+</script>
+</body>
+</html>
