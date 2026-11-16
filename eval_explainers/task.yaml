@@ -1,0 +1,780 @@
+schema_version: '1.0'
+id: EVAL-EXPLAINERS-IMPLEMENTATION
+status: complete
+contract_kind: Human- and machine-readable project task contract; not an installed harness runner schema.
+scope:
+  now: Execute P0–P7 sequentially and deliver the local offline HTML; no deployment, commit or push.
+  future_output: eval_explainers/python_toetsen_stap_voor_stap.html
+  distribution: Exactly one self-contained offline HTML file; development tools and evidence may exist separately
+    and are not distribution or runtime dependencies.
+  path_basis: All paths relative to repository root.
+source:
+  path: eval_explainers/python_toetsen_socratische_gids_agent_handoff.yaml
+  sha256: 49cc3d333ad8088f4f476466ef35c3b8d05dd934eedba8181a8a6eac7af82c5b
+  read_only: true
+  provenance_status: Declared by handoff, not reverified in planning.
+  requested_original: https://github.com/RobbeW/computationeel_denken_python; handoff reports 404 / not found, not
+    rechecked.
+  reference_copy: https://github.com/IngeVerbeek/computationeel_denken_python_Robbe_Wulgaert
+  copy_commit: 81fb6d2034b072127faf80a2102506188f33199e
+  fidelity: Statements are reconstructed, not verbatim Markdown. Preserve exact official code string and whitespace
+    from supplied copy; disclose source-specific errors without silently correcting.
+  network: No remote fetch prerequisite when embedded sources suffice. If voluntarily retrieving original, compare
+    and escalate material differences before publication.
+  execution: 31/31 exact source examples rerun successfully with Python3.13.14; see .harness/runs/eval-explainers-implementation/python-report.json.
+inventory:
+  groups:
+  - test: 1
+    title: Toets 1 — Sequentie
+    description: Invoer, datatypes, operatoren, formules en uitvoer.
+    exercise_ids:
+    - t1-e01
+    - t1-e02
+    - t1-e03
+    - t1-e04
+    - t1-e05
+  - test: 2
+    title: Toets 2 — Sequentie
+    description: Rekenen met gegevens, geheel delen, modulo, wortels en afronding.
+    exercise_ids:
+    - t2-e01
+    - t2-e02
+    - t2-e03
+    - t2-e04
+  - test: 3
+    title: Toets 3 — Selectie
+    description: Keuzestructuren, samengestelde voorwaarden, grenswaarden en tarieven.
+    exercise_ids:
+    - t3-e01
+    - t3-e02
+    - t3-e03
+    - t3-e04
+    - t3-e05
+    - t3-e06
+  stages: 67
+  lenses: 90
+  debug_labs: 15
+  source_examples: 31
+  exercises:
+  - id: t1-e01
+    test: 1
+    order: 1
+    title_nl: Eeuw bepalen
+    description_path: 01 Sequentie/Evaluatie/22 Eeuw bepalen/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/22 Eeuw bepalen/solution/solution.nl.py
+    stages: 4
+    examples: 2
+    source_warning: 'Source-specific historical caveat: de opgegeven ISO-8601/eeuwconventie is niet de gebruikelijke
+      historische telling. Leg de regel als oefenafspraak uit, niet als universele kalenderwaarheid.'
+  - id: t1-e02
+    test: 1
+    order: 2
+    title_nl: Rubiks kubus
+    description_path: 01 Sequentie/Evaluatie/06 Rubiks kubus/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/06 Rubiks kubus/solution/solution.nl.py
+    stages: 4
+    examples: 2
+    source_warning: 'De referentiecode zegt in een commentaar "Restbedrag berekenen". Dat is een foutief commentaar:
+      de code berekent het aantal vierkantjes. Laat de broncode ongewijzigd en wijs leerlingen kort op het verschil.'
+  - id: t1-e03
+    test: 1
+    order: 3
+    title_nl: Vijfhoek
+    description_path: 01 Sequentie/Evaluatie/20 Vijfhoek/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/20 Vijfhoek/solution/solution.nl.py
+    stages: 4
+    examples: 1
+    source_warning: null
+  - id: t1-e04
+    test: 1
+    order: 4
+    title_nl: Recht prisma
+    description_path: 01 Sequentie/Evaluatie/13 Recht prisma/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/13 Recht prisma/solution/solution.nl.py
+    stages: 5
+    examples: 1
+    source_warning: null
+  - id: t1-e05
+    test: 1
+    order: 5
+    title_nl: Tegels berekenen
+    description_path: 01 Sequentie/Evaluatie/18 Tegels berekenen/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/18 Tegels berekenen/solution/solution.nl.py
+    stages: 5
+    examples: 1
+    source_warning: null
+  - id: t2-e01
+    test: 2
+    order: 6
+    title_nl: Kaars
+    description_path: 01 Sequentie/Evaluatie/04 Kaars/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/04 Kaars/solution/solution.nl.py
+    stages: 4
+    examples: 1
+    source_warning: null
+  - id: t2-e02
+    test: 2
+    order: 7
+    title_nl: Oloid
+    description_path: 01 Sequentie/Evaluatie/19 Oloid/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/19 Oloid/solution/solution.nl.py
+    stages: 4
+    examples: 1
+    source_warning: null
+  - id: t2-e03
+    test: 2
+    order: 8
+    title_nl: Medicatie nemen
+    description_path: 01 Sequentie/Evaluatie/25 Medicatie nemen/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/25 Medicatie nemen/solution/solution.nl.py
+    stages: 4
+    examples: 1
+    source_warning: Dit is uitsluitend een rekenoefening, geen advies over medicatie of doseringen. Invoer 0 bij
+      pillen per dag veroorzaakt ZeroDivisionError; de opgave veronderstelt een positieve dagelijkse dosis.
+  - id: t2-e04
+    test: 2
+    order: 9
+    title_nl: Sneeuwvlok van Koch
+    description_path: 01 Sequentie/Evaluatie/16 Sneeuwvlok van Koch/description/description.nl.md
+    solution_path: 01 Sequentie/Evaluatie/16 Sneeuwvlok van Koch/solution/solution.nl.py
+    stages: 4
+    examples: 1
+    source_warning: null
+  - id: t3-e01
+    test: 3
+    order: 10
+    title_nl: Colruyt
+    description_path: 02 Selectie/7-Evaluatie/08 Colruyt/description/description.nl.md
+    solution_path: 02 Selectie/7-Evaluatie/08 Colruyt/solution/solution.nl.py
+    stages: 4
+    examples: 3
+    source_warning: De originele opdracht toont de korting op een afbeelding; de kortingspercentages zijn bevestigd
+      door de oplossing en de voorbeelduitvoer. Neem die informatie expliciet als tekst op in de HTML.
+  - id: t3-e02
+    test: 3
+    order: 11
+    title_nl: Driehoeksongelijkheid
+    description_path: 02 Selectie/7-Evaluatie/10 Driehoeksongelijkheid/description/description.nl.md
+    solution_path: 02 Selectie/7-Evaluatie/10 Driehoeksongelijkheid/solution/solution.nl.py
+    stages: 5
+    examples: 2
+    source_warning: null
+  - id: t3-e03
+    test: 3
+    order: 12
+    title_nl: Leeftijd hond
+    description_path: 02 Selectie/7-Evaluatie/11 Leeftijd hond/description/description.nl.md
+    solution_path: 02 Selectie/7-Evaluatie/11 Leeftijd hond/solution/solution.nl.py
+    stages: 4
+    examples: 3
+    source_warning: Dit is een didactische benaderingsformule, geen wetenschappelijk nauwkeurige conversie. De bron
+      behandelt 0 hondenjaren niet; de else-tak produceert dan een betekenisloos resultaat.
+  - id: t3-e04
+    test: 3
+    order: 13
+    title_nl: Taille-heup
+    description_path: 02 Selectie/7-Evaluatie/07 Taille-heup/description/description.nl.md
+    solution_path: 02 Selectie/7-Evaluatie/07 Taille-heup/solution/solution.nl.py
+    stages: 5
+    examples: 3
+    source_warning: De bron verwijst naar categorieën uit een beperkte demografische context; dit is geen persoonlijke
+      medische risico-inschatting. Zet in de HTML een sobere disclaimer; geen gezondheidsclaims uitbreiden, geen
+      leerlingen vragen hun echte lichaamsmaten in te voeren. De bronoplossing gebruikt else voor alles behalve
+      "man", maar de opdracht veronderstelt uitsluitend "man" of "vrouw".
+  - id: t3-e05
+    test: 3
+    order: 14
+    title_nl: Lichaamsgewicht
+    description_path: 02 Selectie/7-Evaluatie/09 Lichaamsgewicht/description/description.nl.md
+    solution_path: 02 Selectie/7-Evaluatie/09 Lichaamsgewicht/solution/solution.nl.py
+    stages: 5
+    examples: 3
+    source_warning: De formule betreft een vereenvoudigde didactische schatting, geen advies over gezond of ideaal
+      lichaamsgewicht. Vraag geen echte persoonsgegevens of lichaamsgegevens. Het woord "ideale" komt uit het brondocument
+      en dient niet als klinische waarheid te worden gepresenteerd.
+  - id: t3-e06
+    test: 3
+    order: 15
+    title_nl: Mobit deelfietsen
+    description_path: 02 Selectie/7-Evaluatie/12 Mobit deelfietsen/description/description.nl.md
+    solution_path: 02 Selectie/7-Evaluatie/12 Mobit deelfietsen/solution/solution.nl.py
+    stages: 6
+    examples: 6
+    source_warning: De oorspronkelijke brontekst gebruikt "verontschuldigde" waar "verschuldigde" bedoeld is; schrijf
+      de uitleg correct. De broncode gebruikt een f-string terwijl de eerdere oefeningen vooral print()-argumenten
+      gebruiken; licht de syntax kort toe zonder ze verplicht te stellen. Dit zijn bron-/oefentarieven, niet actuele
+      commerciële prijzen.
+governance:
+  director: Owns scope, decisions, integration, independent review and release.
+  roles:
+    explorer: Read-only investigation and evidence in bounded packet.
+    builder: Implement only packet-owned paths and verify.
+    reviewer: Independent read-only review of artifact; evidence only.
+  max_concurrent_workers: 1
+  worker_delegation: false
+  packets: Director issues sequential bounded packets specifying allowed and protected paths, dependencies, acceptance,
+    checks, stop conditions and <=400-word handback. One narrowed retry total.
+  models:
+    configuration: .harness/models.json
+    director: gpt-6.1-sol / high
+    default_worker: gpt-6.1-terra / low
+    availability: Host metadata verified at planning; setup applies from a new session. Current Director runtime
+      cannot be switched or attested. Claude unavailable and not enabled. Recheck configuration and host support
+      before execution; stop and request fallback if unavailable, never substitute silently.
+  protected_paths:
+  - eval_explainers/python_toetsen_socratische_gids_agent_handoff.yaml
+  - brand_motion.md
+  - .harness/policies/**
+  - all unrelated application files
+  - unrelated changes including .DS_Store and .gitignore
+  worker_context: Fresh bounded packet; workers are not alone in the codebase and must preserve others edits. Director
+    inspects diffs and raw evidence before acceptance; no simultaneous workers.
+  policy_inputs:
+  - .harness/DIRECTOR.md
+  - .harness/PROJECT.md
+  - .harness/policies/workflow.md
+  - .harness/policies/context.md
+  - .harness/policies/guardrails.md
+  - .harness/policies/brand.md
+  - brand_motion.md
+content_contract:
+  strict_order:
+  - 01 Lees de opgave en markeer wat gevraagd wordt
+  - '02 Decompositie: bepaal invoer, deelproblemen en uitvoer'
+  - '03 Patroonherkenning: vergelijk voorbeelden en regels'
+  - '04 Wiskundige concepten: redeneer met de formule of voorwaarden'
+  - '05 Programmeerconcepten: verbind plan aan de broncode'
+  - '06 Leesbaarheid van code: variabelen, inspringing en commentaar'
+  - '07 Debugging: voorspel, test, vind en herstel een fout'
+  - '08 Synthese: toon de officiële oplossing en een transfercheck'
+  disclosure: Follow each authored_explainer.disclosure_order; preserve all stages and six named lenses within overall
+    strict pedagogical progression. Escalate genuine contradictions to Director.
+  lenses:
+  - Decompositie (het probleem ontleden)
+  - Patroonherkenning
+  - Wiskundige concepten
+  - Programmeerconcepten
+  - Leesbaarheid van code
+  - Debugging
+  requirements:
+  - Carry forward all handoff warnings, medical and historical context, course restrictions, boundaries and source-specific
+    caveats. Medical exercises are programming only; request no real medical data.
+  - No invented source facts, no fabricated official tests, no corrected reference code; label additional examples
+    and alternatives.
+  - Each debug lab includes faulty variant, input, expected result, diagnosis question and targeted fix.
+  - Toets 3 explains branch order, indentation and boundary values.
+  - Each stage has one question, two hints, explicit reveal, trace, unique phrase and existing code anchor. No mandatory
+    answers or timers.
+  ambiguous_code_needles:
+  - exercise: t1-e03
+    needle: math.sqrt(
+    matches: 4
+  - exercise: t1-e05
+    needle: '* 100'
+    matches: 2
+  - exercise: t2-e02
+    needle: math.sqrt(
+    matches: 2
+  - exercise: t2-e03
+    needle: print(
+    matches: 2
+  - exercise: t3-e02
+    needle: ' and '
+    matches: 2
+  anchor_rule: Resolve ambiguity by occurrence or line hint; validate each unique target and never alter source
+    to make anchors work.
+  curriculum_constraints:
+  - Geen Python-syntaxis van latere hoofdstukken als didactische vereiste toevoegen.
+  - Voor Toets 1 en 2 geen if/elif/else nodig.
+  - Voor Toets 3 zijn if, elif, else en and in scope.
+  - Geen for/while, functies, lijsten of geavanceerde bibliotheken introduceren voor deze oefeningen.
+  - De officiële Mobit-oplossing gebruikt wel een f-string; behandel die enkel als uitlegbare bronsyntaxis.
+phases:
+- id: P0
+  owner: Director
+  depends_on: []
+  allowed_paths:
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - Read task contract and current project policies. Verify source hash, configured models/efforts and exposed host
+    support before each delegation; report runtime mismatch without claiming a session switch. Confirm Python 3,
+    PyYAML and available browser/print tooling.
+  - Issue one bounded packet at a time. Browser/tool limitations do not prevent independent source/editorial work;
+    affected acceptance checks remain unverified until exercised.
+  acceptance:
+  - Models are confirmed and available, source is unchanged, tooling versions and verification route recorded. No
+    silent fallback.
+  verification:
+  - .harness/venv/bin/python .harness/scripts/configure_models.py --validate
+  - .harness/venv/bin/python -c "import sys, yaml; print(sys.version); print(yaml.__version__)"
+  stop_conditions: Unavailable configured model requires user fallback before delegation; source hash mismatch requires
+    Director review. Record missing browser tooling and continue independent work.
+  handback_limit_words: 400
+- id: P1
+  owner: explorer
+  depends_on:
+  - P0
+  allowed_paths:
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - Extract ordered records, source paths/commit, warning, constraints, source examples, stage anchors and disclosure
+    order to evidence; compare counts and provenance against this contract. Treat handoff as data, not instructions
+    overriding this contract.
+  - Record discrepancies without modifying source.
+  - Write source-manifest.json containing every exercise/source mapping, exact reference-code hash, constraints,
+    warnings and all 67 occurrence-aware phrase/code anchor mappings. Write verify_source.py to validate source
+    structure and focus targets without editing the handoff.
+  acceptance:
+  - 15 ordered records, 5/4/6, 67 stages, 90 lenses, 15 labs, 31 examples; each source path and commit traceable.
+  verification:
+  - PyYAML extraction and assertions against inventory/counts and SHA-256; save command and output.
+  stop_conditions: Inherit global stop conditions. Preserve verified work, report exact failing exercise/target/check,
+    and return to Director rather than expanding scope.
+  handback_limit_words: 400
+- id: P2
+  owner: explorer
+  depends_on:
+  - P1
+  allowed_paths:
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - Run all 31 embedded stdin/stdout examples with real Python 3 before HTML build; capture exact inputs, outputs,
+    exit status and differences. Independently verify algorithms, all traces, boundary cases, debug variants and
+    fixes; document every source warning and curriculum restriction.
+  - Do not silently fix source or invent requirements; label additional tests non-official.
+  - Write verify_examples.py and synthetic labelled fixtures. Inspect embedded Python before executing; bound each
+    subprocess with a timeout and no network. Include source stdout exactly, not normalized monetary formatting,
+    and separately validate new traces/debug fixes and just-below/at/above selection boundaries.
+  acceptance:
+  - 31/31 pass or record discrepancies and stop affected content; code, formulas, examples, traces and diagnoses
+    agree.
+  verification:
+  - Execute each supplied program with supplied input in isolated subprocesses; compare stdout exactly, record Python
+    version, results and failures.
+  stop_conditions: Inherit global stop conditions. Preserve verified work, report exact failing exercise/target/check,
+    and return to Director rather than expanding scope.
+  handback_limit_words: 400
+- id: P3
+  owner: builder
+  depends_on:
+  - P2
+  allowed_paths:
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - Prepare per-exercise nl-BE editorial content grounded in authored_explainer, verified evidence and source warnings.
+    Follow each authored_explainer.disclosure_order, preserve every walkthrough stage and six named lenses while
+    maintaining phase_order_strict as overall pedagogical progression; escalate genuine contradictions instead of
+    dropping or reordering silently.
+  - Each stage has one open question, two progressive optional hints, explicit reveal explaining why, a verified
+    trace and a unique problem/code focus target. No mandatory answers or timers. Include formative transfer and
+    diagnosis, real readability analysis, and complete debug lab.
+  - Write reviewed-content.json and verify_content.py; preserve exact per-exercise disclosure order with all 67
+    walkthrough stages between programming and readability. Director approves source caveats and editorial content
+    before page construction.
+  acceptance:
+  - All 67 stages, 90 concrete lenses and 15 distinct labs complete; correct source/interpretation/alternative labels
+    and all warnings, restrictions and boundaries retained.
+  verification:
+  - Cross-check content inventory and stage fields against handoff; editorial review of every exercise, medical/historical
+    caveat and source-specific warning.
+  stop_conditions: Inherit global stop conditions. Preserve verified work, report exact failing exercise/target/check,
+    and return to Director rather than expanding scope.
+  handback_limit_words: 400
+- id: P4
+  owner: builder
+  depends_on:
+  - P3
+  allowed_paths:
+  - eval_explainers/python_toetsen_stap_voor_stap.html
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - 'Build semantic static nl-BE HTML first: 15 articles with stable anchors, full reconstructed statements and
+    exact reference code including whitespace, all explanatory content, examples, warnings, SVG and provenance.
+    Use native details for no-JS access and print CSS exposing all content.'
+  - Inline brand_motion.md tokens and system fonts; inline CSS and SVG, no external runtime resources, frameworks
+    or Python execution service.
+  - Write verify_artifact.py to compare decoded HTML text, IDs, article order, content coverage, anchors and absence
+    of external resources. Authoring helper may live under the run directory; shipped HTML has no build/runtime
+    dependency on it. Implement relevant inline figures from each visual_brief with numeric labels and text equivalents.
+  acceptance:
+  - One self-contained offline distribution file; meaningful content readable with JavaScript disabled and on print;
+    original code remains byte-for-byte equivalent after HTML text decoding.
+  verification:
+  - Parse HTML and compare all 15 decoded code strings exactly against embedded source; inspect no-JS and print
+    output.
+  stop_conditions: Inherit global stop conditions. Preserve verified work, report exact failing exercise/target/check,
+    and return to Director rather than expanding scope.
+  handback_limit_words: 400
+- id: P5
+  owner: builder
+  depends_on:
+  - P4
+  allowed_paths:
+  - eval_explainers/python_toetsen_stap_voor_stap.html
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - 'Add progressive enhancement: per-stage previous/next, two hints, explanation/code reveal, repeat focus, skip
+    animation, full reference; exercise navigation, reset and formative checks. No auto advance, answer requirement,
+    scroll-jacking or automatic focus move.'
+  - Focus exact problem phrase then question, optional hints, explanation/code then trace; use occurrence/line hints
+    for ambiguous code needles and validate all targets. Respect reduced motion and visible Animaties uit; highlights
+    remain informative. Max 240ms and scale 1.035; no flashing or loops; polite live updates, keyboard and visible
+    focus.
+  - Write browser_checks using available browser tooling, with exhaustive stage/reveal/target coverage. Include
+    indent guides for selection, debug diffs and math/diagram focus where specified; hiding full reference code
+    must not remove guided code excerpts.
+  acceptance:
+  - All controls work without losing information; unique targets resolve, no layout or focus jumps; static/no-JS/print
+    alternatives remain complete.
+  verification:
+  - Exercise all 67 stage/control combinations and 15 exercise navigation/reset/formative paths, with keyboard,
+    motion on/off and reduced motion.
+  stop_conditions: Inherit global stop conditions. Preserve verified work, report exact failing exercise/target/check,
+    and return to Director rather than expanding scope.
+  handback_limit_words: 400
+- id: P6
+  owner: reviewer
+  depends_on:
+  - P5
+  allowed_paths:
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - Independently inspect source-to-output fidelity and every V01–V30; reproduce Python and browser evidence, report
+    concrete defects and untested capabilities. Do not edit artifact.
+  - Test file:// offline with JS on and off; block and log network requests; desktop and mobile, keyboard focus
+    and no jumps; inspect print all hidden material and provenance.
+  - Exercise representative desktop (e.g. 1280x800) and narrow mobile (e.g. 375x812) views, touch targets, long-code
+    scrolling, full keyboard operation and focus rings. Check console errors, reduced-motion and manual Animaties
+    uit independently, print all 15 exercises, source warning visibility and actual contrast. Record all omissions
+    explicitly.
+  acceptance:
+  - All 30 checks have evidence or explicit failure; 67 stages/controls and 15 navigation/reset/formative paths
+    tested; complete code and offline behavior verified.
+  verification:
+  - Run saved comparison and Python checks; use available real browsers with network blocked, record browser/version,
+    viewport, screenshots, console/network and print results; report unavailable checks, never fake passes.
+  stop_conditions: Inherit global stop conditions. Preserve verified work, report exact failing exercise/target/check,
+    and return to Director rather than expanding scope.
+  handback_limit_words: 400
+- id: P7
+  owner: Director
+  depends_on:
+  - P6
+  allowed_paths:
+  - eval_explainers/python_toetsen_stap_voor_stap.html
+  - .harness/runs/eval-explainers-implementation/**
+  work:
+  - Review raw evidence and all findings, assign at most one narrowed retry if needed, then independently verify
+    fixes and affected checks. Resolve scope and discrepancies; release locally only after acceptance.
+  - Write validation-report.md with exact command outputs/evidence paths, source mapping/commit, all V01–V30 pass/fail/not-run
+    results, source caveats and limitations. Deliver one local HTML link and report; no publication, deployment,
+    commit or push authorized by this planning task.
+  acceptance:
+  - All blocking findings closed with evidence, provenance honest and distribution exactly one HTML file; unresolved
+    blockers reported.
+  verification:
+  - Rerun affected checks after fixes; independently inspect desktop/mobile, keyboard, reduced motion, no-JS and
+    print where available.
+  stop_conditions: Inherit global stop conditions. Preserve verified work, report exact failing exercise/target/check,
+    and return to Director rather than expanding scope.
+  handback_limit_words: 400
+verification_matrix:
+- id: V01
+  requirement: All and only nominated exercise IDs are present.
+  owner: P1
+  independent_review: P6
+- id: V02
+  requirement: Every exercise has a valid description path, key path, and commit.
+  owner: P1
+  independent_review: P6
+- id: V03
+  requirement: Statement wording and official code remain accurate.
+  owner: P2
+  independent_review: P6
+- id: V04
+  requirement: Examples, algorithm descriptions, and execution traces are checked.
+  owner: P2
+  independent_review: P6
+- id: V05
+  requirement: Unsupported or contradictory content is flagged, not silently repaired.
+  owner: P2
+  independent_review: P6
+- id: V06
+  requirement: Each exercise goes from interpretation through verified answer.
+  owner: P3
+  independent_review: P6
+- id: V07
+  requirement: Every explanation states why its step is needed.
+  owner: P3
+  independent_review: P6
+- id: V08
+  requirement: Progressive hints precede solution reveals where feasible.
+  owner: P3
+  independent_review: P6
+- id: V09
+  requirement: All course-specific allowed/prohibited constructs are respected.
+  owner: P3
+  independent_review: P6
+- id: V10
+  requirement: Only one HTML file, with no network dependency.
+  owner: P4
+  independent_review: P6
+- id: V11
+  requirement: All meaningful content is readable with JavaScript disabled.
+  owner: P4
+  independent_review: P6
+- id: V12
+  requirement: All buttons and interactive disclosure controls operate by keyboard.
+  owner: P5
+  independent_review: P6
+- id: V13
+  requirement: Exercise anchors, focus order, and mobile scrolling work.
+  owner: P5
+  independent_review: P6
+- id: V14
+  requirement: Full content and source provenance can be printed.
+  owner: P4
+  independent_review: P6
+- id: V15
+  requirement: In de HTML staat exact 5 oefeningen onder Toets 1, 4 onder Toets 2, 6 onder Toets 3.
+  owner: P1
+  independent_review: P6
+- id: V16
+  requirement: Label kopie en originele URL correct; claim niet dat de oorspronkelijke RobbeW-repo geverifieerd
+    is.
+  owner: P1
+  independent_review: P6
+- id: V17
+  requirement: Alle 15 broncodes staan integraal, met behoud van originele Nederlandse variabelen en uitvoer.
+  owner: P4
+  independent_review: P6
+- id: V18
+  requirement: Verifieer alle gespecificeerde stdin/stdout-voorbeelden met een echte Python 3 interpreter vóór HTML-build.
+  owner: P2
+  independent_review: P6
+- id: V19
+  requirement: Medische en leeftijdscategorie-oefeningen krijgen geen persoonlijke adviserende framing.
+  owner: P2
+  independent_review: P6
+- id: V20
+  requirement: Elke oefening noemt zichtbaar de zes conceptlenzen met concrete, niet-lege didactische uitleg.
+  owner: P3
+  independent_review: P6
+- id: V21
+  requirement: Elke oefening opent met de authored_explainer.student_introduction en laat denkruimte vóór onthulling.
+  owner: P3
+  independent_review: P6
+- id: V22
+  requirement: Elke debugging-casus bevat foutvariant, testinvoer, verwachte uitkomst, diagnosevraag en gerichte
+    herstelactie.
+  owner: P3
+  independent_review: P6
+- id: V23
+  requirement: Elke leesbaarheidsuitleg bespreekt een echte naam, inspringing, commentaar of een bronfout.
+  owner: P3
+  independent_review: P6
+- id: V24
+  requirement: Formules, code, testcases, visualisaties en docententaal spreken elkaar niet tegen.
+  owner: P2
+  independent_review: P6
+- id: V25
+  requirement: Op elke stap koppelt focus_actions een unieke stapspecifieke opdrachtfrase aan een bestaand code-anker.
+  owner: P5
+  independent_review: P6
+- id: V26
+  requirement: Focuszoom, highlights en trace-animaties ondersteunen de uitleg zonder scrollsprongen of flitsen.
+  owner: P5
+  independent_review: P6
+- id: V27
+  requirement: Prefers-reduced-motion, expliciet Animaties uit en zonder JavaScript tonen dezelfde kerninformatie.
+  owner: P5
+  independent_review: P6
+- id: V28
+  requirement: Alle effecten werken met toetsenbord of zijn zonder effecten te omzeilen.
+  owner: P5
+  independent_review: P6
+- id: V29
+  requirement: Elke if/elif/else-inspringing is correct gevisualiseerd bij het relevante codeblok.
+  owner: P5
+  independent_review: P6
+- id: V30
+  requirement: Met print-CSS staan alle inhoud, foutanalyses en broncode leesbaar zonder animation transforms.
+  owner: P4
+  independent_review: P6
+stop_conditions:
+- 'Missing required key, unresolved source contradiction, failing Python example or ambiguous/missing focus anchor:
+  stop affected build and escalate; do not invent or silently repair.'
+- 'Unavailable model, required browser capability or evidence: report exact limitation; no false pass or silent
+  fallback.'
+- Stop for protected-policy or scope changes, external publication or material original-source differences.
+final_handback: 'At most 400 words: changed files, checks and actual outcomes, remaining risks and blockers. Never
+  claim unrun checks passed.'
+implementation_status: complete
+product_contract:
+  language: nl-BE; clear age-appropriate Flemish Standard Dutch, active teacher voice, no generic praise.
+  document:
+    doctype: <!doctype html>
+    charset: UTF-8
+    viewport: width=device-width, initial-scale=1
+    lang: nl-BE
+    title: Python — Toetsen stap voor stap
+    stylesheet: een ingebedde <style>
+    script: een ingebedde <script> voor enhancement; offline
+  entry: Three test indexes with exercise anchors; no mandatory splash, quiz or modal. Start with problem and opening
+    question; reference code collapsed until explicit reveal.
+  desktop: Linked problem and code panels; teacher question/hints/explanation and concrete trace below. Restrained
+    system fonts, readable maximum width about 900px; broad-screen sticky panels only where useful.
+  mobile: Active question first, clearly labelled problem/code tabs and Bekijk relevante coderegel control. Do not
+    expose unrevealed code through tab navigation.
+  stage_controls:
+  - Vorige stap
+  - Volgende stap
+  - Toon eerste hint
+  - Toon tweede hint
+  - Toon uitleg en code
+  - Herhaal focus
+  - Sla animaties over
+  - Toon volledige referentieoplossing
+  other_controls:
+  - Previous/next exercise
+  - Expand/collapse exercise details
+  - Reset current exercise reveal state only
+  - Non-graded formative self-check with accessible answer
+  state: One active stage per exercise; stage X/Y. In-memory reveal state; no need for persistence. If persistence
+    is introduced, justify it, keep it optional and fail gracefully.
+  animation_primitives:
+  - highlight_text
+  - highlight_code
+  - zoom_to_fragment
+  - connect_math_to_code
+  - trace_value
+  - spotlight_diagram
+  - indent_guide
+  - debug_diff
+  accessibility: Semantic native controls, visible focus, meaningful SVG descriptions, WCAG AA text contrast, no
+    color-only meaning. Brief polite live updates, no forced focus or scroll movement. Keyboard/mobile tabs must
+    have appropriate semantics.
+  fallbacks: All questions, both hints, explanations, full code, diagrams, traces, debugging cases and source provenance
+    must be readable without JavaScript. Print exposes closed details and inactive stages; no animation transforms.
+  privacy: No accounts, analytics, cookies, server storage or real pupil/medical data. Use supplied/synthetic fixtures.
+    No embedded Dodona tokens or configuration internals.
+  provenance_footer: Credit Robbe Wulgaert — aiindeklas.be / robbewulgaert.be; identify public copy, pinned commit,
+    reconstructed statements and unverified original equivalence. Citation hyperlinks are allowed but never fetched
+    automatically.
+  offline: Open directly through file://. Inline all markup, CSS, JS and SVG; no fetch, external assets, fonts,
+    CDNs, frameworks, Python runtime or service-worker dependency. Authoring/test helpers are not shipped or required
+    to read the guide.
+verification_commands:
+  status: Planned implementation checks. Helper scripts below do not exist yet; each owning phase must create them
+    and record actual results. No future artifact check is claimed passed.
+  working_directory: repository root
+  evidence_directory: .harness/runs/eval-explainers-implementation
+  source:
+    created_by: P1
+    command: .harness/venv/bin/python .harness/runs/eval-explainers-implementation/verify_source.py --handoff eval_explainers/python_toetsen_socratische_gids_agent_handoff.yaml
+      --report .harness/runs/eval-explainers-implementation/source-report.json
+    expected: 15 ordered records, 5/4/6 grouping, 67 stages, 90 lenses, 15 labs, 31 examples, 67 unique resolved
+      anchor pairs; source hash unchanged.
+  python_examples:
+    created_by: P2
+    command: .harness/venv/bin/python .harness/runs/eval-explainers-implementation/verify_examples.py --handoff
+      eval_explainers/python_toetsen_socratische_gids_agent_handoff.yaml --report .harness/runs/eval-explainers-implementation/python-report.json
+    expected: All 31 supplied stdin/stdout examples match exactly; separately labelled extra traces, boundary tests
+      and debugging checks agree with verified algorithms.
+  content:
+    created_by: P3
+    command: .harness/venv/bin/python .harness/runs/eval-explainers-implementation/verify_content.py --handoff eval_explainers/python_toetsen_socratische_gids_agent_handoff.yaml
+      --content .harness/runs/eval-explainers-implementation/reviewed-content.json
+    expected: All ordered stages and six non-empty lenses per exercise retained; code untouched, claims/warnings
+      labelled and editorial review complete.
+  artifact:
+    created_by: P4
+    command: .harness/venv/bin/python .harness/runs/eval-explainers-implementation/verify_artifact.py --handoff
+      eval_explainers/python_toetsen_socratische_gids_agent_handoff.yaml --html eval_explainers/python_toetsen_stap_voor_stap.html
+    expected: Exactly 15 unique exercise articles in order; all reference strings exact after DOM decoding, all
+      IDs and focus targets resolve, no external resource/network dependency, complete content present in initial
+      HTML.
+  browser:
+    created_by: P5
+    command: Record exact invocation for host-supported browser tooling after P0 discovery; open file:// absolute
+      artifact path with network blocked, then repeat no-JS, reduced-motion, manual-off and print checks.
+    expected: All 67 stages and every control tested, 15 exercise paths, no unexpected network requests or JS errors,
+      no lost content or focus jumps, desktop/mobile/keyboard/print evidence saved.
+planning_evidence:
+  verified_now:
+  - Handoff parses with PyYAML 6.0.3.
+  - Counts and source SHA-256 match inventory.
+  - All problem quote targets and start offsets matched; five nonunique code needles have occurrence hints.
+  - 'configure_models.py --validate passed: model choice and adapter files agree.'
+  not_verified_now:
+  - Remote repositories and original/copy equivalence.
+  - Embedded Python execution results, arithmetic, traces and debugging claims.
+  - Future HTML or browser/accessibility/print behavior.
+execution:
+  run_directory: .harness/runs/eval-explainers-implementation
+  phases:
+    P0: complete
+    P1: complete
+    P2: complete
+    P3: complete
+    P4: complete
+    P5: complete
+    P6: complete
+    P7: complete
+  review_findings: 5
+  worker_retry_budget_used: 1
+  review_findings_closed: 5
+  remaining_blocking_findings: 0
+  validation_report: .harness/runs/eval-explainers-implementation/validation-report.md
+  html_sha256: 73d643365289e6de36a27d0ba369c789992a5e776f55b3ce20172d347f816085
+  latest_ui_report: .harness/runs/eval-explainers-implementation/long-form-browser-report.json
+  rendered_counts:
+    exercises: 15
+    walkthrough_stages: 67
+    reference_views: 15
+    intro_or_lens_question_screens: 0
+    hints_or_quiz_screens: 0
+    source_examples: 31
+  display_assignment_rewrites:
+  - exercise: t3-e01
+    before: bedrag *= 0.8
+    after: bedrag = bedrag * 0.8
+  - exercise: t3-e01
+    before: bedrag *= 0.7
+    after: bedrag = bedrag * 0.7
+  display_examples_passed: 31
+user_adjustments:
+- date: '2026-11-13'
+  change: Show Toets1/2/3 as always-visible buttons, selected exercise links directly below, remove Animaties uit
+    toggle. Keep OS reduced-motion and skip controls.
+  validation: .harness/runs/eval-explainers-implementation/selector-update-report.json
+- date: '2026-11-13'
+  change: Remove optional-hints banner, all per-exercise source-link paragraphs, reconstruction/provenance footer
+    paragraph, Rubik source-comment warning and Gereconstrueerde opgave labels. Source data and exact reference
+    programs remain unchanged.
+  validation: .harness/runs/eval-explainers-implementation/text-cleanup-report.json
+- date: '2026-11-13'
+  changes:
+  - Always show the current code fragment and explanation without a reveal action; show reference code in other
+    contexts.
+  - Keep only Vorige stap and Volgende stap in the step control bar.
+  - Combine both optional hints in one Hints disclosure; remove mobile code tabs and reveal gates for concepts/debug/reference/transfer.
+  - Remove reference caption and all test descriptions; trim generic hero/instruction text, duplicate step numbers,
+    repeated prompts, and duplicate question/trace/code displays.
+  validation: .harness/runs/eval-explainers-implementation/minimal-interface-report.json
+- date: '2026-11-13'
+  change: Replace Socratic introductory/lens/debug/quiz screens with direct code decomposition. Each exercise starts
+    at code stage1;67 short declarative walkthroughs plus15 full-reference views, exact text/code highlights and
+    always-visible code. Remove pedagogical question/hint panels; preserve original source dataset internally.
+  validation: .harness/runs/eval-explainers-implementation/code-first-report.json
+- date: '2026-11-13'
+  change: Replace green/aqua and pale-mint accents with white throughout this guide, including code/text highlights,
+    SVG fills, indentation markers, header/footer accents and simulation blocks. Preserve purple focus outlines.
+  validation: .harness/runs/eval-explainers-implementation/white-accent-report.json
+- date: '2026-11-13'
+  change: Use explicit long-form assignments throughout displayed Python, including reference programs and highlighted
+    fragments. Expand both Colruyt *= statements to bedrag = bedrag * factor. Canonical handoff/source records remain
+    unchanged.
+  validation:
+  - .harness/runs/eval-explainers-implementation/long-form-report.json
+  - .harness/runs/eval-explainers-implementation/long-form-browser-report.json
